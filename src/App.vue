@@ -1,32 +1,49 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    @import "assets/fonts-css/pe-font.css";
+    @import "../node_modules/font-awesome/css/font-awesome.css";
 
-#nav {
-  padding: 30px;
-}
+    @font-face {
+        font-family: "Exo2";
+        src: url("./assets/fonts/Exo2-Regular.ttf") format("truetype");
+    }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    @font-face {
+        font-family: "Exo2SemiBold";
+        src: url("./assets/fonts/Exo2-SemiBold.ttf") format("truetype");
+    }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+    @font-face {
+        font-family: "RobotoRegular";
+        src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: "RobotoMedium";
+        src: url("./assets/fonts/Roboto-Medium.ttf") format("truetype");
+    }
+
+    @font-face {
+        font-family: "RobotoLight";
+        src: url("./assets/fonts/Roboto-Light.ttf") format("truetype");
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: #121212;
+        font-family: RobotoRegular, serif;
+        line-height: 30px;
+        color: #4c4c4c;
+        font-size: 16px;
+    }
 </style>
