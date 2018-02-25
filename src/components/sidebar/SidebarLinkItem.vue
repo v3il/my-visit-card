@@ -1,7 +1,11 @@
 <template>
-    <li class="sidebar__nav-item" :class="{'sidebar__nav-item--active': isActive}">
+    <li
+        class="sidebar__nav-item"
+        :class="{'sidebar__nav-item--active': item.isActive}"
+        @click.prevent="emitScrollToInfoBlock()"
+    >
         <div class="sidebar__nav-item-pointer"></div>
-        <a :href="link" class="sidebar__nav-item-link">{{text}}</a>
+        <a :href="item.link" class="sidebar__nav-item-link">{{item.text}}</a>
     </li>
 </template>
 
@@ -11,7 +15,13 @@
             return {}
         },
 
-        props: ["link", "text", "isActive"]
+        props: ["item"],
+
+        methods: {
+            emitScrollToInfoBlock() {
+                this.$emit("scrollToInfoBlock", this.item);
+            }
+        }
     }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="content__section">
-        <div class="content__info-block info-block skills-info-block">
+        <div class="content__info-block info-block skills-info-block" id="skills">
             <div class="info-block__title-block">
                 <h2 class="info-block__title">Professional skills</h2>
                 <div class="info-block__title-separator">
@@ -84,7 +84,7 @@
             </div>
         </div>
 
-        <div class="content__info-block info-block experience-info-block">
+        <div class="content__info-block info-block experience-info-block" id="experience">
             <div class="info-block__title-block">
                 <h2 class="info-block__title">Experience</h2>
                 <div class="info-block__title-separator">
@@ -160,7 +160,7 @@
             </div>
         </div>
 
-        <div class="content__info-block info-block education-info-block">
+        <div class="content__info-block info-block education-info-block" id="education">
             <div class="info-block__title-block">
                 <h2 class="info-block__title">Education</h2>
                 <div class="info-block__title-separator">
@@ -236,7 +236,7 @@
             </div>
         </div>
 
-        <div class="content__info-block info-block contact-info-block">
+        <div class="content__info-block info-block contact-info-block" id="contact">
             <div class="info-block__title-block">
                 <h2 class="info-block__title">Say hello</h2>
                 <div class="info-block__title-separator">

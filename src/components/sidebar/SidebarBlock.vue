@@ -6,10 +6,9 @@
 
             <ul class="sidebar__nav">
                 <sidebar-link-item
-                        v-for="linkItem in items"
-                        :text="linkItem.text"
-                        :link="linkItem.link"
-                        :isActive="linkItem.isActive"
+                    v-for="linkItem in items"
+                    :item="linkItem"
+                    @scrollToInfoBlock="emitScrollToInfoBlock(linkItem)"
                 ></sidebar-link-item>
             </ul>
         </div>
@@ -30,6 +29,12 @@
 
         components: {
             "sidebar-link-item": SidebarLinkItem
+        },
+
+        methods: {
+            emitScrollToInfoBlock(linkItem) {
+                this.$emit("scrollToInfoBlock", linkItem);
+            }
         }
     }
 </script>

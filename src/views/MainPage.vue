@@ -1,6 +1,9 @@
 <template>
     <div class="page">
-        <sidebar-block :items="this.currentPageSidebarItems"></sidebar-block>
+        <sidebar-block
+            :items="this.currentPageSidebarItems"
+            @scrollToInfoBlock="scrollToInfoBlock($event)"
+        ></sidebar-block>
         <content-block></content-block>
     </div>
 </template>
@@ -22,21 +25,25 @@
                     {
                         text: "Skills",
                         link: "#",
+                        tag: "skills",
                         isActive: true,
                     },
                     {
                         text: "Experience",
                         link: "#",
+                        tag: "experience",
                         isActive: false,
                     },
                     {
                         text: "Education",
                         link: "#",
+                        tag: "education",
                         isActive: false,
                     },
                     {
                         text: "Contact",
                         link: "#",
+                        tag: "contact",
                         isActive: false,
                     },
                 ],
@@ -100,30 +107,72 @@
             },
 
             scrollHandler() {
+                const sidebarItems = this.currentPageSidebarItems;
+
                 const scrollTop = window.scrollY;
+                const infoBlocks = [...document.querySelectorAll(".content__section > div")];
 
-                const infoBlock = [...document.querySelectorAll(".content__section > div")];
+                this.deactivateAllSidebarItems();
 
+                const infoBlockInViewport = infoBlocks.filter(infoBlock => {
+                    const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(infoBlock);
 
-                this.currentPageSidebarItems.forEach(i => i.isActive = false);
+                    console.log(infoBlockScrollOffset, scrollTop)
 
-                const infoBlockInViewport = infoBlock.filter(infoBlock => {
-                    console.log(infoBlock.getBoundingClientRect().top - document.body.getBoundingClientRect().top, scrollTop)
-
-                    return infoBlock.getBoundingClientRect().top - document.body.getBoundingClientRect().top >= scrollTop;
+                    return infoBlockScrollOffset >= scrollTop /*- window.innerHeight + 500*/;
                 });
 
-                const firstInfoBlockInViewport = infoBlockInViewport && infoBlockInViewport.length ? infoBlockInViewport[0] : null;
+                const firstInfoBlockInViewport = infoBlockInViewport && infoBlockInViewport.length
+                    ? infoBlockInViewport[0]
+                    : null;
 
-                console.log(firstInfoBlockInViewport);
+                const activeItemIndex = infoBlocks.indexOf(firstInfoBlockInViewport);
 
-                if(scrollTop > 800) {
-                    this.currentPageSidebarItems[2].isActive = true;
-                } else if(scrollTop > 500) {
-                    this.currentPageSidebarItems[1].isActive = true;
-                } else if(scrollTop > 200) {
-                    this.currentPageSidebarItems[0].isActive = true;
+                console.log(activeItemIndex, firstInfoBlockInViewport)
+
+                if(activeItemIndex >= 0) {
+                    sidebarItems[activeItemIndex].isActive = true;
                 }
+            },
+
+            scrollToInfoBlock(clickedSideBarItem) {
+                const infoBlock = document.getElementById(clickedSideBarItem.tag);
+                const infoBlockScrollTop = this.getScrollTopOffsetOfElement(infoBlock);
+
+                this.smoothScrollToY(infoBlockScrollTop, 300);
+            },
+
+            deactivateAllSidebarItems() {
+                this.currentPageSidebarItems
+                    .forEach(sidebarItem => sidebarItem.isActive = false);
+            },
+
+            getScrollTopOffsetOfElement(element) {
+                const elementTopValue = element.getBoundingClientRect().top;
+                const bodyTopValue = document.body.getBoundingClientRect().top;
+
+                return elementTopValue - bodyTopValue;
+            },
+
+            smoothScrollToY(scrollToY, duration) {
+                const startingY = window.scrollY;
+                const diff = scrollToY - startingY;
+                let start;
+
+                window.requestAnimationFrame(function step(timestamp) {
+                    if(!start) {
+                        start = timestamp;
+                    }
+
+                    const time = timestamp - start;
+                    const percent = Math.min(time / duration, 1);
+
+                    window.scrollTo(0, startingY + diff * percent);
+
+                    if(time < duration) {
+                        window.requestAnimationFrame(step)
+                    }
+                });
             }
         },
 
