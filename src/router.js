@@ -6,7 +6,7 @@ import {routes} from "./routes";
 Vue.use(Router);
 
 const router = new Router({
-    mode: "history",
+    mode: "hash",
     routes: routes,
     // scrollBehavior(to, from, savedPosition) {
     //     setTimeout(() => {
