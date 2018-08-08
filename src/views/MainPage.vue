@@ -1,6 +1,15 @@
 <template>
     <div class="page">
+        <div @click="sidebarOpened = !sidebarOpened"
+            class="page__open-menu-btn"
+        >
+            <div class="open-menu-btn__line open-menu-btn__line--first"></div>
+            <div class="open-menu-btn__line open-menu-btn__line--second"></div>
+            <div class="open-menu-btn__line open-menu-btn__line--third"></div>
+        </div>
+
         <sidebar-block
+            :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
             @scrollToInfoBlock="scrollToInfoBlock($event)"
         ></sidebar-block>
@@ -19,6 +28,8 @@
 
         data() {
             return {
+                sidebarOpened: false,
+
                 currentPageSidebarItems: [],
 
                 aboutSectionSidebarItems: [
@@ -112,23 +123,24 @@
                 const scrollTop = window.scrollY;
                 const infoBlocks = [...document.querySelectorAll(".content__section > div")];
 
+                const nextInfoBlockOffsetThreshold = 200;
+
                 this.deactivateAllSidebarItems();
 
                 const infoBlockInViewport = infoBlocks.filter(infoBlock => {
                     const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(infoBlock);
+                    const infoBlockHeight = infoBlock.clientHeight;
 
-                    console.log(infoBlockScrollOffset, scrollTop)
+                    const infoBlockBottomPosition = infoBlockScrollOffset + infoBlockHeight;
 
-                    return infoBlockScrollOffset >= scrollTop /*- window.innerHeight + 500*/;
+                    return infoBlockBottomPosition > scrollTop + nextInfoBlockOffsetThreshold;
                 });
 
-                const firstInfoBlockInViewport = infoBlockInViewport && infoBlockInViewport.length
+                const firstInfoBlockInViewport = infoBlockInViewport.length
                     ? infoBlockInViewport[0]
                     : null;
 
                 const activeItemIndex = infoBlocks.indexOf(firstInfoBlockInViewport);
-
-                console.log(activeItemIndex, firstInfoBlockInViewport)
 
                 if(activeItemIndex >= 0) {
                     sidebarItems[activeItemIndex].isActive = true;
@@ -189,7 +201,29 @@
         margin: 0 auto;
         background: #f3f3f3;
         min-height: 100vh;
-        display: flex;
-        flex-direction: row;
+    }
+
+    .page__open-menu-btn {
+        display: none;
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        height: 30px;
+        width: 30px;
+        z-index: 3;
+        cursor: pointer;
+        padding: 6px;
+    }
+
+    .open-menu-btn__line {
+        background: black;
+        height: 2px;
+        margin-top: 3px;
+    }
+
+    @media screen and (max-width: 1150px) {
+        .page__open-menu-btn {
+            display: block;
+        }
     }
 </style>

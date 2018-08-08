@@ -1,5 +1,5 @@
 <template>
-    <aside class="sidebar">
+    <aside class="sidebar" :class="{'sidebar--opened': sidebarOpened}">
         <div class="sidebar__fixed-container">
             <h2 class="sidebar__name-title">Dima Kit</h2>
             <h3 class="sidebar__specialization-title">Full-Stack Developer</h3>
@@ -25,7 +25,7 @@
             }
         },
 
-        props: ["items"],
+        props: ["items", "sidebarOpened"],
 
         components: {
             "sidebar-link-item": SidebarLinkItem
@@ -41,9 +41,19 @@
 
 <style>
     .sidebar {
-        width: 215px;
-        padding: 63px 30px 0 30px;
         border-right: 1px solid #a7a7a7;
+        transition: transform 0.6s ease-in-out;
+        z-index: 2;
+        position: fixed;
+        background: #f3f3f3;
+        bottom: 0;
+        top: 0;
+        padding: 63px 30px 0 30px;
+        width: 215px;
+    }
+
+    .sidebar.sidebar--opened {
+        transform: translateX(0);
     }
 
     .sidebar__fixed-container {
@@ -71,5 +81,11 @@
     .sidebar__nav {
         margin-top: 50px;
         list-style: none;
+    }
+
+    @media screen and (max-width: 1150px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
     }
 </style>

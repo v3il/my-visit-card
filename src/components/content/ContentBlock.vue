@@ -1,5 +1,7 @@
 <template>
     <section class="content">
+        <!--<i class="pe-7s-keypad content__open-menu-btn"></i>-->
+
         <content-header></content-header>
         <router-view/>
     </section>
@@ -25,6 +27,12 @@
 
 <style>
     .content {
-        flex: 1;
+        margin-left: 215px;
+    }
+
+    @media screen and (max-width: 1150px) {
+        .content {
+            margin-left: 0;
+        }
     }
 </style>

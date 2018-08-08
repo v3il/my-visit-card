@@ -1,7 +1,7 @@
 <template>
     <div class="content__header header-block">
         <div class="header-block__avatar-block">
-            <img class="header-block__avatar" src="../../assets/images/avatar.png" />
+            <div class="header-block__avatar"></div>
         </div>
 
         <div class="header-block__intro-block intro-block">
@@ -88,7 +88,10 @@
     .header-block__avatar {
         width: 350px;
         height: 100%;
-        object-fit: cover;
+        background: url('../../assets/images/avatar.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 100%;
     }
 
     .intro-block {
