@@ -661,4 +661,63 @@
         width: 150px;
     }
     /* CONTACT */
+
+    @media screen and (max-width: 850px) {
+        .content__info-block {
+            padding: 50px;
+        }
+
+        .intro-block {
+            margin: 50px;
+        }
+
+        .skills-info-block__skill-info:nth-last-child(2) {
+            margin-bottom: 40px;
+        }
+
+        .experience-info-block__experience-info:nth-last-child(2),
+        .education-info-block__education-info:nth-last-child(2) {
+            margin-bottom: 100px;
+        }
+
+        .skills-info-block__skill-info,
+        .experience-info-block__experience-info,
+        .education-info-block__education-info {
+            flex-basis: 100%;
+        }
+
+        .contact-info-block__contacts-block {
+            flex-direction: column;
+        }
+
+        .contact-info-block__contact-data-block {
+            margin-right: 0;
+            flex-basis: 100%;
+            order: 2;
+            margin-top: 50px;
+        }
+
+        .contact-info-block__contact-form-block {
+            order: 1;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .intro-block__nav-tabs {
+            flex-direction: column;
+        }
+
+        .intro-block__nav-tab {
+            margin-right: 0;
+            margin-bottom: 25px;
+        }
+
+        .content__info-block {
+            padding: 25px;
+        }
+
+        .intro-block {
+            margin: 25px;
+        }
+    }
 </style>

@@ -85,6 +85,12 @@
         padding-left: 30px;
     }
 
+    @media screen and (max-width: 850px) {
+        .header-block__avatar-block {
+            display: none;
+        }
+    }
+
     .header-block__avatar {
         width: 350px;
         height: 100%;

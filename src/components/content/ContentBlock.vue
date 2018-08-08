@@ -1,7 +1,5 @@
 <template>
     <section class="content">
-        <!--<i class="pe-7s-keypad content__open-menu-btn"></i>-->
-
         <content-header></content-header>
         <router-view/>
     </section>
