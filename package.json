@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "cd dist && node ../node_modules/firebase-tools/bin/firebase deploy"
+    "deploy": "node ./node_modules/firebase-tools/bin/firebase deploy"
   },
   "dependencies": {
     "firebase-tools": "^4.0.3",
