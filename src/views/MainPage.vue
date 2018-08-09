@@ -8,11 +8,14 @@
             <div class="open-menu-btn__line open-menu-btn__line--third"></div>
         </div>
 
+        <notification></notification>
+
         <sidebar-block
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
             @scrollToInfoBlock="scrollToInfoBlock($event)"
         ></sidebar-block>
+
         <content-block></content-block>
     </div>
 </template>
@@ -20,6 +23,8 @@
 <script>
     import SidebarBlock from "@/components/sidebar/SidebarBlock.vue"
     import ContentBlock from "@/components/content/ContentBlock.vue"
+
+    import Notification from "@/components/Notification.vue"
 
     import {mainRouteNames} from "../routes";
 
@@ -191,6 +196,7 @@
         components: {
             'sidebar-block': SidebarBlock,
             'content-block': ContentBlock,
+            'notification': Notification,
         }
     }
 </script>

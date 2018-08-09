@@ -281,21 +281,21 @@
                 <div class="contact-info-block__contact-form-block">
                     <div class="contact-info-block__form-block">
                         <label class="contact-info-block__label" for="name">Your Name</label>
-                        <input class="contact-info-block__input" type="text" name="name" id="name">
+                        <input v-model="name" class="contact-info-block__input" type="text" name="name" id="name">
                     </div>
 
                     <div class="contact-info-block__form-block">
                         <label class="contact-info-block__label" for="email">Your Email</label>
-                        <input class="contact-info-block__input" type="text" name="email" id="email">
+                        <input v-model="email" class="contact-info-block__input" type="text" name="email" id="email">
                     </div>
 
                     <div class="contact-info-block__form-block">
                         <label class="contact-info-block__label" for="message">Type Your Message</label>
-                        <textarea class="contact-info-block__textarea" rows="5" type="text" name="message" id="message"></textarea>
+                        <textarea v-model="message" class="contact-info-block__textarea" rows="5" type="text" name="message" id="message"></textarea>
                     </div>
 
                     <div class="contact-info-block__form-block contact-info-block__submit-block">
-                        <button type="submit" class="contact-info-block__submit-button">Lets Talk To Me</button>
+                        <button @click.prevent="sendResponse()" type="submit" class="contact-info-block__submit-button">Lets Talk To Me</button>
                         <div class="contact-info-block__nav-line"></div>
                     </div>
                 </div>
@@ -305,11 +305,40 @@
 </template>
 
 <script>
+    import firebase from "firebase";
+    import firebaseConfig from "../../../firebase.config";
+
     export default {
         data() {
             return {
-
+                name: "",
+                email: "",
+                message: "",
             }
+        },
+
+        methods: {
+            async sendResponse() {
+                const {name, email, message} = this;
+
+                try {
+                    await this.db
+                        .collection("responses")
+                        .add({ name, email, message });
+
+                    console.log('ok')
+                } catch(error) {
+                    console.log('error')
+                }
+            }
+        },
+
+        created() {
+            if(!firebase.apps.length) {
+                firebase.initializeApp(firebaseConfig);
+            }
+
+            this.db = firebase.firestore();
         }
     }
 </script>
@@ -641,6 +670,7 @@
     .contact-info-block__submit-button {
         background-color: transparent;
         border: none;
+        outline: none;
         color: #3971ff;
         font-family: RobotoMedium;
         font-weight: 500;
