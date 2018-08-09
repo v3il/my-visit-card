@@ -9,10 +9,12 @@
             <h2 class="intro-block__name">Dima Kit</h2>
             <h5 class="intro-block__specialization">Full-stack developer</h5>
 
-            <div class="intro-block__about">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.
+            <div class="intro-block__about">
+                I am 23. I enjoy music (prefer Rock direction) and travelling.
+                Enjoy cooking and programming. Sometimes playing chess.
+                <br>
+                Like JVM languages and JavaScript (in browser and on server) with
+                all its curiosities  :)
             </div>
 
             <div class="intro-block__nav-tabs">

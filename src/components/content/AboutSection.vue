@@ -262,7 +262,8 @@
 <br>
 Achievements:<br>
 - adapted the project for mobile devices<br>
-- translated the project's front end to the EU2015-modules, Webpack<br>`
+- translated the project's front-end to the ES2015-modules, Webpack; started
+replacement of jQuery by Vue<br>`
                     }
                 ],
             }
