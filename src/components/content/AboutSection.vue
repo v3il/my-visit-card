@@ -94,68 +94,20 @@
             </div>
 
             <div class="experience-info-block__experience-list-block">
-                <div class="experience-info-block__experience-info">
+                <div
+                    class="experience-info-block__experience-info"
+                    v-for="(experiencePlace, index) in experiencePlaces"
+                >
                     <div class="experience-info-block__experience-summary">
-                        <div class="experience-info-block__experience-counter">01</div>
+                        <div class="experience-info-block__experience-counter">0{{index + 1}}</div>
                         <div class="experience-info-block__experience-name-block">
-                            <h1 class="experience-info-block__experience-name">University of design</h1>
-                            <h3 class="experience-info-block__experience-degree">Master degree of design</h3>
-                            <h3 class="experience-info-block__experience-period">Session: 2012 - 2013</h3>
+                            <h1 class="experience-info-block__experience-name">{{experiencePlace.name}}</h1>
+                            <h3 class="experience-info-block__experience-degree">{{experiencePlace.profession}}</h3>
+                            <h3 class="experience-info-block__experience-period">{{experiencePlace.session}}</h3>
                         </div>
                     </div>
 
-                    <div class="experience-info-block__experience-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-
-                <div class="experience-info-block__experience-info">
-                    <div class="experience-info-block__experience-summary">
-                        <div class="experience-info-block__experience-counter">02</div>
-                        <div class="experience-info-block__experience-name-block">
-                            <h1 class="experience-info-block__experience-name">University of design</h1>
-                            <h3 class="experience-info-block__experience-degree">Master degree of design</h3>
-                            <h3 class="experience-info-block__experience-period">Session: 2012 - 2013</h3>
-                        </div>
-                    </div>
-
-                    <div class="experience-info-block__experience-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-
-                <div class="experience-info-block__experience-info">
-                    <div class="experience-info-block__experience-summary">
-                        <div class="experience-info-block__experience-counter">03</div>
-                        <div class="experience-info-block__experience-name-block">
-                            <h1 class="experience-info-block__experience-name">University of design</h1>
-                            <h3 class="experience-info-block__experience-degree">Master degree of design</h3>
-                            <h3 class="experience-info-block__experience-period">Session: 2012 - 2013</h3>
-                        </div>
-                    </div>
-
-                    <div class="experience-info-block__experience-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-
-                <div class="experience-info-block__experience-info">
-                    <div class="experience-info-block__experience-summary">
-                        <div class="experience-info-block__experience-counter">04</div>
-                        <div class="experience-info-block__experience-name-block">
-                            <h1 class="experience-info-block__experience-name">University of design</h1>
-                            <h3 class="experience-info-block__experience-degree">Master degree of design</h3>
-                            <h3 class="experience-info-block__experience-period">Session: 2012 - 2013</h3>
-                        </div>
-                    </div>
-
-                    <div class="experience-info-block__experience-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
+                    <div class="experience-info-block__experience-description" v-html="experiencePlace.description">                    </div>
                 </div>
             </div>
         </div>
@@ -170,67 +122,21 @@
             </div>
 
             <div class="education-info-block__educations-info">
-                <div class="education-info-block__education-info">
+                <div
+                    class="education-info-block__education-info"
+                    v-for="(educationPlace, index) in educationPlaces"
+                >
                     <div class="education-info-block__education-summary">
-                        <div class="education-info-block__education-counter">01</div>
+                        <div class="education-info-block__education-counter">0{{index + 1}}</div>
                         <div class="education-info-block__education-name-block">
-                            <h1 class="education-info-block__education-name">University of design</h1>
-                            <h3 class="education-info-block__education-degree">Master degree of design</h3>
-                            <h3 class="education-info-block__education-period">Session: 2012 - 2013</h3>
+                            <h1 class="education-info-block__education-name">{{educationPlace.name}}</h1>
+                            <h3 class="education-info-block__education-degree">{{educationPlace.degree}}</h3>
+                            <h3 class="education-info-block__education-period">{{educationPlace.session}}</h3>
                         </div>
                     </div>
 
                     <div class="education-info-block__education-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-
-                <div class="education-info-block__education-info">
-                    <div class="education-info-block__education-summary">
-                        <div class="education-info-block__education-counter">02</div>
-                        <div class="education-info-block__education-name-block">
-                            <h1 class="education-info-block__education-name">University of design</h1>
-                            <h3 class="education-info-block__education-degree">Master degree of design</h3>
-                            <h3 class="education-info-block__education-period">Session: 2012 - 2013</h3>
-                        </div>
-                    </div>
-
-                    <div class="education-info-block__education-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-
-                <div class="education-info-block__education-info">
-                    <div class="education-info-block__education-summary">
-                        <div class="education-info-block__education-counter">03</div>
-                        <div class="education-info-block__education-name-block">
-                            <h1 class="education-info-block__education-name">University of design</h1>
-                            <h3 class="education-info-block__education-degree">Master degree of design</h3>
-                            <h3 class="education-info-block__education-period">Session: 2012 - 2013</h3>
-                        </div>
-                    </div>
-
-                    <div class="education-info-block__education-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </div>
-                </div>
-
-                <div class="education-info-block__education-info">
-                    <div class="education-info-block__education-summary">
-                        <div class="education-info-block__education-counter">04</div>
-                        <div class="education-info-block__education-name-block">
-                            <h1 class="education-info-block__education-name">University of design</h1>
-                            <h3 class="education-info-block__education-degree">Master degree of design</h3>
-                            <h3 class="education-info-block__education-period">Session: 2012 - 2013</h3>
-                        </div>
-                    </div>
-
-                    <div class="education-info-block__education-description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
+                        {{educationPlace.description}}
                     </div>
                 </div>
             </div>
@@ -316,6 +222,49 @@
                 name: "",
                 email: "",
                 message: "",
+
+                educationPlaces: [
+                    {
+                        name: "Cherkasy State Technological University",
+                        degree: "PhD",
+                        session: "Session: 2017 - 2021",
+                        description: "Entered after the master's degree. Research topic: Creation of 3D models of X-ray research using machine learning"
+                    },
+                    {
+                        name: "Cherkasy State Technological University",
+                        degree: "Master",
+                        session: "Session: 2016 - 2017",
+                        description: "Entered after bachelor degree. Graduation work: Creating of 2D arcade on Java (Swing)"
+                    },
+                    {
+                        name: "Cherkasy State Technological University",
+                        degree: "Bachelor",
+                        session: "Session: 2014 - 2016",
+                        description: "Entered after college. Graduation work: Creating of 2D arcade on Java (Swing)"
+                    },
+                    {
+                        name: "Cherkasy Polytechnic college",
+                        degree: "Junior specialist",
+                        session: "Session: 2010 - 2014",
+                        description: "Entered after the 9th grade. Graduation work: Creating of Android application of a travel agency"
+                    }
+                ],
+
+                experiencePlaces: [
+                    {
+                        name: "uCoz",
+                        profession: "Front-end developer",
+                        session: "Session: 2015 - NOW",
+                        description: `Duties:<br>
+- adding new and supporting existing solutions<br>
+- improvement of old and low-performance solutions<br>
+- layout of cross-platform components for mock-ups<br>
+<br>
+Achievements:<br>
+- adapted the project for mobile devices<br>
+- translated the project's front end to the EU2015-modules, Webpack<br>`
+                    }
+                ],
             }
         },
 
@@ -515,7 +464,8 @@
     }
 
     .experience-info-block__experience-info {
-        flex-basis: calc(50% - 19px);
+        /*flex-basis: calc(50% - 19px);*/
+        flex-basis: 100%;
         margin-bottom: 100px;
     }
 
