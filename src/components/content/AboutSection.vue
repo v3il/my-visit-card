@@ -308,6 +308,8 @@
     import firebase from "firebase";
     import firebaseConfig from "../../../firebase.config";
 
+    import EventBus from "@/components/EventBus";
+
     export default {
         data() {
             return {
@@ -326,9 +328,15 @@
                         .collection("responses")
                         .add({ name, email, message });
 
-                    console.log('ok')
+                    EventBus.$emit("notification", {
+                        type: "success",
+                        message: "Your message was successfully sent, thank you!"
+                    });
                 } catch(error) {
-                    console.log('error')
+                    EventBus.$emit("notification", {
+                        type: "error",
+                        message: "Something went wrong :( Please, try again later."
+                    });
                 }
             }
         },
@@ -339,6 +347,9 @@
             }
 
             this.db = firebase.firestore();
+
+            const settings = {timestampsInSnapshots: true};
+            this.db.settings(settings);
         }
     }
 </script>
