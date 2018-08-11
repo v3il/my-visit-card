@@ -10,76 +10,60 @@
             </div>
 
             <div class="skills-info-block__skills-info">
-                <div class="skills-info-block__skill-info">
-                    <div class="skills-info-block__skill-title-block">
-                        <h2 class="skills-info-block__skill-title">Test</h2>
-                        <span class="skills-info-block__skill-value">90%</span>
-                    </div>
+                <div class="skills-info-block__languages-list">
+                    <h3 class="default-title">
+                        Front-end technologies
+                    </h3>
 
-                    <div class="skills-info-block__skill-ruler-block">
-                        <div class="skills-info-block__skill-ruler-inactive"></div>
-                        <div class="skills-info-block__skill-ruler-active"></div>
-                    </div>
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item__pointer"></div>
+
+                            <div class="list-item__text">
+                                JavaScript
+                            </div>
+                        </li>
+
+                        <li class="list-item">
+                            <div class="list-item__pointer"></div>
+
+                            <div class="list-item__text">
+                                HTML
+                            </div>
+                        </li>
+
+                        <li class="list-item">
+                            <div class="list-item__pointer"></div>
+
+                            <div class="list-item__text">
+                                CSS
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="skills-info-block__skill-info">
-                    <div class="skills-info-block__skill-title-block">
-                        <h2 class="skills-info-block__skill-title">Test</h2>
-                        <span class="skills-info-block__skill-value">90%</span>
-                    </div>
+                <div class="skills-info-block__languages-list">
+                    <h3 class="default-title">
+                        Back-end technologies
+                    </h3>
 
-                    <div class="skills-info-block__skill-ruler-block">
-                        <div class="skills-info-block__skill-ruler-inactive"></div>
-                        <div class="skills-info-block__skill-ruler-active"></div>
-                    </div>
-                </div>
+                    <ul class="list">
+                        <li class="list-item">
+                            <div class="list-item__pointer"></div>
 
-                <div class="skills-info-block__skill-info">
-                    <div class="skills-info-block__skill-title-block">
-                        <h2 class="skills-info-block__skill-title">Test</h2>
-                        <span class="skills-info-block__skill-value">90%</span>
-                    </div>
+                            <div class="list-item__text">
+                                Node.js
+                            </div>
+                        </li>
 
-                    <div class="skills-info-block__skill-ruler-block">
-                        <div class="skills-info-block__skill-ruler-inactive"></div>
-                        <div class="skills-info-block__skill-ruler-active"></div>
-                    </div>
-                </div>
+                        <li class="list-item">
+                            <div class="list-item__pointer"></div>
 
-                <div class="skills-info-block__skill-info">
-                    <div class="skills-info-block__skill-title-block">
-                        <h2 class="skills-info-block__skill-title">Test</h2>
-                        <span class="skills-info-block__skill-value">90%</span>
-                    </div>
-
-                    <div class="skills-info-block__skill-ruler-block">
-                        <div class="skills-info-block__skill-ruler-inactive"></div>
-                        <div class="skills-info-block__skill-ruler-active"></div>
-                    </div>
-                </div>
-
-                <div class="skills-info-block__skill-info">
-                    <div class="skills-info-block__skill-title-block">
-                        <h2 class="skills-info-block__skill-title">Test</h2>
-                        <span class="skills-info-block__skill-value">90%</span>
-                    </div>
-
-                    <div class="skills-info-block__skill-ruler-block">
-                        <div class="skills-info-block__skill-ruler-inactive"></div>
-                        <div class="skills-info-block__skill-ruler-active"></div>
-                    </div>
-                </div>
-
-                <div class="skills-info-block__skill-info">
-                    <div class="skills-info-block__skill-title-block">
-                        <h2 class="skills-info-block__skill-title">Test</h2>
-                        <span class="skills-info-block__skill-value">90%</span>
-                    </div>
-
-                    <div class="skills-info-block__skill-ruler-block">
-                        <div class="skills-info-block__skill-ruler-inactive"></div>
-                        <div class="skills-info-block__skill-ruler-active"></div>
-                    </div>
+                            <div class="list-item__text">
+                                Java
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -94,20 +78,76 @@
             </div>
 
             <div class="experience-info-block__experience-list-block">
-                <div
-                    class="experience-info-block__experience-info"
-                    v-for="(experiencePlace, index) in experiencePlaces"
-                >
+                <div class="experience-info-block__experience-info">
                     <div class="experience-info-block__experience-summary">
-                        <div class="experience-info-block__experience-counter">0{{index + 1}}</div>
+                        <div class="experience-info-block__experience-counter">01</div>
                         <div class="experience-info-block__experience-name-block">
-                            <h1 class="experience-info-block__experience-name">{{experiencePlace.name}}</h1>
-                            <h3 class="experience-info-block__experience-degree">{{experiencePlace.profession}}</h3>
-                            <h3 class="experience-info-block__experience-period">{{experiencePlace.session}}</h3>
+                            <h1 class="experience-info-block__experience-name">uCoz</h1>
+                            <h3 class="experience-info-block__experience-degree">Front-end developer</h3>
+                            <h3 class="experience-info-block__experience-period">Session: 2015 - NOW</h3>
                         </div>
                     </div>
 
-                    <div class="experience-info-block__experience-description" v-html="experiencePlace.description">                    </div>
+                    <div class="experience-info-block__experience-description experience-description">
+                        <h3 class="default-title">
+                            Duties
+                        </h3>
+
+                        <ul class="list">
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Adding new and supporting existing solutions
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Improvement of old and low-performance solutions
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Layout of cross-platform components for mock-ups
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3 class="experience-description__achievements-title default-title">
+                            Achievements
+                        </h3>
+
+                        <table class="experience-description__achievements-table achievements-table">
+                            <thead class="achievements-table__head">
+                            <tr class="achievements-table__title-row">
+                                <th class="achievements-table__th">Task</th>
+                                <th class="achievements-table__th">Result</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="achievements-table__body">
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
+                                <td class="achievements-table__item__result"></td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules</td>
+                                <td class="achievements-table__item__result"></td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Started
+                                    replacement of jQuery by Vue</td>
+                                <td class="achievements-table__item__result"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,23 +289,6 @@
                         description: "Entered after the 9th grade. Graduation work: Creating of Android application of a travel agency"
                     }
                 ],
-
-                experiencePlaces: [
-                    {
-                        name: "uCoz",
-                        profession: "Front-end developer",
-                        session: "Session: 2015 - NOW",
-                        description: `Duties:<br>
-- adding new and supporting existing solutions<br>
-- improvement of old and low-performance solutions<br>
-- layout of cross-platform components for mock-ups<br>
-<br>
-Achievements:<br>
-- adapted the project for mobile devices<br>
-- translated the project's front-end to the ES2015-modules, Webpack; started
-replacement of jQuery by Vue<br>`
-                    }
-                ],
             }
         },
 
@@ -351,52 +374,20 @@ replacement of jQuery by Vue<br>`
         justify-content: space-between;
     }
 
-    .skills-info-block__skill-info {
+    .skills-info-block__languages-list {
         flex-basis: calc(50% - 15px);
-        margin-bottom: 40px;
     }
 
-    .skills-info-block__skill-info:nth-last-child(-n + 2) {
-        margin-bottom: 0;
+    @media screen and (max-width: 750px) {
+        .skills-info-block__languages-list {
+            flex-basis: 100%;
+        }
+
+        .skills-info-block__languages-list:last-child {
+            margin-top: 18px;
+        }
     }
 
-    .skills-info-block__skill-title-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .skills-info-block__skill-title, .skills-info-block__skill-value {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 27px;
-        color: #4c4c4c;
-        text-transform: uppercase;
-    }
-
-    .skills-info-block__skill-ruler-block {
-        margin-top: 15px;
-        height: 5px;
-        position: relative;
-    }
-
-    .skills-info-block__skill-ruler-inactive, .skills-info-block__skill-ruler-active {
-        height: inherit;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-    }
-
-    .skills-info-block__skill-ruler-inactive {
-        background-color: #b0c6ff;
-    }
-
-    .skills-info-block__skill-ruler-active {
-        background-color: #3971ff;
-        width: 60%;
-    }
     /* SKILLS */
 
     /* EDUCATION */
@@ -507,6 +498,54 @@ replacement of jQuery by Vue<br>`
         text-transform: uppercase;
     }
 
+    .default-title {
+        text-decoration: none;
+        text-transform: uppercase;
+        line-height: 30px;
+        font-size: 16px;
+        color: #4c4c4c;
+        font-family: RobotoMedium;
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+    .list {
+        list-style: none;
+    }
+
+    .list-item {
+        display: flex;
+        align-items: center;
+    }
+
+    .list-item__pointer {
+        width: 10px;
+        height: 2px;
+        background-color: #3971ff;
+        margin-right: 8px;
+    }
+
+    .experience-description__achievements-title {
+        margin-top: 30px;
+    }
+
+    .experience-description__achievements-table {
+        text-align: left;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .achievements-table__item__task,
+    .achievements-table__item__result,
+    .achievements-table__th {
+        border-bottom: 1px solid #a7a7a7;
+        padding: 6px 0;
+    }
+
+    .achievements-table__item__task {
+        width: 50%;
+    }
+
     .experience-info-block__experience-description {
         font-size: 16px;
         line-height: 30px;
@@ -573,7 +612,6 @@ replacement of jQuery by Vue<br>`
     .contact-info-block__socials-block {
         margin-top: 50px;
         display: flex;
-
     }
 
     .contact-info-block__social-item {
