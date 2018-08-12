@@ -21,6 +21,56 @@
 
                             <div class="list-item__text">
                                 JavaScript
+
+                                <ul class="sublist">
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            Pure JS (with ES2015+)
+                                        </div>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            Vue.js + vue-stack (vue-router, vuex, axios, SFC)
+                                        </div>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            Angular 4 (at junior level)
+                                        </div>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            jQuery
+                                        </div>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            jQuery UI
+                                        </div>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            Webpack
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
 
@@ -28,7 +78,7 @@
                             <div class="list-item__pointer"></div>
 
                             <div class="list-item__text">
-                                HTML
+                                HTML5 (semantic, cross-browser markup)
                             </div>
                         </li>
 
@@ -36,7 +86,7 @@
                             <div class="list-item__pointer"></div>
 
                             <div class="list-item__text">
-                                CSS
+                                CSS3 (responsive layouts)
                             </div>
                         </li>
                     </ul>
@@ -515,14 +565,20 @@
 
     .list-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
+        padding: 3px 0;
+    }
+
+    .sublist .list-item__pointer {
+        min-width: 5px;
     }
 
     .list-item__pointer {
-        width: 10px;
+        min-width: 10px;
         height: 2px;
         background-color: #3971ff;
         margin-right: 8px;
+        margin-top: 13px;
     }
 
     .experience-description__achievements-title {
