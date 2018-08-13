@@ -250,7 +250,7 @@
                         </div>
 
                         <div class="contact-info-block__location-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Cherkasy city, Ukraine
                         </div>
                     </div>
 
@@ -261,15 +261,19 @@
                         </div>
 
                         <div class="contact-info-block__mail-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Write me at
+                            <a href="mailto:v3il@ukr.net">v3il@ukr.net</a>
+                            or use any other comfortable method presented below.
+                            Also find my GitHub account there.
                         </div>
                     </div>
 
                     <div class="contact-info-block__socials-block">
                         <div class="contact-info-block__socials-list">
-                            <a href="#" class="contact-info-block__social-item"><i class="fa fa-skype" aria-hidden="true"></i></a>
-                            <a href="#" class="contact-info-block__social-item"><i class="fa fa-telegram"></i></a>
-                            <a href="#" class="contact-info-block__social-item"><i class="fa fa-phone"></i></a>
+                            <a href="skype:D_Kit94?chat" class="contact-info-block__social-item"><i class="fa fa-skype"></i></a>
+                            <a href="https://t.me/veil_94" class="contact-info-block__social-item"><i class="fa fa-telegram"></i></a>
+                            <a href="tel:+380675892392" class="contact-info-block__social-item"><i class="fa fa-phone"></i></a>
+                            <a href="https://github.com/v3il" class="contact-info-block__social-item"><i class="fa fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -378,6 +382,10 @@
 </script>
 
 <style>
+    .fa-github {
+        font-size: 33px;
+    }
+
     .content__info-block {
         padding: 100px 120px 100px 95px;
     }
@@ -676,6 +684,12 @@
         font-size: 30px;
         margin-right: 40px;
         transition: color 0.5s ease;
+    }
+
+    @media screen and (max-width: 360px) {
+        .contact-info-block__social-item {
+            margin-right: 30px;
+        }
     }
 
     .contact-info-block__social-item:hover {
