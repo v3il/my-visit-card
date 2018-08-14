@@ -261,19 +261,29 @@
                         </div>
 
                         <div class="contact-info-block__mail-description">
-                            Write me at
-                            <a href="mailto:v3il@ukr.net">v3il@ukr.net</a>
+                            Write me using the contact form or directly at
+                            <a href="mailto:v3il@ukr.net">v3il@ukr.net</a>,
                             or use any other comfortable method presented below.
-                            Also find my GitHub account there.
                         </div>
                     </div>
 
                     <div class="contact-info-block__socials-block">
                         <div class="contact-info-block__socials-list">
-                            <a href="skype:D_Kit94?chat" class="contact-info-block__social-item"><i class="fa fa-skype"></i></a>
-                            <a href="https://t.me/veil_94" class="contact-info-block__social-item"><i class="fa fa-telegram"></i></a>
-                            <a href="tel:+380675892392" class="contact-info-block__social-item"><i class="fa fa-phone"></i></a>
-                            <a href="https://github.com/v3il" class="contact-info-block__social-item"><i class="fa fa-github"></i></a>
+                            <a href="skype:D_Kit94?chat" class="contact-info-block__social-item" title="Write me in Skype">
+                                <i class="fa fa-skype"></i>
+                            </a>
+
+                            <a href="https://t.me/veil_94" class="contact-info-block__social-item" title="Write me in Telegram">
+                                <i class="fa fa-telegram"></i>
+                            </a>
+
+                            <a href="tel:+380675892392" class="contact-info-block__social-item" title="Call me">
+                                <i class="fa fa-phone"></i>
+                            </a>
+
+                            <a href="https://github.com/v3il" class="contact-info-block__social-item" title="My GitHub">
+                                <i class="fa fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -309,6 +319,8 @@
     import firebaseConfig from "../../../firebase.config";
 
     import EventBus from "@/components/EventBus";
+
+    import Tooltip from "../../vendor/popped-element/Tooltip";
 
     export default {
         data() {
