@@ -67,28 +67,28 @@
                     },
                 ],
 
-                portfolioSectionSidebarItems: [
-                    {
-                        text: "p1",
-                        link: "#",
-                        isActive: true,
-                    },
-                    {
-                        text: "p2",
-                        link: "#",
-                        isActive: false,
-                    },
-                    {
-                        text: "p3",
-                        link: "#",
-                        isActive: false,
-                    },
-                    {
-                        text: "p4",
-                        link: "#",
-                        isActive: false,
-                    },
-                ]
+                // portfolioSectionSidebarItems: [
+                //     {
+                //         text: "p1",
+                //         link: "#",
+                //         isActive: true,
+                //     },
+                //     {
+                //         text: "p2",
+                //         link: "#",
+                //         isActive: false,
+                //     },
+                //     {
+                //         text: "p3",
+                //         link: "#",
+                //         isActive: false,
+                //     },
+                //     {
+                //         text: "p4",
+                //         link: "#",
+                //         isActive: false,
+                //     },
+                // ]
             }
         },
 
@@ -219,6 +219,7 @@
         right: 0;
         padding: 6px 12px;
         background: transparent;
+        display: none;
     }
 
     .page__open-menu-btn {
