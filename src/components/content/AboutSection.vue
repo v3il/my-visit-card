@@ -86,7 +86,7 @@
                             <div class="list-item__pointer"></div>
 
                             <div class="list-item__text">
-                                CSS3 (responsive layouts)
+                                CSS3 (responsive layouts), Less
                             </div>
                         </li>
                     </ul>

@@ -3,10 +3,6 @@ import $ from "jquery";
 import PoppedElement from "./PoppedElement";
 
 
-/** @type {String} Базовый CSS класс темы элементов тултипа */
-const tooltipElementClass = "tooltip-element";
-
-
 class Tooltip {
     constructor(tooltipOptions = {}) {
         let instance = this;
@@ -56,10 +52,6 @@ class Tooltip {
                 },
                 positions: ["top", "bottom"],
             },
-
-            // behaviour: {
-            //     themeClass: tooltipElementClass,
-            // },
         }
     }
 }

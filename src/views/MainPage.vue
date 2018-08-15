@@ -1,11 +1,14 @@
 <template>
     <div class="page">
-        <div @click="sidebarOpened = !sidebarOpened"
-            class="page__open-menu-btn"
-        >
-            <div class="open-menu-btn__line open-menu-btn__line--first"></div>
-            <div class="open-menu-btn__line open-menu-btn__line--second"></div>
-            <div class="open-menu-btn__line open-menu-btn__line--third"></div>
+
+        <div class="mobile-header">
+            <div @click="sidebarOpened = !sidebarOpened"
+                 class="page__open-menu-btn"
+            >
+                <div class="open-menu-btn__line open-menu-btn__line--first"></div>
+                <div class="open-menu-btn__line open-menu-btn__line--second"></div>
+                <div class="open-menu-btn__line open-menu-btn__line--third"></div>
+            </div>
         </div>
 
         <notification></notification>
@@ -209,11 +212,18 @@
         min-height: 100vh;
     }
 
+    .mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 6px 12px;
+        background: transparent;
+    }
+
     .page__open-menu-btn {
         display: none;
-        position: fixed;
-        top: 12px;
-        left: 12px;
+        float: right;
         height: 30px;
         width: 30px;
         z-index: 3;
