@@ -85,18 +85,17 @@
 
     .header-block__avatar-block {
         padding-left: 30px;
-        display: flex;
-        align-items: center;
+        /*display: flex;*/
+        /*align-items: center;*/
     }
 
     .header-block__avatar {
-        width: 300px;
-        background: url('../../assets/images/avatar.jpg');
-        background-size: cover;
+        width: 350px;
+        background: url('../../assets/images/avatar.png');
         background-repeat: no-repeat;
-        height: 300px;
-        border-radius: 50%;
-        /*border: 4px solid #a7a7a7;*/
+        height: 100%;
+        background-size: 128%;
+        background-position: 24% 100%;
     }
 
     .intro-block {
@@ -189,21 +188,8 @@
     }
 
     @media screen and (max-width: 850px) {
-        .content__header {
-            flex-direction: column;
-            align-items: center;
-        }
-
         .header-block__avatar-block {
-            padding-left: 0;
-            padding-top: 30px;
-        }
-    }
-
-    @media screen and (max-width: 450px) {
-        .header-block__avatar {
-            width: 200px;
-            height: 200px;
+            display: none;
         }
     }
 </style>
