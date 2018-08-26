@@ -85,21 +85,18 @@
 
     .header-block__avatar-block {
         padding-left: 30px;
-    }
-
-    @media screen and (max-width: 850px) {
-        .header-block__avatar-block {
-            display: none;
-        }
+        display: flex;
+        align-items: center;
     }
 
     .header-block__avatar {
-        width: 350px;
-        height: 100%;
-        background: url('../../assets/images/avatar.png');
+        width: 300px;
+        background: url('../../assets/images/avatar.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: 50% 100%;
+        height: 300px;
+        border-radius: 50%;
+        /*border: 4px solid #a7a7a7;*/
     }
 
     .intro-block {
@@ -189,5 +186,24 @@
     .intro-block__nav-tab:hover .intro-block__nav-line,
     .intro-block__nav-tab--active .intro-block__nav-line {
         width: 150px;
+    }
+
+    @media screen and (max-width: 850px) {
+        .content__header {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-block__avatar-block {
+            padding-left: 0;
+            padding-top: 30px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .header-block__avatar {
+            width: 200px;
+            height: 200px;
+        }
     }
 </style>
