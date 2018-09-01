@@ -212,6 +212,7 @@
                             </tbody>
                         </table>
 
+
                         <h1 class="experience-info-block__project-name">
                             Stat module for uCalc project
                         </h1>
@@ -229,7 +230,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Adding new and supporting existing solutions
+                                    Create custom charts of different types according to mock-ups
                                 </div>
                             </li>
 
@@ -237,7 +238,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Improvement of old and low-performance solutions
+                                    Visualize data from server using created charts
                                 </div>
                             </li>
 
@@ -245,52 +246,18 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Layout of cross-platform components for mock-ups
+                                    Create UI for integration of Yandex.Metrica and Google Analytics
                                 </div>
                             </li>
                         </ul>
 
-                        <h3 class="experience-description__achievements-title default-title">
-                            Achievements
-                        </h3>
-
-                        <table class="experience-description__achievements-table achievements-table">
-                            <thead class="achievements-table__head">
-                            <tr class="achievements-table__title-row">
-                                <th class="achievements-table__th">Task</th>
-                                <th class="achievements-table__th">Result</th>
-                            </tr>
-                            </thead>
-
-                            <tbody class="achievements-table__body">
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
-                                <td class="achievements-table__item__result">
-                                    The frontend of the project has become more convenient when working with mobile devices
-                                </td>
-                            </tr>
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
-                                <td class="achievements-table__item__result">
-                                    Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
-                                </td>
-                            </tr>
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Started
-                                    replacement of jQuery by Vue</td>
-                                <td class="achievements-table__item__result">
-                                    The speed of developing new solutions and supporting old ones has grown
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
 
                         <h1 class="experience-info-block__project-name">
                             Mass Labeling
                         </h1>
 
                         <p class="experience-info-block__project-technologies">
-                            Node.js, Express, ejs, mongo, jQuery, Vue.js, Webpack, eslint
+                            Node.js, Express, ejs, mongo, jQuery, Vue.js, Webpack, eslint, Bootstrap
                         </p>
 
                         <h3 class="default-title">
@@ -302,7 +269,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Adding new and supporting existing solutions
+                                    Improving of existing solutions
                                 </div>
                             </li>
 
@@ -310,15 +277,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Improvement of old and low-performance solutions
-                                </div>
-                            </li>
-
-                            <li class="list-item">
-                                <div class="list-item__pointer"></div>
-
-                                <div class="list-item__text">
-                                    Layout of cross-platform components for mock-ups
+                                    Development of new functionality: UI and API
                                 </div>
                             </li>
                         </ul>
@@ -337,22 +296,20 @@
 
                             <tbody class="achievements-table__body">
                             <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
+                                <td class="achievements-table__item__task">
+                                    Integrated Webpack into the project, rewrote JS using ES2015 modules,
+                                    introduced minified JS and CSS bundles
+                                </td>
                                 <td class="achievements-table__item__result">
-                                    The frontend of the project has become more convenient when working with mobile devices
+                                    It became easier to work with the front-end of the project and introduce new functionality
                                 </td>
                             </tr>
                             <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
+                                <td class="achievements-table__item__task">
+                                    Created a lot of new functions
+                                </td>
                                 <td class="achievements-table__item__result">
                                     Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
-                                </td>
-                            </tr>
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Started
-                                    replacement of jQuery by Vue</td>
-                                <td class="achievements-table__item__result">
-                                    The speed of developing new solutions and supporting old ones has grown
                                 </td>
                             </tr>
                             </tbody>
