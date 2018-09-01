@@ -99,7 +99,7 @@
         background: url('../../assets/images/avatar.png');
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: 50% 100%;
+        background-position: 52% 100%;
     }
 
     .intro-block {

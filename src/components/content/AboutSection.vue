@@ -184,16 +184,22 @@
                             <tbody class="achievements-table__body">
                             <tr class="achievements-table__item">
                                 <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
-                                <td class="achievements-table__item__result"></td>
+                                <td class="achievements-table__item__result">
+                                    The frontend of the project has become more convenient when working with mobile devices
+                                </td>
                             </tr>
                             <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules</td>
-                                <td class="achievements-table__item__result"></td>
+                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
+                                <td class="achievements-table__item__result">
+                                    Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
+                                </td>
                             </tr>
                             <tr class="achievements-table__item">
                                 <td class="achievements-table__item__task">Started
                                     replacement of jQuery by Vue</td>
-                                <td class="achievements-table__item__result"></td>
+                                <td class="achievements-table__item__result">
+                                    The speed of developing new solutions and supporting old ones has grown
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -616,6 +622,7 @@
     .achievements-table__th {
         border-bottom: 1px solid #a7a7a7;
         padding: 6px 0;
+        vertical-align: top;
     }
 
     .achievements-table__item__task {

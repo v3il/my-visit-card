@@ -223,7 +223,6 @@
     }
 
     .page__open-menu-btn {
-        display: none;
         float: right;
         height: 30px;
         width: 30px;
@@ -239,7 +238,7 @@
     }
 
     @media screen and (max-width: 1150px) {
-        .page__open-menu-btn {
+        .mobile-header {
             display: block;
         }
     }
