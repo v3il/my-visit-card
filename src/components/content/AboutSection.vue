@@ -139,6 +139,160 @@
                     </div>
 
                     <div class="experience-info-block__experience-description experience-description">
+                        <h1 class="experience-info-block__project-name">
+                            uCoz control panel v2
+                        </h1>
+
+                        <p class="experience-info-block__project-technologies">
+                            Perl, jQuery, jQuery UI, Vue.js, Webpack, ES2015+, Less, JSON
+                        </p>
+
+                        <h3 class="default-title">
+                            Duties
+                        </h3>
+
+                        <ul class="list">
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Adding new and supporting existing solutions
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Improvement of old and low-performance solutions
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Layout of cross-platform components for mock-ups
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3 class="experience-description__achievements-title default-title">
+                            Achievements
+                        </h3>
+
+                        <table class="experience-description__achievements-table achievements-table">
+                            <thead class="achievements-table__head">
+                            <tr class="achievements-table__title-row">
+                                <th class="achievements-table__th">Task</th>
+                                <th class="achievements-table__th">Result</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="achievements-table__body">
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
+                                <td class="achievements-table__item__result">
+                                    The frontend of the project has become more convenient when working with mobile devices
+                                </td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
+                                <td class="achievements-table__item__result">
+                                    Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
+                                </td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Started
+                                    replacement of jQuery by Vue</td>
+                                <td class="achievements-table__item__result">
+                                    The speed of developing new solutions and supporting old ones has grown
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h1 class="experience-info-block__project-name">
+                            Stat module for uCalc project
+                        </h1>
+
+                        <p class="experience-info-block__project-technologies">
+                            jQuery, Gulp, Sass, Chartist.js, JSON
+                        </p>
+
+                        <h3 class="default-title">
+                            Duties
+                        </h3>
+
+                        <ul class="list">
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Adding new and supporting existing solutions
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Improvement of old and low-performance solutions
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    Layout of cross-platform components for mock-ups
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3 class="experience-description__achievements-title default-title">
+                            Achievements
+                        </h3>
+
+                        <table class="experience-description__achievements-table achievements-table">
+                            <thead class="achievements-table__head">
+                            <tr class="achievements-table__title-row">
+                                <th class="achievements-table__th">Task</th>
+                                <th class="achievements-table__th">Result</th>
+                            </tr>
+                            </thead>
+
+                            <tbody class="achievements-table__body">
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
+                                <td class="achievements-table__item__result">
+                                    The frontend of the project has become more convenient when working with mobile devices
+                                </td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
+                                <td class="achievements-table__item__result">
+                                    Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
+                                </td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">Started
+                                    replacement of jQuery by Vue</td>
+                                <td class="achievements-table__item__result">
+                                    The speed of developing new solutions and supporting old ones has grown
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h1 class="experience-info-block__project-name">
+                            Mass Labeling
+                        </h1>
+
+                        <p class="experience-info-block__project-technologies">
+                            Node.js, Express, ejs, mongo, jQuery, Vue.js, Webpack, eslint
+                        </p>
+
                         <h3 class="default-title">
                             Duties
                         </h3>
@@ -572,6 +726,21 @@
         color: #4c4c4c;
         font-weight: 400;
         text-transform: uppercase;
+    }
+
+    .experience-info-block__project-name {
+        line-height: 30px;
+        color: #3971ff;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+        margin-top: 48px;
+        font-size: 20px;
+    }
+
+    .experience-info-block__project-technologies {
+        font-weight: bold;
+        margin-bottom: 18px;
     }
 
     .default-title {

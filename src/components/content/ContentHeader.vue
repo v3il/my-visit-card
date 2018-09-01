@@ -85,15 +85,15 @@
 
     .header-block__avatar-block {
         padding-left: 30px;
-        /*display: flex;*/
-        /*align-items: center;*/
     }
 
     .header-block__avatar {
         width: 350px;
+        height: 100%;
         background: url('../../assets/images/avatar.png');
         background-repeat: no-repeat;
         background-position: 52% 100%;
+        background-size: 100% auto;
     }
 
     .intro-block {
