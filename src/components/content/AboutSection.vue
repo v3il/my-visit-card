@@ -199,7 +199,7 @@
                             <tr class="achievements-table__item">
                                 <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
                                 <td class="achievements-table__item__result">
-                                    Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
+                                    Reduced the size of the bundles, the speed of the project increased by 15%, the project has become easier to maintain
                                 </td>
                             </tr>
                             <tr class="achievements-table__item">
@@ -277,7 +277,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Development of new functionality: UI and API
+                                    Development of new functionality (UI and API) for CLI and WEB site
                                 </div>
                             </li>
                         </ul>
@@ -302,14 +302,6 @@
                                 </td>
                                 <td class="achievements-table__item__result">
                                     It became easier to work with the front-end of the project and introduce new functionality
-                                </td>
-                            </tr>
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">
-                                    Created a lot of new functions
-                                </td>
-                                <td class="achievements-table__item__result">
-                                    Reduced the size of the bundles, the acceleration of the project by 15%, the project has become easier to maintain
                                 </td>
                             </tr>
                             </tbody>

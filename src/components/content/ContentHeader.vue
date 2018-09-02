@@ -186,8 +186,18 @@
     }
 
     @media screen and (max-width: 850px) {
+        .content__header {
+            flex-direction: column;
+            align-items: center;
+        }
+
         .header-block__avatar-block {
-            display: none;
+            height: 350px;
+            padding: 0;
+        }
+
+        .header-block__avatar {
+            background-position: initial;
         }
     }
 </style>
