@@ -257,7 +257,7 @@
                         </h1>
 
                         <p class="experience-info-block__project-technologies">
-                            Node.js, Express, ejs, mongo, jQuery, Vue.js, Webpack, eslint, Bootstrap
+                            Node.js, Express, ejs, mongo, Docker, jQuery, Vue.js, Webpack, eslint, Bootstrap
                         </p>
 
                         <h3 class="default-title">
@@ -302,6 +302,14 @@
                                 </td>
                                 <td class="achievements-table__item__result">
                                     It became easier to work with the front-end of the project and introduce new functionality
+                                </td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">
+                                    Added i18n support to the project
+                                </td>
+                                <td class="achievements-table__item__result">
+                                    The project started to support both Russian and English languages
                                 </td>
                             </tr>
                             </tbody>
@@ -503,10 +511,6 @@
 </script>
 
 <style>
-    .fa-github {
-        font-size: 33px;
-    }
-
     .content__info-block {
         padding: 100px 120px 100px 95px;
     }
@@ -821,6 +825,10 @@
         font-size: 30px;
         margin-right: 40px;
         transition: color 0.5s ease;
+    }
+
+    .contact-info-block__social-item .fa-github {
+        font-size: 33px;
     }
 
     @media screen and (max-width: 360px) {

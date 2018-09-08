@@ -31,15 +31,26 @@
 
     import {mainRouteNames} from "../routes";
 
+    import projects from '../projects';
+
     export default {
         name: 'main-page',
 
         data() {
+            const portfolioSectionSidebarItems = projects.map((project, index) => {
+                return {
+                    text: project.name,
+                    link: "#",
+                    tag: project.id,
+                    isActive: index === 0,
+                }
+            });
+
             return {
+                portfolioSectionSidebarItems,
+
                 sidebarOpened: false,
-
                 currentPageSidebarItems: [],
-
                 aboutSectionSidebarItems: [
                     {
                         text: "Skills",
@@ -66,29 +77,6 @@
                         isActive: false,
                     },
                 ],
-
-                // portfolioSectionSidebarItems: [
-                //     {
-                //         text: "p1",
-                //         link: "#",
-                //         isActive: true,
-                //     },
-                //     {
-                //         text: "p2",
-                //         link: "#",
-                //         isActive: false,
-                //     },
-                //     {
-                //         text: "p3",
-                //         link: "#",
-                //         isActive: false,
-                //     },
-                //     {
-                //         text: "p4",
-                //         link: "#",
-                //         isActive: false,
-                //     },
-                // ]
             }
         },
 
