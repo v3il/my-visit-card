@@ -3,6 +3,9 @@ import MainPage from './views/MainPage.vue'
 import AboutSection from "@/components/content/AboutSection.vue";
 import PortfolioSection from "@/components/content/PortfolioSection.vue";
 
+import DemoPage from "@/components/project-demos/DemoPage.vue";
+import AnimatedCounterDemo from "@/components/project-demos/AnimatedCounter.vue";
+
 const mainRouteNames = {
     PORTFOLIO: "portfolio-section",
     ABOUT: "about-section",
@@ -31,7 +34,25 @@ const routes = [
                 redirect: "about"
             },
         ]
-    }
+    },
+
+    {
+        path: '/demos',
+        name: 'demos',
+        component: DemoPage,
+        children: [
+            {
+                path: 'ac',
+                name: 'animated-counter',
+                component: AnimatedCounterDemo,
+            },
+
+            {
+                path: '*',
+                redirect: "animated-counter"
+            },
+        ]
+    },
 ];
 
 export {mainRouteNames, routes};

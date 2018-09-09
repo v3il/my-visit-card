@@ -25,6 +25,8 @@
                 >
                     <router-link class="intro-block__nav-link" :to="tabData.toProp">{{tabData.tabText}}</router-link>
                     <div class="intro-block__nav-line"></div>
+
+                    <router-link :to="{name: 'animated-counter'}">ac</router-link>
                 </div>
             </div>
         </div>
