@@ -212,6 +212,16 @@
                             </tbody>
                         </table>
 
+                        <h3 class="experience-description__results-title default-title">
+                            Results
+                        </h3>
+
+                        <p class="block-description">
+                            Click the photo to see its large version
+                        </p>
+
+                        <images-gallery :imagesNames="newCpImages"></images-gallery>
+
 
                         <h1 class="experience-info-block__project-name">
                             Stat module for uCalc project
@@ -250,6 +260,16 @@
                                 </div>
                             </li>
                         </ul>
+
+                        <h3 class="experience-description__results-title default-title">
+                            Results
+                        </h3>
+
+                        <p class="block-description">
+                            Click the photo to see its large version
+                        </p>
+
+                        <images-gallery :imagesNames="uCalcImages"></images-gallery>
 
 
                         <h1 class="experience-info-block__project-name">
@@ -314,6 +334,16 @@
                             </tr>
                             </tbody>
                         </table>
+
+                        <h3 class="experience-description__results-title default-title">
+                            Results
+                        </h3>
+
+                        <p class="block-description">
+                            Click the photo to see its large version
+                        </p>
+
+                        <images-gallery :imagesNames="massLabelingImages"></images-gallery>
                     </div>
                 </div>
             </div>
@@ -436,10 +466,15 @@
     import firebaseConfig from "../../../firebase.config";
 
     import EventBus from "@/components/EventBus";
+    import ImagesGallery from "@/components/ImagesGallery";
 
     import Tooltip from "../../vendor/popped-element/Tooltip";
 
     export default {
+        components: {
+            'images-gallery': ImagesGallery,
+        },
+
         data() {
             return {
                 name: "",
@@ -471,6 +506,28 @@
                         session: "Session: 2010 - 2014",
                         description: "Entered after the 9th grade. Graduation work: Creating of Android application of a travel agency"
                     }
+                ],
+
+                newCpImages: [
+                    'newcp3.png',
+                    'newcp5.png',
+                    'newcp4.png',
+                    'newcp2.png',
+                    'newcp1.png',
+                ],
+
+                uCalcImages: [
+                    'uc2.png',
+                    'uc1.png',
+                    'uc3.png',
+                    'uc4.png',
+                ],
+
+                massLabelingImages: [
+                    'ml2.png',
+                    'ml3.png',
+                    'ml1.png',
+                    'ml4.png',
                 ],
             }
         },
@@ -729,7 +786,8 @@
         margin-top: 13px;
     }
 
-    .experience-description__achievements-title {
+    .experience-description__achievements-title,
+    .experience-description__results-title {
         margin-top: 30px;
     }
 
@@ -758,6 +816,17 @@
         font-weight: 400;
         margin-top: 50px;
     }
+
+    .experience-description__results-title {
+        margin-bottom: 0;
+    }
+
+    .block-description {
+        margin-bottom: 18px;
+        opacity: 0.8;
+        font-size: smaller;
+    }
+
     /* EXPERIENCE */
 
     /* CONTACT */
