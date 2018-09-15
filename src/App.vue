@@ -45,5 +45,6 @@
         line-height: 30px;
         color: #4c4c4c;
         font-size: 16px;
+        overflow-x: hidden;
     }
 </style>

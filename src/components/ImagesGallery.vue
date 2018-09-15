@@ -140,12 +140,6 @@
         border: 1px solid #4c4c4c;
     }
 
-    @media screen and (max-width: 380px) {
-        .gallery-item {
-            max-width: none;
-        }
-    }
-
     .preview-overlay {
         position: fixed;
         top: 0;
@@ -174,7 +168,9 @@
     }
 
     .preview-overlay-content img {
-        width: 100%;
+        width: 80%;
+        display: block;
+        margin: 0 auto;
     }
 
     .overlay-header-counters {
@@ -192,9 +188,24 @@
     .close-overlay-btn, .show-next-btn, .show-prev-btn {
         cursor: pointer;
         transition: color 0.5s;
+        line-height: 50px;
+        width: 50px;
+        text-align: center;
     }
 
     .close-overlay-btn:hover, .show-next-btn:hover, .show-prev-btn:hover {
         color: #4c4c4c;
+    }
+
+    @media screen and (max-width: 380px) {
+        .gallery-item {
+            max-width: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .preview-overlay-content img {
+            width: 95%;
+        }
     }
 </style>
