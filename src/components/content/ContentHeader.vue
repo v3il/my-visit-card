@@ -10,8 +10,8 @@
             <h5 class="intro-block__specialization">Full-stack developer</h5>
 
             <div class="intro-block__about">
-                I am 23. I enjoy music (prefer Rock direction) and travelling.
-                Enjoy cooking and programming. Sometimes playing chess.
+                I am {{age}}. I enjoy music (prefer Rock direction) and travelling.
+                Enjoy cooking and programming. Sometimes play video games.
                 <br>
                 Like JVM languages and JavaScript (in browser and on server) with
                 all its curiosities  :)
@@ -57,6 +57,13 @@
             }
         },
 
+        computed: {
+            age() {
+                const date = new Date();
+                return date.getFullYear() - 1994 - 1;
+            }
+        },
+
         methods: {
             isTabActive(tabName) {
                 return this.activeRouteName === tabName;
@@ -68,7 +75,7 @@
         },
 
         watch: {
-            '$route'(to, from) {
+            $route(to) {
                 this.setActiveRouteName(to.name);
             }
         },

@@ -115,7 +115,7 @@
             window.addEventListener('keyup', this._keyUpListener);
         },
 
-        destroyed() {
+        beforeDestroy() {
             window.removeEventListener('keyup', this._keyUpListener);
         }
     }
@@ -130,14 +130,14 @@
     }
 
     .gallery-item {
-        max-width: 150px;
+        max-width: 170px;
         width: 100%;
         display: block;
         margin-right: 10px;
         margin-bottom: 10px;
         cursor: pointer;
         border-radius: 4px;
-        border: 1px solid #4c4c4c;
+        border: 1px solid rgba(76, 76, 76, 0.33);
     }
 
     .preview-overlay {
@@ -195,6 +195,11 @@
 
     .close-overlay-btn:hover, .show-next-btn:hover, .show-prev-btn:hover {
         color: #4c4c4c;
+    }
+
+    .overlay-header-close-btn-block {
+        position: absolute;
+        right: 5px;
     }
 
     @media screen and (max-width: 380px) {

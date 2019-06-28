@@ -43,14 +43,6 @@
                                         <div class="list-item__pointer"></div>
 
                                         <div class="list-item__text">
-                                            Angular 4 (at junior level)
-                                        </div>
-                                    </li>
-
-                                    <li class="list-item">
-                                        <div class="list-item__pointer"></div>
-
-                                        <div class="list-item__text">
                                             jQuery
                                         </div>
                                     </li>
@@ -416,20 +408,28 @@
 
                     <div class="contact-info-block__socials-block">
                         <div class="contact-info-block__socials-list">
-                            <a href="skype:D_Kit94?chat" class="contact-info-block__social-item" title="Write me in Skype">
+                            <a href="skype:D_Kit94?chat" target="_blank" class="contact-info-block__social-item" title="Write me in Skype">
                                 <i class="fa fa-skype"></i>
                             </a>
 
-                            <a href="https://t.me/veil_94" class="contact-info-block__social-item" title="Write me in Telegram">
+                            <a href="https://t.me/veil_94" target="_blank" class="contact-info-block__social-item" title="Write me in Telegram">
                                 <i class="fa fa-telegram"></i>
                             </a>
 
-                            <a href="tel:+380675892392" class="contact-info-block__social-item" title="Call me">
+                            <a href="tel:+380675892392" target="_blank" class="contact-info-block__social-item" title="Call me">
                                 <i class="fa fa-phone"></i>
                             </a>
 
-                            <a href="https://github.com/v3il" class="contact-info-block__social-item" title="My GitHub">
+                            <a href="https://github.com/v3il" target="_blank" class="contact-info-block__social-item" title="My GitHub">
                                 <i class="fa fa-github"></i>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/dima-kit-826a00145/" target="_blank" class="contact-info-block__social-item" title="My LinkedIn">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+
+                            <a href="https://www.instagram.com/dimakit6/" target="_blank" class="contact-info-block__social-item" title="My (My Cat's) Instagram">
+                                <i class="fa fa-instagram"></i>
                             </a>
                         </div>
                     </div>
@@ -486,25 +486,25 @@
                         name: "Cherkasy State Technological University",
                         degree: "PhD",
                         session: "Session: 2017 - 2021",
-                        description: "Entered after the master's degree. Research topic: Creation of 3D models of X-ray research using machine learning"
+                        description: "Research topic: Creation of 3D models of X-ray research using machine learning"
                     },
                     {
                         name: "Cherkasy State Technological University",
                         degree: "Master",
                         session: "Session: 2016 - 2017",
-                        description: "Entered after bachelor degree. Graduation work: Creating of 2D arcade on Java (Swing)"
+                        description: "Graduation work: Creating of 2D arcade on Java (Swing)"
                     },
                     {
                         name: "Cherkasy State Technological University",
                         degree: "Bachelor",
                         session: "Session: 2014 - 2016",
-                        description: "Entered after college. Graduation work: Creating of 2D arcade on Java (Swing)"
+                        description: "Graduation work: Creating of 2D arcade on Java (Swing)"
                     },
                     {
                         name: "Cherkasy Polytechnic college",
                         degree: "Junior specialist",
                         session: "Session: 2010 - 2014",
-                        description: "Entered after the 9th grade. Graduation work: Creating of Android application of a travel agency"
+                        description: "Graduation work: Creating of Android application of a travel agency"
                     }
                 ],
 
@@ -892,7 +892,7 @@
         font-weight: 400;
         color: #4c4c4c;
         font-size: 30px;
-        margin-right: 40px;
+        margin-right: 20px;
         transition: color 0.5s ease;
     }
 
