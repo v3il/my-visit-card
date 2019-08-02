@@ -53,25 +53,25 @@
                 currentPageSidebarItems: [],
                 aboutSectionSidebarItems: [
                     {
-                        text: "Skills",
+                        text: this.$t('message.skills'),
                         link: "#",
                         tag: "skills",
                         isActive: true,
                     },
                     {
-                        text: "Experience",
+                        text: this.$t('message.experience'),
                         link: "#",
                         tag: "experience",
                         isActive: false,
                     },
                     {
-                        text: "Education",
+                        text: this.$t('message.education'),
                         link: "#",
                         tag: "education",
                         isActive: false,
                     },
                     {
-                        text: "Contact",
+                        text: this.$t('message.contact'),
                         link: "#",
                         tag: "contact",
                         isActive: false,

@@ -1,8 +1,8 @@
 <template>
     <aside class="sidebar" :class="{'sidebar--opened': sidebarOpened}">
         <div class="sidebar__fixed-container">
-            <h2 class="sidebar__name-title">Dima Kit</h2>
-            <h3 class="sidebar__specialization-title">Full-Stack Developer</h3>
+            <h2 class="sidebar__name-title">{{$t('message.name')}}</h2>
+            <h3 class="sidebar__specialization-title">{{$t('message.profession')}}</h3>
 
             <ul class="sidebar__nav">
                 <sidebar-link-item

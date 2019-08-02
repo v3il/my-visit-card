@@ -2,7 +2,7 @@
     <div class="content__section">
         <div class="content__info-block info-block skills-info-block" id="skills">
             <div class="info-block__title-block">
-                <h2 class="info-block__title">Professional skills</h2>
+                <h2 class="info-block__title">{{$t('message.skillsTitle')}}</h2>
                 <div class="info-block__title-separator">
                     <div class="info-block__title-separator-line"></div>
                     <div class="info-block__title-separator-ring"></div>
@@ -12,7 +12,7 @@
             <div class="skills-info-block__skills-info">
                 <div class="skills-info-block__languages-list">
                     <h3 class="default-title">
-                        Front-end technologies
+                        {{$t('message.frontEndTechs')}}
                     </h3>
 
                     <ul class="list">
@@ -86,7 +86,7 @@
 
                 <div class="skills-info-block__languages-list">
                     <h3 class="default-title">
-                        Back-end technologies
+                        {{$t('message.backEndTechs')}}
                     </h3>
 
                     <ul class="list">
@@ -112,7 +112,7 @@
 
         <div class="content__info-block info-block experience-info-block" id="experience">
             <div class="info-block__title-block">
-                <h2 class="info-block__title">Experience</h2>
+                <h2 class="info-block__title">{{this.$t('message.experience')}}</h2>
                 <div class="info-block__title-separator">
                     <div class="info-block__title-separator-line"></div>
                     <div class="info-block__title-separator-ring"></div>
@@ -125,14 +125,17 @@
                         <div class="experience-info-block__experience-counter">01</div>
                         <div class="experience-info-block__experience-name-block">
                             <h1 class="experience-info-block__experience-name">uCoz</h1>
-                            <h3 class="experience-info-block__experience-degree">Front-end developer</h3>
-                            <h3 class="experience-info-block__experience-period">Session: 2015 - NOW</h3>
+                            <h3 class="experience-info-block__experience-degree">{{$t('message.frontEndDev')}}</h3>
+                            <h3 class="experience-info-block__experience-period">{{$t('message.jobSession', {
+                                since: 2015,
+                                before: 'текущий момент',
+                            })}}</h3>
                         </div>
                     </div>
 
                     <div class="experience-info-block__experience-description experience-description">
                         <h1 class="experience-info-block__project-name">
-                            uCoz control panel v2
+                            {{$t('message.cpv2')}}
                         </h1>
 
                         <p class="experience-info-block__project-technologies">
@@ -140,7 +143,7 @@
                         </p>
 
                         <h3 class="default-title">
-                            Duties
+                            {{$t('message.duties')}}
                         </h3>
 
                         <ul class="list">
@@ -148,7 +151,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Adding new and supporting existing solutions
+                                    {{$t('message.cpDuty1')}}
                                 </div>
                             </li>
 
@@ -156,7 +159,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Improvement of old and low-performance solutions
+                                    {{$t('message.cpDuty2')}}
                                 </div>
                             </li>
 
@@ -164,59 +167,52 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Layout of cross-platform components for mock-ups
+                                    {{$t('message.cpDuty3')}}
                                 </div>
                             </li>
                         </ul>
 
                         <h3 class="experience-description__achievements-title default-title">
-                            Achievements
+                            {{$t('message.achievements')}}
                         </h3>
 
                         <table class="experience-description__achievements-table achievements-table">
                             <thead class="achievements-table__head">
                             <tr class="achievements-table__title-row">
-                                <th class="achievements-table__th">Task</th>
-                                <th class="achievements-table__th">Result</th>
+                                <th class="achievements-table__th">{{$t('message.task')}}</th>
+                                <th class="achievements-table__th">{{$t('message.result')}}</th>
                             </tr>
                             </thead>
 
                             <tbody class="achievements-table__body">
                             <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Adapted the project for mobile devices</td>
-                                <td class="achievements-table__item__result">
-                                    The frontend of the project has become more convenient when working with mobile devices
-                                </td>
+                                <td class="achievements-table__item__task">{{$t('message.cpTask1')}}</td>
+                                <td class="achievements-table__item__result">{{$t('message.cpResult1')}}</td>
                             </tr>
                             <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Translated the project to the ES2015-modules, Webpack</td>
-                                <td class="achievements-table__item__result">
-                                    Reduced the size of the bundles, the speed of the project increased by 15%, the project has become easier to maintain
-                                </td>
+                                <td class="achievements-table__item__task">{{$t('message.cpTask2')}}</td>
+                                <td class="achievements-table__item__result">{{$t('message.cpResult2')}}</td>
                             </tr>
                             <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">Started
-                                    replacement of jQuery by Vue</td>
-                                <td class="achievements-table__item__result">
-                                    The speed of developing new solutions and supporting old ones has grown
-                                </td>
+                                <td class="achievements-table__item__task">{{$t('message.cpTask3')}}</td>
+                                <td class="achievements-table__item__result">{{$t('message.cpResult3')}}</td>
                             </tr>
                             </tbody>
                         </table>
 
                         <h3 class="experience-description__results-title default-title">
-                            Results
+                            {{$t('message.results')}}
                         </h3>
 
                         <p class="block-description">
-                            Click the photo to see its large version
+                            {{$t('message.imageGalleryDescription')}}
                         </p>
 
                         <images-gallery :imagesNames="newCpImages"></images-gallery>
 
 
                         <h1 class="experience-info-block__project-name">
-                            Stat module for uCalc project
+                            {{$t('message.ucalc')}}
                         </h1>
 
                         <p class="experience-info-block__project-technologies">
@@ -224,7 +220,7 @@
                         </p>
 
                         <h3 class="default-title">
-                            Duties
+                            {{$t('message.duties')}}
                         </h3>
 
                         <ul class="list">
@@ -232,7 +228,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Create custom charts of different types according to mock-ups
+                                    {{$t('message.ucalcDuty1')}}
                                 </div>
                             </li>
 
@@ -240,7 +236,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Visualize data from server using created charts
+                                    {{$t('message.ucalcDuty2')}}
                                 </div>
                             </li>
 
@@ -248,17 +244,17 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Create UI for integration of Yandex.Metrica and Google Analytics
+                                    {{$t('message.ucalcDuty3')}}
                                 </div>
                             </li>
                         </ul>
 
                         <h3 class="experience-description__results-title default-title">
-                            Results
+                            {{$t('message.results')}}
                         </h3>
 
                         <p class="block-description">
-                            Click the photo to see its large version
+                            {{$t('message.imageGalleryDescription')}}
                         </p>
 
                         <images-gallery :imagesNames="uCalcImages"></images-gallery>
@@ -273,7 +269,7 @@
                         </p>
 
                         <h3 class="default-title">
-                            Duties
+                            {{$t('message.duties')}}
                         </h3>
 
                         <ul class="list">
@@ -281,7 +277,7 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Improving of existing solutions
+                                    {{$t('message.mlDuty1')}}
                                 </div>
                             </li>
 
@@ -289,50 +285,49 @@
                                 <div class="list-item__pointer"></div>
 
                                 <div class="list-item__text">
-                                    Development of new functionality (UI and API) for CLI and WEB site
+                                    {{$t('message.mlDuty2')}}
                                 </div>
                             </li>
                         </ul>
 
                         <h3 class="experience-description__achievements-title default-title">
-                            Achievements
+                            {{$t('message.achievements')}}
                         </h3>
 
                         <table class="experience-description__achievements-table achievements-table">
                             <thead class="achievements-table__head">
                             <tr class="achievements-table__title-row">
-                                <th class="achievements-table__th">Task</th>
-                                <th class="achievements-table__th">Result</th>
+                                <th class="achievements-table__th">{{$t('message.task')}}</th>
+                                <th class="achievements-table__th">{{$t('message.result')}}</th>
                             </tr>
                             </thead>
 
                             <tbody class="achievements-table__body">
                             <tr class="achievements-table__item">
                                 <td class="achievements-table__item__task">
-                                    Integrated Webpack into the project, rewrote JS using ES2015 modules,
-                                    introduced minified JS and CSS bundles
+                                    {{$t('message.mlTask1')}}
                                 </td>
                                 <td class="achievements-table__item__result">
-                                    It became easier to work with the front-end of the project and introduce new functionality
+                                    {{$t('message.mlResult1')}}
                                 </td>
                             </tr>
                             <tr class="achievements-table__item">
                                 <td class="achievements-table__item__task">
-                                    Added i18n support to the project
+                                    {{$t('message.mlTask2')}}
                                 </td>
                                 <td class="achievements-table__item__result">
-                                    The project started to support both Russian and English languages
+                                    {{$t('message.mlResult2')}}
                                 </td>
                             </tr>
                             </tbody>
                         </table>
 
                         <h3 class="experience-description__results-title default-title">
-                            Results
+                            {{$t('message.results')}}
                         </h3>
 
                         <p class="block-description">
-                            Click the photo to see its large version
+                            {{$t('message.imageGalleryDescription')}}
                         </p>
 
                         <images-gallery :imagesNames="massLabelingImages"></images-gallery>
@@ -343,7 +338,7 @@
 
         <div class="content__info-block info-block education-info-block" id="education">
             <div class="info-block__title-block">
-                <h2 class="info-block__title">Education</h2>
+                <h2 class="info-block__title">{{this.$t('message.education')}}</h2>
                 <div class="info-block__title-separator">
                     <div class="info-block__title-separator-line"></div>
                     <div class="info-block__title-separator-ring"></div>
@@ -358,7 +353,7 @@
                     <div class="education-info-block__education-summary">
                         <div class="education-info-block__education-counter">0{{index + 1}}</div>
                         <div class="education-info-block__education-name-block">
-                            <h1 class="education-info-block__education-name">{{educationPlace.name}}</h1>
+                            <h1 class="education-info-block__education-name" v-html="educationPlace.name"></h1>
                             <h3 class="education-info-block__education-degree">{{educationPlace.degree}}</h3>
                             <h3 class="education-info-block__education-period">{{educationPlace.session}}</h3>
                         </div>
@@ -373,7 +368,7 @@
 
         <div class="content__info-block info-block contact-info-block" id="contact">
             <div class="info-block__title-block">
-                <h2 class="info-block__title">Say hello</h2>
+                <h2 class="info-block__title">{{this.$t('message.contact')}}</h2>
                 <div class="info-block__title-separator">
                     <div class="info-block__title-separator-line"></div>
                     <div class="info-block__title-separator-ring"></div>
@@ -385,50 +380,59 @@
                     <div class="contact-info-block__location-block">
                         <div class="contact-info-block__location-title">
                             <i class="pe-7s-home contact-info-block__location-icon"></i>
-                            <h2 class="contact-info-block__location-title-text">Location</h2>
+                            <h2 class="contact-info-block__location-title-text">{{this.$t('message.location')}}</h2>
                         </div>
 
                         <div class="contact-info-block__location-description">
-                            Cherkasy city, Ukraine
+                            {{this.$t('message.address')}}
                         </div>
                     </div>
 
                     <div class="contact-info-block__mail-block">
                         <div class="contact-info-block__mail-title">
                             <i class="pe-7s-mail-open contact-info-block__mail-icon"></i>
-                            <h2 class="contact-info-block__mail-title-text">Contact</h2>
+                            <h2 class="contact-info-block__mail-title-text">{{this.$t('message.contactMe')}}</h2>
                         </div>
 
-                        <div class="contact-info-block__mail-description">
-                            Write me using the contact form or directly at
-                            <a href="mailto:v3il@ukr.net">v3il@ukr.net</a>,
-                            or use any other comfortable method presented below.
-                        </div>
+                        <div class="contact-info-block__mail-description" v-html="$t('message.contactMeDesc')"></div>
                     </div>
 
                     <div class="contact-info-block__socials-block">
                         <div class="contact-info-block__socials-list">
-                            <a href="skype:D_Kit94?chat" target="_blank" class="contact-info-block__social-item" title="Write me in Skype">
+                            <a href="skype:D_Kit94?chat"
+                               target="_blank" class="contact-info-block__social-item"
+                               :title="$t('message.mySkype')"
+                            >
                                 <i class="fa fa-skype"></i>
                             </a>
 
-                            <a href="https://t.me/veil_94" target="_blank" class="contact-info-block__social-item" title="Write me in Telegram">
+                            <a href="https://t.me/veil_94" target="_blank" class="contact-info-block__social-item"
+                               :title="$t('message.myTelegram')"
+                            >
                                 <i class="fa fa-telegram"></i>
                             </a>
 
-                            <a href="tel:+380675892392" target="_blank" class="contact-info-block__social-item" title="Call me">
+                            <a href="tel:+380675892392" target="_blank" class="contact-info-block__social-item"
+                               :title="$t('message.myPhone')"
+                            >
                                 <i class="fa fa-phone"></i>
                             </a>
 
-                            <a href="https://github.com/v3il" target="_blank" class="contact-info-block__social-item" title="My GitHub">
+                            <a href="https://github.com/v3il" target="_blank" class="contact-info-block__social-item"
+                               :title="$t('message.myGithub')"
+                            >
                                 <i class="fa fa-github"></i>
                             </a>
 
-                            <a href="https://www.linkedin.com/in/dima-kit-826a00145/" target="_blank" class="contact-info-block__social-item" title="My LinkedIn">
+                            <a href="https://www.linkedin.com/in/dima-kit-826a00145/" target="_blank" class="contact-info-block__social-item"
+                               :title="$t('message.myLinkedIn')"
+                            >
                                 <i class="fa fa-linkedin"></i>
                             </a>
 
-                            <a href="https://www.instagram.com/dimakit6/" target="_blank" class="contact-info-block__social-item" title="My (My Cat's) Instagram">
+                            <a href="https://www.instagram.com/dimakit6/" target="_blank" class="contact-info-block__social-item"
+                               :title="$t('message.myInstagram')"
+                            >
                                 <i class="fa fa-instagram"></i>
                             </a>
                         </div>
@@ -437,22 +441,24 @@
 
                 <div class="contact-info-block__contact-form-block">
                     <div class="contact-info-block__form-block">
-                        <label class="contact-info-block__label" for="name">Your Name</label>
+                        <label class="contact-info-block__label" for="name">{{this.$t('message.yourName')}}</label>
                         <input v-model="name" class="contact-info-block__input" type="text" name="name" id="name">
                     </div>
 
                     <div class="contact-info-block__form-block">
-                        <label class="contact-info-block__label" for="email">Your Email</label>
+                        <label class="contact-info-block__label" for="email">{{this.$t('message.yourEmail')}}</label>
                         <input v-model="email" class="contact-info-block__input" type="text" name="email" id="email">
                     </div>
 
                     <div class="contact-info-block__form-block">
-                        <label class="contact-info-block__label" for="message">Type Your Message</label>
+                        <label class="contact-info-block__label" for="message">{{this.$t('message.yourMessage')}}</label>
                         <textarea v-model="message" class="contact-info-block__textarea" rows="5" type="text" name="message" id="message"></textarea>
                     </div>
 
                     <div class="contact-info-block__form-block contact-info-block__submit-block">
-                        <button @click.prevent="sendResponse()" type="submit" class="contact-info-block__submit-button">Lets Talk To Me</button>
+                        <button @click.prevent="sendResponse()" type="submit" class="contact-info-block__submit-button">
+                            {{this.$t('message.letsTalk')}}
+                        </button>
                         <div class="contact-info-block__nav-line"></div>
                     </div>
                 </div>
@@ -483,28 +489,40 @@
 
                 educationPlaces: [
                     {
-                        name: "Cherkasy State Technological University",
-                        degree: "PhD",
-                        session: "Session: 2017 - 2021",
-                        description: "Research topic: Creation of 3D models of X-ray research using machine learning"
+                        name: this.$t('message.university'),
+                        degree: this.$t('message.phd'),
+                        session: this.$t('message.jobSession', {
+                            since: 2017,
+                            before: 2021,
+                        }),
+                        description: this.$t('message.phdGraduationWorkTopic')
                     },
                     {
-                        name: "Cherkasy State Technological University",
-                        degree: "Master",
-                        session: "Session: 2016 - 2017",
-                        description: "Graduation work: Creating of 2D arcade on Java (Swing)"
+                        name: this.$t('message.university'),
+                        degree: this.$t('message.master'),
+                        session: this.$t('message.jobSession', {
+                            since: 2016,
+                            before: 2017,
+                        }),
+                        description: this.$t('message.masterGraduationWorkTopic')
                     },
                     {
-                        name: "Cherkasy State Technological University",
-                        degree: "Bachelor",
-                        session: "Session: 2014 - 2016",
-                        description: "Graduation work: Creating of 2D arcade on Java (Swing)"
+                        name: this.$t('message.university'),
+                        degree: this.$t('message.bachelor'),
+                        session: this.$t('message.jobSession', {
+                            since: 2014,
+                            before: 2016,
+                        }),
+                        description: this.$t('message.bachelorGraduationWorkTopic')
                     },
                     {
-                        name: "Cherkasy Polytechnic college",
-                        degree: "Junior specialist",
-                        session: "Session: 2010 - 2014",
-                        description: "Graduation work: Creating of Android application of a travel agency"
+                        name: this.$t('message.college'),
+                        degree: this.$t('message.juniorSpecialist'),
+                        session: this.$t('message.jobSession', {
+                            since: 2010,
+                            before: 2014,
+                        }),
+                        description: this.$t('message.juniorSpecialistGraduationWorkTopic')
                     }
                 ],
 
@@ -560,9 +578,6 @@
             }
 
             this.db = firebase.firestore();
-
-            const settings = {timestampsInSnapshots: true};
-            this.db.settings(settings);
         }
     }
 </script>

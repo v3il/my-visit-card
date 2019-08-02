@@ -5,16 +5,14 @@
         </div>
 
         <div class="header-block__intro-block intro-block">
-            <h3 class="intro-block__greetings">Hello i'm</h3>
-            <h2 class="intro-block__name">Dima Kit</h2>
-            <h5 class="intro-block__specialization">Full-stack developer</h5>
+            <h3 class="intro-block__greetings">{{$t("message.hello")}}</h3>
+            <h2 class="intro-block__name">{{$t("message.name")}}</h2>
+            <h5 class="intro-block__specialization">{{$t("message.profession")}}</h5>
 
             <div class="intro-block__about">
-                I am {{age}}. I enjoy music (prefer Rock direction) and travelling.
-                Enjoy cooking and programming. Sometimes play video games.
+                {{$t("message.about1", { age })}}
                 <br>
-                Like JVM languages and JavaScript (in browser and on server) with
-                all its curiosities  :)
+                {{$t("message.about2")}}
             </div>
 
             <div class="intro-block__nav-tabs">
@@ -41,14 +39,14 @@
 
                 tabs: [
                     {
-                        tabText: "About me",
+                        tabText: this.$t('message.aboutMeBtn'),
                         toProp: {
                             name: "about-section"
                         }
                     },
 
                     {
-                        tabText: "Portfolio",
+                        tabText: this.$t('message.portfolio'),
                         toProp: {
                             name: "portfolio-section"
                         }
