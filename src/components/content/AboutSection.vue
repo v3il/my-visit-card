@@ -43,15 +43,7 @@
                                         <div class="list-item__pointer"></div>
 
                                         <div class="list-item__text">
-                                            jQuery
-                                        </div>
-                                    </li>
-
-                                    <li class="list-item">
-                                        <div class="list-item__pointer"></div>
-
-                                        <div class="list-item__text">
-                                            jQuery UI
+                                            jQuery + jQuery UI
                                         </div>
                                     </li>
 
@@ -60,6 +52,14 @@
 
                                         <div class="list-item__text">
                                             Webpack
+                                        </div>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <div class="list-item__pointer"></div>
+
+                                        <div class="list-item__text">
+                                            Jest
                                         </div>
                                     </li>
                                 </ul>
@@ -102,7 +102,7 @@
                             <div class="list-item__pointer"></div>
 
                             <div class="list-item__text">
-                                Java
+                                Mongo DB
                             </div>
                         </li>
                     </ul>
@@ -139,7 +139,15 @@
                         </h1>
 
                         <p class="experience-info-block__project-technologies">
-                            Perl, jQuery, jQuery UI, Vue.js, Webpack, ES2015+, Less, JSON
+                            Perl, jQuery, jQuery UI, Vue.js, Webpack, ES2015+, Less
+                        </p>
+
+                        <h3 class="default-title">
+                            {{$t('message.projectDescription')}}
+                        </h3>
+
+                        <p class="experience-info-block__project-description">
+                            {{$t('message.cpDescription')}}
                         </p>
 
                         <h3 class="default-title">
@@ -196,6 +204,14 @@
                             <tr class="achievements-table__item">
                                 <td class="achievements-table__item__task">{{$t('message.cpTask3')}}</td>
                                 <td class="achievements-table__item__result">{{$t('message.cpResult3')}}</td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">{{$t('message.cpTask4')}}</td>
+                                <td class="achievements-table__item__result">{{$t('message.cpResult4')}}</td>
+                            </tr>
+                            <tr class="achievements-table__item">
+                                <td class="achievements-table__item__task">{{$t('message.cpTask5')}}</td>
+                                <td class="achievements-table__item__result">{{$t('message.cpResult5')}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -765,6 +781,10 @@
 
     .experience-info-block__project-technologies {
         font-weight: bold;
+        margin-bottom: 18px;
+    }
+
+    .experience-info-block__project-description {
         margin-bottom: 18px;
     }
 
