@@ -102,6 +102,14 @@
                             <div class="list-item__pointer"></div>
 
                             <div class="list-item__text">
+                                Express
+                            </div>
+                        </li>
+
+                        <li class="list-item">
+                            <div class="list-item__pointer"></div>
+
+                            <div class="list-item__text">
                                 Mongo DB
                             </div>
                         </li>
@@ -236,6 +244,14 @@
                         </p>
 
                         <h3 class="default-title">
+                            {{$t('message.projectDescription')}}
+                        </h3>
+
+                        <p class="experience-info-block__project-description">
+                            {{$t('message.uCalcDescription')}}
+                        </p>
+
+                        <h3 class="default-title">
                             {{$t('message.duties')}}
                         </h3>
 
@@ -285,7 +301,15 @@
                         </p>
 
                         <h3 class="default-title">
-                            {{$t('message.duties')}}
+                            {{$t('message.projectDescription')}}
+                        </h3>
+
+                        <p class="experience-info-block__project-description">
+                            {{$t('message.mlDescription')}}
+                        </p>
+
+                        <h3 class="default-title">
+                            {{$t('message.achievements')}}
                         </h3>
 
                         <ul class="list">
@@ -304,39 +328,31 @@
                                     {{$t('message.mlDuty2')}}
                                 </div>
                             </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    {{$t('message.mlDuty3')}}
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    {{$t('message.mlDuty4')}}
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="list-item__pointer"></div>
+
+                                <div class="list-item__text">
+                                    {{$t('message.mlDuty5')}}
+                                </div>
+                            </li>
                         </ul>
-
-                        <h3 class="experience-description__achievements-title default-title">
-                            {{$t('message.achievements')}}
-                        </h3>
-
-                        <table class="experience-description__achievements-table achievements-table">
-                            <thead class="achievements-table__head">
-                            <tr class="achievements-table__title-row">
-                                <th class="achievements-table__th">{{$t('message.task')}}</th>
-                                <th class="achievements-table__th">{{$t('message.result')}}</th>
-                            </tr>
-                            </thead>
-
-                            <tbody class="achievements-table__body">
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">
-                                    {{$t('message.mlTask1')}}
-                                </td>
-                                <td class="achievements-table__item__result">
-                                    {{$t('message.mlResult1')}}
-                                </td>
-                            </tr>
-                            <tr class="achievements-table__item">
-                                <td class="achievements-table__item__task">
-                                    {{$t('message.mlTask2')}}
-                                </td>
-                                <td class="achievements-table__item__result">
-                                    {{$t('message.mlResult2')}}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
 
                         <h3 class="experience-description__results-title default-title">
                             {{$t('message.results')}}
@@ -440,7 +456,7 @@
                                 <i class="fa fa-github"></i>
                             </a>
 
-                            <a href="https://www.linkedin.com/in/dima-kit-826a00145/" target="_blank" class="contact-info-block__social-item"
+                            <a href="https://www.linkedin.com/in/dmitry-kit-826a00145/" target="_blank" class="contact-info-block__social-item"
                                :title="$t('message.myLinkedIn')"
                             >
                                 <i class="fa fa-linkedin"></i>
@@ -543,11 +559,12 @@
                 ],
 
                 newCpImages: [
-                    'newcp3.png',
-                    'newcp5.png',
-                    'newcp4.png',
-                    'newcp2.png',
-                    'newcp1.png',
+                    'cp1.png',
+                    'cp2.png',
+                    'cp3.png',
+                    'cp4.png',
+                    'cp5.png',
+                    'cp6.png',
                 ],
 
                 uCalcImages: [
