@@ -1,92 +1,60 @@
 <template>
     <div class="project">
-        <h1 class="experience-info-block__project-name">
-            {{$t('message.cpv2')}}
+        <h1 class="project_name">
+            {{project.name}}
         </h1>
 
-        <p class="experience-info-block__project-technologies">
-            Perl, jQuery, jQuery UI, Vue.js, Webpack, ES2015+, Less
+        <p class="project_technologies">
+            {{project.technologies}}
         </p>
 
-        <h3 class="default-title">
+        <h3 class="project_description-title">
             {{$t('message.projectDescription')}}
         </h3>
 
-        <p class="experience-info-block__project-description">
-            {{$t('message.cpDescription')}}
+        <p class="project_description">
+            {{project.description}}
         </p>
 
-        <h3 class="default-title">
+        <h3 class="project_duties">
             {{$t('message.duties')}}
         </h3>
 
-        <ul class="list">
-            <li class="list-item">
-                <div class="list-item__pointer"></div>
+        <ul class="project_duties-list">
+            <li class="project_duty" v-for="duty in project.duties">
+                <div class="project_duty-pointer"></div>
 
-                <div class="list-item__text">
-                    {{$t('message.cpDuty1')}}
-                </div>
-            </li>
-
-            <li class="list-item">
-                <div class="list-item__pointer"></div>
-
-                <div class="list-item__text">
-                    {{$t('message.cpDuty2')}}
-                </div>
-            </li>
-
-            <li class="list-item">
-                <div class="list-item__pointer"></div>
-
-                <div class="list-item__text">
-                    {{$t('message.cpDuty3')}}
+                <div class="project_duty-name">
+                    {{duty}}
                 </div>
             </li>
         </ul>
 
-        <h3 class="experience-description__achievements-title default-title">
+        <h3 class="project_achievements-title">
             {{$t('message.achievements')}}
         </h3>
 
-        <table class="experience-description__achievements-table achievements-table">
-            <thead class="achievements-table__head">
-            <tr class="achievements-table__title-row">
-                <th class="achievements-table__th">{{$t('message.task')}}</th>
-                <th class="achievements-table__th">{{$t('message.result')}}</th>
-            </tr>
+        <table class="project_achievements">
+            <thead class="project_achievements-head">
+                <tr class="project_achievements-title-row">
+                    <th class="project_achievements-task-title">{{$t('message.task')}}</th>
+                    <th class="project_achievements-task-result">{{$t('message.result')}}</th>
+                </tr>
             </thead>
 
-            <tbody class="achievements-table__body">
-            <tr class="achievements-table__item">
-                <td class="achievements-table__item__task">{{$t('message.cpTask1')}}</td>
-                <td class="achievements-table__item__result">{{$t('message.cpResult1')}}</td>
-            </tr>
-            <tr class="achievements-table__item">
-                <td class="achievements-table__item__task">{{$t('message.cpTask2')}}</td>
-                <td class="achievements-table__item__result">{{$t('message.cpResult2')}}</td>
-            </tr>
-            <tr class="achievements-table__item">
-                <td class="achievements-table__item__task">{{$t('message.cpTask3')}}</td>
-                <td class="achievements-table__item__result">{{$t('message.cpResult3')}}</td>
-            </tr>
-            <tr class="achievements-table__item">
-                <td class="achievements-table__item__task">{{$t('message.cpTask4')}}</td>
-                <td class="achievements-table__item__result">{{$t('message.cpResult4')}}</td>
-            </tr>
-            <tr class="achievements-table__item">
-                <td class="achievements-table__item__task">{{$t('message.cpTask5')}}</td>
-                <td class="achievements-table__item__result">{{$t('message.cpResult5')}}</td>
-            </tr>
+            <tbody class="project_achievements-body">
+                <tr class="project_achievements-item" v-for="achievement in project.achievements">
+                    <td class="project_achievements-item-task">{{achievement.task}}</td>
+                    <td class="project_achievements-item-result">{{achievement.result}}</td>
+                </tr>
             </tbody>
         </table>
 
-        <h3 class="experience-description__results-title default-title">
+        <h3 class="project_gallery-title">
             {{$t('message.results')}}
         </h3>
 
-        <p class="block-description">
+        <p class="project_gallery-description">
             {{$t('message.imageGalleryDescription')}}
         </p>
 
@@ -95,8 +63,21 @@
 </template>
 
 <script>
+    import ImagesGallery from '@/components/ImagesGallery';
+
     export default {
-        name: "ProjectView"
+        name: "ProjectView",
+
+        props: {
+            project: {
+                type: Object,
+                required: true,
+            }
+        },
+
+        components: {
+            ImagesGallery,
+        }
     }
 </script>
 
