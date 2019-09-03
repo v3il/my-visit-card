@@ -16,11 +16,11 @@
             {{project.description}}
         </p>
 
-        <h3 class="project_duties">
+        <h3 class="project_duties" v-if="project.duties">
             {{$t('message.duties')}}
         </h3>
 
-        <ul class="project_duties-list">
+        <ul class="project_duties-list" v-if="project.duties">
             <li class="project_duty" v-for="duty in project.duties">
                 <div class="project_duty-pointer"></div>
 
@@ -30,11 +30,21 @@
             </li>
         </ul>
 
-        <h3 class="project_achievements-title">
+        <h3 class="project_achievements-title" v-if="project.achievements || project.achievementsList">
             {{$t('message.achievements')}}
         </h3>
 
-        <table class="project_achievements">
+        <ul class="project_duties-list" v-if="project.achievementsList">
+            <li class="project_duty" v-for="duty in project.achievementsList">
+                <div class="project_duty-pointer"></div>
+
+                <div class="project_duty-name">
+                    {{duty}}
+                </div>
+            </li>
+        </ul>
+
+        <table class="project_achievements" v-if="project.achievements">
             <thead class="project_achievements-head">
                 <tr class="project_achievements-title-row">
                     <th class="project_achievements-task-title">{{$t('message.task')}}</th>
@@ -58,7 +68,7 @@
             {{$t('message.imageGalleryDescription')}}
         </p>
 
-        <images-gallery :imagesNames="newCpImages"></images-gallery>
+        <images-gallery :imagesNames="project.screenshots"></images-gallery>
     </div>
 </template>
 
@@ -82,5 +92,81 @@
 </script>
 
 <style scoped>
+    .project_name {
+        line-height: 30px;
+        color: #3971ff;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+        margin-top: 48px;
+        font-size: 20px;
+    }
 
+    .project_technologies {
+        font-weight: bold;
+        margin-bottom: 18px;
+    }
+
+    .project_description {
+        margin-bottom: 18px;
+    }
+
+    .project_description-title, .project_duties, .project_achievements-title, .project_gallery-title {
+        text-decoration: none;
+        text-transform: uppercase;
+        line-height: 30px;
+        font-size: 16px;
+        color: #4c4c4c;
+        font-family: RobotoMedium;
+        font-weight: 500;
+        margin-bottom: 12px;
+        margin-top: 30px;
+    }
+
+    .project_gallery-title {
+        margin-bottom: 0;
+    }
+
+    .project_duties-list {
+        list-style: none;
+    }
+
+    .project_duty {
+        display: flex;
+        align-items: flex-start;
+        padding: 3px 0;
+    }
+
+    .project_duty-pointer {
+        min-width: 10px;
+        height: 2px;
+        background-color: #3971ff;
+        margin-right: 8px;
+        margin-top: 13px;
+    }
+
+    .project_achievements {
+        text-align: left;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .project_achievements-task-title,
+    .project_achievements-task-result,
+    .project_achievements-item-task,
+    .project_achievements-item-result {
+        border-bottom: 1px solid #a7a7a7;
+        padding: 6px 0;
+        vertical-align: top;
+    }
+
+    .project_achievements-task-title, .project_achievements-item-task {
+        width: 50%;
+    }
+
+    .project_gallery-description {
+        margin-bottom: 18px;
+        opacity: 0.8;
+        font-size: smaller;
+    }
 </style>
