@@ -1,7 +1,15 @@
 <template>
     <div class="project">
-        <h1 class="project_name">
-            {{project.name}}
+        <h1 class="project_name-wrapper">
+            <span class="project_name">{{project.name}}</span>
+
+            <a :href="project.githubLink" v-if="project.githubLink" class="project_github-link" target="_blank">
+                <i class="fa fa-github"></i>
+            </a>
+
+            <a :href="project.demoLink" v-if="project.demoLink" class="project_demo-link" target="_blank">
+                <i class="fa fa-eye"></i>
+            </a>
         </h1>
 
         <p class="project_technologies">
@@ -12,9 +20,7 @@
             {{$t('message.projectDescription')}}
         </h3>
 
-        <p class="project_description">
-            {{project.description}}
-        </p>
+        <p class="project_description" v-html="project.description"></p>
 
         <h3 class="project_duties" v-if="project.duties">
             {{$t('message.duties')}}
@@ -47,8 +53,8 @@
         <table class="project_achievements" v-if="project.achievements">
             <thead class="project_achievements-head">
                 <tr class="project_achievements-title-row">
-                    <th class="project_achievements-task-title">{{$t('message.task')}}</th>
-                    <th class="project_achievements-task-result">{{$t('message.result')}}</th>
+                    <th class="project_achievements-item-task">{{$t('message.task')}}</th>
+                    <th class="project_achievements-item-result">{{$t('message.result')}}</th>
                 </tr>
             </thead>
 
@@ -60,15 +66,15 @@
             </tbody>
         </table>
 
-        <h3 class="project_gallery-title">
+        <h3 class="project_gallery-title" v-if="project.screenshots">
             {{$t('message.results')}}
         </h3>
 
-        <p class="project_gallery-description">
+        <p class="project_gallery-description" v-if="project.screenshots">
             {{$t('message.imageGalleryDescription')}}
         </p>
 
-        <images-gallery :imagesNames="project.screenshots"></images-gallery>
+        <images-gallery :imagesNames="project.screenshots" v-if="project.screenshots"></images-gallery>
     </div>
 </template>
 
@@ -92,14 +98,34 @@
 </script>
 
 <style scoped>
-    .project_name {
+    .project {
+        margin-bottom: 48px;
+    }
+
+    .project_name-wrapper {
         line-height: 30px;
         color: #3971ff;
         font-weight: 400;
         text-transform: uppercase;
         margin-bottom: 18px;
-        margin-top: 48px;
         font-size: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .project_github-link, .project_demo-link {
+        font-size: 24px;
+        color: #4c4c4c;
+        transition: color 0.5s;
+        margin-left: 16px;
+    }
+
+    .project_demo-link {
+        margin-left: 12px;
+    }
+
+    .project_github-link:hover, .project_demo-link:hover {
+        color: #3971ff;
     }
 
     .project_technologies {
@@ -151,8 +177,6 @@
         width: 100%;
     }
 
-    .project_achievements-task-title,
-    .project_achievements-task-result,
     .project_achievements-item-task,
     .project_achievements-item-result {
         border-bottom: 1px solid #a7a7a7;
@@ -160,7 +184,7 @@
         vertical-align: top;
     }
 
-    .project_achievements-task-title, .project_achievements-item-task {
+    .project_achievements-item-task {
         width: 50%;
     }
 

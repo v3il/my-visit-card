@@ -107,6 +107,7 @@
                         name: 'Mass Labeling',
                         technologies: 'Node.js, Express, ejs, mongo, Docker, jQuery, Vue.js, Webpack, eslint, Bootstrap',
                         description: this.$t('message.mlDescription'),
+                        githubLink: 'https://github.com/ukitgroup/mass-labeling',
                         achievementsList: [
                             this.$t('message.mlDuty1'),
                             this.$t('message.mlDuty2'),
