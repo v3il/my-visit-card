@@ -23,10 +23,27 @@
             return {
                 projects: [
                     {
+                        name: 'steam trade helper',
+                        technologies: 'Vue.js, Firebase',
+                        description: this.$t('message.sthDescription'),
+                        githubLink: 'https://github.com/v3il/steam-trade-helper',
+                        screenshots: [
+                            'sth1.png',
+                            'sth2.png',
+                            'sth3.png',
+                        ]
+                    },
+                    {
                         name: 'NewCP Guide',
                         technologies: 'Node.js, Express.js, MongoDB, Vue.js, vue-router, vue-cli, axios',
                         description: this.$t('message.newcpGuideDescription'),
                         githubLink: 'https://github.com/v3il/NewCPGuide',
+                        screenshots: [
+                            'ncpg1.png',
+                            'ncpg2.png',
+                            'ncpg3.png',
+                            'ncpg4.png',
+                        ]
                     },
                 ]
             }
