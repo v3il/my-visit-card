@@ -45,6 +45,42 @@
                             'ncpg4.png',
                         ]
                     },
+                    {
+                        name: 'UBikeDay2019',
+                        technologies: 'vue-cli, HTML, CSS',
+                        description: this.$t('message.ubikedayDescription'),
+                        githubLink: 'https://github.com/v3il/u-bike-day-2019',
+                        demoLink: 'http://uholiday.ru/ubikeday2019',
+                        screenshots: [
+                            'ubd1.png',
+                            'ubd2.png',
+                            'ubd3.png',
+                        ]
+                    },
+                    {
+                        name: 'Webtycoon promo',
+                        technologies: 'vue-cli, HTML, CSS',
+                        description: this.$t('message.wpDescription'),
+                        githubLink: 'https://github.com/v3il/wt-promo',
+                        screenshots: [
+                            'wt1.png',
+                            'wt2.png',
+                            'wt3.png',
+                            'wt4.png',
+                        ]
+                    },
+                    // {
+                    //     name: 'Calc builder',
+                    //     technologies: 'vue-cli, HTML, CSS',
+                    //     description: this.$t('message.wpDescription'),
+                    //     githubLink: 'https://github.com/v3il/wt-promo',
+                    //     screenshots: [
+                    //         'wt1.png',
+                    //         'wt2.png',
+                    //         'wt3.png',
+                    //         'wt4.png',
+                    //     ]
+                    // },
                 ]
             }
         }
