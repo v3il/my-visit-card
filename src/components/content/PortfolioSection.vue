@@ -50,24 +50,14 @@
                         technologies: 'vue-cli, HTML, CSS',
                         description: this.$t('message.ubikedayDescription'),
                         githubLink: 'https://github.com/v3il/u-bike-day-2019',
-                        demoLink: 'http://uholiday.ru/ubikeday2019',
-                        screenshots: [
-                            'ubd1.png',
-                            'ubd2.png',
-                            'ubd3.png',
-                        ]
+                        demoLink: 'http://194.32.79.212/ubikeday/',
                     },
                     {
                         name: 'Webtycoon promo',
                         technologies: 'vue-cli, HTML, CSS',
                         description: this.$t('message.wpDescription'),
                         githubLink: 'https://github.com/v3il/wt-promo',
-                        screenshots: [
-                            'wt1.png',
-                            'wt2.png',
-                            'wt3.png',
-                            'wt4.png',
-                        ]
+                        demoLink: 'http://194.32.79.212/wt-promo',
                     },
                     // {
                     //     name: 'Calc builder',
@@ -90,5 +80,17 @@
 <style>
     .portfolio {
         padding: 100px 120px 100px 95px;
+    }
+
+    @media screen and (max-width: 850px) {
+        .portfolio {
+            padding: 50px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .portfolio {
+            padding: 25px;
+        }
     }
 </style>
