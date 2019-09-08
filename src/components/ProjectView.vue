@@ -3,11 +3,23 @@
         <h1 class="project_name-wrapper">
             <span class="project_name">{{project.name}}</span>
 
-            <a :href="project.githubLink" v-if="project.githubLink" class="project_github-link" target="_blank">
+            <a
+                :href="project.githubLink"
+                v-if="project.githubLink"
+                class="project_github-link"
+                target="_blank"
+                :title="$t('message.githubLink')"
+            >
                 <i class="fa fa-github"></i>
             </a>
 
-            <a :href="project.demoLink" v-if="project.demoLink" class="project_demo-link" target="_blank">
+            <a
+                :href="project.demoLink"
+                v-if="project.demoLink"
+                class="project_demo-link"
+                target="_blank"
+                :title="$t('message.demoLink')"
+            >
                 <i class="fa fa-eye"></i>
             </a>
         </h1>

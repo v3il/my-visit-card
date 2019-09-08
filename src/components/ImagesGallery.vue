@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="preview-overlay-content">
+            <div class="preview-overlay-content" @click.self="closeOverlay">
                 <img :src="currentImageSrc" alt="">
             </div>
         </div>
@@ -165,12 +165,14 @@
         align-items: center;
         padding: 0 24px;
         background: #121212;
+        cursor: pointer;
     }
 
     .preview-overlay-content img {
-        width: 80%;
+        height: auto;
         display: block;
         margin: 0 auto;
+        max-width: 90%;
     }
 
     .overlay-header-counters {
