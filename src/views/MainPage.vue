@@ -42,7 +42,7 @@
                     text: project.name,
                     link: "#",
                     tag: project.id,
-                    isActive: index === 0,
+                    isActive: true,
                 }
             });
 
@@ -136,7 +136,11 @@
                     ? infoBlockInViewport[0]
                     : null;
 
+                console.log(firstInfoBlockInViewport)
+
                 const activeItemIndex = infoBlocks.indexOf(firstInfoBlockInViewport);
+
+                console.log(activeItemIndex)
 
                 if(activeItemIndex >= 0) {
                     sidebarItems[activeItemIndex].isActive = true;

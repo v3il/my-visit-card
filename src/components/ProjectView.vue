@@ -1,5 +1,5 @@
 <template>
-    <div class="project js-scroll-to-target" :id="project.id">
+    <div class="project" :class="{ 'js-scroll-to-target': project.id }">
         <h1 class="project_name-wrapper">
             <span class="project_name">{{project.name}}</span>
 
