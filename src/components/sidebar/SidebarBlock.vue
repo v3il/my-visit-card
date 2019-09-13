@@ -49,7 +49,7 @@
         bottom: 0;
         top: 0;
         padding: 63px 30px 0 30px;
-        width: 215px;
+        width: 250px;
     }
 
     .sidebar.sidebar--opened {

@@ -1,5 +1,5 @@
 <template>
-    <div class="content__info-block info-block experience-info-block" id="experience">
+    <div class="content__info-block info-block experience-info-block js-scroll-to-target" id="experience">
         <div class="info-block__title-block">
             <h2 class="info-block__title">{{this.$t('message.experience')}}</h2>
             <div class="info-block__title-separator">
@@ -48,7 +48,7 @@
                     {
                         name: this.$t('message.cpv2'),
                         technologies: 'Perl, jQuery, jQuery UI, Vue.js, Webpack, ES2015+, Less',
-                        description: this.$t('message.cpDescription'),
+                        description: 'message.cpDescription',
                         duties: [
                             this.$t('message.cpDuty1'),
                             this.$t('message.cpDuty2'),
@@ -89,7 +89,7 @@
                     {
                         name: this.$t('message.ucalc'),
                         technologies: 'jQuery, Gulp, Sass, Chartist.js, JSON',
-                        description: this.$t('message.uCalcDescription'),
+                        description: 'message.uCalcDescription',
                         duties: [
                             this.$t('message.ucalcDuty1'),
                             this.$t('message.ucalcDuty2'),
@@ -106,7 +106,7 @@
                     {
                         name: 'Mass Labeling',
                         technologies: 'Node.js, Express, ejs, mongo, Docker, jQuery, Vue.js, Webpack, eslint, Bootstrap',
-                        description: this.$t('message.mlDescription'),
+                        description: 'message.mlDescription',
                         githubLink: 'https://github.com/ukitgroup/mass-labeling',
                         achievementsList: [
                             this.$t('message.mlDuty1'),
@@ -120,6 +120,17 @@
                             'ml3.png',
                             'ml1.png',
                             'ml4.png',
+                        ],
+                    },
+
+                    {
+                        name: 'uCoz ads',
+                        technologies: 'Javascript, Perl',
+                        description: 'message.uAdvDescription',
+                        duties: [
+                            this.$t('message.uAdvDuty1'),
+                            this.$t('message.uAdvDuty2'),
+                            this.$t('message.uAdvDuty3'),
                         ],
                     },
                 ],

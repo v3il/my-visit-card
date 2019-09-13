@@ -1,5 +1,5 @@
 <template>
-    <div class="content__info-block info-block skills-info-block" id="skills">
+    <div class="content__info-block info-block skills-info-block js-scroll-to-target" id="skills">
         <div class="info-block__title-block">
             <h2 class="info-block__title">{{$t('message.skillsTitle')}}</h2>
             <div class="info-block__title-separator">

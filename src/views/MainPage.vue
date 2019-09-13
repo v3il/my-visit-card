@@ -117,7 +117,7 @@
                 const sidebarItems = this.currentPageSidebarItems;
 
                 const scrollTop = window.scrollY;
-                const infoBlocks = [...document.querySelectorAll(".content__section > div")];
+                const infoBlocks = [...document.querySelectorAll(".js-scroll-to-target")];
 
                 const nextInfoBlockOffsetThreshold = 200;
 

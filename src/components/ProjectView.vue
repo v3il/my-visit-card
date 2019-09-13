@@ -1,5 +1,5 @@
 <template>
-    <div class="project">
+    <div class="project js-scroll-to-target" :id="project.id">
         <h1 class="project_name-wrapper">
             <span class="project_name">{{project.name}}</span>
 
@@ -32,7 +32,7 @@
             {{$t('message.projectDescription')}}
         </h3>
 
-        <p class="project_description" v-html="project.description"></p>
+        <p class="project_description" v-html="$t(project.description)"></p>
 
         <h3 class="project_duties" v-if="project.duties">
             {{$t('message.duties')}}
