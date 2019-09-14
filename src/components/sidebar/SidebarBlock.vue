@@ -12,6 +12,11 @@
                 ></sidebar-link-item>
             </ul>
         </div>
+
+        <div class="sidebar__open-menu-btn" @click="$emit('toggle-sidebar')">
+            <i class="fa fa-chevron-left" v-if="sidebarOpened"></i>
+            <i class="fa fa-chevron-right" v-else></i>
+        </div>
     </aside>
 </template>
 
@@ -19,12 +24,6 @@
     import SidebarLinkItem from "@/components/sidebar/SidebarLinkItem.vue";
 
     export default {
-        data() {
-            return {
-
-            }
-        },
-
         props: ["items", "sidebarOpened"],
 
         components: {
@@ -83,7 +82,28 @@
         list-style: none;
     }
 
+    .sidebar__open-menu-btn {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: -41px;
+        background: #f3f3f3;
+        border-right: 1px solid #a7a7a7;
+        border-bottom: 1px solid #a7a7a7;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        z-index: 3;
+        cursor: pointer;
+        padding: 6px;
+    }
+
     @media screen and (max-width: 1150px) {
+        .sidebar__open-menu-btn {
+            display: flex;
+        }
+
         .sidebar {
             transform: translateX(-100%);
         }

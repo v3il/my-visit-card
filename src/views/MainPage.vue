@@ -1,22 +1,12 @@
 <template>
     <div class="page">
-
-        <div class="mobile-header">
-            <div @click="sidebarOpened = !sidebarOpened"
-                 class="page__open-menu-btn"
-            >
-                <div class="open-menu-btn__line open-menu-btn__line--first"></div>
-                <div class="open-menu-btn__line open-menu-btn__line--second"></div>
-                <div class="open-menu-btn__line open-menu-btn__line--third"></div>
-            </div>
-        </div>
-
         <notification></notification>
 
         <sidebar-block
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
             @scrollToInfoBlock="scrollToInfoBlock($event)"
+            @toggle-sidebar="sidebarOpened = !sidebarOpened"
         ></sidebar-block>
 
         <content-block></content-block>
@@ -42,7 +32,7 @@
                     text: project.name,
                     link: "#",
                     tag: project.id,
-                    isActive: true,
+                    isActive: index === 0,
                 }
             });
 
@@ -88,11 +78,41 @@
 
         created() {
             this.setCurrentPageSidebarItems(this.getCurrentPageSidebarItems());
-            window.addEventListener("scroll", this.scrollHandler);
-        },
 
-        destroyed() {
-            window.removeEventListener("scroll", this.scrollHandler);
+            const scrollHandler = () => {
+                const sidebarItems = this.currentPageSidebarItems;
+
+                const viewportTop = window.scrollY;
+                const viewportBottom = window.scrollY + window.innerHeight;
+                const infoBlocks = [...document.querySelectorAll(".js-scroll-to-target")];
+
+                this.deactivateAllSidebarItems();
+
+                const infoBlocksInViewport = infoBlocks.filter(infoBlock => {
+                    const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(infoBlock);
+                    const infoBlockHeight = infoBlock.clientHeight;
+
+                    const infoBlockBottomPosition = infoBlockScrollOffset + infoBlockHeight;
+
+                    return (
+                           infoBlockBottomPosition > viewportTop
+                        && infoBlockScrollOffset < viewportBottom
+                    );
+                });
+
+                if (infoBlocksInViewport.length) {
+                    infoBlocksInViewport.forEach((block) => {
+                        const index = infoBlocks.findIndex(item => item === block);
+                        sidebarItems[index].isActive = true;
+                    });
+                }
+            };
+
+            window.addEventListener("scroll", scrollHandler);
+
+            this.$once('hook:beforeDestroy', () => {
+                window.removeEventListener("scroll", scrollHandler);
+            });
         },
 
         methods: {
@@ -113,45 +133,16 @@
                 this.currentPageSidebarItems = this.getCurrentPageSidebarItems();
             },
 
-            scrollHandler() {
-                const sidebarItems = this.currentPageSidebarItems;
-
-                const scrollTop = window.scrollY;
-                const infoBlocks = [...document.querySelectorAll(".js-scroll-to-target")];
-
-                const nextInfoBlockOffsetThreshold = 200;
-
-                this.deactivateAllSidebarItems();
-
-                const infoBlockInViewport = infoBlocks.filter(infoBlock => {
-                    const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(infoBlock);
-                    const infoBlockHeight = infoBlock.clientHeight;
-
-                    const infoBlockBottomPosition = infoBlockScrollOffset + infoBlockHeight;
-
-                    return infoBlockBottomPosition > scrollTop + nextInfoBlockOffsetThreshold;
-                });
-
-                const firstInfoBlockInViewport = infoBlockInViewport.length
-                    ? infoBlockInViewport[0]
-                    : null;
-
-                console.log(firstInfoBlockInViewport)
-
-                const activeItemIndex = infoBlocks.indexOf(firstInfoBlockInViewport);
-
-                console.log(activeItemIndex)
-
-                if(activeItemIndex >= 0) {
-                    sidebarItems[activeItemIndex].isActive = true;
-                }
-            },
-
             scrollToInfoBlock(clickedSideBarItem) {
-                const infoBlock = document.getElementById(clickedSideBarItem.tag);
-                const infoBlockScrollTop = this.getScrollTopOffsetOfElement(infoBlock);
+                const infoBlocks = [...document.querySelectorAll(".js-scroll-to-target")];
+                const clickedLinkIndex = this.currentPageSidebarItems.indexOf(clickedSideBarItem);
 
-                this.smoothScrollToY(infoBlockScrollTop, 300);
+                if (clickedLinkIndex >= 0) {
+                    const infoBlock = infoBlocks[clickedLinkIndex];
+                    const infoBlockScrollTop = this.getScrollTopOffsetOfElement(infoBlock) + 1;
+
+                    this.smoothScrollToY(infoBlockScrollTop, 300);
+                }
             },
 
             deactivateAllSidebarItems() {
@@ -189,9 +180,9 @@
         },
 
         components: {
-            'sidebar-block': SidebarBlock,
-            'content-block': ContentBlock,
-            'notification': Notification,
+            SidebarBlock,
+            ContentBlock,
+            Notification,
         }
     }
 </script>
@@ -202,36 +193,5 @@
         margin: 0 auto;
         background: #f3f3f3;
         min-height: 100vh;
-    }
-
-    .mobile-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding: 6px 12px;
-        background: transparent;
-        display: none;
-    }
-
-    .page__open-menu-btn {
-        float: right;
-        height: 30px;
-        width: 30px;
-        z-index: 3;
-        cursor: pointer;
-        padding: 6px;
-    }
-
-    .open-menu-btn__line {
-        background: black;
-        height: 2px;
-        margin-top: 3px;
-    }
-
-    @media screen and (max-width: 1150px) {
-        .mobile-header {
-            display: block;
-        }
     }
 </style>

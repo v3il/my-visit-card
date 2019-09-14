@@ -111,7 +111,8 @@
 
 <style scoped>
     .project {
-        margin-bottom: 48px;
+        margin-bottom: 24px;
+        padding-top: 12px;
     }
 
     .project_name-wrapper {

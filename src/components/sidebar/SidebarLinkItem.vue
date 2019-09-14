@@ -43,12 +43,14 @@
         height: 2px;
         background-color: #9db7f9;
         margin-right: 8px;
+        transition: width 0.3s;
     }
 
     .sidebar__nav-item-link {
         text-decoration: none;
         color: #a7a7a7;
         text-transform: uppercase;
+        transition: color 0.3s;
     }
 
     .sidebar__nav-item--active .sidebar__nav-item-pointer {
