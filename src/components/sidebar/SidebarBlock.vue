@@ -13,7 +13,7 @@
             </ul>
         </div>
 
-        <div class="sidebar__open-menu-btn" @click="$emit('toggle-sidebar')">
+        <div class="sidebar__open-menu-btn" @click="emitSidebarClose">
             <i class="fa fa-chevron-left" v-if="sidebarOpened"></i>
             <i class="fa fa-chevron-right" v-else></i>
         </div>
@@ -27,13 +27,33 @@
         props: ["items", "sidebarOpened"],
 
         components: {
-            "sidebar-link-item": SidebarLinkItem
+            SidebarLinkItem
+        },
+
+        mounted() {
+            const clickHandler = (event) => {
+                const clickedElement = event.target;
+
+                if (!clickedElement.closest('.sidebar') && this.sidebarOpened) {
+                    this.emitSidebarClose();
+                }
+            };
+
+            document.addEventListener('click', clickHandler);
+
+            this.$once('hook:beforeDestroy', () => {
+                document.removeEventListener('click', clickHandler);
+            })
         },
 
         methods: {
             emitScrollToInfoBlock(linkItem) {
                 this.$emit("scrollToInfoBlock", linkItem);
-            }
+            },
+
+            emitSidebarClose() {
+                this.$emit('toggle-sidebar');
+            },
         }
     }
 </script>
