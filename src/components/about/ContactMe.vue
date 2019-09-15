@@ -116,5 +116,7 @@
 </script>
 
 <style scoped>
-
+    #contact {
+        padding-bottom: 50px;
+    }
 </style>

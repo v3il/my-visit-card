@@ -85,11 +85,11 @@
     .sidebar__open-menu-btn {
         display: none;
         position: absolute;
-        top: 0;
-        right: -41px;
+        bottom: 10px;
+        right: -50px;
         background: #f3f3f3;
-        border-right: 1px solid #a7a7a7;
-        border-bottom: 1px solid #a7a7a7;
+        border: 1px solid #a7a7a7;
+        border-radius: 50%;
         align-items: center;
         justify-content: center;
         height: 40px;
@@ -97,6 +97,12 @@
         z-index: 3;
         cursor: pointer;
         padding: 6px;
+        opacity: 0.3;
+        transition: opacity 0.3s;
+    }
+
+    .sidebar__open-menu-btn:hover {
+        opacity: 1;
     }
 
     @media screen and (max-width: 1150px) {
