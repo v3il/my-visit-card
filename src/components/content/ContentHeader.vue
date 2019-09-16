@@ -91,16 +91,16 @@
     }
 
     .header-block__avatar-block {
-        padding-left: 30px;
+        padding-left: 6px;
+        width: 100%;
     }
 
     .header-block__avatar {
-        width: 300px;
+        background: url('../../assets/images/a.jpg');
+        max-width: 100%;
         height: 100%;
-        background: url('../../assets/images/avatar.png');
         background-repeat: no-repeat;
-        background-position: 52% 100%;
-        background-size: 100% auto;
+        min-width: 350px;
     }
 
     .intro-block {
@@ -192,7 +192,7 @@
         width: 150px;
     }
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 800px) {
         .content__header {
             flex-direction: column;
             align-items: center;
@@ -204,7 +204,9 @@
         }
 
         .header-block__avatar {
-            background-position: initial;
+            background-size: 100%;
+            background-position: 0% 25%;
+            min-width: 0;
         }
     }
 </style>
