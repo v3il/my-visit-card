@@ -95,7 +95,7 @@
     }
 
     .header-block__avatar {
-        width: 350px;
+        width: 300px;
         height: 100%;
         background: url('../../assets/images/avatar.png');
         background-repeat: no-repeat;

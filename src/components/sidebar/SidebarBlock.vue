@@ -13,7 +13,7 @@
             </ul>
         </div>
 
-        <div class="sidebar__open-menu-btn" @click="emitSidebarClose">
+        <div class="sidebar__open-menu-btn" :class="{ active: sidebarOpened }" @click="emitSidebarClose">
             <i class="fa fa-chevron-left" v-if="sidebarOpened"></i>
             <i class="fa fa-chevron-right" v-else></i>
         </div>
@@ -117,8 +117,16 @@
         z-index: 3;
         cursor: pointer;
         padding: 6px;
-        opacity: 0.3;
+        opacity: 0.5;
         transition: opacity 0.3s;
+    }
+
+    .sidebar__open-menu-btn i {
+        margin-left: 2px;
+    }
+
+    .sidebar__open-menu-btn.active i {
+        margin-left: -2px;
     }
 
     .sidebar__open-menu-btn:hover {

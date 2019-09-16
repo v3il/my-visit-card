@@ -10,6 +10,10 @@
         ></sidebar-block>
 
         <content-block></content-block>
+
+        <div class="page__scroll-top" @click="smoothScrollToY(0, 300)" v-show="currentScrollTop > 300">
+            <i class="fa fa-chevron-up"></i>
+        </div>
     </div>
 </template>
 
@@ -67,6 +71,8 @@
                         isActive: false,
                     },
                 ],
+
+                currentScrollTop: 0,
             }
         },
 
@@ -85,6 +91,8 @@
                 const viewportTop = window.scrollY;
                 const viewportBottom = window.scrollY + window.innerHeight;
                 const infoBlocks = [...document.querySelectorAll(".js-scroll-to-target")];
+
+                this.currentScrollTop = viewportTop;
 
                 this.deactivateAllSidebarItems();
 
@@ -193,5 +201,32 @@
         margin: 0 auto;
         background: #f3f3f3;
         min-height: 100vh;
+    }
+
+    .page__scroll-top {
+        display: flex;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background: #f3f3f3;
+        border: 1px solid #a7a7a7;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        z-index: 3;
+        cursor: pointer;
+        padding: 6px;
+        opacity: 0.5;
+        transition: opacity 0.3s;
+    }
+
+    .page__scroll-top i {
+        margin-top: -2px;
+    }
+
+    .page__scroll-top:hover {
+        opacity: 1;
     }
 </style>
