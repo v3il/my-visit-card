@@ -101,6 +101,7 @@
         height: 100%;
         background-repeat: no-repeat;
         min-width: 350px;
+        background-size: 130%;
     }
 
     .intro-block {

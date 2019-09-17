@@ -31,38 +31,7 @@
                 </div>
 
                 <div class="contact-info-block__socials-block">
-                    <div class="contact-info-block__socials-list">
-                        <a v-for="(value, key) in socialNetworks" :key="key" :href="value.href"
-                           target="_blank" class="contact-info-block__social-item"
-                           :title="value.title"
-                        >
-                            <i :class="`fa fa-${key}`"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-info-block__contact-form-block">
-                <div class="contact-info-block__form-block">
-                    <label class="contact-info-block__label" for="name">{{this.$t('message.yourName')}}</label>
-                    <input v-model="name" class="contact-info-block__input" type="text" id="name">
-                </div>
-
-                <div class="contact-info-block__form-block">
-                    <label class="contact-info-block__label" for="email">{{this.$t('message.yourEmail')}}</label>
-                    <input v-model="email" class="contact-info-block__input" type="text" id="email">
-                </div>
-
-                <div class="contact-info-block__form-block">
-                    <label class="contact-info-block__label" for="message">{{this.$t('message.yourMessage')}}</label>
-                    <textarea v-model="message" class="contact-info-block__textarea" rows="5" id="message"></textarea>
-                </div>
-
-                <div class="contact-info-block__form-block contact-info-block__submit-block">
-                    <button @click.prevent="sendResponse()" type="submit" class="contact-info-block__submit-button">
-                        {{this.$t('message.letsTalk')}}
-                    </button>
-                    <div class="contact-info-block__nav-line"></div>
+                    <social-networks />
                 </div>
             </div>
         </div>
@@ -70,48 +39,14 @@
 </template>
 
 <script>
+    import SocialNetworks from '../SocialNetworks';
+
     export default {
         name: "ContactMe",
 
-        data() {
-            return {
-                name: "",
-                email: "",
-                message: "",
-
-                socialNetworks: {
-                    skype: {
-                        href: 'skype:D_Kit94?chat',
-                        title: this.$t('message.mySkype')
-                    },
-
-                    telegram: {
-                        href: 'https://t.me/veil_94',
-                        title: this.$t('message.myTelegram')
-                    },
-
-                    phone: {
-                        href: 'tel:+380675892392',
-                        title: this.$t('message.myPhone')
-                    },
-
-                    github: {
-                        href: 'https://github.com/v3il',
-                        title: this.$t('message.myGithub')
-                    },
-
-                    linkedin: {
-                        href: 'https://www.linkedin.com/in/dmitry-kit-826a00145/',
-                        title: this.$t('message.myLinkedIn')
-                    },
-
-                    instagram: {
-                        href: 'https://www.instagram.com/dimakit6/',
-                        title: this.$t('message.myInstagram')
-                    },
-                }
-            }
-        }
+        components: {
+            SocialNetworks,
+        },
     }
 </script>
 
@@ -119,4 +54,69 @@
     #contact {
         padding-bottom: 50px;
     }
+
+    .contact-info-block__socials-block {
+        padding-top: 50px;
+    }
+
+    /* CONTACT */
+    .contact-info-block__contacts-block {
+        display: flex;
+    }
+
+    .contact-info-block__location-block {
+        margin-bottom: 50px;
+    }
+
+    .contact-info-block__location-title,
+    .contact-info-block__mail-title {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .contact-info-block__location-icon,
+    .contact-info-block__mail-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 48px;
+        line-height: 27.81px;
+        color: #4c4c4c;
+        font-weight: 400;
+        margin-right: 32px;
+    }
+
+    .contact-info-block__mail-icon {
+        color: #3971ff;
+    }
+
+    .contact-info-block__location-title-text,
+    .contact-info-block__mail-title-text {
+        color: #4c4c4c;
+        font-weight: 400;
+        line-height: 36px;
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    .contact-info-block__location-description,
+    .contact-info-block__mail-description {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 30px;
+        color: #4c4c4c;
+        margin-top: 25px;
+    }
+
+    .contact-info-block__nav-line {
+        height: 2px;
+        background-color: #3971ff;
+        width: 50px;
+        margin-top: 7px;
+        transition: width 0.5s ease;
+    }
+
+    .contact-info-block__submit-block:hover .contact-info-block__nav-line {
+        width: 150px;
+    }
+    /* CONTACT */
 </style>

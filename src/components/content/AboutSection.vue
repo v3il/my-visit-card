@@ -8,10 +8,10 @@
 </template>
 
 <script>
-    import firebase from "firebase";
-    import firebaseConfig from "../../../firebase.config";
-
-    import EventBus from "@/components/EventBus";
+    // import firebase from "firebase";
+    // import firebaseConfig from "../../../firebase.config";
+    //
+    // import EventBus from "@/components/EventBus";
 
     import Skills from '@/components/about/Skills';
     import Experience from '@/components/about/Experience';
@@ -29,33 +29,33 @@
         },
 
         methods: {
-            async sendResponse() {
-                const {name, email, message} = this;
-
-                try {
-                    await this.db
-                        .collection("responses")
-                        .add({ name, email, message });
-
-                    EventBus.$emit("notification", {
-                        type: "success",
-                        message: "Your message was successfully sent, thank you!"
-                    });
-                } catch(error) {
-                    EventBus.$emit("notification", {
-                        type: "error",
-                        message: "Something went wrong :( Please, try again later."
-                    });
-                }
-            }
+            // async sendResponse() {
+            //     const {name, email, message} = this;
+            //
+            //     try {
+            //         await this.db
+            //             .collection("responses")
+            //             .add({ name, email, message });
+            //
+            //         EventBus.$emit("notification", {
+            //             type: "success",
+            //             message: "Your message was successfully sent, thank you!"
+            //         });
+            //     } catch(error) {
+            //         EventBus.$emit("notification", {
+            //             type: "error",
+            //             message: "Something went wrong :( Please, try again later."
+            //         });
+            //     }
+            // }
         },
 
         created() {
-            if(!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-            }
-
-            this.db = firebase.firestore();
+            // if(!firebase.apps.length) {
+            //     firebase.initializeApp(firebaseConfig);
+            // }
+            //
+            // this.db = firebase.firestore();
         }
     }
 </script>
@@ -326,152 +326,7 @@
 
     /* EXPERIENCE */
 
-    /* CONTACT */
-    .contact-info-block__contacts-block {
-        display: flex;
-    }
 
-    .contact-info-block__contact-data-block {
-        flex-basis: 305px;
-        margin-right: 100px;
-    }
-
-    .contact-info-block__location-block {
-        margin-bottom: 50px;
-    }
-
-    .contact-info-block__location-title,
-    .contact-info-block__mail-title {
-        display: flex;
-        align-items: flex-end;
-    }
-
-    .contact-info-block__location-icon,
-    .contact-info-block__mail-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 48px;
-        line-height: 27.81px;
-        color: #4c4c4c;
-        font-weight: 400;
-        margin-right: 32px;
-    }
-
-    .contact-info-block__mail-icon {
-        color: #3971ff;
-    }
-
-    .contact-info-block__location-title-text,
-    .contact-info-block__mail-title-text {
-        color: #4c4c4c;
-        font-weight: 400;
-        line-height: 36px;
-        font-size: 24px;
-        text-transform: uppercase;
-    }
-
-    .contact-info-block__location-description,
-    .contact-info-block__mail-description {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 30px;
-        color: #4c4c4c;
-        margin-top: 25px;
-    }
-
-
-    .contact-info-block__socials-block {
-        margin-top: 50px;
-        display: flex;
-    }
-
-    .contact-info-block__social-item {
-        font-weight: 400;
-        color: #4c4c4c;
-        font-size: 30px;
-        margin-right: 20px;
-        transition: color 0.5s ease;
-    }
-
-    .contact-info-block__social-item .fa-github {
-        font-size: 33px;
-    }
-
-    @media screen and (max-width: 360px) {
-        .contact-info-block__social-item {
-            margin-right: 30px;
-        }
-    }
-
-    .contact-info-block__social-item:hover {
-        color: #3971ff;
-    }
-
-    .contact-info-block__contact-form-block {
-        flex: 1;
-    }
-
-    .contact-info-block__form-block {
-        margin-bottom: 24px;
-    }
-
-    .contact-info-block__label {
-        font-size: 16px;
-        color: #4c4c4c;
-        font-weight: 400;
-        display: block;
-    }
-
-    .contact-info-block__input,
-    .contact-info-block__textarea {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid #a7a7a7;
-        padding: 0 0 6px 0;
-        outline: none;
-        width: 100%;
-        transition: border-color 0.5s ease;
-        resize: none;
-        margin-top: 6px;
-    }
-
-    .contact-info-block__input {
-        height: 25px;
-    }
-
-    .contact-info-block__input:focus,
-    .contact-info-block__textarea:focus {
-        border-bottom: 1px solid #3971ff;
-    }
-
-    .contact-info-block__submit-block {
-        margin-top: 44px;
-    }
-
-    .contact-info-block__submit-button {
-        background-color: transparent;
-        border: none;
-        outline: none;
-        color: #3971ff;
-        font-family: RobotoMedium;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 30px;
-        cursor: pointer;
-    }
-
-    .contact-info-block__nav-line {
-        height: 2px;
-        background-color: #3971ff;
-        width: 50px;
-        margin-top: 7px;
-        transition: width 0.5s ease;
-    }
-
-    .contact-info-block__submit-block:hover .contact-info-block__nav-line {
-        width: 150px;
-    }
-    /* CONTACT */
 
     @media screen and (max-width: 850px) {
         .content__info-block {

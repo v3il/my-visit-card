@@ -40,7 +40,7 @@
     }
 
     body {
-        background: #121212;
+        background: #2d2d2d;
         font-family: RobotoRegular, serif;
         line-height: 30px;
         color: #4c4c4c;

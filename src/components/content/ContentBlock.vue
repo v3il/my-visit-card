@@ -16,9 +16,9 @@
         },
 
         components: {
-            "content-header": ContentHeader,
-            "about-section": AboutSection,
-            "portfolio-section": PortfolioSection,
+            ContentHeader,
+            AboutSection,
+            PortfolioSection,
         },
     }
 </script>

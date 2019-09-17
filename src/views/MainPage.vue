@@ -1,7 +1,5 @@
 <template>
     <div class="page">
-        <notification></notification>
-
         <sidebar-block
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
@@ -10,6 +8,16 @@
         ></sidebar-block>
 
         <content-block></content-block>
+
+        <social-networks class="social-networks-float">
+            <template slot-scope="{ networks }">
+                <a v-for="(value, key) in networks" :key="key" :href="value.href"
+                   target="_blank" class="social-networks__item social-networks-float__item"
+                >
+                    <i :class="`fa fa-${key}`" class="social-networks__icon social-networks-float__item"></i>
+                </a>
+            </template>
+        </social-networks>
 
         <div class="page__scroll-top" @click="smoothScrollToY(0, 300)" v-show="currentScrollTop > 300">
             <i class="fa fa-chevron-up"></i>
@@ -21,7 +29,7 @@
     import SidebarBlock from "@/components/sidebar/SidebarBlock.vue"
     import ContentBlock from "@/components/content/ContentBlock.vue"
 
-    import Notification from "@/components/Notification.vue"
+    import SocialNetworks from "@/components/SocialNetworks.vue"
 
     import {mainRouteNames} from "../routes";
 
@@ -190,7 +198,7 @@
         components: {
             SidebarBlock,
             ContentBlock,
-            Notification,
+            SocialNetworks,
         }
     }
 </script>
@@ -201,6 +209,7 @@
         margin: 0 auto;
         background: #f3f3f3;
         min-height: 100vh;
+        box-shadow: 0 1px 6px #000;
     }
 
     .page__scroll-top {
@@ -228,5 +237,27 @@
 
     .page__scroll-top:hover {
         opacity: 1;
+    }
+
+    .social-networks-float {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        background: #f3f3f3;
+        flex-direction: column;
+        align-items: center;
+        padding: 6px;
+        border-radius: 18px;
+    }
+
+    .social-networks-float__item.social-networks__item {
+        margin: 3px 0 !important;
+    }
+
+    @media screen and (max-width: 1500px) {
+        .social-networks-float {
+            display: none !important;
+        }
     }
 </style>

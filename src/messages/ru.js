@@ -16,7 +16,7 @@ export default {
     location: 'Местонахождение',
     address: 'Украина, Черкасская область',
     contactMe: 'Связь со мной',
-    contactMeDesc: 'Напишите мне с помощью контактной формы или на мою почту <a href="mailto:v3il@ukr.net">v3il@ukr.net</a>, либо используйте любой другой способ, представленный ниже',
+    contactMeDesc: 'Напишите мне на мою почту <a href="mailto:v3il@ukr.net">v3il@ukr.net</a>, либо используйте любой другой способ, представленный ниже',
     yourName: 'Ваше имя',
     yourEmail: 'Ваш e-mail',
     yourMessage: 'Ваше сообщение',
