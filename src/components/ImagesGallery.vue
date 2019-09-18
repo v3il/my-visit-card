@@ -183,6 +183,7 @@
         background: #121212;
         cursor: pointer;
         overflow-y: auto;
+        min-height: 100%;
     }
 
     .preview-overlay-content img {
