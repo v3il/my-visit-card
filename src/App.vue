@@ -39,6 +39,10 @@
         padding: 0;
     }
 
+    html.no-scroll, body.no-scroll {
+      overflow-y: hidden;
+    }
+
     body {
         background: #2d2d2d;
         font-family: RobotoRegular, serif;

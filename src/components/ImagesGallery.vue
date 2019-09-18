@@ -68,11 +68,19 @@
 
         methods: {
             openPreviewOverlay(index) {
+                [document.body, document.documentElement].forEach((element) => {
+                    element.classList.add('no-scroll');
+                });
+
                 this.overlayShown = true;
                 this.currentImageSrc = this.imagesSrc[index];
             },
 
             closeOverlay() {
+                [document.body, document.documentElement].forEach((element) => {
+                    element.classList.remove('no-scroll');
+                });
+
                 this.overlayShown = false;
             },
 
@@ -154,6 +162,8 @@
         right: 0;
         bottom: 0;
         z-index: 9999;
+        min-height: 100vh;
+        overflow-y: scroll;
     }
 
     .preview-overlay-header {
@@ -167,19 +177,20 @@
     }
 
     .preview-overlay-content {
-        height: calc(100vh - 50px);
         display: flex;
         align-items: center;
-        padding: 0 24px;
+        padding: 24px;
         background: #121212;
         cursor: pointer;
+        overflow-y: auto;
     }
 
     .preview-overlay-content img {
         height: auto;
         display: block;
         margin: 0 auto;
-        max-width: 90%;
+        max-width: 100%;
+        min-width: 100%;
     }
 
     .overlay-header-counters {
