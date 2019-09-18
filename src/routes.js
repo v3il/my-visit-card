@@ -17,13 +17,13 @@ const routes = [
             {
                 path: 'about',
                 name: mainRouteNames.ABOUT,
-                component: AboutSection
+                component: () => import("@/components/content/AboutSection.vue")
             },
 
             {
                 path: 'portfolio',
                 name: mainRouteNames.PORTFOLIO,
-                component: PortfolioSection
+                component: () => import("@/components/content/PortfolioSection.vue")
             },
 
             {

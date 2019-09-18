@@ -2,11 +2,11 @@
     <div>
         <div class="images-gallery">
             <img
-                v-for="imageSrc in imagesSrc"
+                v-for="(imageSrc, index) in imagesMiniSrc"
                 :src="imageSrc"
                 alt=""
                 class="gallery-item"
-                @click="openPreviewOverlay(imageSrc)"
+                @click="openPreviewOverlay(index)"
             >
         </div>
 
@@ -45,8 +45,15 @@
                 return images(`./${name}`);
             });
 
+            const imagesMini = require.context('../assets/images/mini/', false);
+
+            const imagesMiniSrc = this.imagesNames.map((name) => {
+                return imagesMini(`./${name}`);
+            });
+
             return {
                 imagesSrc,
+                imagesMiniSrc,
 
                 overlayShown: false,
                 currentImageSrc: '',
@@ -60,9 +67,9 @@
         },
 
         methods: {
-            openPreviewOverlay(imageSrc) {
+            openPreviewOverlay(index) {
                 this.overlayShown = true;
-                this.currentImageSrc = imageSrc;
+                this.currentImageSrc = this.imagesSrc[index];
             },
 
             closeOverlay() {
