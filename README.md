@@ -1,4 +1,4 @@
 # My visit card
 It's a web site that describes my work experience, education and hobbies. Also it allows you to find me in social networks and contact me.
 
-[Demo](https://veil-vc.firebaseapp.com/#/about)
+[Demo](http://diki.club)
