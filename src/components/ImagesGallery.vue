@@ -1,15 +1,15 @@
 <template>
     <div>
         <div class="images-gallery">
-            <img
-                v-for="(imageSrc, index) in imagesMiniSrc"
-                :src="imageSrc.preSrc"
-                alt=""
+            <lazy-load-image
+                :image-name="imageSrc"
+                v-for="(imageSrc, index) in imagesNames"
                 class="gallery-item"
                 @click="openPreviewOverlay(index)"
-                :data-src="imageSrc.src"
-            >
+            ></lazy-load-image>
         </div>
+
+
 
         <div class="preview-overlay" v-if="overlayShown">
             <div class="preview-overlay-header">
@@ -34,10 +34,16 @@
 </template>
 
 <script>
+    import LazyLoadImage from './LazyLoadImage';
+
     export default {
         name: "ImagesGallery",
 
         props: ['imagesNames'],
+
+        components: {
+            LazyLoadImage,
+        },
 
         data() {
             const images = require.context('../assets/images/', false);
