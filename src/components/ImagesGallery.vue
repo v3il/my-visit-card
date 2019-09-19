@@ -3,10 +3,11 @@
         <div class="images-gallery">
             <img
                 v-for="(imageSrc, index) in imagesMiniSrc"
-                :src="imageSrc"
+                :src="imageSrc.preSrc"
                 alt=""
                 class="gallery-item"
                 @click="openPreviewOverlay(index)"
+                :data-src="imageSrc.src"
             >
         </div>
 

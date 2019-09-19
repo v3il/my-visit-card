@@ -17,6 +17,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-alpha.11",
     "@vue/cli-service": "^3.0.0-alpha.11",
+    "lqip-loader": "^2.2.0",
     "vue-template-compiler": "^2.5.13"
   },
   "babel": {

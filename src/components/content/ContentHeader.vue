@@ -1,7 +1,7 @@
 <template>
     <div class="content__header header-block">
         <div class="header-block__avatar-block">
-            <div class="header-block__avatar"></div>
+            <div class="header-block__avatar" :style="{ background: `url(${avatar.src})` }"></div>
         </div>
 
         <div class="header-block__intro-block intro-block">
@@ -23,8 +23,6 @@
                 >
                     <router-link class="intro-block__nav-link" :to="tabData.toProp">{{tabData.tabText}}</router-link>
                     <div class="intro-block__nav-line"></div>
-
-                    <!--<router-link :to="{name: 'animated-counter'}">ac</router-link>-->
                 </div>
             </div>
         </div>
@@ -32,9 +30,12 @@
 </template>
 
 <script>
+    import avatar from '../../assets/images/a.jpg';
+
     export default {
         data() {
             return {
+                avatar,
                 activeRouteName: null,
 
                 tabs: [
@@ -96,7 +97,7 @@
     }
 
     .header-block__avatar {
-        background: url('../../assets/images/a.jpg');
+        /*background: url('../../assets/images/a.jpg');*/
         max-width: 100%;
         height: 100%;
         background-repeat: no-repeat;
