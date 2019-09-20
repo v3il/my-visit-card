@@ -2,14 +2,12 @@
     <div>
         <div class="images-gallery">
             <lazy-load-image
-                :image-name="imageSrc"
+                :image-name="`mini-${imageSrc}`"
                 v-for="(imageSrc, index) in imagesNames"
                 class="gallery-item"
                 @click="openPreviewOverlay(index)"
             ></lazy-load-image>
         </div>
-
-
 
         <div class="preview-overlay" v-if="overlayShown">
             <div class="preview-overlay-header">
@@ -27,7 +25,10 @@
             </div>
 
             <div class="preview-overlay-content" @click.self="closeOverlay">
-                <img :src="currentImageSrc" alt="">
+                <!--<img :src="currentImageSrc.src" alt="">-->
+                <lazy-load-image
+                    :image-name="imagesNames[currentImageIndex]"
+                ></lazy-load-image>
             </div>
         </div>
     </div>
@@ -52,15 +53,8 @@
                 return images(`./${name}`);
             });
 
-            const imagesMini = require.context('../assets/images/mini/', false);
-
-            const imagesMiniSrc = this.imagesNames.map((name) => {
-                return imagesMini(`./${name}`);
-            });
-
             return {
                 imagesSrc,
-                imagesMiniSrc,
 
                 overlayShown: false,
                 currentImageSrc: '',
@@ -78,6 +72,8 @@
                 [document.body, document.documentElement].forEach((element) => {
                     element.classList.add('no-scroll');
                 });
+
+                console.log(index)
 
                 this.overlayShown = true;
                 this.currentImageSrc = this.imagesSrc[index];

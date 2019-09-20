@@ -1,5 +1,5 @@
 <template>
-    <img :src="currentSrc" alt="">
+    <img :src="currentSrc" alt="" :class="{ blurred: !imageLoaded }" v-on="$listeners">
 </template>
 
 <script>
@@ -17,6 +17,7 @@
             return {
                 image: {},
                 currentSrc: '',
+                imageLoaded: false,
             }
         },
 
@@ -31,6 +32,7 @@
             const imageObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
+                        this.imageLoaded = true;
                         this.currentSrc = this.image.src;
                         observer.disconnect();
                     }
@@ -47,5 +49,7 @@
 </script>
 
 <style scoped>
-
+    img.blurred {
+        filter: blur(10px);
+    }
 </style>

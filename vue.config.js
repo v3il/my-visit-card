@@ -5,10 +5,6 @@ module.exports = {
             .test(/\.(png|jpe?g|gif)(\?.*)?$/)
             .use('lqip-loader')
             .loader('lqip-loader')
-            // .tap(() => ({
-            //     base64: true,
-            //     palette: false
-            // }))
             .end();
     },
 };

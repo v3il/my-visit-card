@@ -7,8 +7,8 @@
 
 <script>
     import ContentHeader from "@/components/content/ContentHeader.vue";
-    import AboutSection from "@/components/content/AboutSection.vue";
-    import PortfolioSection from "@/components/content/PortfolioSection.vue";
+    // import AboutSection from "@/components/content/AboutSection.vue";
+    // import PortfolioSection from "@/components/content/PortfolioSection.vue";
 
     export default {
         data() {
@@ -17,8 +17,8 @@
 
         components: {
             ContentHeader,
-            AboutSection,
-            PortfolioSection,
+            // AboutSection,
+            // PortfolioSection,
         },
     }
 </script>

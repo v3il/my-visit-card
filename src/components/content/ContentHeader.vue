@@ -1,7 +1,7 @@
 <template>
     <div class="content__header header-block">
         <div class="header-block__avatar-block">
-            <div class="header-block__avatar" :style="{ background: `url(${avatar.src})` }"></div>
+            <div class="header-block__avatar" :style="{ backgroundImage: `url(${avatar.src})` }"></div>
         </div>
 
         <div class="header-block__intro-block intro-block">
