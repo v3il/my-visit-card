@@ -1,8 +1,5 @@
 import MainPage from './views/MainPage.vue'
 
-import AboutSection from "@/components/content/AboutSection.vue";
-import PortfolioSection from "@/components/content/PortfolioSection.vue";
-
 const mainRouteNames = {
     PORTFOLIO: "portfolio-section",
     ABOUT: "about-section",
