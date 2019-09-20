@@ -9,7 +9,7 @@
             ></lazy-load-image>
         </div>
 
-        <div class="preview-overlay" v-if="overlayShown">
+        <div class="preview-overlay" v-show="overlayShown">
             <div class="preview-overlay-header">
                 <div class="overlay-header-counters">
                     <i @click="showPrev()" class="fa fa-arrow-left show-prev-btn"></i>
@@ -25,9 +25,10 @@
             </div>
 
             <div class="preview-overlay-content" @click.self="closeOverlay">
-                <!--<img :src="currentImageSrc.src" alt="">-->
                 <lazy-load-image
-                    :image-name="imagesNames[currentImageIndex]"
+                    :image-name="imageSrc"
+                    v-for="(imageSrc, index) in imagesNames"
+                    v-show="index === currentImageIndex"
                 ></lazy-load-image>
             </div>
         </div>

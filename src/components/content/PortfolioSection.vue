@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import "../../vendor/popped-element/Tooltip";
+    // import "../../vendor/popped-element/Tooltip";
 
     import ProjectView from '@/components/ProjectView';
 

@@ -18,7 +18,7 @@
     import Education from '@/components/about/Education';
     import ContactMe from '@/components/about/ContactMe';
 
-    import "@/vendor/popped-element/Tooltip";
+    // import "@/vendor/popped-element/Tooltip";
 
     export default {
         components: {

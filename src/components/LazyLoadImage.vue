@@ -44,11 +44,16 @@
             this.$once('hook:beforeDestroy', () => {
                 imageObserver.disconnect();
             });
-        }
+        },
     }
 </script>
 
 <style scoped>
+    img {
+        transition: filter 0.3s;
+        filter: blur(0);
+    }
+
     img.blurred {
         filter: blur(10px);
     }
