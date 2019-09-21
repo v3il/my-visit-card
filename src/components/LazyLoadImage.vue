@@ -57,7 +57,7 @@
     }
 
     .lazy-image--blurred {
-        filter: blur(10px);
+        filter: blur(2px);
     }
 
     .desktop .lazy-image {

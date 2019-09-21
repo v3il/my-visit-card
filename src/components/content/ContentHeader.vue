@@ -211,4 +211,23 @@
             min-width: 0;
         }
     }
+
+    @media screen and (max-width: 450px) {
+        .intro-block__nav-tabs {
+            flex-direction: column;
+        }
+
+        .intro-block__nav-tab {
+            margin-right: 0;
+            margin-bottom: 25px;
+        }
+
+        .content__info-block {
+            padding: 25px;
+        }
+
+        .intro-block {
+            margin: 25px;
+        }
+    }
 </style>

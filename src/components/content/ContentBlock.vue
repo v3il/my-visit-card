@@ -1,14 +1,16 @@
 <template>
     <section class="content">
         <content-header></content-header>
-        <router-view/>
+        <transition name="fade">
+            <keep-alive>
+                <router-view/>
+            </keep-alive>
+        </transition>
     </section>
 </template>
 
 <script>
     import ContentHeader from "@/components/content/ContentHeader.vue";
-    // import AboutSection from "@/components/content/AboutSection.vue";
-    // import PortfolioSection from "@/components/content/PortfolioSection.vue";
 
     export default {
         data() {
@@ -17,8 +19,6 @@
 
         components: {
             ContentHeader,
-            // AboutSection,
-            // PortfolioSection,
         },
     }
 </script>

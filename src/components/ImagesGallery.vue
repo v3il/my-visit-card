@@ -9,7 +9,7 @@
             ></lazy-load-image>
         </div>
 
-        <transition name="fade" @after-leave="enablePageScroll">
+        <transition name="fade">
             <div class="preview-overlay" v-show="overlayShown">
                 <div class="preview-overlay-header">
                     <div class="overlay-header-counters">
@@ -27,14 +27,11 @@
 
 
                 <div class="preview-overlay-content" @click.self="closeOverlay">
-                    <!--<transition-group name="fade" tag="div" style="width: 100%">-->
-                        <lazy-load-image
-                            :image-name="imageSrc"
-                            v-for="(imageSrc, index) in imagesNames"
-                            v-show="index === currentImageIndex"
-                            style="width: 100%; height: auto"
-                        ></lazy-load-image>
-                    <!--</transition-group>-->
+                    <lazy-load-image
+                        :image-name="imageSrc"
+                        v-for="(imageSrc, index) in imagesNames"
+                        v-show="index === currentImageIndex"
+                    ></lazy-load-image>
                 </div>
             </div>
         </transition>
@@ -76,24 +73,12 @@
 
         methods: {
             openPreviewOverlay(index) {
-                // [document.body, document.documentElement].forEach((element) => {
-                //     element.classList.add('no-scroll');
-                // });
-
-                console.log(index)
-
                 this.overlayShown = true;
                 this.currentImageSrc = this.imagesSrc[index];
             },
 
             closeOverlay() {
                 this.overlayShown = false;
-            },
-
-            enablePageScroll() {
-                // [document.body, document.documentElement].forEach((element) => {
-                //     element.classList.remove('no-scroll');
-                // });
             },
 
             showNext() {
@@ -158,7 +143,7 @@
 
     .gallery-item {
         max-width: 170px;
-        width: 100%;
+        /*width: 100%;*/
         display: block;
         margin-right: 10px;
         margin-bottom: 10px;
@@ -241,9 +226,9 @@
         }
     }
 
-    @media screen and (max-width: 600px) {
-        .preview-overlay-content img {
-            width: 95%;
-        }
-    }
+    /*@media screen and (max-width: 600px) {*/
+        /*.preview-overlay-content img {*/
+            /*width: 95%;*/
+        /*}*/
+    /*}*/
 </style>
