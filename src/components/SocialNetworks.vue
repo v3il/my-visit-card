@@ -18,9 +18,9 @@
         data() {
             return {
                 socialNetworks: {
-                    skype: {
-                        href: 'skype:D_Kit94?chat',
-                        title: 'message.mySkype'
+                    phone: {
+                        href: 'tel:+380675892392',
+                        title: 'message.myPhone'
                     },
 
                     telegram: {
@@ -28,9 +28,9 @@
                         title: 'message.myTelegram'
                     },
 
-                    phone: {
-                        href: 'tel:+380675892392',
-                        title: 'message.myPhone'
+                    skype: {
+                        href: 'skype:D_Kit94?chat',
+                        title: 'message.mySkype'
                     },
 
                     github: {

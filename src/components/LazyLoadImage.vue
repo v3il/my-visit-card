@@ -1,5 +1,5 @@
 <template>
-    <img :src="currentSrc" alt="" :class="{ blurred: !imageLoaded }" v-on="$listeners">
+    <img :src="currentSrc" class="lazy-image" :class="{ 'lazy-image--blurred': !imageLoaded }" v-on="$listeners">
 </template>
 
 <script>
@@ -49,12 +49,18 @@
 </script>
 
 <style scoped>
-    img {
-        transition: filter 0.3s;
-        filter: blur(0);
+    .lazy-image {
+        /* https://stackoverflow.com/a/47964779 */
+        filter: blur(0.2px);
+        display: block;
+        overflow: hidden;
     }
 
-    img.blurred {
+    .lazy-image--blurred {
         filter: blur(10px);
+    }
+
+    .desktop .lazy-image {
+        transition: filter 0.3s;
     }
 </style>

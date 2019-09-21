@@ -9,29 +9,35 @@
             ></lazy-load-image>
         </div>
 
-        <div class="preview-overlay" v-show="overlayShown">
-            <div class="preview-overlay-header">
-                <div class="overlay-header-counters">
-                    <i @click="showPrev()" class="fa fa-arrow-left show-prev-btn"></i>
+        <transition name="fade" @after-leave="enablePageScroll">
+            <div class="preview-overlay" v-show="overlayShown">
+                <div class="preview-overlay-header">
+                    <div class="overlay-header-counters">
+                        <i @click="showPrev()" class="fa fa-arrow-left show-prev-btn"></i>
 
-                    {{currentImageIndex + 1}} / {{imagesSrc.length}}
+                        {{currentImageIndex + 1}} / {{imagesSrc.length}}
 
-                    <i @click="showNext()" class="fa fa-arrow-right show-next-btn"></i>
+                        <i @click="showNext()" class="fa fa-arrow-right show-next-btn"></i>
+                    </div>
+
+                    <div class="overlay-header-close-btn-block">
+                        <i @click="closeOverlay()" class="fa fa-times close-overlay-btn"></i>
+                    </div>
                 </div>
 
-                <div class="overlay-header-close-btn-block">
-                    <i @click="closeOverlay()" class="fa fa-times close-overlay-btn"></i>
+
+                <div class="preview-overlay-content" @click.self="closeOverlay">
+                    <!--<transition-group name="fade" tag="div" style="width: 100%">-->
+                        <lazy-load-image
+                            :image-name="imageSrc"
+                            v-for="(imageSrc, index) in imagesNames"
+                            v-show="index === currentImageIndex"
+                            style="width: 100%; height: auto"
+                        ></lazy-load-image>
+                    <!--</transition-group>-->
                 </div>
             </div>
-
-            <div class="preview-overlay-content" @click.self="closeOverlay">
-                <lazy-load-image
-                    :image-name="imageSrc"
-                    v-for="(imageSrc, index) in imagesNames"
-                    v-show="index === currentImageIndex"
-                ></lazy-load-image>
-            </div>
-        </div>
+        </transition>
     </div>
 </template>
 
@@ -70,9 +76,9 @@
 
         methods: {
             openPreviewOverlay(index) {
-                [document.body, document.documentElement].forEach((element) => {
-                    element.classList.add('no-scroll');
-                });
+                // [document.body, document.documentElement].forEach((element) => {
+                //     element.classList.add('no-scroll');
+                // });
 
                 console.log(index)
 
@@ -81,11 +87,13 @@
             },
 
             closeOverlay() {
-                [document.body, document.documentElement].forEach((element) => {
-                    element.classList.remove('no-scroll');
-                });
-
                 this.overlayShown = false;
+            },
+
+            enablePageScroll() {
+                // [document.body, document.documentElement].forEach((element) => {
+                //     element.classList.remove('no-scroll');
+                // });
             },
 
             showNext() {

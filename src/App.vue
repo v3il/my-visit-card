@@ -1,8 +1,25 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{
+    'mobile': isMobile,
+    'desktop': !isMobile,
+  }">
     <router-view/>
   </div>
 </template>
+
+<script>
+  export default {
+    data() {
+      return {
+        isMobile: false,
+      }
+    },
+
+    created() {
+      this.isMobile = 'onorientationchange' in window;
+    }
+  }
+</script>
 
 <style>
     @import "assets/fonts-css/pe-font.css";
@@ -41,6 +58,7 @@
 
     html.no-scroll, body.no-scroll {
       overflow-y: hidden;
+      padding-right: 15px;
     }
 
     body {
@@ -50,5 +68,13 @@
         color: #4c4c4c;
         font-size: 16px;
         overflow-x: hidden;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .3s;
+    }
+
+    .fade-enter, .fade-leave-to {
+      opacity: 0;
     }
 </style>
