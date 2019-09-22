@@ -53,14 +53,14 @@
         /* https://stackoverflow.com/a/47964779 */
         filter: blur(0.2px);
         display: block;
-        overflow: hidden;
+        /*overflow: hidden;*/
     }
 
-    .lazy-image--blurred {
-        filter: blur(2px);
-    }
+    /*.lazy-image--blurred {*/
+        /*filter: blur(2px);*/
+    /*}*/
 
-    .desktop .lazy-image {
-        transition: filter 0.3s;
-    }
+    /*.desktop .lazy-image {*/
+        /*transition: filter 0.3s;*/
+    /*}*/
 </style>

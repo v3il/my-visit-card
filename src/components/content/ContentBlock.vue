@@ -1,11 +1,11 @@
 <template>
     <section class="content">
         <content-header></content-header>
-        <transition name="fade">
+        <!--<transition name="fade">-->
             <keep-alive>
                 <router-view/>
             </keep-alive>
-        </transition>
+        <!--</transition>-->
     </section>
 </template>
 
