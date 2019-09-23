@@ -1,28 +1,28 @@
 <template>
-    <div class="content__header header-block">
+    <div class="header-block">
         <div class="header-block__avatar-block">
             <div class="header-block__avatar" :style="{ backgroundImage: `url(${avatar.src})` }"></div>
         </div>
 
-        <div class="header-block__intro-block intro-block">
-            <h3 class="intro-block__greetings">{{$t("message.hello")}}</h3>
-            <h2 class="intro-block__name">{{$t("message.name")}}</h2>
-            <h5 class="intro-block__specialization">{{$t("message.profession")}}</h5>
+        <div class="header-block__intro-block">
+            <h3 class="header-block__greetings">{{$t("message.hello")}}</h3>
+            <h2 class="header-block__name">{{$t("message.name")}}</h2>
+            <h5 class="header-block__specialization">{{$t("message.specialization")}}</h5>
 
-            <div class="intro-block__about">
+            <div class="header-block__about">
                 {{$t("message.about1", { age })}}
                 <br>
                 {{$t("message.about2")}}
             </div>
 
-            <div class="intro-block__nav-tabs">
+            <div class="header-block__nav-tabs">
                 <div
-                    class="intro-block__nav-tab"
+                    class="header-block__nav-tab"
                     v-for="tabData in tabs"
-                    :class="{'intro-block__nav-tab--active': isTabActive(tabData.toProp.name)}"
+                    :class="{'header-block__nav-tab--active': isTabActive(tabData.toProp.name)}"
                 >
-                    <router-link class="intro-block__nav-link" :to="tabData.toProp">{{tabData.tabText}}</router-link>
-                    <div class="intro-block__nav-line"></div>
+                    <router-link class="header-block__nav-link" :to="tabData.toProp">{{tabData.tabText}}</router-link>
+                    <div class="header-block__nav-line"></div>
                 </div>
             </div>
         </div>
@@ -30,204 +30,185 @@
 </template>
 
 <script>
+    import { Component, Watch } from 'vue-property-decorator';
+
     import avatar from '../../assets/images/a.jpg';
 
-    export default {
-        data() {
-            return {
-                avatar,
-                activeRouteName: null,
+    @Component()
+    export default class ContentHeader {
+        avatar;
+        activeRouteName = null;
+        age = new Date().getFullYear() - 1994 - 1;
 
-                tabs: [
-                    {
-                        tabText: this.$t('message.aboutMeBtn'),
-                        toProp: {
-                            name: "about-section"
-                        }
-                    },
-
-                    {
-                        tabText: this.$t('message.portfolio'),
-                        toProp: {
-                            name: "portfolio-section"
-                        }
-                    }
-                ]
-            }
-        },
-
-        computed: {
-            age() {
-                const date = new Date();
-                return date.getFullYear() - 1994 - 1;
-            }
-        },
-
-        methods: {
-            isTabActive(tabName) {
-                return this.activeRouteName === tabName;
+        tabs = [
+            {
+                tabText: this.$t('message.aboutMeBtn'),
+                toProp: {
+                    name: "about-section"
+                }
             },
 
-            setActiveRouteName(routeName) {
-                this.activeRouteName = routeName;
+            {
+                tabText: this.$t('message.portfolio'),
+                toProp: {
+                    name: "portfolio-section"
+                }
             }
-        },
+        ];
 
-        watch: {
-            $route(to) {
-                this.setActiveRouteName(to.name);
-            }
-        },
+        isTabActive(tabName) {
+            return this.activeRouteName === tabName;
+        }
 
-        created() {
+        setActiveRouteName(routeName) {
+            this.activeRouteName = routeName;
+        }
+
+        @Watch('$route', { immediate: true })
+        onRouteChange() {
             this.setActiveRouteName(this.$route.name);
         }
     }
 </script>
 
-<style>
-    .content__header {
+<style scoped lang="less">
+    .header-block {
         background: #eaebed;
         display: flex;
-    }
 
-    .header-block__avatar-block {
-        padding-left: 6px;
-        width: 100%;
-    }
-
-    .header-block__avatar {
-        /*background: url('../../assets/images/a.jpg');*/
-        max-width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        min-width: 350px;
-        background-size: 130%;
-    }
-
-    .intro-block {
-        margin: 110px 120px 110px 50px;
-    }
-
-    .intro-block__greetings {
-        text-transform: uppercase;
-        color: #4c4c4c;
-        font-size: 30px;
-        font-weight: 400;
-        font-family: Exo2;
-        line-height: 40px;
-    }
-
-    .intro-block__name {
-        text-transform: uppercase;
-        color: #4c4c4c;
-        font-size: 48px;
-        font-weight: 400;
-        font-family: Exo2;
-        line-height: 50px;
-    }
-
-    .intro-block__specialization {
-        text-transform: uppercase;
-        color: #3971ff;
-        letter-spacing: 1.92px;
-        font-family: RobotoRegular;
-        padding: 15px 18px 13px 19px;
-        font-weight: 400;
-        font-size: 16px;
-        border-top: 1px solid #4c4c4c;
-        border-bottom: 1px solid #4c4c4c;
-        margin-top: 24px;
-        display: inline-block;
-    }
-
-    .intro-block__about {
-        margin-top: 50px;
-        line-height: 30px;
-        font-weight: 400;
-        color: #4c4c4c;
-        font-size: 16px;
-    }
-
-    .intro-block__nav-tabs {
-        margin-top: 50px;
-        display: flex;
-    }
-
-    .intro-block__nav-tab {
-        margin-right: 94px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .intro-block__nav-tab:last-child {
-        margin-right: 0;
-    }
-
-    .intro-block__nav-link {
-        text-decoration: none;
-        text-transform: uppercase;
-        line-height: 30px;
-        font-size: 16px;
-        color: #4c4c4c;
-        font-family: RobotoMedium;
-        font-weight: 500;
-        transition: color 0.5s ease;
-        min-width: 150px;
-    }
-
-    .intro-block__nav-line {
-        height: 2px;
-        background-color: #3971ff;
-        width: 50px;
-        margin-top: 7px;
-        transition: width 0.5s ease;
-    }
-
-    .intro-block__nav-tab:hover .intro-block__nav-link,
-    .intro-block__nav-tab--active .intro-block__nav-link {
-        color: #3971ff;
-    }
-
-    .intro-block__nav-tab:hover .intro-block__nav-line,
-    .intro-block__nav-tab--active .intro-block__nav-line {
-        width: 150px;
-    }
-
-    @media screen and (max-width: 800px) {
-        .content__header {
-            flex-direction: column;
-            align-items: center;
+        &__avatar-block {
+            padding-left: 6px;
+            width: 100%;
         }
 
-        .header-block__avatar-block {
-            height: 350px;
-            padding: 0;
+        &__avatar {
+            max-width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            min-width: 350px;
+            background-size: 130%;
         }
 
-        .header-block__avatar {
-            background-size: 100%;
-            background-position: 0% 25%;
-            min-width: 0;
+        &__intro-block {
+            margin: 110px 120px 110px 50px;
         }
-    }
 
-    @media screen and (max-width: 450px) {
-        .intro-block__nav-tabs {
+        &__greetings {
+            text-transform: uppercase;
+            color: #4c4c4c;
+            font-size: 30px;
+            font-weight: 400;
+            font-family: Exo2;
+            line-height: 40px;
+        }
+
+        &__name {
+            text-transform: uppercase;
+            color: #4c4c4c;
+            font-size: 48px;
+            font-weight: 400;
+            font-family: Exo2;
+            line-height: 50px;
+        }
+
+        &__specialization {
+            text-transform: uppercase;
+            color: #3971ff;
+            letter-spacing: 1.92px;
+            font-family: RobotoRegular;
+            padding: 15px 18px 13px 19px;
+            font-weight: 400;
+            font-size: 16px;
+            border-top: 1px solid #4c4c4c;
+            border-bottom: 1px solid #4c4c4c;
+            margin-top: 24px;
+            display: inline-block;
+        }
+
+        &__about {
+            margin-top: 50px;
+            line-height: 30px;
+            font-weight: 400;
+            color: #4c4c4c;
+            font-size: 16px;
+        }
+
+        &__nav-tabs {
+            margin-top: 50px;
+            display: flex;
+        }
+
+        &__nav-tab {
+            margin-right: 94px;
+            display: flex;
             flex-direction: column;
         }
 
-        .intro-block__nav-tab {
+        &__nav-tab:last-child {
             margin-right: 0;
-            margin-bottom: 25px;
         }
 
-        .content__info-block {
-            padding: 25px;
+        &__nav-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            line-height: 30px;
+            font-size: 16px;
+            color: #4c4c4c;
+            font-family: RobotoMedium;
+            font-weight: 500;
+            transition: color 0.5s ease;
+            min-width: 150px;
         }
 
-        .intro-block {
-            margin: 25px;
+        &__nav-line {
+            height: 2px;
+            background-color: #3971ff;
+            width: 50px;
+            margin-top: 7px;
+            transition: width 0.5s ease;
+        }
+
+        &__nav-tab:hover &__nav-link,
+        &__nav-tab--active &__nav-link {
+            color: #3971ff;
+        }
+
+        &__nav-tab:hover &__nav-line,
+        &__nav-tab--active &__nav-line {
+            width: 150px;
+        }
+
+        @media screen and (max-width: 800px) {
+            & {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &__avatar-block {
+                height: 350px;
+                padding: 0;
+            }
+
+            &__avatar {
+                background-size: 100%;
+                background-position: 0 25%;
+                min-width: 0;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            &__nav-tabs {
+                flex-direction: column;
+            }
+
+            &__nav-tab {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+
+            &__intro-block {
+                margin: 25px;
+            }
         }
     }
 </style>
