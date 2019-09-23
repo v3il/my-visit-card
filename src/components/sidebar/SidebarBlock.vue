@@ -2,7 +2,7 @@
     <aside class="sidebar" :class="{'sidebar--opened': sidebarOpened}">
         <div class="sidebar__fixed-container">
             <h2 class="sidebar__name-title">{{$t('message.name')}}</h2>
-            <h3 class="sidebar__specialization-title">{{$t('message.profession')}}</h3>
+            <h3 class="sidebar__specialization-title">{{$t('message.specialization')}}</h3>
 
             <ul class="sidebar__nav">
                 <sidebar-link-item

@@ -1,7 +1,7 @@
 <template>
     <div class="header-block">
         <div class="header-block__avatar-block">
-            <div class="header-block__avatar" :style="{ backgroundImage: `url(${avatar.src})` }"></div>
+            <div class="header-block__avatar" :style="{ backgroundImage: `url(${ava.src})` }"></div>
         </div>
 
         <div class="header-block__intro-block">
@@ -30,43 +30,31 @@
 </template>
 
 <script>
+    import Vue from 'vue';
     import { Component, Watch } from 'vue-property-decorator';
 
     import avatar from '../../assets/images/a.jpg';
 
     @Component()
-    export default class ContentHeader {
-        avatar;
+    export default class ContentHeader extends Vue {
+        ava = avatar;
         activeRouteName = null;
         age = new Date().getFullYear() - 1994 - 1;
 
-        tabs = [
-            {
-                tabText: this.$t('message.aboutMeBtn'),
-                toProp: {
-                    name: "about-section"
-                }
-            },
-
-            {
-                tabText: this.$t('message.portfolio'),
-                toProp: {
-                    name: "portfolio-section"
-                }
-            }
-        ];
+        created() {
+            this.tabs = [
+                { tabText: this.$t('message.aboutMeBtn'), toProp: { name: 'about-section' } },
+                { tabText: this.$t('message.portfolio'), toProp: { name: 'portfolio-section' } },
+            ];
+        }
 
         isTabActive(tabName) {
             return this.activeRouteName === tabName;
         }
 
-        setActiveRouteName(routeName) {
-            this.activeRouteName = routeName;
-        }
-
         @Watch('$route', { immediate: true })
         onRouteChange() {
-            this.setActiveRouteName(this.$route.name);
+            this.activeRouteName = this.$route.name;
         }
     }
 </script>
@@ -179,10 +167,8 @@
         }
 
         @media screen and (max-width: 800px) {
-            & {
-                flex-direction: column;
-                align-items: center;
-            }
+            flex-direction: column;
+            align-items: center;
 
             &__avatar-block {
                 height: 350px;
