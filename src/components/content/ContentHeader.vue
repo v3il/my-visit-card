@@ -1,7 +1,7 @@
 <template>
     <div class="header-block">
         <div class="header-block__avatar-block">
-            <div class="header-block__avatar" :style="{ backgroundImage: `url(${ava.src})` }"></div>
+            <lazy-load-image class="header-block__avatar" image-name="a.jpg"></lazy-load-image>
         </div>
 
         <div class="header-block__intro-block">
@@ -33,11 +33,14 @@
     import Vue from 'vue';
     import { Component, Watch } from 'vue-property-decorator';
 
-    import avatar from '../../assets/images/a.jpg';
+    import LazyLoadImage from '@/components/LazyLoadImage.vue';
 
-    @Component()
+    @Component({
+        components: {
+            LazyLoadImage,
+        }
+    })
     export default class ContentHeader extends Vue {
-        ava = avatar;
         activeRouteName = null;
         age = new Date().getFullYear() - 1994 - 1;
 
@@ -67,14 +70,14 @@
         &__avatar-block {
             padding-left: 6px;
             width: 100%;
+            max-width: 400px;
         }
 
         &__avatar {
-            max-width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            min-width: 350px;
-            background-size: 130%;
+            height: 680px;
+            width: 380px;
+            /*object-fit: none;*/
+            /*object-position: 0 30%;*/
         }
 
         &__intro-block {
@@ -166,19 +169,22 @@
             width: 150px;
         }
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 820px) {
             flex-direction: column;
             align-items: center;
 
             &__avatar-block {
                 height: 350px;
                 padding: 0;
+                max-width: 100%;
             }
 
             &__avatar {
-                background-size: 100%;
-                background-position: 0 25%;
-                min-width: 0;
+                max-width: 100%;
+                width: 100%;
+                height: 100%;
+                object-position: 0 25%;
+                object-fit: cover;
             }
         }
 

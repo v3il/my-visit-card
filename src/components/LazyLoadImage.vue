@@ -1,5 +1,10 @@
 <template>
-    <img :src="currentSrc" class="lazy-image" :class="{ 'lazy-image--blurred': !imageLoaded }" v-on="$listeners">
+    <img
+        :src="currentSrc"
+        class="lazy-image"
+        :class="{ 'lazy-image--blurred': !imageLoaded }"
+        v-on="$listeners"
+    >
 </template>
 
 <script>
