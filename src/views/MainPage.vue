@@ -131,34 +131,6 @@
             });
         },
 
-        // mounted() {
-        //     const targets = document.querySelectorAll('img');
-        //
-        //     const lazyLoad = target => {
-        //         const io = new IntersectionObserver((entries, observer) => {
-        //             console.log(entries)
-        //             entries.forEach(entry => {
-        //                 console.log('😍');
-        //
-        //                 if (entry.isIntersecting) {
-        //                     const img = entry.target;
-        //                     const src = img.getAttribute('data-src');
-        //
-        //                     img.setAttribute('src', src);
-        //                     img.removeAttribute('data-src');
-        //                     // img.classList.add('fade');
-        //
-        //                     observer.disconnect();
-        //                 }
-        //             });
-        //         });
-        //
-        //         io.observe(target)
-        //     };
-        //
-        //     targets.forEach(lazyLoad);
-        // },
-
         methods: {
             getCurrentPageSidebarItems() {
                 const router = this.$router;
@@ -286,7 +258,7 @@
     @media screen and (max-width: 1500px) {
         .social-networks-float {
             top: auto;
-            bottom: 80px;
+            bottom: 60px;
             border: 1px solid #a7a7a7;
             transform: none;
             opacity: 0.5;

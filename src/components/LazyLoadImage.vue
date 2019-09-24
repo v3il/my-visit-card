@@ -48,19 +48,18 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
     .lazy-image {
         /* https://stackoverflow.com/a/47964779 */
         filter: blur(0.2px);
         display: block;
-        /*overflow: hidden;*/
+
+        &--blurred {
+            filter: blur(2px);
+        }
     }
 
-    /*.lazy-image--blurred {*/
-        /*filter: blur(2px);*/
-    /*}*/
-
-    /*.desktop .lazy-image {*/
-        /*transition: filter 0.3s;*/
-    /*}*/
+    .desktop .lazy-image {
+        transition: filter 0.3s;
+    }
 </style>

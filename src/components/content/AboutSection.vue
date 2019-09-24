@@ -8,19 +8,23 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+    import { Component } from 'vue-property-decorator';
+
     import Skills from '@/components/about/Skills';
     import Experience from '@/components/about/Experience';
     import Education from '@/components/about/Education';
     import ContactMe from '@/components/about/ContactMe';
 
-    export default {
+    @Component({
         components: {
             Skills,
             Experience,
             Education,
             ContactMe,
         },
-    }
+    })
+    export default class AboutSection extends Vue {}
 </script>
 
 <style>

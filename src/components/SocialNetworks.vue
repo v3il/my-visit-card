@@ -12,71 +12,71 @@
 </template>
 
 <script>
-    export default {
-        name: "SocialNetworks",
+    import Vue from 'vue';
+    import { Component } from 'vue-property-decorator';
 
-        data() {
-            return {
-                socialNetworks: {
-                    phone: {
-                        href: 'tel:+380675892392',
-                        title: 'message.myPhone'
-                    },
+    @Component()
+    export default class SocialNetworks extends Vue {
+        socialNetworks = {
+            phone: {
+                href: 'tel:+380675892392',
+                title: 'message.myPhone'
+            },
 
-                    telegram: {
-                        href: 'https://t.me/veil_94',
-                        title: 'message.myTelegram'
-                    },
+            telegram: {
+                href: 'https://t.me/veil_94',
+                title: 'message.myTelegram'
+            },
 
-                    skype: {
-                        href: 'skype:D_Kit94?chat',
-                        title: 'message.mySkype'
-                    },
+            skype: {
+                href: 'skype:D_Kit94?chat',
+                title: 'message.mySkype'
+            },
 
-                    github: {
-                        href: 'https://github.com/v3il',
-                        title: 'message.myGithub'
-                    },
+            github: {
+                href: 'https://github.com/v3il',
+                title: 'message.myGithub'
+            },
 
-                    linkedin: {
-                        href: 'https://www.linkedin.com/in/diki/',
-                        title: 'message.myLinkedIn'
-                    },
+            linkedin: {
+                href: 'https://www.linkedin.com/in/diki/',
+                title: 'message.myLinkedIn'
+            },
 
-                    instagram: {
-                        href: 'https://www.instagram.com/dimakit6/',
-                        title: 'message.myInstagram'
-                    },
-                },
-            }
+            instagram: {
+                href: 'https://www.instagram.com/dimakit6/',
+                title: 'message.myInstagram'
+            },
         }
     }
 </script>
 
-<style scoped>
-    .social-networks__list {
-        display: flex;
-    }
-
-    .social-networks__item {
-        font-weight: 400;
-        color: #4c4c4c;
-        font-size: 30px;
-        margin-right: 20px;
-        transition: color 0.5s ease;
-    }
-
-    .social-networks__item .social-networks__icon.fa-github {
-        font-size: 33px;
-    }
-
-    @media screen and (max-width: 360px) {
-        .social-networks__item {
-            margin-right: 30px;
+<style scoped lang="less">
+    .social-networks {
+        &__list {
+            display: flex;
         }
-    }
 
-    .social-networks__item:hover {
-        color: #3971ff;
+        &__item {
+            font-weight: 400;
+            color: #4c4c4c;
+            font-size: 30px;
+            margin-right: 20px;
+            transition: color 0.5s ease;
+        }
+
+        &__item &__icon.fa-github {
+            font-size: 33px;
+        }
+
+        &__item:hover {
+            color: #3971ff;
+        }
+
+        @media screen and (max-width: 360px) {
+            &__item {
+                margin-right: 30px;
+            }
+        }
     }
 </style>
