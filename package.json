@@ -5,11 +5,11 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
-    "deploy": "node ./node_modules/firebase-tools/bin/firebase deploy"
+    "test:dev": "jest --no-cache --watch",
+    "test": "jest --no-cache"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
     "vue": "^2.5.13",
     "vue-i18n": "^8.12.0",
     "vue-router": "^3.0.1"
@@ -23,11 +23,12 @@
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@vue/cli-plugin-babel": "^3.0.0-alpha.11",
     "@vue/cli-service": "^3.0.0-alpha.11",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "lqip-loader": "^2.2.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.0.3",
+    "vue-jest": "^3.0.5",
     "vue-property-decorator": "^8.2.2",
     "vue-template-compiler": "^2.5.13"
   },
@@ -39,6 +40,11 @@
   "postcss": {
     "plugins": {
       "autoprefixer": {}
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm test"
     }
   },
   "browserslist": [

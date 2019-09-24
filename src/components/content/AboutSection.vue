@@ -8,17 +8,10 @@
 </template>
 
 <script>
-    // import firebase from "firebase";
-    // import firebaseConfig from "../../../firebase.config";
-    //
-    // import EventBus from "@/components/EventBus";
-
     import Skills from '@/components/about/Skills';
     import Experience from '@/components/about/Experience';
     import Education from '@/components/about/Education';
     import ContactMe from '@/components/about/ContactMe';
-
-    // import "@/vendor/popped-element/Tooltip";
 
     export default {
         components: {
@@ -27,36 +20,6 @@
             Education,
             ContactMe,
         },
-
-        methods: {
-            // async sendResponse() {
-            //     const {name, email, message} = this;
-            //
-            //     try {
-            //         await this.db
-            //             .collection("responses")
-            //             .add({ name, email, message });
-            //
-            //         EventBus.$emit("notification", {
-            //             type: "success",
-            //             message: "Your message was successfully sent, thank you!"
-            //         });
-            //     } catch(error) {
-            //         EventBus.$emit("notification", {
-            //             type: "error",
-            //             message: "Something went wrong :( Please, try again later."
-            //         });
-            //     }
-            // }
-        },
-
-        created() {
-            // if(!firebase.apps.length) {
-            //     firebase.initializeApp(firebaseConfig);
-            // }
-            //
-            // this.db = firebase.firestore();
-        }
     }
 </script>
 
@@ -368,7 +331,7 @@
         }
     }
 
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 600px) {
         .intro-block__nav-tabs {
             flex-direction: column;
         }

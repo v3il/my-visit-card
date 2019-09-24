@@ -8,28 +8,45 @@
                 <sidebar-link-item
                     v-for="linkItem in items"
                     :item="linkItem"
+                    :key="linkItem.name"
                     @scrollToInfoBlock="emitScrollToInfoBlock(linkItem)"
                 ></sidebar-link-item>
             </ul>
         </div>
 
         <div class="sidebar__open-menu-btn" :class="{ active: sidebarOpened }" @click="emitSidebarClose">
-            <i class="fa fa-chevron-left" v-if="sidebarOpened"></i>
-            <i class="fa fa-chevron-right" v-else></i>
+            <i class="fa fa-chevron-left sidebar__open-menu-btn-icon" v-if="sidebarOpened"></i>
+            <i class="fa fa-chevron-right sidebar__open-menu-btn-icon" v-else></i>
         </div>
     </aside>
 </template>
 
 <script>
+    import Vue from 'vue';
+    import { Component } from 'vue-property-decorator';
+
     import SidebarLinkItem from "@/components/sidebar/SidebarLinkItem.vue";
 
-    export default {
-        props: ["items", "sidebarOpened"],
+    const Props = Vue.extend({
+        props: {
+            items: {
+                type: Array,
+                required: true,
+            },
 
+            sidebarOpened: {
+                type: Boolean,
+                required: true,
+            },
+        },
+    });
+
+    @Component({
         components: {
             SidebarLinkItem
         },
-
+    })
+    export default class SidebarBlock extends Props {
         mounted() {
             const clickHandler = (event) => {
                 const clickedElement = event.target;
@@ -44,24 +61,21 @@
             this.$once('hook:beforeDestroy', () => {
                 document.removeEventListener('click', clickHandler);
             })
-        },
+        }
 
-        methods: {
-            emitScrollToInfoBlock(linkItem) {
-                this.$emit("scrollToInfoBlock", linkItem);
-            },
+        emitScrollToInfoBlock(linkItem) {
+            this.$emit("scrollToInfoBlock", linkItem);
+        }
 
-            emitSidebarClose() {
-                this.$emit('toggle-sidebar');
-            },
+        emitSidebarClose() {
+            this.$emit('toggle-sidebar');
         }
     }
 </script>
 
-<style>
+<style scoped lang="less">
     .sidebar {
         border-right: 1px solid #a7a7a7;
-        transition: transform 0.6s ease-in-out;
         z-index: 2;
         position: fixed;
         background: #f3f3f3;
@@ -69,77 +83,76 @@
         top: 0;
         padding: 63px 30px 0 30px;
         width: 250px;
-    }
 
-    .sidebar.sidebar--opened {
-        transform: translateX(0);
-    }
-
-    .sidebar__fixed-container {
-        position: fixed;
-    }
-
-    .sidebar__name-title {
-        font-size: 24px;
-        text-transform: uppercase;
-        line-height: 30px;
-        color: #333;
-        font-weight: bold;
-        font-family: Exo2,serif;
-    }
-
-    .sidebar__specialization-title {
-        font-size: 16px;
-        color: #3971ff;
-        font-family: RobotoLight,serif;
-        margin-top: 15px;
-        line-height: 30px;
-        font-weight: 300;
-    }
-
-    .sidebar__nav {
-        margin-top: 50px;
-        list-style: none;
-    }
-
-    .sidebar__open-menu-btn {
-        display: none;
-        position: absolute;
-        bottom: 10px;
-        right: -50px;
-        background: #f3f3f3;
-        border: 1px solid #a7a7a7;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-        width: 40px;
-        z-index: 3;
-        cursor: pointer;
-        padding: 6px;
-        opacity: 0.5;
-        transition: opacity 0.3s;
-    }
-
-    .sidebar__open-menu-btn i {
-        margin-left: 2px;
-    }
-
-    .sidebar__open-menu-btn.active i {
-        margin-left: -2px;
-    }
-
-    .sidebar__open-menu-btn:hover {
-        opacity: 1;
-    }
-
-    @media screen and (max-width: 1150px) {
-        .sidebar__open-menu-btn {
-            display: flex;
+        &__fixed-container {
+            position: fixed;
         }
 
-        .sidebar {
+        &__name-title {
+            font-size: 24px;
+            text-transform: uppercase;
+            line-height: 30px;
+            color: #333;
+            font-weight: bold;
+            font-family: Exo2,serif;
+        }
+
+        &__specialization-title {
+            font-size: 16px;
+            color: #3971ff;
+            font-family: RobotoLight,serif;
+            margin-top: 15px;
+            line-height: 30px;
+            font-weight: 300;
+        }
+
+        &__nav {
+            margin-top: 50px;
+            list-style: none;
+        }
+
+        &__open-menu-btn {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            right: -50px;
+            background: #f3f3f3;
+            border: 1px solid #a7a7a7;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            z-index: 3;
+            cursor: pointer;
+            padding: 6px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        &__open-menu-btn &__open-menu-btn-icon {
+            margin-left: 2px;
+        }
+
+        &__open-menu-btn.active &__open-menu-btn-icon {
+            margin-left: -2px;
+        }
+
+        &__open-menu-btn:hover {
+            opacity: 1;
+        }
+
+        @media screen and (max-width: 1150px) {
+            transition: transform 0.6s ease-in-out;
             transform: translateX(-100%);
+
+            &__open-menu-btn {
+                display: flex;
+            }
+
+            &--opened {
+                transform: translateX(0);
+            }
         }
     }
 </style>

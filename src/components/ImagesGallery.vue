@@ -6,6 +6,7 @@
                 v-for="(imageSrc, index) in imagesNames"
                 class="gallery-item"
                 @click="openPreviewOverlay(index)"
+                :key="`mini-${imageSrc}`"
             ></lazy-load-image>
         </div>
 
@@ -29,6 +30,7 @@
                 <div class="preview-overlay-content" @click.self="closeOverlay">
                     <lazy-load-image
                         :image-name="imageSrc"
+                        :key="imageSrc"
                         v-for="(imageSrc, index) in imagesNames"
                         v-show="index === currentImageIndex"
                     ></lazy-load-image>

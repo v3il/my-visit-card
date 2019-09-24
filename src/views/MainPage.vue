@@ -231,7 +231,7 @@
     }
 </script>
 
-<style>
+<style scoped lang="less">
     .page {
         max-width: 1350px;
         margin: 0 auto;
@@ -275,7 +275,7 @@
         background: #f3f3f3;
         flex-direction: column;
         align-items: center;
-        padding: 6px;
+        padding: 4px;
         border-radius: 18px;
     }
 
@@ -285,7 +285,16 @@
 
     @media screen and (max-width: 1500px) {
         .social-networks-float {
-            display: none !important;
+            top: auto;
+            bottom: 80px;
+            border: 1px solid #a7a7a7;
+            transform: none;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 </style>
