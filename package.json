@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build --modern",
-    "test:dev": "jest --no-cache --watch",
-    "test": "jest --no-cache"
+    "test:dev": "jest --no-cache --watch --passWithNoTests",
+    "test": "jest --no-cache --passWithNoTests"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",

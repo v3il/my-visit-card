@@ -39,7 +39,7 @@
                     },
 
                     linkedin: {
-                        href: 'https://www.linkedin.com/in/dmitry-kit-826a00145/',
+                        href: 'https://www.linkedin.com/in/diki/',
                         title: 'message.myLinkedIn'
                     },
 
