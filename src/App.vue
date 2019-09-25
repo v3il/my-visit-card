@@ -22,32 +22,37 @@
 </script>
 
 <style lang="less">
-    @import "assets/fonts-css/pe-font.css";
+    /*@import "assets/fonts-css/pe-font.css";*/
     @import "../node_modules/font-awesome/css/font-awesome.css";
 
     @font-face {
         font-family: "Exo2";
         src: url("./assets/fonts/Exo2-Regular.ttf") format("truetype");
+        font-display: swap;
     }
 
     @font-face {
         font-family: "Exo2SemiBold";
         src: url("./assets/fonts/Exo2-SemiBold.ttf") format("truetype");
+        font-display: swap;
     }
 
     @font-face {
         font-family: "RobotoRegular";
         src: url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
+        font-display: swap;
     }
 
     @font-face {
         font-family: "RobotoMedium";
         src: url("./assets/fonts/Roboto-Medium.ttf") format("truetype");
+        font-display: swap;
     }
 
     @font-face {
         font-family: "RobotoLight";
         src: url("./assets/fonts/Roboto-Light.ttf") format("truetype");
+        font-display: swap;
     }
 
     * {
