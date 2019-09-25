@@ -145,7 +145,9 @@
 
     .gallery-item {
         max-width: 170px;
-        /*width: 100%;*/
+        width: 100%;
+        height: 80px;
+        object-fit: cover;
         display: block;
         margin-right: 10px;
         margin-bottom: 10px;

@@ -8,16 +8,7 @@
         ></sidebar-block>
 
         <content-block></content-block>
-
-        <social-networks class="social-networks-float">
-            <template slot-scope="{ networks }">
-                <a v-for="(value, key) in networks" :key="key" :href="value.href"
-                   target="_blank" class="social-networks__item social-networks-float__item"
-                >
-                    <i :class="`fa fa-${key}`" class="social-networks__icon social-networks-float__item"></i>
-                </a>
-            </template>
-        </social-networks>
+        <social-networks></social-networks>
 
         <div class="page__scroll-top" @click="smoothScrollToY(0, 300)" v-show="currentScrollTop > 300">
             <i class="fa fa-chevron-up"></i>
@@ -72,12 +63,12 @@
                         tag: "education",
                         isActive: false,
                     },
-                    {
-                        text: this.$t('message.contact'),
-                        link: "#",
-                        tag: "contact",
-                        isActive: false,
-                    },
+                    // {
+                    //     text: this.$t('message.contact'),
+                    //     link: "#",
+                    //     tag: "contact",
+                    //     isActive: false,
+                    // },
                 ],
 
                 currentScrollTop: 0,
@@ -237,36 +228,5 @@
 
     .page__scroll-top:hover {
         opacity: 1;
-    }
-
-    .social-networks-float {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 10px;
-        background: #f3f3f3;
-        flex-direction: column;
-        align-items: center;
-        padding: 4px;
-        border-radius: 18px;
-    }
-
-    .social-networks-float__item.social-networks__item {
-        margin: 3px 0 !important;
-    }
-
-    @media screen and (max-width: 1500px) {
-        .social-networks-float {
-            top: auto;
-            bottom: 60px;
-            border: 1px solid #a7a7a7;
-            transform: none;
-            opacity: 0.5;
-            transition: opacity 0.3s;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
     }
 </style>

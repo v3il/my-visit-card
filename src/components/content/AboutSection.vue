@@ -3,7 +3,7 @@
         <skills />
         <experience />
         <education />
-        <contact-me />
+        <!--<contact-me />-->
     </div>
 </template>
 

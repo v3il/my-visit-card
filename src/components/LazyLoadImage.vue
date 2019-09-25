@@ -1,37 +1,31 @@
 <template>
-    <img
-        :src="currentSrc"
-        class="lazy-image"
-        :class="{ 'lazy-image--blurred': !imageLoaded }"
-        v-on="$listeners"
-    >
+    <img :src="currentSrc" class="lazy-image" v-on="$listeners" v-if="imageLoaded">
+    <div v-else :style="{ backgroundColor: image.palette[0] }" class="lazy-image_overlay"></div>
 </template>
 
 <script>
-    export default {
-        name: "LazyLoadImage",
+    import Vue from 'vue';
+    import { Component } from 'vue-property-decorator';
 
+    const Props = Vue.extend({
         props: {
             imageName: {
                 type: String,
                 required: true,
             },
         },
+    });
 
-        data() {
-            return {
-                image: {},
-                currentSrc: '',
-                imageLoaded: false,
-            }
-        },
+    @Component()
+    export default class LazyLoadImage extends Props {
+        image = {};
+        currentSrc = '';
+        imageLoaded = false;
 
         created() {
             const images = require.context('@/assets/images/', false);
             this.image = images(`./${this.imageName}`);
-
-            this.currentSrc = this.image.preSrc;
-        },
+        }
 
         mounted() {
             const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -49,22 +43,16 @@
             this.$once('hook:beforeDestroy', () => {
                 imageObserver.disconnect();
             });
-        },
+        }
     }
 </script>
 
 <style scoped lang="less">
     .lazy-image {
-        /* https://stackoverflow.com/a/47964779 */
-        filter: blur(0.2px);
         display: block;
 
-        &--blurred {
-            filter: blur(2px);
+        &_overlay {
+            opacity: 0.5;
         }
-    }
-
-    .desktop .lazy-image {
-        transition: filter 0.3s;
     }
 </style>
