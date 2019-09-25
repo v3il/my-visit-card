@@ -10,7 +10,7 @@
         <content-block></content-block>
         <social-networks></social-networks>
 
-        <div class="page__scroll-top" @click="smoothScrollToY(0, 300)" v-show="currentScrollTop > 300">
+        <div class="page__scroll-top" @click="smoothScrollToY(0, 300)">
             <i class="fa fa-chevron-up"></i>
         </div>
     </div>

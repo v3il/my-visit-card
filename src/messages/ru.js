@@ -28,7 +28,7 @@ export default {
     myPhone: 'Позвонить мне',
     myGithub: 'Мой Github',
     myLinkedIn: 'Мой LinkedIn',
-    myInstagram: 'Мой (Аккаунт моего кота) Instagram',
+    myInstagram: 'Мой Instagram (Аккаунт моего кота)',
     frontEndDev: 'Front-end разработчик',
     jobSession: 'Период: с {since} по {before}',
     cpv2: 'Панель управления сайтом uCoz 2.0',

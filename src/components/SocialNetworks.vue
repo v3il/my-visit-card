@@ -6,8 +6,11 @@
                 :key="key"
                 class="social-networks__item"
                 :class="{'social-networks__item--separated': value.separated}"
-                :title="$t(value.title)"
                 @click="value.onClick"
+                v-tooltip="{
+                    content: $t(value.title),
+                    placement: 'left-center',
+                }"
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
             </div>
@@ -107,6 +110,17 @@
             padding: 4px;
             border-radius: 18px;
             display: flex;
+
+            top: auto;
+            bottom: 60px;
+            border: 1px solid #a7a7a7;
+            transform: none;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 1;
+            }
         }
 
         &__item {
@@ -135,16 +149,8 @@
 
         @media screen and (max-width: 1480px) {
             &__list {
-                top: auto;
-                bottom: 60px;
-                border: 1px solid #a7a7a7;
-                transform: none;
-                opacity: 0.5;
-                transition: opacity 0.3s;
 
-                &:hover {
-                    opacity: 1;
-                }
+
             }
         }
     }

@@ -8,7 +8,10 @@
                 v-if="project.githubLink"
                 class="project_github-link"
                 target="_blank"
-                :title="$t('message.githubLink')"
+                v-tooltip="{
+                    placement: 'top-center',
+                    content: $t('message.githubLink'),
+                }"
             >
                 <i class="fa fa-github"></i>
             </a>
@@ -18,7 +21,10 @@
                 v-if="project.demoLink"
                 class="project_demo-link"
                 target="_blank"
-                :title="$t('message.demoLink')"
+                v-tooltip="{
+                    placement: 'top-center',
+                    content: $t('message.demoLink'),
+                }"
             >
                 <i class="fa fa-eye"></i>
             </a>
