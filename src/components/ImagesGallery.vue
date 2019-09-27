@@ -12,21 +12,6 @@
 
         <transition name="fade">
             <div class="preview-overlay" v-show="overlayShown">
-                <div class="preview-overlay-header">
-                    <div class="overlay-header-counters">
-                        <i @click="showPrev()" class="fa fa-arrow-left show-prev-btn"></i>
-
-                        {{currentImageIndex + 1}} / {{imagesSrc.length}}
-
-                        <i @click="showNext()" class="fa fa-arrow-right show-next-btn"></i>
-                    </div>
-
-                    <div class="overlay-header-close-btn-block">
-                        <i @click="closeOverlay()" class="fa fa-times close-overlay-btn"></i>
-                    </div>
-                </div>
-
-
                 <div class="preview-overlay-content" @click.self="closeOverlay">
                     <lazy-load-image
                         :image-name="imageSrc"
@@ -34,6 +19,18 @@
                         v-for="(imageSrc, index) in imagesNames"
                         v-show="index === currentImageIndex"
                     ></lazy-load-image>
+                </div>
+
+                <div @click="showPrev" class="show-prev-btn">
+                    <i class="fa fa-arrow-left"></i>
+                </div>
+
+                <div @click="showNext" class="show-next-btn">
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+
+                <div class="close-overlay-btn" @click="closeOverlay">
+                    <i class="fa fa-times"></i>
                 </div>
             </div>
         </transition>
@@ -135,7 +132,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="less">
     .images-gallery {
         display: flex;
         align-items: flex-start;
@@ -167,21 +164,11 @@
         overflow-y: scroll;
     }
 
-    .preview-overlay-header {
-        height: 50px;
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 24px;
-        color: #fff;
-    }
-
     .preview-overlay-content {
         display: flex;
         align-items: center;
-        padding: 24px;
-        background: #121212;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.6);
         cursor: pointer;
         overflow-y: auto;
         min-height: 100%;
@@ -191,37 +178,84 @@
         height: auto;
         display: block;
         margin: 0 auto;
-        max-width: 100%;
-        min-width: 100%;
+        max-width: calc(100% - 80px);
+        /*min-width: 100%;*/
     }
 
-    .overlay-header-counters {
-        margin: auto;
+    @media screen and (max-width: 850px) {
+        .preview-overlay-content {
+            padding: 6px;
+        }
     }
 
     .show-prev-btn {
-        margin-right: 12px;
+        position: fixed;
+        left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #FFFFFF;
+        color: #242424;
+        opacity: 0.7;
+        cursor: pointer;
+        border-radius: 3px;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     .show-next-btn {
-        margin-left: 12px;
-    }
-
-    .close-overlay-btn, .show-next-btn, .show-prev-btn {
-        cursor: pointer;
-        transition: color 0.5s;
-        line-height: 50px;
-        width: 50px;
-        text-align: center;
-    }
-
-    .close-overlay-btn:hover, .show-next-btn:hover, .show-prev-btn:hover {
-        color: #4c4c4c;
-    }
-
-    .overlay-header-close-btn-block {
         position: absolute;
         right: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #FFFFFF;
+        color: #242424;
+        opacity: 0.7;
+        cursor: pointer;
+        border-radius: 3px;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .close-overlay-btn {
+        cursor: pointer;
+        transition: opacity 0.5s;
+        text-align: center;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 30px;
+        background-color: #FFFFFF;
+        color: #242424;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        & i {
+            vertical-align: text-top;
+        }
     }
 
     @media screen and (max-width: 380px) {
@@ -229,10 +263,4 @@
             max-width: none;
         }
     }
-
-    /*@media screen and (max-width: 600px) {*/
-        /*.preview-overlay-content img {*/
-            /*width: 95%;*/
-        /*}*/
-    /*}*/
 </style>

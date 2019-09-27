@@ -3,7 +3,7 @@
         <sidebar-block
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
-            @scrollToInfoBlock="scrollToInfoBlock($event)"
+            @scrollToInfoBlock="scrollToInfoBlock"
             @toggle-sidebar="sidebarOpened = !sidebarOpened"
         ></sidebar-block>
 
