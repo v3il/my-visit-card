@@ -6,7 +6,7 @@ module.exports = {
             .use('lqip-loader')
             .loader('lqip-loader')
             .tap(() => ({
-                base64: false,
+                base64: true,
                 palette: true,
             }))
             .end();
