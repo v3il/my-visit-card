@@ -51,6 +51,7 @@
     .lazy-image {
         display: block;
         filter: blur(2px);
+        width: 100%;
 
         &--loaded {
             filter: blur(0.2px);
