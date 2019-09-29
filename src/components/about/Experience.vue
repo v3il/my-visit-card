@@ -17,8 +17,8 @@
                         <h3 class="experience-info-block__experience-degree">{{$t('message.frontEndDev')}}</h3>
                         <h3 class="experience-info-block__experience-period">{{$t('message.jobSession', {
                             since: 2015,
-                            before: 'текущий момент',
-                            })}}</h3>
+                            before: $t('message.now'),
+                        })}}</h3>
                     </div>
                 </div>
 

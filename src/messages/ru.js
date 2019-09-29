@@ -10,6 +10,7 @@ export default {
     skillsTitle: 'Профессиональные навыки',
     frontEndTechs: 'Front-end технологии',
     backEndTechs: 'Back-end технологии',
+    now: 'текущий момент',
     skills: 'Навыки',
     experience: 'Опыт',
     education: 'Образование',
