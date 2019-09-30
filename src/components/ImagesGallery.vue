@@ -23,15 +23,15 @@
                     ></lazy-load-image>
                 </div>
 
-                <a ref="closeOverlayBtn" href="javascript://"  class="close-overlay-btn" @click="closeOverlay" tabindex="0">
+                <a ref="closeOverlayBtn" aria-label="Close" href="javascript://"  class="close-overlay-btn" @click="closeOverlay">
                     <i class="fa fa-times"></i>
                 </a>
 
-                <a href="javascript://"  @click="showPrev" class="show-prev-btn" tabindex="0">
+                <a href="javascript://" aria-label="Prev" @click="showPrev" class="show-prev-btn">
                     <i class="fa fa-arrow-left"></i>
                 </a>
 
-                <a href="javascript://"  @click="showNext" class="show-next-btn" tabindex="0">
+                <a href="javascript://" aria-label="Next" @click="showNext" class="show-next-btn">
                     <i class="fa fa-arrow-right"></i>
                 </a>
             </div>

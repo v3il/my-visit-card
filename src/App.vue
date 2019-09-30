@@ -17,6 +17,7 @@
 
     created() {
       this.isMobile = 'onorientationchange' in window;
+      document.documentElement.setAttribute('lang', this.$i18n.locale);
     }
   }
 </script>
