@@ -9,6 +9,7 @@
                 class="project_github-link"
                 target="_blank"
                 :aria-label="`${project.name}-code`"
+                rel="noopener noreferrer"
                 v-tooltip="{
                     placement: 'top-center',
                     content: $t('message.githubLink'),
@@ -23,6 +24,7 @@
                 class="project_demo-link"
                 target="_blank"
                 :aria-label="`${project.name}-demo`"
+                rel="noopener noreferrer"
                 v-tooltip="{
                     placement: 'top-center',
                     content: $t('message.demoLink'),

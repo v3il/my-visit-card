@@ -188,9 +188,14 @@
         /*height: auto;*/
         display: block;
         margin: 0 auto;
-        max-width: calc(100% - 80px);
-        height: 95vh;
+        max-width: calc(100% - 100px);
+        max-height: 95vh;
         width: auto;
+        height: auto;
+
+        @media screen and (max-width: 600px) {
+            max-width: 100%;
+        }
     }
 
     @media screen and (max-width: 850px) {
@@ -225,11 +230,30 @@
         left: 5px;
         top: 50%;
         transform: translateY(-50%);
+
+        @media screen and (max-width: 600px) {
+            position: fixed;
+            top: auto;
+            transform: none;
+            left: auto;
+            bottom: 15px;
+            right: 55px;
+        }
     }
 
     .show-next-btn {
         right: 5px;
         top: 50%;
+        transform: translateY(-50%);
+
+        @media screen and (max-width: 600px) {
+            position: fixed;
+            top: auto;
+            transform: none;
+            left: auto;
+            bottom: 15px;
+            right: 5px;
+        }
     }
 
     .close-overlay-btn {
@@ -241,9 +265,9 @@
         }
     }
 
-    @media screen and (max-width: 380px) {
-        .gallery-item {
-            max-width: none;
-        }
-    }
+    /*@media screen and (max-width: 380px) {*/
+        /*.gallery-item {*/
+            /*max-width: none;*/
+        /*}*/
+    /*}*/
 </style>
