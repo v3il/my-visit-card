@@ -1,7 +1,7 @@
 <template>
     <div class="header-block">
         <div class="header-block__avatar-block">
-            <lazy-load-image class="header-block__avatar" image-name="a.jpg"></lazy-load-image>
+            <lazy-load-image class="header-block__avatar" image-name="a.jpg" alt="avatar"></lazy-load-image>
         </div>
 
         <div class="header-block__intro-block">

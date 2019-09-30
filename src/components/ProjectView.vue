@@ -8,6 +8,7 @@
                 v-if="project.githubLink"
                 class="project_github-link"
                 target="_blank"
+                :aria-label="`${project.name}-code`"
                 v-tooltip="{
                     placement: 'top-center',
                     content: $t('message.githubLink'),
@@ -21,6 +22,7 @@
                 v-if="project.demoLink"
                 class="project_demo-link"
                 target="_blank"
+                :aria-label="`${project.name}-demo`"
                 v-tooltip="{
                     placement: 'top-center',
                     content: $t('message.demoLink'),

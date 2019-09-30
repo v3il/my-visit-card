@@ -1,19 +1,22 @@
 <template>
     <div class="social-networks__list">
         <slot :networks="socialNetworks">
-            <div
+            <a
                 v-for="(value, key) in socialNetworks"
                 :key="key"
                 class="social-networks__item"
                 :class="{'social-networks__item--separated': value.separated}"
                 @click="value.onClick"
+                rel="noopener noreferrer"
+                href="javascript://"
+                :aria-label="key"
                 v-tooltip="{
                     content: $t(value.title),
                     placement: 'left-center',
                 }"
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
-            </div>
+            </a>
         </slot>
     </div>
 </template>
