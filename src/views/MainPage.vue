@@ -8,11 +8,16 @@
         ></sidebar-block>
 
         <content-block></content-block>
-        <social-networks></social-networks>
 
-        <div class="page__scroll-top" @click="smoothScrollToY(0, 300)">
-            <i class="fa fa-chevron-up"></i>
-        </div>
+        <transition name="slideRight">
+            <social-networks v-show="!sidebarOpened" />
+        </transition>
+
+        <transition name="slideRight">
+            <div v-show="!sidebarOpened" class="page__scroll-top" @click="smoothScrollToY(0, 300)">
+                <i class="fa fa-chevron-up"></i>
+            </div>
+        </transition>
     </div>
 </template>
 
@@ -219,7 +224,7 @@
         cursor: pointer;
         padding: 6px;
         opacity: 0.5;
-        transition: opacity 0.3s;
+        transition: opacity 0.3s, transform 0.6s ease-in-out;
     }
 
     .page__scroll-top i {

@@ -84,6 +84,14 @@
       opacity: 0;
     }
 
+    .slideRight-enter-active, .slideRight-leave-active {
+      transition: transform .6s;
+    }
+
+    .slideRight-enter, .slideRight-leave-to {
+      transform: translateX(100px);
+    }
+
     .tooltip {
       display: block !important;
       z-index: 10000;

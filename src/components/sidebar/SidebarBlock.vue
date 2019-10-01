@@ -1,8 +1,12 @@
 <template>
     <aside class="sidebar" :class="{'sidebar--opened': sidebarOpened}">
+        <div class="sidebar__avatar-block">
+            <lazy-load-image class="sidebar__avatar" image-name="avatar.jpg" alt="avatar"></lazy-load-image>
+        </div>
+
         <div class="sidebar__fixed-container">
-            <h2 class="sidebar__name-title">{{$t('message.name')}}</h2>
-            <h3 class="sidebar__specialization-title">{{$t('message.specialization')}}</h3>
+            <!--<h2 class="sidebar__name-title">{{$t('message.name')}}</h2>-->
+            <!--<h3 class="sidebar__specialization-title">{{$t('message.specialization')}}</h3>-->
 
             <ul class="sidebar__nav">
                 <sidebar-link-item
@@ -26,6 +30,7 @@
     import { Component } from 'vue-property-decorator';
 
     import SidebarLinkItem from "@/components/sidebar/SidebarLinkItem.vue";
+    import LazyLoadImage from "@/components/LazyLoadImage.vue";
 
     const Props = Vue.extend({
         props: {
@@ -43,7 +48,8 @@
 
     @Component({
         components: {
-            SidebarLinkItem
+            SidebarLinkItem,
+            LazyLoadImage,
         },
     })
     export default class SidebarBlock extends Props {
@@ -82,10 +88,21 @@
         bottom: 0;
         top: 0;
         padding: 63px 30px 0 30px;
-        width: 250px;
+        width: 280px;
 
-        &__fixed-container {
-            position: fixed;
+        &__avatar-block {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        &__avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #3971ff;
+            display: block;
         }
 
         &__name-title {
@@ -153,6 +170,10 @@
             &--opened {
                 transform: translateX(0);
             }
+        }
+
+        @media screen and (max-width: 600px) {
+            padding-top: 25px;
         }
     }
 </style>
