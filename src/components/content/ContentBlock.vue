@@ -25,7 +25,7 @@
 
 <style>
     .content {
-        margin-left: 250px;
+        margin-left: 280px;
     }
 
     @media screen and (max-width: 1150px) {

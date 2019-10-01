@@ -104,8 +104,6 @@
     .social-networks {
         &__list {
             position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
             right: 10px;
             background: #f3f3f3;
             flex-direction: column;
@@ -117,9 +115,8 @@
             top: auto;
             bottom: 60px;
             border: 1px solid #a7a7a7;
-            transform: none;
             opacity: 0.5;
-            transition: opacity 0.3s;
+            transition: opacity 0.3s, transform 0.6s ease-in-out;
 
             &:hover {
                 opacity: 1;

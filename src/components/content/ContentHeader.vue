@@ -1,9 +1,5 @@
 <template>
     <div class="header-block">
-        <div class="header-block__avatar-block">
-            <lazy-load-image class="header-block__avatar" image-name="a.jpg" alt="avatar"></lazy-load-image>
-        </div>
-
         <div class="header-block__intro-block">
             <h3 class="header-block__greetings">{{$t("message.hello")}}</h3>
             <h2 class="header-block__name">{{$t("message.name")}}</h2>
@@ -67,21 +63,21 @@
         background: #eaebed;
         display: flex;
 
-        &__avatar-block {
-            padding-left: 6px;
-            width: 100%;
-            max-width: 400px;
-        }
+        /*&__avatar-block {*/
+            /*padding-left: 6px;*/
+            /*width: 100%;*/
+            /*max-width: 400px;*/
+        /*}*/
 
-        &__avatar {
-            height: 680px;
-            width: 380px;
-            /*object-fit: none;*/
-            /*object-position: 0 30%;*/
-        }
+        /*&__avatar {*/
+            /*height: 680px;*/
+            /*width: 380px;*/
+            /*!*object-fit: none;*!*/
+            /*!*object-position: 0 30%;*!*/
+        /*}*/
 
         &__intro-block {
-            margin: 110px 120px 110px 50px;
+            margin: 63px 120px 63px 95px;
         }
 
         &__greetings {
@@ -169,22 +165,11 @@
             width: 150px;
         }
 
-        @media screen and (max-width: 820px) {
-            flex-direction: column;
-            align-items: center;
+        @media screen and (max-width: 850px) {
+            padding: 0;
 
-            &__avatar-block {
-                height: 350px;
-                padding: 0;
-                max-width: 100%;
-            }
-
-            &__avatar {
-                max-width: 100%;
-                width: 100%;
-                height: 100%;
-                object-position: 0 25%;
-                object-fit: cover;
+            &__intro-block {
+                margin: 50px;
             }
         }
 
