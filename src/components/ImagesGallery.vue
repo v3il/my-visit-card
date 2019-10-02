@@ -21,7 +21,7 @@
             <div class="gallery__overlay" v-show="overlayShown">
                 <transition-group name="fade" tag="div" class="gallery__overlay-slide" @click.self="closeOverlay">
                     <div class="gallery__overlay-spinner-wrap" v-show="!allImagesLoaded" key="loader">
-                        <i class="fa fa-spinner fa-spin gallery__overlay-spinner"></i>
+                        <i class="fa fa-spinner fa-spin"></i>
                     </div>
 
                     <div v-show="allImagesLoaded" key="list" class="gallery__overlay-image-wrap" @click.self="closeOverlay">
