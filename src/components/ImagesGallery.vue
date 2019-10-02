@@ -1,39 +1,55 @@
 <template>
-    <div>
-        <div class="images-gallery">
+    <div class="gallery">
+        <div class="gallery__previews">
             <a
                 href="javascript://"
                 v-for="(imageSrc, index) in imagesNames"
                 :key="`mini-${imageSrc}`"
-                class="gallery-item"
+                class="gallery__preview-link"
                 @click="openPreviewOverlay(index)"
             >
-                <lazy-load-image :image-name="`mini-${imageSrc}`" :alt="imageSrc" :aria-label="imageSrc" />
+                <lazy-load-image
+                    class="gallery__preview-image"
+                    :image-name="`mini-${imageSrc}`"
+                    :alt="imageSrc"
+                    :aria-label="imageSrc"
+                />
             </a>
         </div>
 
         <transition name="fade">
-            <div class="preview-overlay" v-show="overlayShown">
-                <div class="preview-overlay-content" @click.self="closeOverlay">
-                    <lazy-load-image
-                        :image-name="imageSrc"
-                        :key="imageSrc"
-                        v-for="(imageSrc, index) in imagesNames"
-                        v-show="index === currentImageIndex"
-                    ></lazy-load-image>
+            <div class="gallery__overlay" v-show="overlayShown">
+                <div class="gallery__overlay-content" @click.self="closeOverlay">
+                    <transition-group name="fade" tag="div" class="gallery__overlay-slide">
+                        <div class="gallery__overlay-spinner-wrap" v-show="!allImagesLoaded" key="loader">
+                            <i class="fa fa-spinner fa-spin gallery__overlay-spinner"></i>
+                        </div>
+
+                        <div v-show="allImagesLoaded" key="list" class="gallery__overlay-image-wrap" @click.self="closeOverlay">
+                            <img
+                                v-for="(imageData, index) in images"
+                                :src="overlayRendered ? imageData.image.src : ''"
+                                :alt="imageData.imageName"
+                                :key="imageData.imageName"
+                                @load="imageData.loaded = true"
+                                v-show="currentImageIndex === index"
+                                class="gallery__overlay-image"
+                            >
+                        </div>
+                    </transition-group>
                 </div>
 
-                <a ref="closeOverlayBtn" aria-label="Close" href="javascript://"  class="close-overlay-btn" @click="closeOverlay">
+                <button ref="closeOverlayBtn" aria-label="Close" class="gallery__overlay-button gallery__overlay-button-close" @click="closeOverlay">
                     <i class="fa fa-times"></i>
-                </a>
+                </button>
 
-                <a href="javascript://" aria-label="Prev" @click="showPrev" class="show-prev-btn">
+                <button aria-label="Prev" @click="showPrev" class="gallery__overlay-button gallery__overlay-button-prev">
                     <i class="fa fa-arrow-left"></i>
-                </a>
+                </button>
 
-                <a href="javascript://" aria-label="Next" @click="showNext" class="show-next-btn">
+                <button aria-label="Next" @click="showNext" class="gallery__overlay-button gallery__overlay-button-next">
                     <i class="fa fa-arrow-right"></i>
-                </a>
+                </button>
             </div>
         </transition>
     </div>
@@ -52,32 +68,30 @@
         },
 
         data() {
-            const images = require.context('../assets/images/', false);
-
-            const imagesSrc = this.imagesNames.map((name) => {
-                return images(`./${name}`);
-            });
-
             return {
-                imagesSrc,
+                images: [],
+
+                currentImageIndex: 0,
 
                 overlayShown: false,
-                currentImageSrc: '',
+                overlayRendered: false,
 
                 focusedElBeforeOpen: null,
             }
         },
 
         computed: {
-            currentImageIndex() {
-                return this.imagesSrc.indexOf(this.currentImageSrc);
+            allImagesLoaded() {
+                return this.images.every(item => item.loaded);
             },
         },
 
         methods: {
             openPreviewOverlay(index) {
                 this.overlayShown = true;
-                this.currentImageSrc = this.imagesSrc[index];
+                this.currentImageIndex = index;
+
+                this.overlayRendered = true;
 
                 this.$nextTick(() => {
                     this.focusedElBeforeOpen = document.activeElement;
@@ -93,181 +107,220 @@
             showNext() {
                 let nextImageIndex = this.currentImageIndex + 1;
 
-                if(nextImageIndex > this.imagesSrc.length - 1) {
+                if(nextImageIndex > this.images.length - 1) {
                     nextImageIndex = 0;
                 }
 
-                this.currentImageSrc = this.imagesSrc[nextImageIndex];
+                this.currentImageIndex = nextImageIndex;
             },
 
             showPrev() {
                 let nextImageIndex = this.currentImageIndex - 1;
 
                 if(nextImageIndex < 0) {
-                    nextImageIndex = this.imagesSrc.length - 1;
+                    nextImageIndex = this.images.length - 1;
                 }
 
-                this.currentImageSrc = this.imagesSrc[nextImageIndex];
+                this.currentImageIndex = nextImageIndex;
             },
+        },
 
-            _keyUpListener(event) {
-                if(!this.overlayShown) {
+        created() {
+            const images = require.context('@/assets/images/', false);
+
+            this.images = this.imagesNames.map(imageName => ({
+                imageName,
+                image: images(`./${imageName}`),
+                loaded: false,
+            }));
+
+            const keyUpListener = (event) => {
+                if (!this.overlayShown) {
                     return;
                 }
 
+                const [ LEFT_ARROW_KEYCODE, ESC_KEYCODE, RIGHT_ARROW_KEYCODE ] = [ 37, 27, 39 ];
+
                 // Show prev image on left arrow hit
-                if(event.keyCode === 37) {
+                if(event.which === LEFT_ARROW_KEYCODE) {
                     this.showPrev();
                 }
 
                 // Show next image on right arrow hit
-                if(event.keyCode === 39) {
+                if(event.which === RIGHT_ARROW_KEYCODE) {
                     this.showNext();
                 }
 
                 // Close overlay on Escape hit
-                if(event.keyCode === 27) {
+                if(event.which === ESC_KEYCODE) {
                     this.closeOverlay();
                 }
-            }
-        },
+            };
 
-        created() {
-            window.addEventListener('keyup', this._keyUpListener);
-        },
+            window.addEventListener('keyup', keyUpListener);
 
-        beforeDestroy() {
-            window.removeEventListener('keyup', this._keyUpListener);
-        }
+            this.$once('hook:beforeDestroy', () => {
+                window.removeEventListener('keyup', keyUpListener);
+            });
+        },
     }
 </script>
 
 <style scoped lang="less">
-    .images-gallery {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .gallery-item {
-        max-width: 170px;
-        width: 100%;
-        height: 80px;
-        object-fit: cover;
-        display: block;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        cursor: pointer;
-        border-radius: 4px;
-        border: 1px solid rgba(76, 76, 76, 0.33);
-    }
-
-    .preview-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 9999;
-        min-height: 100vh;
-        /*overflow-y: scroll;*/
-    }
-
-    .preview-overlay-content {
-        display: flex;
-        align-items: center;
-        padding: 12px;
-        background: rgba(0, 0, 0, 0.6);
-        cursor: pointer;
-        overflow-y: auto;
-        min-height: 100%;
-    }
-
-    .preview-overlay-content img {
-        /*height: auto;*/
-        display: block;
-        margin: 0 auto;
-        max-width: calc(100% - 100px);
-        max-height: 95vh;
-        width: auto;
-        height: auto;
-
-        @media screen and (max-width: 600px) {
-            max-width: 100%;
-        }
-    }
-
-    @media screen and (max-width: 850px) {
-        .preview-overlay-content {
-            padding: 6px;
-        }
-    }
-
     @buttonsSize: 40px;
+    @layoutChangeMaxWidth: 750px;
 
-    .show-prev-btn, .show-next-btn, .close-overlay-btn {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.3s;
-        width: @buttonsSize;
-        height: @buttonsSize;
-        background-color: #FFFFFF;
-        color: #242424;
-        opacity: 0.7;
-        cursor: pointer;
-        border-radius: 3px;
-        text-decoration: none;
-
-        &:hover {
-            opacity: 1;
+    .gallery {
+        // Mini previews
+        &__previews {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-    }
 
-    .show-prev-btn {
-        left: 5px;
-        top: 50%;
-        transform: translateY(-50%);
-
-        @media screen and (max-width: 600px) {
-            position: fixed;
-            top: auto;
-            transform: none;
-            left: auto;
-            bottom: 15px;
-            right: 55px;
+        &__preview-link {
+            display: block;
+            width: 170px;
+            height: 80px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid rgb(167, 167, 167);
         }
-    }
 
-    .show-next-btn {
-        right: 5px;
-        top: 50%;
-        transform: translateY(-50%);
+        &__preview-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        @media screen and (max-width: 600px) {
+        // Overlay
+        &__overlay {
             position: fixed;
-            top: auto;
-            transform: none;
-            left: auto;
-            bottom: 15px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            min-height: 100vh;
+        }
+
+        &__overlay-content {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            overflow-y: auto;
+            min-height: 100%;
+        }
+
+        &__overlay-slide {
+            margin: 0 auto;
+            width: calc(100% - 100px);
+            height: 95vh;
+            position: relative;
+
+            @media screen and (max-width: @layoutChangeMaxWidth) {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        &__overlay-image-wrap {
+            margin: 0 auto;
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
+            display: flex;
+            align-items: center;
+
+            @media screen and (max-width: @layoutChangeMaxWidth) {
+                width: 100%;
+            }
+        }
+
+        &__overlay-image {
+            display: block;
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        &__overlay-spinner-wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            font-size: 50px;
+            color: #eaebed;
+        }
+
+        // Overlay buttons
+        &__overlay-button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s;
+            width: @buttonsSize;
+            height: @buttonsSize;
+            background-color: #FFFFFF;
+            color: #242424;
+            opacity: 0.7;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            border: 0;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        &__overlay-button-close {
+            top: 5px;
             right: 5px;
+
+            & i {
+                vertical-align: text-top;
+            }
+        }
+
+        &__overlay-button-prev {
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @media screen and (max-width: @layoutChangeMaxWidth) {
+                position: fixed;
+                top: auto;
+                transform: none;
+                left: auto;
+                bottom: 15px;
+                right: 55px;
+            }
+        }
+
+        &__overlay-button-next {
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @media screen and (max-width: @layoutChangeMaxWidth) {
+                position: fixed;
+                top: auto;
+                transform: none;
+                left: auto;
+                bottom: 15px;
+                right: 5px;
+            }
         }
     }
-
-    .close-overlay-btn {
-        top: 5px;
-        right: 5px;
-
-        & i {
-            vertical-align: text-top;
-        }
-    }
-
-    /*@media screen and (max-width: 380px) {*/
-        /*.gallery-item {*/
-            /*max-width: none;*/
-        /*}*/
-    /*}*/
 </style>
