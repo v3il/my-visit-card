@@ -19,25 +19,23 @@
 
         <transition name="fade">
             <div class="gallery__overlay" v-show="overlayShown">
-                <div class="gallery__overlay-content" @click.self="closeOverlay">
-                    <transition-group name="fade" tag="div" class="gallery__overlay-slide">
-                        <div class="gallery__overlay-spinner-wrap" v-show="!allImagesLoaded" key="loader">
-                            <i class="fa fa-spinner fa-spin gallery__overlay-spinner"></i>
-                        </div>
+                <transition-group name="fade" tag="div" class="gallery__overlay-slide" @click.self="closeOverlay">
+                    <div class="gallery__overlay-spinner-wrap" v-show="!allImagesLoaded" key="loader">
+                        <i class="fa fa-spinner fa-spin gallery__overlay-spinner"></i>
+                    </div>
 
-                        <div v-show="allImagesLoaded" key="list" class="gallery__overlay-image-wrap" @click.self="closeOverlay">
-                            <img
-                                v-for="(imageData, index) in images"
-                                :src="overlayRendered ? imageData.image.src : ''"
-                                :alt="imageData.imageName"
-                                :key="imageData.imageName"
-                                @load="imageData.loaded = true"
-                                v-show="currentImageIndex === index"
-                                class="gallery__overlay-image"
-                            >
-                        </div>
-                    </transition-group>
-                </div>
+                    <div v-show="allImagesLoaded" key="list" class="gallery__overlay-image-wrap" @click.self="closeOverlay">
+                        <img
+                            v-for="(imageData, index) in images"
+                            :src="overlayRendered ? imageData.image.src : ''"
+                            :alt="imageData.imageName"
+                            :key="imageData.imageName"
+                            @load="imageData.loaded = true"
+                            v-show="currentImageIndex === index"
+                            class="gallery__overlay-image"
+                        >
+                    </div>
+                </transition-group>
 
                 <button ref="closeOverlayBtn" aria-label="Close" class="gallery__overlay-button gallery__overlay-button-close" @click="closeOverlay">
                     <i class="fa fa-times"></i>
@@ -56,74 +54,75 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+    import { Component } from 'vue-property-decorator';
+
     import LazyLoadImage from './LazyLoadImage';
 
-    export default {
-        name: "ImagesGallery",
+    const Props = Vue.extend({
+        props: {
+            imagesNames: {
+                type: Array,
+                required: true,
+            },
+        },
+    });
 
-        props: ['imagesNames'],
-
+    @Component({
         components: {
             LazyLoadImage,
         },
+    })
+    export default class ImagesGallery extends Props {
+        images = [];
 
-        data() {
-            return {
-                images: [],
+        currentImageIndex = 0;
 
-                currentImageIndex: 0,
+        overlayShown = false;
+        overlayRendered = false;
 
-                overlayShown: false,
-                overlayRendered: false,
+        focusedElBeforeOpen = null;
 
-                focusedElBeforeOpen: null,
+        get allImagesLoaded() {
+            return this.images.every(item => item.loaded);
+        }
+
+        openPreviewOverlay(index) {
+            this.overlayShown = true;
+            this.currentImageIndex = index;
+
+            this.overlayRendered = true;
+
+            this.$nextTick(() => {
+                this.focusedElBeforeOpen = document.activeElement;
+                this.$refs.closeOverlayBtn.focus();
+            });
+        }
+
+        closeOverlay() {
+            this.overlayShown = false;
+            this.focusedElBeforeOpen.focus();
+        }
+
+        showNext() {
+            let nextImageIndex = this.currentImageIndex + 1;
+
+            if(nextImageIndex > this.images.length - 1) {
+                nextImageIndex = 0;
             }
-        },
 
-        computed: {
-            allImagesLoaded() {
-                return this.images.every(item => item.loaded);
-            },
-        },
+            this.currentImageIndex = nextImageIndex;
+        }
 
-        methods: {
-            openPreviewOverlay(index) {
-                this.overlayShown = true;
-                this.currentImageIndex = index;
+        showPrev() {
+            let nextImageIndex = this.currentImageIndex - 1;
 
-                this.overlayRendered = true;
+            if(nextImageIndex < 0) {
+                nextImageIndex = this.images.length - 1;
+            }
 
-                this.$nextTick(() => {
-                    this.focusedElBeforeOpen = document.activeElement;
-                    this.$refs.closeOverlayBtn.focus();
-                });
-            },
-
-            closeOverlay() {
-                this.overlayShown = false;
-                this.focusedElBeforeOpen.focus();
-            },
-
-            showNext() {
-                let nextImageIndex = this.currentImageIndex + 1;
-
-                if(nextImageIndex > this.images.length - 1) {
-                    nextImageIndex = 0;
-                }
-
-                this.currentImageIndex = nextImageIndex;
-            },
-
-            showPrev() {
-                let nextImageIndex = this.currentImageIndex - 1;
-
-                if(nextImageIndex < 0) {
-                    nextImageIndex = this.images.length - 1;
-                }
-
-                this.currentImageIndex = nextImageIndex;
-            },
-        },
+            this.currentImageIndex = nextImageIndex;
+        }
 
         created() {
             const images = require.context('@/assets/images/', false);
@@ -135,25 +134,23 @@
             }));
 
             const keyUpListener = (event) => {
-                if (!this.overlayShown) {
-                    return;
-                }
+                if (this.overlayShown) {
+                    const [ LEFT_ARROW_KEYCODE, ESC_KEYCODE, RIGHT_ARROW_KEYCODE ] = [ 37, 27, 39 ];
 
-                const [ LEFT_ARROW_KEYCODE, ESC_KEYCODE, RIGHT_ARROW_KEYCODE ] = [ 37, 27, 39 ];
+                    // Show prev image on left arrow hit
+                    if(event.which === LEFT_ARROW_KEYCODE) {
+                        this.showPrev();
+                    }
 
-                // Show prev image on left arrow hit
-                if(event.which === LEFT_ARROW_KEYCODE) {
-                    this.showPrev();
-                }
+                    // Show next image on right arrow hit
+                    if(event.which === RIGHT_ARROW_KEYCODE) {
+                        this.showNext();
+                    }
 
-                // Show next image on right arrow hit
-                if(event.which === RIGHT_ARROW_KEYCODE) {
-                    this.showNext();
-                }
-
-                // Close overlay on Escape hit
-                if(event.which === ESC_KEYCODE) {
-                    this.closeOverlay();
+                    // Close overlay on Escape hit
+                    if(event.which === ESC_KEYCODE) {
+                        this.closeOverlay();
+                    }
                 }
             };
 
@@ -162,7 +159,7 @@
             this.$once('hook:beforeDestroy', () => {
                 window.removeEventListener('keyup', keyUpListener);
             });
-        },
+        }
     }
 </script>
 
@@ -208,25 +205,20 @@
             min-height: 100vh;
         }
 
-        &__overlay-content {
-            display: flex;
-            align-items: center;
-            padding: 12px;
+        &__overlay-slide {
+            /*margin: 0 auto;*/
+            width: 100%;
+            height: 95vh;
+            position: relative;
             background: rgba(0, 0, 0, 0.7);
             cursor: pointer;
             overflow-y: auto;
             min-height: 100%;
-        }
 
-        &__overlay-slide {
-            margin: 0 auto;
-            width: calc(100% - 100px);
-            height: 95vh;
-            position: relative;
+            padding: 12px 50px;
 
             @media screen and (max-width: @layoutChangeMaxWidth) {
-                max-width: 100%;
-                width: 100%;
+                padding: 6px;
             }
         }
 
