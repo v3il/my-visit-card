@@ -29,8 +29,7 @@ export default {
     achievements: 'Achievements',
     cpDuty1: 'Adding the new solutions and supporting the old ones',
     cpDuty2: 'Improvement of the old and low-performance solutions',
-    cpDuty3:
-        'Development of cross-browser components according to the given mock-ups',
+    cpDuty3: 'Development of cross-browser components according to the given mock-ups',
     task: 'Task',
     result: 'Result',
     projectDescription: 'Description',
@@ -40,15 +39,12 @@ export default {
     cpTask4: 'Covered lots of code by Unit tests',
     cpTask5:
         "Wrote a lot of useful components like: site's widgets; comments management module; module of filters and mass operations for materials; categories tree view module and others",
-    cpResult1:
-        'The control panel has become more convenient when working with mobile devices',
+    cpResult1: 'The control panel has become more convenient when working with mobile devices',
     cpResult2:
         'The size of the site’s resources decreased by 20%, the project began to work faster and it became easier to maintain it',
-    cpResult3:
-        'The speed of developing new functionality and supporting the old one has increased',
+    cpResult3: 'The speed of developing new functionality and supporting the old one has increased',
     cpResult4: 'The stability of functional increased',
-    cpResult5:
-        'New components make it easy to configure the site, automate a large number of routine operations',
+    cpResult5: 'New components make it easy to configure the site, automate a large number of routine operations',
     cpDescription:
         'This project is a site administrator’s panel, where he can edit the appearance of the site, add / remove / edit materials from a variety of ready-made modules, manage user accounts, change site settings in general.',
     results: 'Results',
@@ -56,28 +52,21 @@ export default {
     ucalc: 'Statistics module for uCalc project',
     uCalcDescription:
         'uCalc is a constructor of interactive forms and calculators that can be easily integrated into your website. The statistics module allows the administrator to track and display in a convenient interactive form the number of displays of the calculator, the number of fill-in forms and other parameters, such as: gender, age or version of the users browser. It can also be used to integrate Yandex.Metrica and Google Analytics into a calculator in a couple of clicks.',
-    ucalcDuty1:
-        'Creating custom graphs of different types according to layouts',
-    ucalcDuty2:
-        'Visualization of data from the server using the created graphs',
-    ucalcDuty3:
-        'Creating a UI for integrating Yandex.Metrica and Google Analytics statistics into a project',
+    ucalcDuty1: 'Creating custom graphs of different types according to layouts',
+    ucalcDuty2: 'Visualization of data from the server using the created graphs',
+    ucalcDuty3: 'Creating a UI for integrating Yandex.Metrica and Google Analytics statistics into a project',
     mlDescription:
         'Mass Labeling is a semi-internal project written to automate a support job. Its main task is to automatically show a set of website designs for each employee (sites can be repeated among employees), so that he gives a subjective assessment of the site design from 1 to 10. Later, the arithmetic average of the estimates for each site is calculated and compared with the design estimate this site, which gave the neural network. One of the goals of the project is to improve the productivity of the support service by submitting only the necessary designs and maximizing the ease of setting an assessment. Another goal is to teach the neural network to automatically calculate the site score as accurately as possible without human intervention.',
-    mlDuty1:
-        'Developed the functionality for maintaining user accounts (accounts of employees / administrators)',
-    mlDuty2:
-        'Developed the functionality for user to select interface language',
+    mlDuty1: 'Developed the functionality for maintaining user accounts (accounts of employees / administrators)',
+    mlDuty2: 'Developed the functionality for user to select interface language',
     mlDuty3:
         'Developed the functionality for creating, editing, assigning tasks (for administrators). Tasks describe which design sets a particular employee should evaluate.',
     mlDuty4:
         'Developed the functionality for viewing statistics of the ratings of each employee: employee rating, average rating for this design, deviation from the average rating, etc.',
     mlDuty5: 'Developed the functionality of global system settings',
-    mlTask1:
-        'Integrated Webpack, re-wrote existing functionality using ES-modules, added minification for JS/CSS',
+    mlTask1: 'Integrated Webpack, re-wrote existing functionality using ES-modules, added minification for JS/CSS',
     mlTask2: 'Integrated i18n into the project',
-    mlResult1:
-        'It has become easier to work with the Front-end part of the project and develop new functionality',
+    mlResult1: 'It has become easier to work with the Front-end part of the project and develop new functionality',
     mlResult2: 'The project began to support Russian and English languages.',
     college: 'Cherkasy Polytechnic College',
     university: 'Cherkasy State Technological University',
@@ -89,10 +78,8 @@ export default {
         'Theme of graduation work is: design and creation of an Android application for a travel agency',
     bachelorGraduationWorkTopic:
         'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
-    masterGraduationWorkTopic:
-        'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
-    phdGraduationWorkTopic:
-        'Theme of graduation work is: creating a 3D model of x-ray research',
+    masterGraduationWorkTopic: 'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
+    phdGraduationWorkTopic: 'Theme of graduation work is: creating a 3D model of x-ray research',
 
     demoLink: 'Demo',
     githubLink: 'Github repository',
@@ -101,18 +88,15 @@ export default {
         'This project is a collection of answers to the most important questions regarding the development of the front-end "uCoz 2.0 Control Panel". It can be used by back-end developers and further front-end developers and contains instructions and recommendations on working with the main modules and development in general. <br> From the admin page, the project allows you to create, edit (using the built-in markdown editor) and delete questions and answers to them. The list of questions can be filtered for convenience.',
     sthDescription:
         'A small extension for Google Chrome, which allows you to automatically collect the prices of monitored in-game Steam items and automatically calculate the benefits when reselling them. Sends a push notification if the benefit of the item exceeds the value from the settings.',
-    ubikedayDescription:
-        'Thematic landing page made for the "uBikeDay 2019" event',
-    wpDescription:
-        'Landing for the internal contest "Best Promo Landing for WebTycoon"',
+    ubikedayDescription: 'Thematic landing page made for the "uBikeDay 2019" event',
+    wpDescription: 'Landing for the internal contest "Best Promo Landing for WebTycoon"',
 
     uAdvDescription: 'Development and improvement of uCoz advertising modules',
     uAdvDuty1:
         'Development of advertising modules for uCoz: sticker, full-screen video, push-subscriptions; finalization of ready-made solutions',
     uAdvDuty2: 'Updating the settings of the ad modules',
-    uAdvDuty3:
-        'Formation of advertising chains, changing the order of advertising modules in them',
+    uAdvDuty3: 'Formation of advertising chains, changing the order of advertising modules in them',
 
     phoneCopied: 'The phone number has been copied to clipboard',
-    emailCopied: 'The email has been copied to clipboard'
+    emailCopied: 'The email has been copied to clipboard',
 };

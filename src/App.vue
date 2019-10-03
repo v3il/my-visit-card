@@ -3,7 +3,7 @@
         id="app"
         :class="{
             mobile: isMobile,
-            desktop: !isMobile
+            desktop: !isMobile,
         }"
     >
         <router-view />
@@ -14,14 +14,14 @@
 export default {
     data() {
         return {
-            isMobile: false
+            isMobile: false,
         };
     },
 
     created() {
         this.isMobile = 'onorientationchange' in window;
         document.documentElement.setAttribute('lang', this.$i18n.locale);
-    }
+    },
 };
 </script>
 

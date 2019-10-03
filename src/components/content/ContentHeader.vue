@@ -19,15 +19,10 @@
                     v-for="(tabData, index) in tabs"
                     :key="`headerTab${index}`"
                     :class="{
-                        'header-block__nav-tab--active': isTabActive(
-                            tabData.toProp.name
-                        )
+                        'header-block__nav-tab--active': isTabActive(tabData.toProp.name),
                     }"
                 >
-                    <router-link
-                        class="header-block__nav-link"
-                        :to="tabData.toProp"
-                    >
+                    <router-link class="header-block__nav-link" :to="tabData.toProp">
                         {{ tabData.tabText }}
                     </router-link>
                     <div class="header-block__nav-line"></div>
@@ -45,8 +40,8 @@ import LazyLoadImage from '@/components/LazyLoadImage.vue';
 
 @Component({
     components: {
-        LazyLoadImage
-    }
+        LazyLoadImage,
+    },
 })
 export default class ContentHeader extends Vue {
     activeRouteName = null;
@@ -56,12 +51,12 @@ export default class ContentHeader extends Vue {
         this.tabs = [
             {
                 tabText: this.$t('message.aboutMeBtn'),
-                toProp: { name: 'about-section' }
+                toProp: { name: 'about-section' },
             },
             {
                 tabText: this.$t('message.portfolio'),
-                toProp: { name: 'portfolio-section' }
-            }
+                toProp: { name: 'portfolio-section' },
+            },
         ];
     }
 

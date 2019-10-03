@@ -18,8 +18,8 @@ export default {
     },
 
     components: {
-        ContentHeader
-    }
+        ContentHeader,
+    },
 };
 </script>
 

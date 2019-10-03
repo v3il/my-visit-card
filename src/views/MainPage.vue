@@ -14,11 +14,7 @@
         </transition>
 
         <transition name="slideRight">
-            <div
-                v-show="!sidebarOpened"
-                class="page__scroll-top"
-                @click="smoothScrollToY(0, 300)"
-            >
+            <div v-show="!sidebarOpened" class="page__scroll-top" @click="smoothScrollToY(0, 300)">
                 <i class="fa fa-chevron-up"></i>
             </div>
         </transition>
@@ -44,7 +40,7 @@ export default {
                 text: project.name,
                 link: '#',
                 tag: project.id,
-                isActive: index === 0
+                isActive: index === 0,
             };
         });
 
@@ -58,20 +54,20 @@ export default {
                     text: this.$t('message.skills'),
                     link: '#',
                     tag: 'skills',
-                    isActive: true
+                    isActive: true,
                 },
                 {
                     text: this.$t('message.experience'),
                     link: '#',
                     tag: 'experience',
-                    isActive: false
+                    isActive: false,
                 },
                 {
                     text: this.$t('message.education'),
                     link: '#',
                     tag: 'education',
-                    isActive: false
-                }
+                    isActive: false,
+                },
                 // {
                 //     text: this.$t('message.contact'),
                 //     link: "#",
@@ -80,14 +76,14 @@ export default {
                 // },
             ],
 
-            currentScrollTop: 0
+            currentScrollTop: 0,
         };
     },
 
     watch: {
         $route() {
             this.setCurrentPageSidebarItems(this.getCurrentPageSidebarItems());
-        }
+        },
     },
 
     created() {
@@ -98,27 +94,19 @@ export default {
 
             const viewportTop = window.scrollY;
             const viewportBottom = window.scrollY + window.innerHeight;
-            const infoBlocks = [
-                ...document.querySelectorAll('.js-scroll-to-target')
-            ];
+            const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')];
 
             this.currentScrollTop = viewportTop;
 
             this.deactivateAllSidebarItems();
 
             const infoBlocksInViewport = infoBlocks.filter(infoBlock => {
-                const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(
-                    infoBlock
-                );
+                const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(infoBlock);
                 const infoBlockHeight = infoBlock.clientHeight;
 
-                const infoBlockBottomPosition =
-                    infoBlockScrollOffset + infoBlockHeight;
+                const infoBlockBottomPosition = infoBlockScrollOffset + infoBlockHeight;
 
-                return (
-                    infoBlockBottomPosition > viewportTop &&
-                    infoBlockScrollOffset < viewportBottom
-                );
+                return infoBlockBottomPosition > viewportTop && infoBlockScrollOffset < viewportBottom;
             });
 
             if (infoBlocksInViewport.length) {
@@ -155,26 +143,19 @@ export default {
         },
 
         scrollToInfoBlock(clickedSideBarItem) {
-            const infoBlocks = [
-                ...document.querySelectorAll('.js-scroll-to-target')
-            ];
-            const clickedLinkIndex = this.currentPageSidebarItems.indexOf(
-                clickedSideBarItem
-            );
+            const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')];
+            const clickedLinkIndex = this.currentPageSidebarItems.indexOf(clickedSideBarItem);
 
             if (clickedLinkIndex >= 0) {
                 const infoBlock = infoBlocks[clickedLinkIndex];
-                const infoBlockScrollTop =
-                    this.getScrollTopOffsetOfElement(infoBlock) + 1;
+                const infoBlockScrollTop = this.getScrollTopOffsetOfElement(infoBlock) + 1;
 
                 this.smoothScrollToY(infoBlockScrollTop, 300);
             }
         },
 
         deactivateAllSidebarItems() {
-            this.currentPageSidebarItems.forEach(
-                sidebarItem => (sidebarItem.isActive = false)
-            );
+            this.currentPageSidebarItems.forEach(sidebarItem => (sidebarItem.isActive = false));
         },
 
         getScrollTopOffsetOfElement(element) {
@@ -203,14 +184,14 @@ export default {
                     window.requestAnimationFrame(step);
                 }
             });
-        }
+        },
     },
 
     components: {
         SidebarBlock,
         ContentBlock,
-        SocialNetworks
-    }
+        SocialNetworks,
+    },
 };
 </script>
 

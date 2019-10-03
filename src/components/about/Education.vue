@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="content__info-block info-block education-info-block js-scroll-to-target"
-        id="education"
-    >
+    <div class="content__info-block info-block education-info-block js-scroll-to-target" id="education">
         <div class="info-block__title-block">
             <h2 class="info-block__title">
                 {{ this.$t('message.education') }}
@@ -20,14 +17,9 @@
                 :key="index"
             >
                 <div class="education-info-block__education-summary">
-                    <div class="education-info-block__education-counter">
-                        0{{ index + 1 }}
-                    </div>
+                    <div class="education-info-block__education-counter">0{{ index + 1 }}</div>
                     <div class="education-info-block__education-name-block">
-                        <h1
-                            class="education-info-block__education-name"
-                            v-html="educationPlace.name"
-                        ></h1>
+                        <h1 class="education-info-block__education-name" v-html="educationPlace.name"></h1>
                         <h3 class="education-info-block__education-degree">
                             {{ educationPlace.degree }}
                         </h3>
@@ -57,42 +49,40 @@ export default {
                     degree: this.$t('message.phd'),
                     session: this.$t('message.jobSession', {
                         since: 2017,
-                        before: 2021
+                        before: 2021,
                     }),
-                    description: this.$t('message.phdGraduationWorkTopic')
+                    description: this.$t('message.phdGraduationWorkTopic'),
                 },
                 {
                     name: this.$t('message.university'),
                     degree: this.$t('message.master'),
                     session: this.$t('message.jobSession', {
                         since: 2016,
-                        before: 2017
+                        before: 2017,
                     }),
-                    description: this.$t('message.masterGraduationWorkTopic')
+                    description: this.$t('message.masterGraduationWorkTopic'),
                 },
                 {
                     name: this.$t('message.university'),
                     degree: this.$t('message.bachelor'),
                     session: this.$t('message.jobSession', {
                         since: 2014,
-                        before: 2016
+                        before: 2016,
                     }),
-                    description: this.$t('message.bachelorGraduationWorkTopic')
+                    description: this.$t('message.bachelorGraduationWorkTopic'),
                 },
                 {
                     name: this.$t('message.college'),
                     degree: this.$t('message.juniorSpecialist'),
                     session: this.$t('message.jobSession', {
                         since: 2010,
-                        before: 2014
+                        before: 2014,
                     }),
-                    description: this.$t(
-                        'message.juniorSpecialistGraduationWorkTopic'
-                    )
-                }
-            ]
+                    description: this.$t('message.juniorSpecialistGraduationWorkTopic'),
+                },
+            ],
         };
-    }
+    },
 };
 </script>
 

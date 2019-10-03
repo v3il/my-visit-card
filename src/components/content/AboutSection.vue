@@ -21,8 +21,8 @@ import ContactMe from '@/components/about/ContactMe';
         Skills,
         Experience,
         Education,
-        ContactMe
-    }
+        ContactMe,
+    },
 })
 export default class AboutSection extends Vue {}
 </script>

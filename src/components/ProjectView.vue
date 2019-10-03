@@ -12,7 +12,7 @@
                 rel="noopener noreferrer"
                 v-tooltip="{
                     placement: 'top-center',
-                    content: $t('message.githubLink')
+                    content: $t('message.githubLink'),
                 }"
             >
                 <i class="fa fa-github"></i>
@@ -27,7 +27,7 @@
                 rel="noopener noreferrer"
                 v-tooltip="{
                     placement: 'top-center',
-                    content: $t('message.demoLink')
+                    content: $t('message.demoLink'),
                 }"
             >
                 <i class="fa fa-eye"></i>
@@ -49,11 +49,7 @@
         </h3>
 
         <ul class="project_duties-list" v-if="project.duties">
-            <li
-                class="project_duty"
-                v-for="(duty, index) in project.duties"
-                :key="`duty${index}`"
-            >
+            <li class="project_duty" v-for="(duty, index) in project.duties" :key="`duty${index}`">
                 <div class="project_duty-pointer"></div>
 
                 <div class="project_duty-name">
@@ -62,19 +58,12 @@
             </li>
         </ul>
 
-        <h3
-            class="project_achievements-title"
-            v-if="project.achievements || project.achievementsList"
-        >
+        <h3 class="project_achievements-title" v-if="project.achievements || project.achievementsList">
             {{ $t('message.achievements') }}
         </h3>
 
         <ul class="project_duties-list" v-if="project.achievementsList">
-            <li
-                class="project_duty"
-                v-for="(duty, index) in project.achievementsList"
-                :key="`achievement${index}`"
-            >
+            <li class="project_duty" v-for="(duty, index) in project.achievementsList" :key="`achievement${index}`">
                 <div class="project_duty-pointer"></div>
 
                 <div class="project_duty-name">
@@ -119,10 +108,7 @@
             {{ $t('message.imageGalleryDescription') }}
         </p>
 
-        <images-gallery
-            :imagesNames="project.screenshots"
-            v-if="project.screenshots"
-        ></images-gallery>
+        <images-gallery :imagesNames="project.screenshots" v-if="project.screenshots"></images-gallery>
     </div>
 </template>
 
@@ -135,13 +121,13 @@ export default {
     props: {
         project: {
             type: Object,
-            required: true
-        }
+            required: true,
+        },
     },
 
     components: {
-        ImagesGallery
-    }
+        ImagesGallery,
+    },
 };
 </script>
 

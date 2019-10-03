@@ -1,11 +1,7 @@
 <template>
     <aside class="sidebar" :class="{ 'sidebar--opened': sidebarOpened }">
         <div class="sidebar__avatar-block">
-            <lazy-load-image
-                class="sidebar__avatar"
-                image-name="avatar.jpg"
-                alt="avatar"
-            ></lazy-load-image>
+            <lazy-load-image class="sidebar__avatar" image-name="avatar.jpg" alt="avatar"></lazy-load-image>
         </div>
 
         <div class="sidebar__fixed-container">
@@ -22,19 +18,9 @@
             </ul>
         </div>
 
-        <div
-            class="sidebar__open-menu-btn"
-            :class="{ active: sidebarOpened }"
-            @click="emitSidebarClose"
-        >
-            <i
-                class="fa fa-chevron-left sidebar__open-menu-btn-icon"
-                v-if="sidebarOpened"
-            ></i>
-            <i
-                class="fa fa-chevron-right sidebar__open-menu-btn-icon"
-                v-else
-            ></i>
+        <div class="sidebar__open-menu-btn" :class="{ active: sidebarOpened }" @click="emitSidebarClose">
+            <i class="fa fa-chevron-left sidebar__open-menu-btn-icon" v-if="sidebarOpened"></i>
+            <i class="fa fa-chevron-right sidebar__open-menu-btn-icon" v-else></i>
         </div>
     </aside>
 </template>
@@ -50,21 +36,21 @@ const Props = Vue.extend({
     props: {
         items: {
             type: Array,
-            required: true
+            required: true,
         },
 
         sidebarOpened: {
             type: Boolean,
-            required: true
-        }
-    }
+            required: true,
+        },
+    },
 });
 
 @Component({
     components: {
         SidebarLinkItem,
-        LazyLoadImage
-    }
+        LazyLoadImage,
+    },
 })
 export default class SidebarBlock extends Props {
     mounted() {

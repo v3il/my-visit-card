@@ -8,10 +8,10 @@ module.exports = {
             .loader('lqip-loader')
             .tap(() => ({
                 base64: true,
-                palette: true
+                palette: true,
             }))
             .end();
     },
 
-    lintOnSave: true
+    lintOnSave: true,
 };

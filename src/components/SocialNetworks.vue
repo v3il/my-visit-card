@@ -12,7 +12,7 @@
                 :aria-label="key"
                 v-tooltip="{
                     content: $t(value.title),
-                    placement: 'left-center'
+                    placement: 'left-center',
                 }"
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
@@ -40,7 +40,7 @@ export default class SocialNetworks extends Vue {
                         // todo: change alert to fancy popup
                         alert(this.$t('message.phoneCopied'));
                     }
-                }
+                },
             },
 
             at: {
@@ -52,49 +52,49 @@ export default class SocialNetworks extends Vue {
                         // todo: change alert to fancy popup
                         alert(this.$t('message.emailCopied'));
                     }
-                }
+                },
             },
 
             telegram: {
                 title: 'message.myTelegram',
                 onClick() {
                     window.open('https://t.me/veil_94');
-                }
+                },
             },
 
             skype: {
                 title: 'message.mySkype',
                 onClick() {
                     window.open('skype:D_Kit94?chat');
-                }
+                },
             },
 
             github: {
                 title: 'message.myGithub',
                 onClick() {
                     window.open('https://github.com/v3il');
-                }
+                },
             },
 
             linkedin: {
                 title: 'message.myLinkedIn',
                 onClick() {
                     window.open('https://www.linkedin.com/in/diki/');
-                }
+                },
             },
 
             instagram: {
                 title: 'message.myInstagram',
                 onClick() {
                     window.open('https://www.instagram.com/dimakit6/');
-                }
+                },
             },
 
             'map-marker': {
                 title: 'message.region',
                 separated: true,
-                onClick() {}
-            }
+                onClick() {},
+            },
         };
     }
 }

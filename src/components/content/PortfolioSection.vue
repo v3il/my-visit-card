@@ -18,14 +18,14 @@ import projects from '../../projects';
 
 export default {
     components: {
-        ProjectView
+        ProjectView,
     },
 
     data() {
         return {
-            projects
+            projects,
         };
-    }
+    },
 };
 </script>
 

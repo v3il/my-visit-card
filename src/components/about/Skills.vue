@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="content__info-block info-block skills-info-block js-scroll-to-target"
-        id="skills"
-    >
+    <div class="content__info-block info-block skills-info-block js-scroll-to-target" id="skills">
         <div class="info-block__title-block">
             <h2 class="info-block__title">{{ $t('message.skillsTitle') }}</h2>
             <div class="info-block__title-separator">
@@ -37,8 +34,7 @@
                                     <div class="list-item__pointer"></div>
 
                                     <div class="list-item__text">
-                                        Vue.js + vue-stack (vue-router, vuex,
-                                        axios, SFC)
+                                        Vue.js + vue-stack (vue-router, vuex, axios, SFC)
                                     </div>
                                 </li>
 
@@ -124,7 +120,7 @@
 
 <script>
 export default {
-    name: 'Skills'
+    name: 'Skills',
 };
 </script>
 

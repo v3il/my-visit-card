@@ -20,8 +20,8 @@ export default {
     methods: {
         emitScrollToInfoBlock() {
             this.$emit('scrollToInfoBlock', this.item);
-        }
-    }
+        },
+    },
 };
 </script>
 

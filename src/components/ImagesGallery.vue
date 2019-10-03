@@ -18,21 +18,9 @@
         </div>
 
         <transition name="fade">
-            <div
-                class="gallery__overlay"
-                v-show="overlayShown"
-                @click.self="closeOverlay"
-            >
-                <transition-group
-                    name="fade"
-                    tag="div"
-                    class="gallery__overlay-slide"
-                >
-                    <div
-                        class="gallery__overlay-spinner-wrap"
-                        v-show="!allImagesLoaded"
-                        key="loader"
-                    >
+            <div class="gallery__overlay" v-show="overlayShown" @click.self="closeOverlay">
+                <transition-group name="fade" tag="div" class="gallery__overlay-slide">
+                    <div class="gallery__overlay-spinner-wrap" v-show="!allImagesLoaded" key="loader">
                         <i class="fa fa-spinner fa-spin"></i>
                     </div>
 
@@ -89,19 +77,22 @@ import { Component } from 'vue-property-decorator';
 
 import LazyLoadImage from './LazyLoadImage';
 
+// require.context fallback for tests
+require.context = require.context || (value => () => value);
+
 const Props = Vue.extend({
     props: {
         imagesNames: {
             type: Array,
-            required: true
-        }
-    }
+            required: true,
+        },
+    },
 });
 
 @Component({
     components: {
-        LazyLoadImage
-    }
+        LazyLoadImage,
+    },
 })
 export default class ImagesGallery extends Props {
     images = [];
@@ -155,47 +146,39 @@ export default class ImagesGallery extends Props {
     }
 
     created() {
-        console.log(require.context);
-
-        // Mock for tests
-        const images = require.context('@/assets/images/', false); //require.context
-        //: (value) => value;
+        const images = require.context('@/assets/images/', false);
 
         this.images = this.imagesNames.map(imageName => ({
             imageName,
             image: images(`./${imageName}`),
-            loaded: false
+            loaded: false,
         }));
 
-        const keyUpListener = event => {
+        const keyDownListener = event => {
             if (this.overlayShown) {
-                const [LEFT_ARROW_KEYCODE, ESC_KEYCODE, RIGHT_ARROW_KEYCODE] = [
-                    37,
-                    27,
-                    39
-                ];
+                const [LEFT_ARROW_CODE, ESC_CODE, RIGHT_ARROW_CODE] = [37, 27, 39];
 
                 // Show prev image on left arrow hit
-                if (event.which === LEFT_ARROW_KEYCODE) {
+                if (event.which === LEFT_ARROW_CODE) {
                     this.showPrev();
                 }
 
                 // Show next image on right arrow hit
-                if (event.which === RIGHT_ARROW_KEYCODE) {
+                if (event.which === RIGHT_ARROW_CODE) {
                     this.showNext();
                 }
 
                 // Close overlay on Escape hit
-                if (event.which === ESC_KEYCODE) {
+                if (event.which === ESC_CODE) {
                     this.closeOverlay();
                 }
             }
         };
 
-        window.addEventListener('keyup', keyUpListener);
+        window.addEventListener('keydown', keyDownListener);
 
         this.$once('hook:beforeDestroy', () => {
-            window.removeEventListener('keyup', keyUpListener);
+            window.removeEventListener('keydown', keyDownListener);
         });
     }
 }

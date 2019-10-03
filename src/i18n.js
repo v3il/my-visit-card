@@ -7,12 +7,12 @@ Vue.use(VueI18n);
 
 const messages = {
     en: { message: enMessages },
-    ru: { message: ruMessages }
+    ru: { message: ruMessages },
 };
 
 const i18n = new VueI18n({
     messages,
-    locale: 'ru'
+    locale: 'ru',
 });
 
 export default i18n;

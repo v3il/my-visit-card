@@ -2,7 +2,7 @@ import MainPage from './views/MainPage.vue';
 
 const mainRouteNames = {
     PORTFOLIO: 'portfolio-section',
-    ABOUT: 'about-section'
+    ABOUT: 'about-section',
 };
 
 const routes = [
@@ -14,22 +14,21 @@ const routes = [
             {
                 path: 'about',
                 name: mainRouteNames.ABOUT,
-                component: () => import('@/components/content/AboutSection.vue')
+                component: () => import('@/components/content/AboutSection.vue'),
             },
 
             {
                 path: 'portfolio',
                 name: mainRouteNames.PORTFOLIO,
-                component: () =>
-                    import('@/components/content/PortfolioSection.vue')
+                component: () => import('@/components/content/PortfolioSection.vue'),
             },
 
             {
                 path: '*',
-                redirect: 'about'
-            }
-        ]
-    }
+                redirect: 'about',
+            },
+        ],
+    },
 ];
 
 export { mainRouteNames, routes };

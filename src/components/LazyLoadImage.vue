@@ -1,10 +1,5 @@
 <template>
-    <img
-        :src="currentSrc"
-        class="lazy-image"
-        v-on="$listeners"
-        :class="{ 'lazy-image--loaded': imageLoaded }"
-    />
+    <img :src="currentSrc" class="lazy-image" v-on="$listeners" :class="{ 'lazy-image--loaded': imageLoaded }" />
 </template>
 
 <script>
@@ -15,9 +10,9 @@ const Props = Vue.extend({
     props: {
         imageName: {
             type: String,
-            required: true
-        }
-    }
+            required: true,
+        },
+    },
 });
 
 @Component()

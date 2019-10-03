@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="content__info-block info-block contact-info-block js-scroll-to-target"
-        id="contact"
-    >
+    <div class="content__info-block info-block contact-info-block js-scroll-to-target" id="contact">
         <div class="info-block__title-block">
             <h2 class="info-block__title">{{ this.$t('message.contact') }}</h2>
             <div class="info-block__title-separator">
@@ -15,9 +12,7 @@
             <div class="contact-info-block__contact-data-block">
                 <div class="contact-info-block__location-block">
                     <div class="contact-info-block__location-title">
-                        <i
-                            class="pe-7s-home contact-info-block__location-icon"
-                        ></i>
+                        <i class="pe-7s-home contact-info-block__location-icon"></i>
                         <h2 class="contact-info-block__location-title-text">
                             {{ this.$t('message.location') }}
                         </h2>
@@ -30,18 +25,13 @@
 
                 <div class="contact-info-block__mail-block">
                     <div class="contact-info-block__mail-title">
-                        <i
-                            class="pe-7s-mail-open contact-info-block__mail-icon"
-                        ></i>
+                        <i class="pe-7s-mail-open contact-info-block__mail-icon"></i>
                         <h2 class="contact-info-block__mail-title-text">
                             {{ this.$t('message.contactMe') }}
                         </h2>
                     </div>
 
-                    <div
-                        class="contact-info-block__mail-description"
-                        v-html="$t('message.contactMeDesc')"
-                    ></div>
+                    <div class="contact-info-block__mail-description" v-html="$t('message.contactMeDesc')"></div>
                 </div>
 
                 <div class="contact-info-block__socials-block">
@@ -59,8 +49,8 @@ export default {
     name: 'ContactMe',
 
     components: {
-        SocialNetworks
-    }
+        SocialNetworks,
+    },
 };
 </script>
 
