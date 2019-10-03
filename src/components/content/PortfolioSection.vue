@@ -10,39 +10,39 @@
 </template>
 
 <script>
-    // import "../../vendor/popped-element/Tooltip";
+// import "../../vendor/popped-element/Tooltip";
 
-    import ProjectView from '@/components/ProjectView';
+import ProjectView from '@/components/ProjectView';
 
-    import projects from '../../projects';
+import projects from '../../projects';
 
-    export default {
-        components: {
-            ProjectView
-        },
+export default {
+    components: {
+        ProjectView
+    },
 
-        data() {
-            return {
-                projects,
-            }
-        }
+    data() {
+        return {
+            projects
+        };
     }
+};
 </script>
 
 <style>
+.portfolio {
+    padding: 100px 120px 100px 95px;
+}
+
+@media screen and (max-width: 850px) {
     .portfolio {
-        padding: 100px 120px 100px 95px;
+        padding: 50px;
     }
+}
 
-    @media screen and (max-width: 850px) {
-        .portfolio {
-            padding: 50px;
-        }
+@media screen and (max-width: 450px) {
+    .portfolio {
+        padding: 25px;
     }
-
-    @media screen and (max-width: 450px) {
-        .portfolio {
-            padding: 25px;
-        }
-    }
+}
 </style>

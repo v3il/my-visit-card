@@ -1,4 +1,4 @@
-export default (text) => {
+export default text => {
     const targetSpan = document.createElement('span');
     targetSpan.style.position = 'fixed';
     targetSpan.style.top = '-1000px';
@@ -11,14 +11,14 @@ export default (text) => {
 
     /** На некоторых устройствах (iPad) копирование генерирует исключение */
     try {
-        document.execCommand("copy");
+        document.execCommand('copy');
         return true;
-    } catch(error) {
+    } catch (error) {
         return false;
     } finally {
         targetSpan.remove();
     }
-}
+};
 
 function selectTextOfNode(node) {
     if (document.createTextRange) {

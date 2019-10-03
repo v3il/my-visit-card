@@ -1,7 +1,10 @@
 <template>
-    <div class="content__info-block info-block skills-info-block js-scroll-to-target" id="skills">
+    <div
+        class="content__info-block info-block skills-info-block js-scroll-to-target"
+        id="skills"
+    >
         <div class="info-block__title-block">
-            <h2 class="info-block__title">{{$t('message.skillsTitle')}}</h2>
+            <h2 class="info-block__title">{{ $t('message.skillsTitle') }}</h2>
             <div class="info-block__title-separator">
                 <div class="info-block__title-separator-line"></div>
                 <div class="info-block__title-separator-ring"></div>
@@ -11,7 +14,7 @@
         <div class="skills-info-block__skills-info">
             <div class="skills-info-block__languages-list">
                 <h3 class="default-title">
-                    {{$t('message.frontEndTechs')}}
+                    {{ $t('message.frontEndTechs') }}
                 </h3>
 
                 <ul class="list">
@@ -34,7 +37,8 @@
                                     <div class="list-item__pointer"></div>
 
                                     <div class="list-item__text">
-                                        Vue.js + vue-stack (vue-router, vuex, axios, SFC)
+                                        Vue.js + vue-stack (vue-router, vuex,
+                                        axios, SFC)
                                     </div>
                                 </li>
 
@@ -85,7 +89,7 @@
 
             <div class="skills-info-block__languages-list">
                 <h3 class="default-title">
-                    {{$t('message.backEndTechs')}}
+                    {{ $t('message.backEndTechs') }}
                 </h3>
 
                 <ul class="list">
@@ -119,11 +123,9 @@
 </template>
 
 <script>
-    export default {
-        name: "Skills"
-    }
+export default {
+    name: 'Skills'
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
