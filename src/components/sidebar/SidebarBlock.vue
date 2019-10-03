@@ -5,9 +5,6 @@
         </div>
 
         <div class="sidebar__fixed-container">
-            <!--<h2 class="sidebar__name-title">{{$t('message.name')}}</h2>-->
-            <!--<h3 class="sidebar__specialization-title">{{$t('message.specialization')}}</h3>-->
-
             <ul class="sidebar__nav">
                 <sidebar-link-item
                     v-for="linkItem in items"
@@ -87,7 +84,7 @@ export default class SidebarBlock extends Props {
     background: #f3f3f3;
     bottom: 0;
     top: 0;
-    padding: 63px 30px 0 30px;
+    padding: 63px 20px 0;
     width: 280px;
 
     &__avatar-block {

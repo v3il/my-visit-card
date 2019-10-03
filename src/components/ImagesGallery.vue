@@ -213,6 +213,7 @@ export default class ImagesGallery extends Props {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: inherit;
     }
 
     // Overlay
@@ -227,7 +228,6 @@ export default class ImagesGallery extends Props {
     }
 
     &__overlay-slide {
-        /*margin: 0 auto;*/
         width: 100%;
         height: 95vh;
         position: relative;

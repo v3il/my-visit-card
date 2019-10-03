@@ -1,10 +1,22 @@
 const projects = [
     {
-        name: 'steam trade helper',
-        technologies: 'Vue.js, Firebase',
+        name: 'diki.club',
+        technologies: 'Vue.js, vue-cli, vue-i18n, vue-router, Less, Jest',
+        description: 'message.myPortfolioDescription',
+        githubLink: 'https://github.com/v3il/my-visit-card',
+    },
+    {
+        name: 'steam-trade-helper',
+        technologies: 'Vue.js, Less, Chrome API',
         description: 'message.sthDescription',
         githubLink: 'https://github.com/v3il/steam-trade-helper',
         screenshots: ['sth1.png', 'sth2.png', 'sth3.png'],
+    },
+    {
+        name: 'steam-trade-helper-api',
+        technologies: 'Express.js, MongoDB',
+        description: 'message.sthApiDescription',
+        githubLink: 'https://github.com/v3il/steam-trade-helper-api-server',
     },
     {
         name: 'NewCP Guide',
