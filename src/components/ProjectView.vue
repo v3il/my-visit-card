@@ -1,4 +1,5 @@
 <template>
+    <!-- js-scroll-to-target is for portfolio projects only -->
     <div class="project" :class="{ 'js-scroll-to-target': project.id }">
         <h2 class="project__name-wrapper">
             <span class="project__name">{{ project.name }}</span>
@@ -63,7 +64,11 @@
         </h3>
 
         <ul class="section-list" v-if="project.achievementsList">
-            <li class="section-list__item" v-for="(duty, index) in project.achievementsList" :key="`achievement${index}`">
+            <li
+                class="section-list__item"
+                v-for="(duty, index) in project.achievementsList"
+                :key="`achievement${index}`"
+            >
                 <div class="section-list__pointer"></div>
 
                 <div class="project__duty-name">

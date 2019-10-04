@@ -6,6 +6,7 @@ const projects = [
         githubLink: 'https://github.com/v3il/my-visit-card',
     },
     {
+        nameShort: 'STH',
         name: 'steam-trade-helper',
         technologies: 'Vue.js, Less, Chrome API',
         description: 'message.sthDescription',
@@ -13,6 +14,7 @@ const projects = [
         screenshots: ['sth1.png', 'sth2.png', 'sth3.png'],
     },
     {
+        nameShort: 'STH-api-server',
         name: 'steam-trade-helper-api',
         technologies: 'Express.js, MongoDB',
         description: 'message.sthApiDescription',

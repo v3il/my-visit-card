@@ -84,7 +84,7 @@ export default class SidebarBlock extends Props {
     background: #f3f3f3;
     bottom: 0;
     top: 0;
-    padding: 63px 20px 0;
+    padding: 63px 35px 0;
     width: 280px;
 
     &__avatar-block {

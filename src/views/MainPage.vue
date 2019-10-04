@@ -37,7 +37,7 @@ export default {
     data() {
         const portfolioSectionSidebarItems = projects.map((project, index) => {
             return {
-                text: project.name,
+                text: project.nameShort || project.name,
                 link: '#',
                 tag: project.id,
                 isActive: index === 0,
@@ -68,12 +68,6 @@ export default {
                     tag: 'education',
                     isActive: false,
                 },
-                // {
-                //     text: this.$t('message.contact'),
-                //     link: "#",
-                //     tag: "contact",
-                //     isActive: false,
-                // },
             ],
 
             currentScrollTop: 0,
