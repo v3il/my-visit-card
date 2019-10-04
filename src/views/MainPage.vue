@@ -10,11 +10,11 @@
         <content-block></content-block>
 
         <transition name="slideRight">
-            <social-networks v-show="!sidebarOpened" />
-        </transition>
-
-        <transition name="slideRight">
-            <div v-show="!sidebarOpened" class="page__scroll-top" @click="smoothScrollToY(0, 300)">
+            <div
+                v-show="!sidebarOpened && currentScrollTop > 500"
+                class="page__scroll-top"
+                @click="smoothScrollToY(0, 300)"
+            >
                 <i class="fa fa-chevron-up"></i>
             </div>
         </transition>
@@ -24,8 +24,6 @@
 <script>
 import SidebarBlock from '@/components/sidebar/SidebarBlock.vue';
 import ContentBlock from '@/components/content/ContentBlock.vue';
-
-import SocialNetworks from '@/components/SocialNetworks.vue';
 
 import { mainRouteNames } from '../routes';
 
@@ -103,12 +101,10 @@ export default {
                 return infoBlockBottomPosition > viewportTop && infoBlockScrollOffset < viewportBottom;
             });
 
-            if (infoBlocksInViewport.length) {
-                infoBlocksInViewport.forEach(block => {
-                    const index = infoBlocks.findIndex(item => item === block);
-                    sidebarItems[index].isActive = true;
-                });
-            }
+            infoBlocksInViewport.forEach(block => {
+                const index = infoBlocks.findIndex(item => item === block);
+                sidebarItems[index].isActive = true;
+            });
         };
 
         window.addEventListener('scroll', scrollHandler);
@@ -184,7 +180,6 @@ export default {
     components: {
         SidebarBlock,
         ContentBlock,
-        SocialNetworks,
     },
 };
 </script>

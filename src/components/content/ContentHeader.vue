@@ -17,6 +17,8 @@
                 </p>
             </div>
 
+            <social-networks class="header-block__socials" />
+
             <div class="header-block__nav-tabs">
                 <div
                     class="header-block__nav-tab"
@@ -41,10 +43,12 @@ import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
 
 import LazyLoadImage from '@/components/LazyLoadImage.vue';
+import SocialNetworks from '@/components/SocialNetworks.vue';
 
 @Component({
     components: {
         LazyLoadImage,
+        SocialNetworks,
     },
 })
 export default class ContentHeader extends Vue {
@@ -129,8 +133,12 @@ export default class ContentHeader extends Vue {
         margin: 6px 0;
     }
 
+    &__socials {
+        margin-top: 30px;
+    }
+
     &__nav-tabs {
-        margin-top: 50px;
+        margin-top: 30px;
         display: flex;
     }
 

@@ -5,15 +5,10 @@
                 v-for="(value, key) in socialNetworks"
                 :key="key"
                 class="social-networks__item"
-                :class="{ 'social-networks__item--separated': value.separated }"
                 @click="value.onClick"
                 rel="noopener noreferrer"
                 href="javascript://"
                 :aria-label="key"
-                v-tooltip="{
-                    content: $t(value.title),
-                    placement: 'left-center',
-                }"
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
             </a>
@@ -89,12 +84,6 @@ export default class SocialNetworks extends Vue {
                     window.open('https://www.instagram.com/dimakit6/');
                 },
             },
-
-            'map-marker': {
-                title: 'message.region',
-                separated: true,
-                onClick() {},
-            },
         };
     }
 }
@@ -103,24 +92,7 @@ export default class SocialNetworks extends Vue {
 <style scoped lang="less">
 .social-networks {
     &__list {
-        position: fixed;
-        right: 10px;
-        background: #f3f3f3;
-        flex-direction: column;
-        align-items: center;
-        padding: 4px;
-        border-radius: 18px;
         display: flex;
-
-        top: auto;
-        bottom: 60px;
-        border: 1px solid #a7a7a7;
-        opacity: 0.5;
-        transition: opacity 0.3s, transform 0.6s ease-in-out;
-
-        &:hover {
-            opacity: 1;
-        }
     }
 
     &__item {
@@ -128,15 +100,12 @@ export default class SocialNetworks extends Vue {
         color: #4c4c4c;
         font-size: 30px;
         transition: color 0.5s ease;
-        margin: 3px 0;
+        margin: 3px 10px;
         cursor: pointer;
-    }
 
-    &__item--separated {
-        border-top: 1px solid #4c4c4c;
-        width: 100%;
-        text-align: center;
-        padding-top: 3px;
+        &:first-child {
+            margin-left: 0;
+        }
     }
 
     &__item &__icon.fa-github {
@@ -145,11 +114,6 @@ export default class SocialNetworks extends Vue {
 
     &__item:hover {
         color: #3971ff;
-    }
-
-    @media screen and (max-width: 1480px) {
-        &__list {
-        }
     }
 }
 </style>

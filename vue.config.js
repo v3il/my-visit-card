@@ -12,4 +12,10 @@ module.exports = {
             }))
             .end();
     },
+
+    pluginOptions: {
+        webpackBundleAnalyzer: {
+            openAnalyzer: true,
+        },
+    },
 };
