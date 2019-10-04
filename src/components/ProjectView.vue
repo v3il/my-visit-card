@@ -38,9 +38,9 @@
             {{ project.technologies }}
         </p>
 
-        <p class="project__description-title">
+        <h3 class="project__description-title article-title">
             {{ $t('message.projectDescription') }}
-        </p>
+        </h3>
 
         <p class="project__description" v-html="$t(project.description)"></p>
 
@@ -79,12 +79,12 @@
                 :key="`achievement${index}`"
             >
                 <div class="project__achievement-task">
-                    <i class="fa fa-crosshairs project__achievement-task-icon"></i>
+                    <i class="fa fa-chevron-circle-right project__achievement-task-icon"></i>
                     {{ achievement.task }}
                 </div>
 
                 <div class="project__achievement-result">
-                    <i class="fa fa-check project__achievement-result-icon"></i>
+                    <i class="fa fa-check-circle project__achievement-result-icon"></i>
                     {{ achievement.result }}
                 </div>
             </li>
@@ -193,7 +193,7 @@ export default class ProjectView extends Props {}
         left: -30px;
         top: 5px;
         color: #3971ff;
-        font-size: 16px;
+        font-size: 17px;
     }
 
     &__achievement-task,
