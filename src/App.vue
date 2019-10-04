@@ -11,18 +11,18 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            isMobile: false,
-        };
-    },
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
+@Component()
+export default class App extends Vue {
+    isMobile = false;
 
     created() {
         this.isMobile = 'onorientationchange' in window;
         document.documentElement.setAttribute('lang', this.$i18n.locale);
-    },
-};
+    }
+}
 </script>
 
 <style lang="less">
@@ -34,6 +34,8 @@ export default {
 
 @import './common-style/list/section-list';
 @import './common-style/list/section-list-item';
+
+@import './common-style/section/info-section';
 
 @font-face {
     font-family: 'Exo2';
@@ -85,12 +87,6 @@ export default {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html.no-scroll,
-body.no-scroll {
-    overflow-y: hidden;
-    padding-right: 15px;
 }
 
 body {

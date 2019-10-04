@@ -29,7 +29,7 @@ import SocialNetworks from '@/components/SocialNetworks.vue';
 
 import { mainRouteNames } from '../routes';
 
-import projects from '../projects';
+import projects from '../portfolioProjects';
 
 export default {
     name: 'main-page',

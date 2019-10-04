@@ -1,8 +1,8 @@
 <template>
     <main class="about">
-        <skills class="about__section" />
-        <experience class="about__section" />
-        <education class="about__section" />
+        <skills class="info-section" />
+        <experience class="info-section" />
+        <education class="info-section" />
     </main>
 </template>
 
@@ -26,24 +26,8 @@ export default class About extends Vue {}
 
 <style scoped lang="less">
 .about {
-    &__section {
-        padding: 100px 120px 100px 95px;
-
-        &:nth-child(2n) {
-            background-color: #fff;
-        }
-    }
-
-    @media screen and (max-width: 850px) {
-        &__section {
-            padding: 50px;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        &__section {
-            padding: 25px;
-        }
+    .info-section:nth-child(2n) {
+        background-color: #fff;
     }
 }
 </style>

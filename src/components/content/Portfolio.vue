@@ -1,7 +1,7 @@
 <template>
-    <main class="portfolio">
+    <main class="portfolio info-section">
         <project-view
-            class="portfolio_project-item"
+            class="portfolio__project-item"
             v-for="project in projects"
             :project="project"
             :key="project.name"
@@ -10,39 +10,23 @@
 </template>
 
 <script>
-// import "../../vendor/popped-element/Tooltip";
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
 
 import ProjectView from '@/components/ProjectView';
 
-import projects from '../../projects';
+import portfolioProjects from '../../portfolioProjects';
 
-export default {
+@Component({
     components: {
         ProjectView,
     },
-
-    data() {
-        return {
-            projects,
-        };
-    },
-};
+})
+export default class Portfolio extends Vue {
+    projects = portfolioProjects;
+}
 </script>
 
-<style>
-.portfolio {
-    padding: 100px 120px 100px 95px;
-}
-
-@media screen and (max-width: 850px) {
-    .portfolio {
-        padding: 50px;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .portfolio {
-        padding: 25px;
-    }
-}
+<style scoped lang="less">
+.portfolio {}
 </style>
