@@ -19,9 +19,9 @@
                     </div>
 
                     <div class="experience__job-name">
-                        <h1 class="experience__job-company-name">
+                        <h2 class="experience__job-company-name">
                             uCoz
-                        </h1>
+                        </h2>
 
                         <h3 class="experience__job-degree">
                             {{ $t('message.frontEndDev') }}

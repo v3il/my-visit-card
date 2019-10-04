@@ -210,6 +210,7 @@ export default class ProjectView extends Props {}
         margin-bottom: 18px;
         opacity: 0.8;
         font-size: smaller;
+        line-height: 20px;
     }
 }
 </style>

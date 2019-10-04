@@ -2,15 +2,19 @@
     <header class="header-block">
         <div class="header-block__intro-block">
             <h3 class="header-block__greetings">{{ $t('message.hello') }}</h3>
-            <h2 class="header-block__name">{{ $t('message.name') }}</h2>
-            <h5 class="header-block__specialization">
+            <h1 class="header-block__name">{{ $t('message.name') }}</h1>
+            <p class="header-block__specialization">
                 {{ $t('message.specialization') }}
-            </h5>
+            </p>
 
             <div class="header-block__about">
-                {{ $t('message.about1', { age }) }}
-                <br />
-                {{ $t('message.about2') }}
+                <p class="header-block__about-paragraph">
+                    {{ $t('message.about1', { age }) }}
+                </p>
+
+                <p class="header-block__about-paragraph">
+                    {{ $t('message.about2') }}
+                </p>
             </div>
 
             <div class="header-block__nav-tabs">
@@ -76,19 +80,6 @@ export default class ContentHeader extends Vue {
     background: #eaebed;
     display: flex;
 
-    /*&__avatar-block {*/
-    /*padding-left: 6px;*/
-    /*width: 100%;*/
-    /*max-width: 400px;*/
-    /*}*/
-
-    /*&__avatar {*/
-    /*height: 680px;*/
-    /*width: 380px;*/
-    /*!*object-fit: none;*!*/
-    /*!*object-position: 0 30%;*!*/
-    /*}*/
-
     &__intro-block {
         margin: 63px 120px 63px 95px;
     }
@@ -131,6 +122,11 @@ export default class ContentHeader extends Vue {
         font-weight: 400;
         color: #4c4c4c;
         font-size: 16px;
+    }
+
+    &__about-paragraph {
+        display: block;
+        margin: 6px 0;
     }
 
     &__nav-tabs {

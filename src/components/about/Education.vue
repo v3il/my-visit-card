@@ -17,10 +17,14 @@
                     <div class="education__education-counter">0{{ index + 1 }}</div>
 
                     <div class="education__education-info">
-                        <h1 class="education__education-place" v-html="educationPlace.name"></h1>
+                        <h2 class="education__education-place">
+                            {{ educationPlace.name }}
+                        </h2>
+
                         <h3 class="education__education-degree">
                             {{ educationPlace.degree }}
                         </h3>
+
                         <p class="education__education-period">
                             {{ educationPlace.session }}
                         </p>
@@ -120,6 +124,7 @@ export default class Education extends Vue {
         color: #4c4c4c;
         font-weight: 400;
         text-transform: uppercase;
+        min-height: 120px;
     }
 
     &__education-degree {
@@ -147,6 +152,14 @@ export default class Education extends Vue {
         &__education-item {
             flex-basis: 100%;
             margin-bottom: 50px;
+
+            &:nth-last-child(-n + 2) {
+                margin-bottom: 50px;
+            }
+        }
+
+        &__education-place {
+            min-height: 0;
         }
     }
 }
