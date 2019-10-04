@@ -17,7 +17,7 @@
                 v-for="technologiesData in [frontEndTechs, backEndTechs]"
                 :key="technologiesData.name"
             >
-                <h3 class="default-title">
+                <h3 class="article-title">
                     {{ $t(technologiesData.title) }}
                 </h3>
 

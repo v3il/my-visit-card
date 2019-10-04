@@ -1,5 +1,5 @@
 <template>
-    <div class="header-block">
+    <header class="header-block">
         <div class="header-block__intro-block">
             <h3 class="header-block__greetings">{{ $t('message.hello') }}</h3>
             <h2 class="header-block__name">{{ $t('message.name') }}</h2>
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 </template>
 
 <script>

@@ -1,12 +1,12 @@
 <template>
-    <div class="portfolio">
+    <main class="portfolio">
         <project-view
             class="portfolio_project-item"
             v-for="project in projects"
             :project="project"
             :key="project.name"
         ></project-view>
-    </div>
+    </main>
 </template>
 
 <script>

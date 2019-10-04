@@ -14,13 +14,13 @@ const routes = [
             {
                 path: 'about',
                 name: mainRouteNames.ABOUT,
-                component: () => import('@/components/content/AboutSection.vue'),
+                component: () => import('@/components/content/About.vue'),
             },
 
             {
                 path: 'portfolio',
                 name: mainRouteNames.PORTFOLIO,
-                component: () => import('@/components/content/PortfolioSection.vue'),
+                component: () => import('@/components/content/Portfolio.vue'),
             },
 
             {

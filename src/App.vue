@@ -29,6 +29,7 @@ export default {
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
 @import './common-style/title/section-title';
+@import './common-style/title/article-title';
 @import './common-style/title/section-title-separator';
 
 @import './common-style/list/section-list';

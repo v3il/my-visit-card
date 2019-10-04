@@ -1,6 +1,6 @@
 <template>
     <div class="project" :class="{ 'js-scroll-to-target': project.id }">
-        <h1 class="project__name-wrapper">
+        <h2 class="project__name-wrapper">
             <span class="project__name">{{ project.name }}</span>
 
             <a
@@ -32,19 +32,19 @@
             >
                 <i class="fa fa-eye"></i>
             </a>
-        </h1>
+        </h2>
 
         <p class="project__technologies">
             {{ project.technologies }}
         </p>
 
-        <h3 class="project__description-title">
+        <p class="project__description-title">
             {{ $t('message.projectDescription') }}
-        </h3>
+        </p>
 
         <p class="project__description" v-html="$t(project.description)"></p>
 
-        <h3 class="project__duties" v-if="project.duties">
+        <h3 class="project__duties article-title" v-if="project.duties">
             {{ $t('message.duties') }}
         </h3>
 
@@ -58,7 +58,7 @@
             </li>
         </ul>
 
-        <h3 class="project__achievements-title" v-if="project.achievements || project.achievementsList">
+        <h3 class="project__achievements-title article-title" v-if="project.achievements || project.achievementsList">
             {{ $t('message.achievements') }}
         </h3>
 
@@ -90,7 +90,7 @@
             </li>
         </ul>
 
-        <h3 class="project__gallery-title" v-if="project.screenshots">
+        <h3 class="project__gallery-title article-title" v-if="project.screenshots">
             {{ $t('message.results') }}
         </h3>
 
@@ -171,14 +171,6 @@ export default class ProjectView extends Props {}
     &__duties,
     &__achievements-title,
     &__gallery-title {
-        text-decoration: none;
-        text-transform: uppercase;
-        line-height: 30px;
-        font-size: 16px;
-        color: #4c4c4c;
-        font-family: RobotoMedium, Helvetica, sans-serif;
-        font-weight: 500;
-        margin-bottom: 12px;
         margin-top: 30px;
     }
 
