@@ -1,127 +1,103 @@
 <template>
-    <div class="content__info-block info-block skills-info-block js-scroll-to-target" id="skills">
-        <div class="info-block__title-block">
-            <h2 class="info-block__title">{{ $t('message.skillsTitle') }}</h2>
-            <div class="info-block__title-separator">
-                <div class="info-block__title-separator-line"></div>
-                <div class="info-block__title-separator-ring"></div>
+    <section class="skills js-scroll-to-target">
+        <div class="skills__title-block">
+            <h2 class="section-title">
+                {{ this.$t('message.skillsTitle') }}
+            </h2>
+
+            <div class="section-title__separator">
+                <div class="section-title__separator-line"></div>
+                <div class="section-title__separator-ring"></div>
             </div>
         </div>
 
-        <div class="skills-info-block__skills-info">
-            <div class="skills-info-block__languages-list">
+        <div class="skills__technologies">
+            <div
+                class="skills__technologies-list"
+                v-for="technologiesData in [frontEndTechs, backEndTechs]"
+                :key="technologiesData.name"
+            >
                 <h3 class="default-title">
-                    {{ $t('message.frontEndTechs') }}
+                    {{ $t(technologiesData.title) }}
                 </h3>
 
-                <ul class="list">
-                    <li class="list-item">
-                        <div class="list-item__pointer"></div>
+                <ul class="section-list">
+                    <li class="section-list__item" v-for="tech in technologiesData.technologies" :key="tech.name">
+                        <div class="section-list__pointer"></div>
 
                         <div class="list-item__text">
-                            JavaScript
+                            {{ tech.name }}
 
-                            <ul class="sublist">
-                                <li class="list-item">
-                                    <div class="list-item__pointer"></div>
-
-                                    <div class="list-item__text">
-                                        Pure JS (with ES2015+)
-                                    </div>
-                                </li>
-
-                                <li class="list-item">
-                                    <div class="list-item__pointer"></div>
+                            <ul class="section-list" v-if="tech.children">
+                                <li class="section-list__item" v-for="childTech in tech.children" :key="childTech.name">
+                                    <div class="section-list__pointer"></div>
 
                                     <div class="list-item__text">
-                                        Vue.js + vue-stack (vue-router, vuex, axios, SFC)
-                                    </div>
-                                </li>
-
-                                <li class="list-item">
-                                    <div class="list-item__pointer"></div>
-
-                                    <div class="list-item__text">
-                                        jQuery + jQuery UI
-                                    </div>
-                                </li>
-
-                                <li class="list-item">
-                                    <div class="list-item__pointer"></div>
-
-                                    <div class="list-item__text">
-                                        Webpack
-                                    </div>
-                                </li>
-
-                                <li class="list-item">
-                                    <div class="list-item__pointer"></div>
-
-                                    <div class="list-item__text">
-                                        Jest
+                                        {{ childTech.name }}
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </li>
-
-                    <li class="list-item">
-                        <div class="list-item__pointer"></div>
-
-                        <div class="list-item__text">
-                            HTML5 (semantic, cross-browser markup)
-                        </div>
-                    </li>
-
-                    <li class="list-item">
-                        <div class="list-item__pointer"></div>
-
-                        <div class="list-item__text">
-                            CSS3 (responsive layouts), Less
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="skills-info-block__languages-list">
-                <h3 class="default-title">
-                    {{ $t('message.backEndTechs') }}
-                </h3>
-
-                <ul class="list">
-                    <li class="list-item">
-                        <div class="list-item__pointer"></div>
-
-                        <div class="list-item__text">
-                            Node.js
-                        </div>
-                    </li>
-
-                    <li class="list-item">
-                        <div class="list-item__pointer"></div>
-
-                        <div class="list-item__text">
-                            Express
-                        </div>
-                    </li>
-
-                    <li class="list-item">
-                        <div class="list-item__pointer"></div>
-
-                        <div class="list-item__text">
-                            Mongo DB
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
-export default {
-    name: 'Skills',
-};
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
+@Component()
+export default class Skills extends Vue {
+    created() {
+        this.frontEndTechs = {
+            title: 'message.frontEndTechs',
+            technologies: [
+                {
+                    name: 'JavaScript',
+                    children: [
+                        { name: 'Vanilla JS (Up to ES2019)' },
+                        { name: 'Vue.js + vue-stack (vue-router, vuex, axios)' },
+                        { name: 'jQuery + jQuery UI' },
+                        { name: 'Webpack' },
+                        { name: 'Jest' },
+                    ],
+                },
+                { name: 'HTML5 (semantic, cross-browser markup)' },
+                { name: 'CSS3 (responsive layouts), Less' },
+            ],
+        };
+
+        this.backEndTechs = {
+            title: 'message.backEndTechs',
+            technologies: [{ name: 'Node.js' }, { name: 'Express.js' }, { name: 'Mongo DB' }],
+        };
+    }
+}
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+.skills {
+    &__technologies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__technologies-list {
+        flex-basis: calc(50% - 15px);
+    }
+
+    @media screen and (max-width: 750px) {
+        &__technologies-list {
+            flex-basis: 100%;
+
+            &:last-child {
+                margin-top: 18px;
+            }
+        }
+    }
+}
+</style>

@@ -12,6 +12,4 @@ module.exports = {
             }))
             .end();
     },
-
-    lintOnSave: true,
 };

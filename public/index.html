@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A portfolio web-site of Dmitry Kit">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>my-visit-card</title>
+    <title>diki.club</title>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but my-visit-card doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but diki.club doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93478521-35"></script>
+    <script>
+      if (window.location.host.indexOf('localhost') < 0) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-93478521-35');
+      }
+    </script>
   </body>
 </html>

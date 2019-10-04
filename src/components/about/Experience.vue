@@ -57,9 +57,14 @@ export default {
             uCozProjects: [
                 {
                     name: this.$t('message.cpv2'),
-                    technologies: 'Perl, jQuery, jQuery UI, Vue.js, Webpack, ES2015+, Less',
+                    technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, ES2015+, Less, Jest',
                     description: 'message.cpDescription',
-                    duties: [this.$t('message.cpDuty1'), this.$t('message.cpDuty2'), this.$t('message.cpDuty3')],
+                    duties: [
+                        this.$t('message.cpDuty4'),
+                        this.$t('message.cpDuty1'),
+                        this.$t('message.cpDuty2'),
+                        this.$t('message.cpDuty3'),
+                    ],
                     achievements: [
                         {
                             task: this.$t('message.cpTask1'),
@@ -80,6 +85,10 @@ export default {
                         {
                             task: this.$t('message.cpTask5'),
                             result: this.$t('message.cpResult5'),
+                        },
+                        {
+                            task: this.$t('message.cpTask6'),
+                            result: this.$t('message.cpResult6'),
                         },
                     ],
                     screenshots: ['cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png', 'cp6.png'],

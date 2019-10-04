@@ -1,8 +1,8 @@
 <template>
     <div class="content__section">
-        <skills />
-        <experience />
-        <education />
+        <skills class="content__info-block info-block" />
+        <experience class="content__info-block info-block" />
+        <education class="content__info-block info-block" />
         <!--<contact-me />-->
     </div>
 </template>
@@ -14,14 +14,14 @@ import { Component } from 'vue-property-decorator';
 import Skills from '@/components/about/Skills';
 import Experience from '@/components/about/Experience';
 import Education from '@/components/about/Education';
-import ContactMe from '@/components/about/ContactMe';
+// import ContactMe from '@/components/about/ContactMe';
 
 @Component({
     components: {
         Skills,
         Experience,
         Education,
-        ContactMe,
+        // ContactMe,
     },
 })
 export default class AboutSection extends Vue {}
@@ -66,87 +66,7 @@ export default class AboutSection extends Vue {}
     margin-left: -1px;
 }
 
-/* SKILLS */
 
-.skills-info-block__skills-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.skills-info-block__languages-list {
-    flex-basis: calc(50% - 15px);
-}
-
-@media screen and (max-width: 750px) {
-    .skills-info-block__languages-list {
-        flex-basis: 100%;
-    }
-
-    .skills-info-block__languages-list:last-child {
-        margin-top: 18px;
-    }
-}
-
-/* SKILLS */
-
-/* EDUCATION */
-.education-info-block__educations-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.education-info-block__education-info {
-    flex-basis: calc(50% - 19px);
-    margin-bottom: 100px;
-}
-
-.education-info-block__education-info:nth-last-child(-n + 2) {
-    margin-bottom: 0;
-}
-
-.education-info-block__education-summary {
-    display: flex;
-}
-
-.education-info-block__education-counter {
-    margin-right: 23px;
-    line-height: 30px;
-    color: #4c4c4c;
-    font-size: 30px;
-    font-weight: 400;
-}
-
-.education-info-block__education-name {
-    font-size: 24px;
-    line-height: 30px;
-    color: #4c4c4c;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.education-info-block__education-degree {
-    margin-top: 10px;
-}
-
-.education-info-block__education-degree,
-.education-info-block__education-period {
-    font-size: 16px;
-    line-height: 30px;
-    color: #4c4c4c;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-.education-info-block__education-description {
-    font-size: 16px;
-    line-height: 30px;
-    color: #4c4c4c;
-    font-weight: 400;
-    margin-top: 50px;
-}
-/* EDUCATION */
 
 /* EXPERIENCE */
 .experience-info-block__experience-list-block {
@@ -239,14 +159,14 @@ export default class AboutSection extends Vue {}
 }
 
 .sublist .list-item__pointer {
-    min-width: 5px;
+    min-width: 10px;
 }
 
 .list-item__pointer {
-    min-width: 10px;
+    min-width: 15px;
     height: 2px;
     background-color: #3971ff;
-    margin-right: 8px;
+    margin-right: 15px;
     margin-top: 13px;
 }
 

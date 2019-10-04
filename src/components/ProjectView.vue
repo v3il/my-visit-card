@@ -1,12 +1,12 @@
 <template>
     <div class="project" :class="{ 'js-scroll-to-target': project.id }">
-        <h1 class="project_name-wrapper">
-            <span class="project_name">{{ project.name }}</span>
+        <h1 class="project__name-wrapper">
+            <span class="project__name">{{ project.name }}</span>
 
             <a
                 :href="project.githubLink"
                 v-if="project.githubLink"
-                class="project_github-link"
+                class="project__github-link"
                 target="_blank"
                 :aria-label="`${project.name}-code`"
                 rel="noopener noreferrer"
@@ -21,7 +21,7 @@
             <a
                 :href="project.demoLink"
                 v-if="project.demoLink"
-                class="project_demo-link"
+                class="project__demo-link"
                 target="_blank"
                 :aria-label="`${project.name}-demo`"
                 rel="noopener noreferrer"
@@ -34,77 +34,67 @@
             </a>
         </h1>
 
-        <p class="project_technologies">
+        <p class="project__technologies">
             {{ project.technologies }}
         </p>
 
-        <h3 class="project_description-title">
+        <h3 class="project__description-title">
             {{ $t('message.projectDescription') }}
         </h3>
 
-        <p class="project_description" v-html="$t(project.description)"></p>
+        <p class="project__description" v-html="$t(project.description)"></p>
 
-        <h3 class="project_duties" v-if="project.duties">
+        <h3 class="project__duties" v-if="project.duties">
             {{ $t('message.duties') }}
         </h3>
 
-        <ul class="project_duties-list" v-if="project.duties">
-            <li class="project_duty" v-for="(duty, index) in project.duties" :key="`duty${index}`">
-                <div class="project_duty-pointer"></div>
+        <ul class="section-list" v-if="project.duties">
+            <li class="section-list__item" v-for="(duty, index) in project.duties" :key="`duty${index}`">
+                <div class="section-list__pointer"></div>
 
-                <div class="project_duty-name">
+                <div class="project__duty-name">
                     {{ duty }}
                 </div>
             </li>
         </ul>
 
-        <h3 class="project_achievements-title" v-if="project.achievements || project.achievementsList">
+        <h3 class="project__achievements-title" v-if="project.achievements || project.achievementsList">
             {{ $t('message.achievements') }}
         </h3>
 
-        <ul class="project_duties-list" v-if="project.achievementsList">
-            <li class="project_duty" v-for="(duty, index) in project.achievementsList" :key="`achievement${index}`">
-                <div class="project_duty-pointer"></div>
+        <ul class="section-list" v-if="project.achievementsList">
+            <li class="section-list__item" v-for="(duty, index) in project.achievementsList" :key="`achievement${index}`">
+                <div class="section-list__pointer"></div>
 
-                <div class="project_duty-name">
+                <div class="project__duty-name">
                     {{ duty }}
                 </div>
             </li>
         </ul>
 
-        <table class="project_achievements" v-if="project.achievements">
-            <thead class="project_achievements-head">
-                <tr class="project_achievements-title-row">
-                    <th class="project_achievements-item-task">
-                        {{ $t('message.task') }}
-                    </th>
-                    <th class="project_achievements-item-result">
-                        {{ $t('message.result') }}
-                    </th>
-                </tr>
-            </thead>
+        <ul class="project__achievements" v-if="project.achievements">
+            <li
+                class="project__achievements-item"
+                v-for="(achievement, index) in project.achievements"
+                :key="`achievement${index}`"
+            >
+                <div class="project__achievement-task">
+                    <i class="fa fa-crosshairs project__achievement-task-icon"></i>
+                    {{ achievement.task }}
+                </div>
 
-            <tbody class="project_achievements-body">
-                <tr
-                    class="project_achievements-item"
-                    v-for="(achievement, index) in project.achievements"
-                    :key="`achievement${index}`"
-                >
-                    <td class="project_achievements-item-task">
-                        {{ achievement.task }}
-                    </td>
-                    <td class="project_achievements-item-result">
-                        {{ achievement.result }}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <div class="project__achievement-result">
+                    <i class="fa fa-check project__achievement-result-icon"></i>
+                    {{ achievement.result }}
+                </div>
+            </li>
+        </ul>
 
-        <h3 class="project_gallery-title" v-if="project.screenshots">
+        <h3 class="project__gallery-title" v-if="project.screenshots">
             {{ $t('message.results') }}
         </h3>
 
-        <p class="project_gallery-description" v-if="project.screenshots">
+        <p class="project__gallery-description" v-if="project.screenshots">
             {{ $t('message.imageGalleryDescription') }}
         </p>
 
@@ -113,124 +103,121 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
 import ImagesGallery from '@/components/ImagesGallery';
 
-export default {
-    name: 'ProjectView',
-
+const Props = Vue.extend({
     props: {
         project: {
             type: Object,
             required: true,
         },
     },
+});
 
+@Component({
     components: {
         ImagesGallery,
     },
-};
+})
+export default class ProjectView extends Props {}
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .project {
     margin-bottom: 24px;
     padding-top: 12px;
-}
 
-.project_name-wrapper {
-    line-height: 30px;
-    color: #3971ff;
-    font-weight: 400;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-}
+    &__name-wrapper {
+        line-height: 30px;
+        color: #3971ff;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+    }
 
-.project_github-link,
-.project_demo-link {
-    font-size: 24px;
-    color: #4c4c4c;
-    transition: color 0.5s;
-    margin-left: 16px;
-}
+    &__github-link,
+    &__demo-link {
+        font-size: 24px;
+        color: #4c4c4c;
+        transition: color 0.5s;
+        margin-left: 16px;
+    }
 
-.project_demo-link {
-    margin-left: 12px;
-}
+    &__demo-link {
+        margin-left: 12px;
+    }
 
-.project_github-link:hover,
-.project_demo-link:hover {
-    color: #3971ff;
-}
+    &__github-link:hover,
+    &__demo-link:hover {
+        color: #3971ff;
+    }
 
-.project_technologies {
-    font-weight: bold;
-    margin-bottom: 18px;
-}
+    &__technologies {
+        font-weight: bold;
+        margin-bottom: 18px;
+    }
 
-.project_description {
-    margin-bottom: 18px;
-}
+    &__description {
+        margin-bottom: 18px;
+    }
 
-.project_description-title,
-.project_duties,
-.project_achievements-title,
-.project_gallery-title {
-    text-decoration: none;
-    text-transform: uppercase;
-    line-height: 30px;
-    font-size: 16px;
-    color: #4c4c4c;
-    font-family: RobotoMedium;
-    font-weight: 500;
-    margin-bottom: 12px;
-    margin-top: 30px;
-}
+    &__description-title,
+    &__duties,
+    &__achievements-title,
+    &__gallery-title {
+        text-decoration: none;
+        text-transform: uppercase;
+        line-height: 30px;
+        font-size: 16px;
+        color: #4c4c4c;
+        font-family: RobotoMedium, Helvetica, sans-serif;
+        font-weight: 500;
+        margin-bottom: 12px;
+        margin-top: 30px;
+    }
 
-.project_gallery-title {
-    margin-bottom: 0;
-}
+    &__achievements {
+        list-style: none;
+    }
 
-.project_duties-list {
-    list-style: none;
-}
+    &__achievements-item {
+        padding: 18px 0 18px 30px;
+        border-bottom: 1px solid #a7a7a7;
 
-.project_duty {
-    display: flex;
-    align-items: flex-start;
-    padding: 3px 0;
-}
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
 
-.project_duty-pointer {
-    min-width: 10px;
-    height: 2px;
-    background-color: #3971ff;
-    margin-right: 8px;
-    margin-top: 13px;
-}
+    &__achievement-task-icon,
+    &__achievement-result-icon {
+        position: absolute;
+        left: -30px;
+        top: 5px;
+        color: #3971ff;
+        font-size: 16px;
+    }
 
-.project_achievements {
-    text-align: left;
-    border-collapse: collapse;
-    width: 100%;
-}
+    &__achievement-task,
+    &__achievement-result {
+        margin: 6px 0;
+        position: relative;
+    }
 
-.project_achievements-item-task,
-.project_achievements-item-result {
-    border-bottom: 1px solid #a7a7a7;
-    padding: 6px 0;
-    vertical-align: top;
-}
+    &__gallery-title {
+        margin-bottom: 0;
+    }
 
-.project_achievements-item-task {
-    width: 50%;
-}
-
-.project_gallery-description {
-    margin-bottom: 18px;
-    opacity: 0.8;
-    font-size: smaller;
+    &__gallery-description {
+        margin-bottom: 18px;
+        opacity: 0.8;
+        font-size: smaller;
+    }
 }
 </style>

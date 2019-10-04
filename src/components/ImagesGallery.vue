@@ -77,7 +77,7 @@ import { Component } from 'vue-property-decorator';
 
 import LazyLoadImage from './LazyLoadImage';
 
-// require.context fallback for tests
+// require.context fallback for tests // eslint-disable-line
 require.context = require.context || (value => () => value);
 
 const Props = Vue.extend({

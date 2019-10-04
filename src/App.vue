@@ -26,8 +26,13 @@ export default {
 </script>
 
 <style lang="less">
-/*@import "assets/fonts-css/pe-font.css";*/
 @import '../node_modules/font-awesome/css/font-awesome.css';
+
+@import './common-style/title/section-title';
+@import './common-style/title/section-title-separator';
+
+@import './common-style/list/section-list';
+@import './common-style/list/section-list-item';
 
 @font-face {
     font-family: 'Exo2';
@@ -57,6 +62,22 @@ export default {
     font-family: 'RobotoLight';
     src: url('./assets/fonts/Roboto-Light.ttf') format('truetype');
     font-display: swap;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #555;
 }
 
 * {
