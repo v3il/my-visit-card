@@ -1,23 +1,20 @@
 <template>
-    <aside class="sidebar" :class="{ 'sidebar--opened': sidebarOpened }">
-        <div class="sidebar__avatar-block">
-            <lazy-load-image class="sidebar__avatar" image-name="avatar.jpg" alt="avatar"></lazy-load-image>
-        </div>
+    <aside class="sidebar" :class="{ 'sidebar--opened': sidebarOpened }" @click.self="emitSidebarClose">
+        <div class="sidebar__inner-block">
+            <div class="sidebar__avatar-block">
+                <lazy-load-image class="sidebar__avatar" image-name="avatar.jpg" alt="avatar"></lazy-load-image>
+            </div>
 
-        <div class="sidebar__fixed-container">
-            <ul class="sidebar__nav">
-                <sidebar-link-item
-                    v-for="linkItem in items"
-                    :item="linkItem"
-                    :key="linkItem.name"
-                    @scrollToInfoBlock="emitScrollToInfoBlock(linkItem)"
-                ></sidebar-link-item>
-            </ul>
-        </div>
-
-        <div class="sidebar__open-menu-btn" :class="{ active: sidebarOpened }" @click="emitSidebarClose">
-            <i class="fa fa-chevron-left sidebar__open-menu-btn-icon" v-if="sidebarOpened"></i>
-            <i class="fa fa-chevron-right sidebar__open-menu-btn-icon" v-else></i>
+            <nav class="sidebar__fixed-container">
+                <ul class="sidebar__nav">
+                    <sidebar-link-item
+                        v-for="linkItem in items"
+                        :item="linkItem"
+                        :key="linkItem.name"
+                        @scrollToInfoBlock="emitScrollToInfoBlock(linkItem)"
+                    ></sidebar-link-item>
+                </ul>
+            </nav>
         </div>
     </aside>
 </template>
@@ -50,24 +47,8 @@ const Props = Vue.extend({
     },
 })
 export default class SidebarBlock extends Props {
-    mounted() {
-        const clickHandler = event => {
-            const clickedElement = event.target;
-
-            if (!clickedElement.closest('.sidebar') && this.sidebarOpened) {
-                this.emitSidebarClose();
-            }
-        };
-
-        document.addEventListener('click', clickHandler);
-
-        this.$once('hook:beforeDestroy', () => {
-            document.removeEventListener('click', clickHandler);
-        });
-    }
-
     emitScrollToInfoBlock(linkItem) {
-        this.$emit('scrollToInfoBlock', linkItem);
+        this.$emit('scroll-to-info-block', linkItem);
     }
 
     emitSidebarClose() {
@@ -125,52 +106,32 @@ export default class SidebarBlock extends Props {
         list-style: none;
     }
 
-    &__open-menu-btn {
-        display: none;
-        position: absolute;
-        bottom: 10px;
-        right: -50px;
-        background: #f3f3f3;
-        border: 1px solid #a7a7a7;
-        border-radius: 50%;
-        align-items: center;
-        justify-content: center;
-        height: 40px;
-        width: 40px;
-        z-index: 3;
-        cursor: pointer;
-        padding: 6px;
-        opacity: 0.5;
-        transition: opacity 0.3s;
-    }
-
-    &__open-menu-btn &__open-menu-btn-icon {
-        margin-left: 2px;
-    }
-
-    &__open-menu-btn.active &__open-menu-btn-icon {
-        margin-left: -2px;
-    }
-
-    &__open-menu-btn:hover {
-        opacity: 1;
-    }
-
     @media screen and (max-width: 1150px) {
         transition: transform 0.6s ease-in-out;
         transform: translateX(-100%);
-
-        &__open-menu-btn {
-            display: flex;
-        }
+        width: 100%;
+        background: rgba(18, 18, 18, 0.2);
+        padding: 0;
+        border-right: 0;
+        z-index: 4;
 
         &--opened {
             transform: translateX(0);
         }
+
+        &__inner-block {
+            border-right: 1px solid #a7a7a7;
+            background: #f3f3f3;
+            padding: 63px 35px 0;
+            width: 280px;
+            height: 100vh;
+        }
     }
 
     @media screen and (max-width: 600px) {
-        padding-top: 25px;
+        &__inner-block {
+            padding-top: 25px;
+        }
     }
 }
 </style>

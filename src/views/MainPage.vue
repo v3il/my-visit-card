@@ -3,21 +3,26 @@
         <sidebar-block
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
-            @scrollToInfoBlock="scrollToInfoBlock"
+            @scroll-to-info-block="scrollToInfoBlock"
             @toggle-sidebar="sidebarOpened = !sidebarOpened"
         ></sidebar-block>
 
         <content-block></content-block>
 
         <transition name="slideRight">
-            <div
-                v-show="!sidebarOpened && currentScrollTop > 500"
+            <button
+                v-show="currentScrollTop > 500"
                 class="page__scroll-top"
                 @click="smoothScrollToY(0, 300)"
             >
                 <i class="fa fa-chevron-up"></i>
-            </div>
+            </button>
         </transition>
+
+        <button class="page__open-menu-btn" @click="sidebarOpened = !sidebarOpened">
+            <i class="fa fa-close" v-if="sidebarOpened"></i>
+            <i class="fa fa-bars" v-else></i>
+        </button>
     </div>
 </template>
 
@@ -196,7 +201,7 @@ export default {
 .page__scroll-top {
     display: flex;
     position: fixed;
-    bottom: 10px;
+    bottom: 60px;
     right: 10px;
     background: #f3f3f3;
     border: 1px solid #a7a7a7;
@@ -218,5 +223,25 @@ export default {
 
 .page__scroll-top:hover {
     opacity: 1;
+}
+
+.page__open-menu-btn {
+    display: flex;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: #f3f3f3;
+    border: 1px solid #a7a7a7;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    z-index: 5;
+    cursor: pointer;
+    padding: 6px;
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.6s ease-in-out;
+    outline: none;
 }
 </style>
