@@ -5,9 +5,8 @@
                 v-for="(value, key) in socialNetworks"
                 :key="key"
                 class="social-networks__item"
-                @click="value.onClick"
                 rel="noopener noreferrer"
-                href="javascript://"
+                :href="value.href"
                 :aria-label="key"
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
@@ -20,69 +19,38 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import copyTextToClipboard from '@/utils/copyTextToClipboard';
-
 @Component()
 export default class SocialNetworks extends Vue {
     created() {
         this.socialNetworks = {
             phone: {
                 title: 'message.myPhone',
-                onClick: () => {
-                    const result = copyTextToClipboard('+380675892392');
-
-                    if (result) {
-                        // todo: change alert to fancy popup
-                        alert(this.$t('message.phoneCopied'));
-                    }
-                },
+                href: 'tel:+380675892392',
             },
 
             at: {
                 title: 'message.myEmail',
-                onClick: () => {
-                    const result = copyTextToClipboard('v3il@ukr.net');
-
-                    if (result) {
-                        // todo: change alert to fancy popup
-                        alert(this.$t('message.emailCopied'));
-                    }
-                },
+                href: 'mailto:v3il@ukr.net',
             },
 
             telegram: {
                 title: 'message.myTelegram',
-                onClick() {
-                    window.open('https://t.me/veil_94');
-                },
+                href: 'https://t.me/veil_94',
             },
 
             skype: {
                 title: 'message.mySkype',
-                onClick() {
-                    window.open('skype:D_Kit94?chat');
-                },
+                href: 'skype:D_Kit94?chat',
             },
 
             github: {
                 title: 'message.myGithub',
-                onClick() {
-                    window.open('https://github.com/v3il');
-                },
+                href: 'https://github.com/v3il',
             },
 
             linkedin: {
                 title: 'message.myLinkedIn',
-                onClick() {
-                    window.open('https://www.linkedin.com/in/diki/');
-                },
-            },
-
-            instagram: {
-                title: 'message.myInstagram',
-                onClick() {
-                    window.open('https://www.instagram.com/dimakit6/');
-                },
+                href: 'https://www.linkedin.com/in/diki/',
             },
         };
     }

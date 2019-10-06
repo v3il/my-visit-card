@@ -11,10 +11,6 @@
                 target="_blank"
                 :aria-label="`${project.name}-code`"
                 rel="noopener noreferrer"
-                v-tooltip="{
-                    placement: 'top-center',
-                    content: $t('message.githubLink'),
-                }"
             >
                 <i class="fa fa-github"></i>
             </a>
@@ -26,10 +22,6 @@
                 target="_blank"
                 :aria-label="`${project.name}-demo`"
                 rel="noopener noreferrer"
-                v-tooltip="{
-                    placement: 'top-center',
-                    content: $t('message.demoLink'),
-                }"
             >
                 <i class="fa fa-eye"></i>
             </a>
