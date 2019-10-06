@@ -4,22 +4,22 @@
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
             @scroll-to-info-block="scrollToInfoBlock"
-            @toggle-sidebar="sidebarOpened = !sidebarOpened"
+            @toggle-sidebar="toggleMobileSidebar"
         ></sidebar-block>
+
+        <transition name="fade">
+            <div class="page__sidebar-overlay" v-if="sidebarOpened" @click="toggleMobileSidebar"></div>
+        </transition>
 
         <content-block></content-block>
 
-        <transition name="slideRight">
-            <button
-                v-show="currentScrollTop > 500"
-                class="page__scroll-top"
-                @click="smoothScrollToY(0, 300)"
-            >
+        <transition name="fade">
+            <button v-show="currentScrollTop > 500" class="page__scroll-top" @click="smoothScrollToY(0, 300)">
                 <i class="fa fa-chevron-up"></i>
             </button>
         </transition>
 
-        <button class="page__open-menu-btn" @click="sidebarOpened = !sidebarOpened">
+        <button class="page__open-menu-btn" @click="toggleMobileSidebar">
             <i class="fa fa-close" v-if="sidebarOpened"></i>
             <i class="fa fa-bars" v-else></i>
         </button>
@@ -78,14 +78,16 @@ export default {
     },
 
     watch: {
-        $route() {
-            this.setCurrentPageSidebarItems(this.getCurrentPageSidebarItems());
+        $route: {
+            immediate: true,
+
+            handler() {
+                this.currentPageSidebarItems = this.getCurrentPageSidebarItems();
+            },
         },
     },
 
     created() {
-        this.setCurrentPageSidebarItems(this.getCurrentPageSidebarItems());
-
         const scrollHandler = () => {
             const sidebarItems = this.currentPageSidebarItems;
 
@@ -133,10 +135,6 @@ export default {
             }
         },
 
-        setCurrentPageSidebarItems() {
-            this.currentPageSidebarItems = this.getCurrentPageSidebarItems();
-        },
-
         scrollToInfoBlock(clickedSideBarItem) {
             const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')];
             const clickedLinkIndex = this.currentPageSidebarItems.indexOf(clickedSideBarItem);
@@ -180,6 +178,10 @@ export default {
                 }
             });
         },
+
+        toggleMobileSidebar() {
+            this.sidebarOpened = !this.sidebarOpened;
+        },
     },
 
     components: {
@@ -198,50 +200,51 @@ export default {
     box-shadow: 0 1px 6px #000;
 }
 
-.page__scroll-top {
+.page__scroll-top,
+.page__open-menu-btn {
     display: flex;
     position: fixed;
-    bottom: 60px;
-    right: 10px;
-    background: #f3f3f3;
+    background: rgba(243, 243, 243, 0.75);
     border: 1px solid #a7a7a7;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     height: 40px;
     width: 40px;
-    z-index: 3;
     cursor: pointer;
     padding: 6px;
-    opacity: 0.5;
-    transition: opacity 0.3s, transform 0.6s ease-in-out;
+    outline: none;
+}
+
+.page__scroll-top {
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
 }
 
 .page__scroll-top i {
     margin-top: -2px;
 }
 
-.page__scroll-top:hover {
-    opacity: 1;
+.page__open-menu-btn {
+    display: none;
+    right: 10px;
+    bottom: 60px;
+    z-index: 5;
+
+    @media screen and (max-width: 1150px) {
+        display: flex;
+    }
 }
 
-.page__open-menu-btn {
-    display: flex;
+.page__sidebar-overlay {
     position: fixed;
-    right: 10px;
-    bottom: 10px;
-    background: #f3f3f3;
-    border: 1px solid #a7a7a7;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    z-index: 5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
-    padding: 6px;
-    opacity: 0.5;
-    transition: opacity 0.3s, transform 0.6s ease-in-out;
-    outline: none;
 }
 </style>
