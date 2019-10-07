@@ -1,7 +1,7 @@
 const projects = [
     {
         name: 'diki.club',
-        technologies: 'Vue.js, vue-cli, vue-i18n, vue-router, Less, Jest',
+        technologies: 'Vue.js, vue-cli, vue-router, Less, Jest',
         description: 'message.myPortfolioDescription',
         githubLink: 'https://github.com/v3il/my-visit-card',
     },

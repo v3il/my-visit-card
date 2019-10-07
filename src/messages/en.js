@@ -7,12 +7,12 @@ export default {
     about2: 'I love JavaScript with all its oddities :)',
     aboutMeBtn: 'About',
     portfolio: 'Portfolio',
-    skillsTitle: 'Professional skills',
+    skillsTitle: 'Hard skills',
     frontEndTechs: 'Front-end technologies',
     backEndTechs: 'Back-end technologies',
-    skills: 'Skills',
+    skills: 'Hard skills',
     now: 'present',
-    experience: 'Experience',
+    experience: 'Work Experience',
     education: 'Education',
     frontEndDev: 'Front-end developer',
     jobSession: 'Session: %s - %s',
@@ -32,7 +32,7 @@ export default {
     cpTask3:
         'Initiated the transition from jQuery to Vue, configured the framework for the project ecosystem, rewrote some of the functionality on Vue, created the basis for a gradual migration from jQuery to Vue',
     cpTask4:
-        'I covered all Vue components + part of the old Unit code with tests (about 400 tests in total), set up testing before pushing the branch',
+        'I covered all Vue components + part of the old code with Unit tests (about 400 tests in total), set up testing before pushing the branch to the GIT repo',
     cpTask5:
         'Wrote a large number of useful components, including: site widgets; comment management module; filter module for materials and mass operations on them; module that allows you to display and manage the tree of categories of materials',
     cpTask6:
@@ -44,9 +44,9 @@ export default {
     cpResult4: 'The stability of functional increased',
     cpResult5: 'New components make it easy to configure the site, automate a large number of routine operations',
     cpResult6:
-        'Site navigation began to work more stable, laid the foundation for the use of Vue + vue-router in the future',
+        'Site navigation began to work more stable, laid the foundation for the use of Vue + vue-router combination in the future',
     cpDescription:
-        'This project is a site administrator’s panel, where he can edit the appearance of the site, add / remove / edit materials from a variety of ready-made modules, manage user accounts, change site settings in general.',
+        'This project is a site administrator’s panel, where he can edit the design of the site, add/remove/edit materials from a variety of ready-made modules, manage user accounts, change site settings in general.',
     results: 'Results',
     imageGalleryDescription: 'Click the image to see its large version',
     ucalc: 'Statistics module for uCalc project',
@@ -57,8 +57,8 @@ export default {
     ucalcDuty3: 'Creating a UI for integrating Yandex.Metrica and Google Analytics statistics into a project',
     mlDescription:
         'Mass Labeling is a semi-internal project written to automate a support job. Its main task is to automatically show a set of website designs for each employee (sites can be repeated among employees), so that he gives a subjective assessment of the site design from 1 to 10. Later, the arithmetic average of the estimates for each site is calculated and compared with the design estimate this site, which gave the neural network. One of the goals of the project is to improve the productivity of the support service by submitting only the necessary designs and maximizing the ease of setting an assessment. Another goal is to teach the neural network to automatically calculate the site score as accurately as possible without human intervention.',
-    mlDuty1: 'Developed the functionality for maintaining user accounts (accounts of employees / administrators)',
-    mlDuty2: 'Developed the functionality for user to select interface language',
+    mlDuty1: 'Developed the functionality of user accounts (accounts of employees / administrators)',
+    mlDuty2: 'Developed the functionality to select interface language',
     mlDuty3:
         'Developed the functionality for creating, editing, assigning tasks (for administrators). Tasks describe which design sets a particular employee should evaluate.',
     mlDuty4:
@@ -90,7 +90,7 @@ export default {
 
     uAdvDescription: 'Development and improvement of uCoz advertising modules',
     uAdvDuty1:
-        'Development of advertising modules for uCoz: sticker, full-screen video, push-subscriptions; finalization of ready-made solutions',
+        'Development of advertising modules for uCoz: sticker, full-screen video, push-subscriptions, etc; finalization of ready-made solutions',
     uAdvDuty2: 'Updating the settings of the ad modules',
     uAdvDuty3: 'Formation of advertising chains, changing the order of advertising modules in them',
     myPortfolioDescription:
