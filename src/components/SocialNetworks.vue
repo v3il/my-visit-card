@@ -83,12 +83,12 @@ export default class SocialNetworks extends Vue {
         color: #4c4c4c;
         font-size: 30px;
         transition: color 0.5s ease;
-        margin: 3px 15px 3px 0;
+        margin: 3px 20px 3px 0;
         cursor: pointer;
     }
 
     &__codewars-item-icon {
-        height: 20px;
+        height: 24px;
     }
 
     &__item &__icon.fa-github {

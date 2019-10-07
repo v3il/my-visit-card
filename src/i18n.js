@@ -1,18 +1,24 @@
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
 
-import { ruMessages, enMessages } from './messages';
+export default () => {
+    let signs = {};
 
-Vue.use(VueI18n);
+    const locale = 'en';
 
-const messages = {
-    en: { message: enMessages },
-    ru: { message: ruMessages },
+    import(`./messages/${locale}`).then((module) => {
+        signs = module.default;
+    });
+
+    Vue.mixin({
+        data: () => ({
+            currentLocale: locale,
+        }),
+
+        methods: {
+            $t(signKey, params = []) {
+                const sign = signKey.split('.').pop();
+                return (signs[sign] || signKey).replace(/%s/g, () => params.shift());
+            },
+        },
+    });
 };
-
-const i18n = new VueI18n({
-    messages,
-    locale: 'ru',
-});
-
-export default i18n;

@@ -28,12 +28,7 @@
                         </h3>
 
                         <h3 class="experience__job-period">
-                            {{
-                                $t('message.jobSession', {
-                                    since: 2015,
-                                    before: $t('message.now'),
-                                })
-                            }}
+                            {{ $t('message.jobSession', [2015, $t('message.now')]) }}
                         </h3>
                     </div>
                 </div>

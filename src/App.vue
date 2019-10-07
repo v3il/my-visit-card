@@ -1,10 +1,13 @@
 <template>
     <div
         id="app"
-        :class="{
-            mobile: isMobile,
-            desktop: !isMobile,
-        }"
+        :class="[
+            currentLocale,
+            {
+                mobile: isMobile,
+                desktop: !isMobile,
+            },
+        ]"
     >
         <router-view />
     </div>

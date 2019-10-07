@@ -3,48 +3,48 @@ export default {
     name: 'Dmitry',
     specialization: 'Front-end developer',
     about1:
-        'I am {age}. A like music (prefer Rock direction), learn to play the electric guitar. I enjoy travelling, cooking, speedrunning of video games, playing with yo-yo and programming.',
+        'I am %s. A like music, learn to play the electric guitar. I enjoy travelling, cooking, speedrunning of video games, playing with yo-yo and programming.',
     about2: 'I love JavaScript with all its oddities :)',
-    region: 'Ukraine, Cherkasy region',
     aboutMeBtn: 'About',
     portfolio: 'Portfolio',
     skillsTitle: 'Professional skills',
     frontEndTechs: 'Front-end technologies',
     backEndTechs: 'Back-end technologies',
     skills: 'Skills',
-    now: 'this moment',
+    now: 'present',
     experience: 'Experience',
     education: 'Education',
-    mySkype: 'My Skype',
-    myEmail: 'My email',
-    myTelegram: 'My Telegram',
-    myPhone: 'My phone number',
-    myGithub: 'My Github',
-    myLinkedIn: 'My LinkedIn',
-    myInstagram: "My Instagram (My cat's account actually)",
     frontEndDev: 'Front-end developer',
-    jobSession: 'Since {since} until {before}',
+    jobSession: 'Session: %s - %s',
     cpv2: 'uCoz Control Panel 2.0',
     duties: 'Duties',
     achievements: 'Achievements',
     cpDuty1: 'Adding the new solutions and supporting the old ones',
     cpDuty2: 'Improvement of the old and low-performance solutions',
     cpDuty3: 'Development of cross-browser components according to the given mock-ups',
+    cpDuty4: 'Full responsibility for the front-end part of the project',
     task: 'Task',
     result: 'Result',
     projectDescription: 'Description',
-    cpTask1: 'Adapted the project for mobile devices',
-    cpTask2: 'Added ES-modules and Webpack to the project',
-    cpTask3: 'Became an initiator of migration from jQuery to Vue',
-    cpTask4: 'Covered lots of code by Unit tests',
+    cpTask1: 'Adapted the project for mobile devices and tablets',
+    cpTask2:
+        'Completely rewrote the core of the project (300+ modules, 10,000+ lines) from Grunt and ES5 to ES-modules and Webpack',
+    cpTask3:
+        'Initiated the transition from jQuery to Vue, configured the framework for the project ecosystem, rewrote some of the functionality on Vue, created the basis for a gradual migration from jQuery to Vue',
+    cpTask4:
+        'I covered all Vue components + part of the old Unit code with tests (about 400 tests in total), set up testing before pushing the branch',
     cpTask5:
-        "Wrote a lot of useful components like: site's widgets; comments management module; module of filters and mass operations for materials; categories tree view module and others",
-    cpResult1: 'The control panel has become more convenient when working with mobile devices',
+        'Wrote a large number of useful components, including: site widgets; comment management module; filter module for materials and mass operations on them; module that allows you to display and manage the tree of categories of materials',
+    cpTask6:
+        'Integrated vue-router into the project, configured it to the needs of the project, replaced the old self-written router',
+    cpResult1: 'The control panel has become adaptive and more convenient when working with mobile devices',
     cpResult2:
-        'The size of the site’s resources decreased by 20%, the project began to work faster and it became easier to maintain it',
+        'The size of the site’s resources decreased by 20%, the project began to work faster, the code became more structured and modular, it became easier to maintain',
     cpResult3: 'The speed of developing new functionality and supporting the old one has increased',
     cpResult4: 'The stability of functional increased',
     cpResult5: 'New components make it easy to configure the site, automate a large number of routine operations',
+    cpResult6:
+        'Site navigation began to work more stable, laid the foundation for the use of Vue + vue-router in the future',
     cpDescription:
         'This project is a site administrator’s panel, where he can edit the appearance of the site, add / remove / edit materials from a variety of ready-made modules, manage user accounts, change site settings in general.',
     results: 'Results',
@@ -80,10 +80,6 @@ export default {
         'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
     masterGraduationWorkTopic: 'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
     phdGraduationWorkTopic: 'Theme of graduation work is: creating a 3D model of x-ray research',
-
-    demoLink: 'Demo',
-    githubLink: 'Github repository',
-
     newcpGuideDescription:
         'This project is a collection of answers to the most important questions regarding the development of the front-end "uCoz 2.0 Control Panel". It can be used by back-end developers and further front-end developers and contains instructions and recommendations on working with the main modules and development in general. <br> From the admin page, the project allows you to create, edit (using the built-in markdown editor) and delete questions and answers to them. The list of questions can be filtered for convenience.',
     sthDescription:
@@ -96,7 +92,8 @@ export default {
         'Development of advertising modules for uCoz: sticker, full-screen video, push-subscriptions; finalization of ready-made solutions',
     uAdvDuty2: 'Updating the settings of the ad modules',
     uAdvDuty3: 'Formation of advertising chains, changing the order of advertising modules in them',
-
-    phoneCopied: 'The phone number has been copied to clipboard',
-    emailCopied: 'The email has been copied to clipboard',
+    myPortfolioDescription:
+        'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me, as well as my projects.',
+    sthApiDescription:
+        'API server for storing data for steam-trade-helper. Saves tracked items to the database, as well as extension settings.',
 };

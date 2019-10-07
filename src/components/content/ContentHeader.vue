@@ -9,7 +9,7 @@
 
             <div class="header-block__about">
                 <p class="header-block__about-paragraph">
-                    {{ $t('message.about1', { age }) }}
+                    {{ $t('message.about1', [age]) }}
                 </p>
 
                 <p class="header-block__about-paragraph">

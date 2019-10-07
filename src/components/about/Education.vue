@@ -50,37 +50,25 @@ export default class Education extends Vue {
             {
                 name: this.$t('message.university'),
                 degree: this.$t('message.phd'),
-                session: this.$t('message.jobSession', {
-                    since: 2017,
-                    before: 2021,
-                }),
+                session: this.$t('message.jobSession', [2017, 2021]),
                 description: this.$t('message.phdGraduationWorkTopic'),
             },
             {
                 name: this.$t('message.university'),
                 degree: this.$t('message.master'),
-                session: this.$t('message.jobSession', {
-                    since: 2016,
-                    before: 2017,
-                }),
+                session: this.$t('message.jobSession', [2016, 2017]),
                 description: this.$t('message.masterGraduationWorkTopic'),
             },
             {
                 name: this.$t('message.university'),
                 degree: this.$t('message.bachelor'),
-                session: this.$t('message.jobSession', {
-                    since: 2014,
-                    before: 2016,
-                }),
+                session: this.$t('message.jobSession', [2014, 2016]),
                 description: this.$t('message.bachelorGraduationWorkTopic'),
             },
             {
                 name: this.$t('message.college'),
                 degree: this.$t('message.juniorSpecialist'),
-                session: this.$t('message.jobSession', {
-                    since: 2010,
-                    before: 2014,
-                }),
+                session: this.$t('message.jobSession', [2010, 2014]),
                 description: this.$t('message.juniorSpecialistGraduationWorkTopic'),
             },
         ];
@@ -124,7 +112,6 @@ export default class Education extends Vue {
         color: #4c4c4c;
         font-weight: 400;
         text-transform: uppercase;
-        min-height: 120px;
     }
 
     &__education-degree {
@@ -162,5 +149,10 @@ export default class Education extends Vue {
             min-height: 0;
         }
     }
+}
+
+// For beautiful render of education place name in Ru locale
+.ru .education__education-place {
+    min-height: 120px;
 }
 </style>
