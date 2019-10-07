@@ -23,7 +23,8 @@ export default class App extends Vue {
 
     created() {
         this.isMobile = 'onorientationchange' in window;
-        document.documentElement.setAttribute('lang', this.$i18n.locale);
+        document.documentElement.setAttribute('lang', this.currentLocale);
+        document.title = this.$t('title');
     }
 }
 </script>
@@ -43,25 +44,25 @@ export default class App extends Vue {
 @font-face {
     font-family: 'Exo2';
     src: url('./assets/fonts/Exo2-Regular.ttf') format('truetype');
-    font-display: swap;
+    /*font-display: swap;*/
 }
 
 @font-face {
     font-family: 'Exo2SemiBold';
     src: url('./assets/fonts/Exo2-SemiBold.ttf') format('truetype');
-    font-display: swap;
+    /*font-display: swap;*/
 }
 
 @font-face {
     font-family: 'RobotoRegular';
     src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
-    font-display: swap;
+    /*font-display: swap;*/
 }
 
 @font-face {
     font-family: 'RobotoMedium';
     src: url('./assets/fonts/Roboto-Medium.ttf') format('truetype');
-    font-display: swap;
+    /*font-display: swap;*/
 }
 
 ::-webkit-scrollbar-track {

@@ -75,11 +75,12 @@ export default {
     master: 'Master',
     phd: 'PhD',
     juniorSpecialistGraduationWorkTopic:
-        'Theme of graduation work is: design and creation of an Android application for a travel agency',
+        'Theme of graduation work is "Design and creation of an Android application for a travel agency"',
     bachelorGraduationWorkTopic:
-        'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
-    masterGraduationWorkTopic: 'Theme of graduation work is: design and development of 2D arcade game using Java Swing',
-    phdGraduationWorkTopic: 'Theme of graduation work is: creating a 3D model of x-ray research',
+        'Theme of graduation work is "Design and development of 2D arcade game using Java Swing"',
+    masterGraduationWorkTopic:
+        'Theme of graduation work is "Design and development of 2D arcade game using Java Swing"',
+    phdGraduationWorkTopic: 'Theme of graduation work is "Creating a 3D model of x-ray research"',
     newcpGuideDescription:
         'This project is a collection of answers to the most important questions regarding the development of the front-end "uCoz 2.0 Control Panel". It can be used by back-end developers and further front-end developers and contains instructions and recommendations on working with the main modules and development in general. <br> From the admin page, the project allows you to create, edit (using the built-in markdown editor) and delete questions and answers to them. The list of questions can be filtered for convenience.',
     sthDescription:
@@ -96,4 +97,6 @@ export default {
         'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me, as well as my projects.',
     sthApiDescription:
         'API server for storing data for steam-trade-helper. Saves tracked items to the database, as well as extension settings.',
+
+    title: 'Dmitry Kit - personal web-site',
 };
