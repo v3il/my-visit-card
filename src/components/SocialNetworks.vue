@@ -11,6 +11,20 @@
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
             </a>
+
+            <a
+                href="https://www.codewars.com/users/v3il"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="codewars"
+                class="social-networks__item social-networks__codewars-item"
+            >
+                <img
+                    src="https://www.codewars.com/users/v3il/badges/micro"
+                    alt="Codewars badge"
+                    class="social-networks__codewars-item-icon"
+                />
+            </a>
         </slot>
     </div>
 </template>
@@ -61,19 +75,20 @@ export default class SocialNetworks extends Vue {
 .social-networks {
     &__list {
         display: flex;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     &__item {
-        font-weight: 400;
         color: #4c4c4c;
         font-size: 30px;
         transition: color 0.5s ease;
-        margin: 3px 10px;
+        margin: 3px 15px 3px 0;
         cursor: pointer;
+    }
 
-        &:first-child {
-            margin-left: 0;
-        }
+    &__codewars-item-icon {
+        height: 20px;
     }
 
     &__item &__icon.fa-github {

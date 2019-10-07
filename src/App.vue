@@ -61,12 +61,6 @@ export default class App extends Vue {
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'RobotoLight';
-    src: url('./assets/fonts/Roboto-Light.ttf') format('truetype');
-    font-display: swap;
-}
-
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #f5f5f5;
