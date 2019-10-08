@@ -14,12 +14,17 @@
         <content-block></content-block>
 
         <transition name="fade">
-            <button v-show="currentScrollTop > 100" class="page__scroll-top" @click="smoothScrollToY(0, 300)">
+            <button
+                v-show="currentScrollTop > 100"
+                class="page__scroll-top"
+                @click="smoothScrollToY(0, 300)"
+                aria-label="Scroll to top"
+            >
                 <i class="fa fa-chevron-up"></i>
             </button>
         </transition>
 
-        <button class="page__open-menu-btn" @click="toggleMobileSidebar">
+        <button class="page__open-menu-btn" @click="toggleMobileSidebar" aria-label="Open menu">
             <i class="fa fa-close" v-if="sidebarOpened"></i>
             <i class="fa fa-bars" v-else></i>
         </button>

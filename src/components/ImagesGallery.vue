@@ -33,7 +33,7 @@
                     >
                         <img
                             v-for="(imageData, index) in images"
-                            :src="overlayRendered ? imageData.image.src : ''"
+                            :src="overlayRendered ? imageData.image : ''"
                             :alt="imageData.imageName"
                             :key="imageData.imageName"
                             @load="imageData.loaded = true"
