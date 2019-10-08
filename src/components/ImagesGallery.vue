@@ -8,11 +8,12 @@
                 class="gallery__preview-link"
                 @click="openPreviewOverlay(index)"
             >
-                <lazy-load-image
-                    class="gallery__preview-image"
-                    :image-name="`mini-${imageSrc}`"
-                    :alt="imageSrc"
+                <img
+                    v-lazy-image="`mini-${imageSrc}`"
+                    src=""
+                    alt=""
                     :aria-label="imageSrc"
+                    class="gallery__preview-image"
                 />
             </a>
         </div>
@@ -75,8 +76,6 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import LazyLoadImage from './LazyLoadImage';
-
 // require.context fallback for tests
 require.context = require.context || (value => () => value);
 
@@ -89,11 +88,7 @@ const Props = Vue.extend({
     },
 });
 
-@Component({
-    components: {
-        LazyLoadImage,
-    },
-})
+@Component()
 export default class ImagesGallery extends Props {
     images = [];
 

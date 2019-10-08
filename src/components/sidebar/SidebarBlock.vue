@@ -1,7 +1,7 @@
 <template>
     <aside class="sidebar" :class="{ 'sidebar--opened': sidebarOpened }">
         <div class="sidebar__avatar-block">
-            <lazy-load-image class="sidebar__avatar" image-name="avatar.jpg" alt="avatar"></lazy-load-image>
+            <img src="" class="sidebar__avatar" v-lazy-image="'avatar.jpg'" alt="Avatar" />
         </div>
 
         <nav class="sidebar__fixed-container">
@@ -22,7 +22,6 @@ import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue';
-import LazyLoadImage from '@/components/LazyLoadImage.vue';
 
 const Props = Vue.extend({
     props: {
@@ -41,7 +40,6 @@ const Props = Vue.extend({
 @Component({
     components: {
         SidebarLinkItem,
-        LazyLoadImage,
     },
 })
 export default class SidebarBlock extends Props {

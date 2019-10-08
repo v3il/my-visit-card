@@ -42,12 +42,10 @@
 import Vue from 'vue';
 import { Component, Watch } from 'vue-property-decorator';
 
-import LazyLoadImage from '@/components/LazyLoadImage.vue';
 import SocialNetworks from '@/components/SocialNetworks.vue';
 
 @Component({
     components: {
-        LazyLoadImage,
         SocialNetworks,
     },
 })

@@ -8,18 +8,20 @@
 
         <div class="content__lang-switchers">
             <img
-                :src="ruFlagData.src"
+                v-lazy-image="'ru-flag.png'"
                 alt="ru"
                 @click="changeLocale('ru')"
                 :class="{ 'content__lang-switcher--active': currentLocale === 'ru' }"
                 class="content__lang-switcher"
+                src=""
             />
             <img
-                :src="enFlagData.src"
+                v-lazy-image="'usa-flag.png'"
                 alt="en"
                 @click="changeLocale('en')"
                 :class="{ 'content__lang-switcher--active': currentLocale === 'en' }"
                 class="content__lang-switcher"
+                src=""
             />
         </div>
     </section>
@@ -31,18 +33,12 @@ import { Component } from 'vue-property-decorator';
 
 import ContentHeader from './ContentHeader.vue';
 
-import ruFlag from '../../assets/images/ru-flag.png';
-import enFlag from '../../assets/images/usa-flag.png';
-
 @Component({
     components: {
         ContentHeader,
     },
 })
-export default class ContentBlock extends Vue {
-    enFlagData = enFlag;
-    ruFlagData = ruFlag;
-}
+export default class ContentBlock extends Vue {}
 </script>
 
 <style scoped lang="less">

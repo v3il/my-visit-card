@@ -4,6 +4,10 @@ import App from './App.vue';
 import router from './router';
 import initI18n from './i18n';
 
+import LazyImage from './directives/LazyImage';
+
+Vue.directive('lazy-image', LazyImage);
+
 Vue.config.productionTip = false;
 
 initI18n();
