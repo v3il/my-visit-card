@@ -44,25 +44,21 @@ export default class App extends Vue {
 @font-face {
     font-family: 'Exo2';
     src: url('./assets/fonts/Exo2-Regular.ttf') format('truetype');
-    /*font-display: swap;*/
 }
 
 @font-face {
     font-family: 'Exo2SemiBold';
     src: url('./assets/fonts/Exo2-SemiBold.ttf') format('truetype');
-    /*font-display: swap;*/
 }
 
 @font-face {
     font-family: 'RobotoRegular';
     src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
-    /*font-display: swap;*/
 }
 
 @font-face {
     font-family: 'RobotoMedium';
     src: url('./assets/fonts/Roboto-Medium.ttf') format('truetype');
-    /*font-display: swap;*/
 }
 
 ::-webkit-scrollbar-track {
@@ -71,7 +67,7 @@ export default class App extends Vue {
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
     background-color: #f5f5f5;
 }
 

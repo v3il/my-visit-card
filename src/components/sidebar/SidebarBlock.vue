@@ -48,10 +48,6 @@ export default class SidebarBlock extends Props {
     emitScrollToInfoBlock(linkItem) {
         this.$emit('scroll-to-info-block', linkItem);
     }
-
-    emitSidebarClose() {
-        this.$emit('toggle-sidebar');
-    }
 }
 </script>
 
@@ -65,6 +61,12 @@ export default class SidebarBlock extends Props {
     top: 0;
     padding: 63px 35px 0;
     width: 280px;
+    max-height: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
 
     &__avatar-block {
         width: 200px;
@@ -90,15 +92,22 @@ export default class SidebarBlock extends Props {
         z-index: 5;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        padding-top: 25px;
 
         &--opened {
             transform: translateX(0);
             background: #f3f3f3;
         }
-    }
 
-    @media screen and (max-width: 600px) {
-        padding-top: 25px;
+        &__avatar-block {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+        }
+
+        &__nav {
+            margin-top: 20px;
+        }
     }
 }
 </style>
