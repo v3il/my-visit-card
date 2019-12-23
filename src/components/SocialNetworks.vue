@@ -11,20 +11,6 @@
             >
                 <i :class="`fa fa-${key}`" class="social-networks__icon"></i>
             </a>
-
-            <a
-                href="https://www.codewars.com/users/v3il"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="codewars"
-                class="social-networks__item social-networks__codewars-item"
-            >
-                <img
-                    src="https://www.codewars.com/users/v3il/badges/micro"
-                    alt="Codewars badge"
-                    class="social-networks__codewars-item-icon"
-                />
-            </a>
         </slot>
     </div>
 </template>
