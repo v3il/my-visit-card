@@ -51,9 +51,16 @@ import SocialNetworks from '@/components/SocialNetworks.vue';
 })
 export default class ContentHeader extends Vue {
     activeRouteName = null;
-    age = new Date().getFullYear() - 1994 - 1;
 
     created() {
+        const now = new Date();
+
+        this.age = now.getFullYear() - 1994;
+
+        if (now.getMonth() <= 11 && now.getDate() < 28) {
+            this.age--;
+        }
+
         this.tabs = [
             {
                 tabText: this.$t('message.aboutMeBtn'),
