@@ -58,7 +58,7 @@ export default class Skills extends Vue {
                 {
                     name: 'JavaScript',
                     children: [
-                        { name: 'Vanilla JS (Up to ES2019)' },
+                        { name: 'ES2020, TypeScript' },
                         { name: 'Vue.js + vue-stack (vue-router, vuex, axios)' },
                         { name: 'jQuery + jQuery UI' },
                         { name: 'Webpack' },
@@ -72,7 +72,14 @@ export default class Skills extends Vue {
 
         this.backEndTechs = {
             title: 'message.backEndTechs',
-            technologies: [{ name: 'Node.js' }, { name: 'Express.js' }, { name: 'Mongo DB' }],
+            technologies: [
+                { name: 'Node.js core' },
+                { name: 'ES2020, TypeScript' },
+                { name: 'Express.js' },
+                { name: 'Mongo DB' },
+                { name: 'MySQL' },
+                { name: 'Sequelize' },
+            ],
         };
     }
 }
