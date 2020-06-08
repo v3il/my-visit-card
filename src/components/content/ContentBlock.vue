@@ -7,22 +7,22 @@
         </keep-alive>
 
         <div class="content__lang-switchers">
-            <img
-                v-lazy-image="'ru-flag.png'"
-                alt="ru"
-                @click="changeLocale('ru')"
-                :class="{ 'content__lang-switcher--active': currentLocale === 'ru' }"
-                class="content__lang-switcher"
-                src=""
-            />
-            <img
-                v-lazy-image="'usa-flag.png'"
-                alt="en"
-                @click="changeLocale('en')"
-                :class="{ 'content__lang-switcher--active': currentLocale === 'en' }"
-                class="content__lang-switcher"
-                src=""
-            />
+            <!--            <img-->
+            <!--                v-lazy-image="'ru-flag.png'"-->
+            <!--                alt="ru"-->
+            <!--                @click="changeLocale('ru')"-->
+            <!--                :class="{ 'content__lang-switcher&#45;&#45;active': currentLocale === 'ru' }"-->
+            <!--                class="content__lang-switcher"-->
+            <!--                src=""-->
+            <!--            />-->
+            <!--            <img-->
+            <!--                v-lazy-image="'usa-flag.png'"-->
+            <!--                alt="en"-->
+            <!--                @click="changeLocale('en')"-->
+            <!--                :class="{ 'content__lang-switcher&#45;&#45;active': currentLocale === 'en' }"-->
+            <!--                class="content__lang-switcher"-->
+            <!--                src=""-->
+            <!--            />-->
         </div>
     </section>
 </template>

@@ -25,7 +25,7 @@ function setLocale(locale) {
 }
 
 export default () => {
-    const currentLocale = getLocaleFromLocalStorage() || getUserLanguage();
+    const currentLocale = 'ru'; // getLocaleFromLocalStorage() || getUserLanguage();
     const signs = currentLocale === 'ru' ? ruMessages : enMessages;
 
     setLocale(currentLocale);

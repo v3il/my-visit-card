@@ -6,6 +6,20 @@ const projects = [
         githubLink: 'https://github.com/v3il/my-visit-card',
     },
     {
+        name: 'Rest Finder',
+        technologies: 'Vue.js, Typescript, vue-cli, vue-router, vuex, scss, Leaflet.js',
+        description: 'message.restFinder',
+        githubLink: 'https://github.com/v3il/rest-finder-client',
+        demoLink: 'http://194.32.79.212/restfinder/',
+        screenshots: ['rest-finder1.png', 'rest-finder2.png', 'rest-finder3.png', 'rest-finder4.png'],
+    },
+    {
+        name: 'Rest Finder API',
+        technologies: 'Express, Typescript, Sequelize, MySQL, Google APIs, node-mailer, node-cron, Swagger, Jest',
+        description: 'message.restFinderAPI',
+        githubLink: 'https://github.com/v3il/rest-finder-api',
+    },
+    {
         nameShort: 'STH',
         name: 'steam-trade-helper',
         technologies: 'Vue.js, Less, Chrome API',
