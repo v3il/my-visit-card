@@ -7,7 +7,7 @@ const projects = [
     },
     {
         name: 'Rest Finder',
-        technologies: 'Vue.js, Typescript, vue-cli, vue-router, vuex, scss, Leaflet.js',
+        technologies: 'Vue.js, Typescript, vue-cli, vue-router, vuex, scss, bootstrap, Leaflet.js',
         description: 'message.restFinder',
         githubLink: 'https://github.com/v3il/rest-finder-client',
         demoLink: 'http://194.32.79.212/restfinder/',
