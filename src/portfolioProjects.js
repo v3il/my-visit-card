@@ -10,7 +10,7 @@ const projects = [
         technologies: 'Vue.js, Typescript, vue-cli, vue-router, vuex, scss, bootstrap, Leaflet.js',
         description: 'message.restFinder',
         githubLink: 'https://github.com/v3il/rest-finder-client',
-        demoLink: 'http://194.32.79.212/restfinder/',
+        demoLink: 'https://diki.club/restfinder/',
         screenshots: ['rest-finder1.png', 'rest-finder2.png', 'rest-finder3.png', 'rest-finder4.png'],
     },
     {
@@ -46,14 +46,14 @@ const projects = [
         technologies: 'vue-cli, HTML, CSS',
         description: 'message.ubikedayDescription',
         githubLink: 'https://github.com/v3il/u-bike-day-2019',
-        demoLink: 'http://194.32.79.212/ubikeday/',
+        demoLink: 'https://diki.club/ubikeday/',
     },
     {
         name: 'Webtycoon promo',
         technologies: 'vue-cli, HTML, CSS',
         description: 'message.wpDescription',
         githubLink: 'https://github.com/v3il/wt-promo',
-        demoLink: 'http://194.32.79.212/wt-promo',
+        demoLink: 'https://diki.club/wt-promo',
     },
     // {
     //     name: 'Calc builder',
