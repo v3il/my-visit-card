@@ -30,7 +30,7 @@ const projects = [
     {
         nameShort: 'STH-api-server',
         name: 'steam-trade-helper-api',
-        technologies: 'Express.js, Knex, MySQL',
+        technologies: 'Express.js, Knex, MySQL, Socket.io',
         description: 'message.sthApiDescription',
         githubLink: 'https://github.com/v3il/steam-trade-helper-api-server',
     },
