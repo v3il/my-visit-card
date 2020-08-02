@@ -57,7 +57,7 @@ export default class ContentHeader extends Vue {
 
         this.age = now.getFullYear() - 1994;
 
-        if (now.getMonth() <= 11 && now.getDate() < 28) {
+        if (!(now.getMonth() === 11 && now.getDate() >= 28)) {
             this.age--;
         }
 
