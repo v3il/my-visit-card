@@ -2,7 +2,7 @@
 
 export default {
     hello: 'Hello, I am',
-    name: 'Dmitry',
+    name: 'Dmytro',
     specialization: 'Front-end developer',
     about1:
         "I am %s. I love music, learning to play the electric guitar. I'm into traveling, cooking, speedrunning video games, playing with yo-yos and programming.",
@@ -100,7 +100,7 @@ export default {
     sthApiDescription:
         'API server for storing data for steam-trade-helper. Saves tracked items to the database, as well as extension settings.',
 
-    title: 'Dmitry Kit - personal web-site',
+    title: 'Dmytro Kit - personal web-site',
     restFinder: 'Service is a SPA web resource that allows you to choose a place to rest in Cherkasy according to various criteria. After visiting a place you can rate it and write a review.',
     restFinderAPI: 'API server for the Rest Finder project. Serves front-end requests, updates info about places using Google Places API.',
 };
