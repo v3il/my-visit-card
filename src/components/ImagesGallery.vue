@@ -73,23 +73,22 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
 // require.context fallback for tests
-require.context = require.context || (value => () => value);
+require.context = require.context || (value => () => value)
 
 const Props = Vue.extend({
-    props: {
-        imagesNames: {
-            type: Array,
-            required: true,
-        },
-    },
-});
+  props: {
+    imagesNames: {
+      type: Array,
+      required: true
+    }
+  }
+})
 
-@Component()
-export default class ImagesGallery extends Props {
+export default @Component() class ImagesGallery extends Props {
     images = [];
 
     currentImageIndex = 0;
@@ -99,82 +98,83 @@ export default class ImagesGallery extends Props {
 
     focusedElBeforeOpen = null;
 
-    get allImagesLoaded() {
-        return this.images.every(item => item.loaded);
+    get allImagesLoaded () {
+      return this.images.every(item => item.loaded)
     }
 
-    openPreviewOverlay(index) {
-        this.overlayShown = true;
-        this.currentImageIndex = index;
+    openPreviewOverlay (index) {
+      this.overlayShown = true
+      this.currentImageIndex = index
 
-        this.overlayRendered = true;
+      this.overlayRendered = true
 
-        this.$nextTick(() => {
-            this.focusedElBeforeOpen = document.activeElement;
-            this.$refs.closeOverlayBtn.focus();
-        });
+      this.$nextTick(() => {
+        this.focusedElBeforeOpen = document.activeElement
+        this.$refs.closeOverlayBtn.focus()
+      })
     }
 
-    closeOverlay() {
-        this.overlayShown = false;
-        this.focusedElBeforeOpen?.focus();
+    closeOverlay () {
+      this.overlayShown = false
+      // eslint-disable-next-line no-unused-expressions
+      this.focusedElBeforeOpen?.focus()
     }
 
-    showNext() {
-        let nextImageIndex = this.currentImageIndex + 1;
+    showNext () {
+      let nextImageIndex = this.currentImageIndex + 1
 
-        if (nextImageIndex > this.images.length - 1) {
-            nextImageIndex = 0;
+      if (nextImageIndex > this.images.length - 1) {
+        nextImageIndex = 0
+      }
+
+      this.currentImageIndex = nextImageIndex
+    }
+
+    showPrev () {
+      let nextImageIndex = this.currentImageIndex - 1
+
+      if (nextImageIndex < 0) {
+        nextImageIndex = this.images.length - 1
+      }
+
+      this.currentImageIndex = nextImageIndex
+    }
+
+    created () {
+      const images = require.context('@/assets/images/', false)
+
+      this.images = this.imagesNames.map(imageName => ({
+        imageName,
+        image: images(`./${imageName}`),
+        loaded: false
+      }))
+
+      const keyDownListener = event => {
+        if (this.overlayShown) {
+          const [LEFT_ARROW_CODE, ESC_CODE, RIGHT_ARROW_CODE] = [37, 27, 39]
+
+          // Show prev image on left arrow hit
+          if (event.which === LEFT_ARROW_CODE) {
+            this.showPrev()
+          }
+
+          // Show next image on right arrow hit
+          if (event.which === RIGHT_ARROW_CODE) {
+            this.showNext()
+          }
+
+          // Close overlay on Escape hit
+          if (event.which === ESC_CODE) {
+            this.closeOverlay()
+          }
         }
+      }
 
-        this.currentImageIndex = nextImageIndex;
-    }
+      window.addEventListener('keydown', keyDownListener)
 
-    showPrev() {
-        let nextImageIndex = this.currentImageIndex - 1;
-
-        if (nextImageIndex < 0) {
-            nextImageIndex = this.images.length - 1;
-        }
-
-        this.currentImageIndex = nextImageIndex;
-    }
-
-    created() {
-        const images = require.context('@/assets/images/', false);
-
-        this.images = this.imagesNames.map(imageName => ({
-            imageName,
-            image: images(`./${imageName}`),
-            loaded: false,
-        }));
-
-        const keyDownListener = event => {
-            if (this.overlayShown) {
-                const [LEFT_ARROW_CODE, ESC_CODE, RIGHT_ARROW_CODE] = [37, 27, 39];
-
-                // Show prev image on left arrow hit
-                if (event.which === LEFT_ARROW_CODE) {
-                    this.showPrev();
-                }
-
-                // Show next image on right arrow hit
-                if (event.which === RIGHT_ARROW_CODE) {
-                    this.showNext();
-                }
-
-                // Close overlay on Escape hit
-                if (event.which === ESC_CODE) {
-                    this.closeOverlay();
-                }
-            }
-        };
-
-        window.addEventListener('keydown', keyDownListener);
-
-        this.$once('hook:beforeDestroy', () => {
-            window.removeEventListener('keydown', keyDownListener);
-        });
+      this.$once('hook:beforeDestroy', () => {
+        window.removeEventListener('keydown', keyDownListener)
+      })
     }
 }
 </script>

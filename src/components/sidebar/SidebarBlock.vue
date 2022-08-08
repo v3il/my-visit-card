@@ -18,34 +18,33 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue';
+import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue'
 
 const Props = Vue.extend({
-    props: {
-        items: {
-            type: Array,
-            required: true,
-        },
-
-        sidebarOpened: {
-            type: Boolean,
-            required: true,
-        },
+  props: {
+    items: {
+      type: Array,
+      required: true
     },
-});
 
-@Component({
-    components: {
-        SidebarLinkItem,
-    },
-})
-export default class SidebarBlock extends Props {
-    emitScrollToInfoBlock(linkItem) {
-        this.$emit('scroll-to-info-block', linkItem);
+    sidebarOpened: {
+      type: Boolean,
+      required: true
     }
+  }
+})
+
+export default @Component({
+  components: {
+    SidebarLinkItem
+  }
+}) class SidebarBlock extends Props {
+  emitScrollToInfoBlock (linkItem) {
+    this.$emit('scroll-to-info-block', linkItem)
+  }
 }
 </script>
 

@@ -14,17 +14,16 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-@Component()
-export default class App extends Vue {
+export default @Component() class App extends Vue {
     isMobile = false;
 
-    created() {
-        this.isMobile = 'onorientationchange' in window;
-        document.documentElement.setAttribute('lang', this.currentLocale);
-        document.title = this.$t('title');
+    created () {
+      this.isMobile = 'onorientationchange' in window
+      document.documentElement.setAttribute('lang', this.currentLocale)
+      document.title = this.$t('title')
     }
 }
 </script>

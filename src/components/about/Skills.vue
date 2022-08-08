@@ -46,29 +46,28 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-@Component()
-export default class Skills extends Vue {
-    created() {
-        this.frontEndTechs = {
-            title: 'message.frontEndTechs',
-            technologies: [
-                {
-                    name: 'JavaScript',
-                    children: [{ name: 'Vue.js 2 / Vue.js 3' }, { name: 'Nuxt' }, { name: 'Jest' }],
-                },
-                { name: 'HTML5' },
-                { name: 'CSS3, Less, SCSS' },
-            ],
-        };
-
-        this.backEndTechs = {
-            title: 'message.backEndTechs',
-            technologies: [{ name: 'Node.js' }, { name: 'Express.js' }, { name: 'Postgres' }, { name: 'Objection.js' }],
-        };
+export default @Component() class Skills extends Vue {
+  created () {
+    this.frontEndTechs = {
+      title: 'message.frontEndTechs',
+      technologies: [
+        {
+          name: 'JavaScript',
+          children: [{ name: 'Vue.js 2 / Vue.js 3' }, { name: 'Nuxt.js' }, { name: 'Jest' }]
+        },
+        { name: 'HTML5' },
+        { name: 'CSS3, Less, SCSS' }
+      ]
     }
+
+    this.backEndTechs = {
+      title: 'message.backEndTechs',
+      technologies: [{ name: 'Node.js' }, { name: 'Express.js' }, { name: 'Postgres' }, { name: 'Objection.js' }]
+    }
+  }
 }
 </script>
 

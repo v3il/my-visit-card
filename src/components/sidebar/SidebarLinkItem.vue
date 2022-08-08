@@ -11,18 +11,14 @@
 
 <script>
 export default {
-    data() {
-        return {};
-    },
+  props: ['item'],
 
-    props: ['item'],
-
-    methods: {
-        emitScrollToInfoBlock() {
-            this.$emit('scrollToInfoBlock', this.item);
-        },
-    },
-};
+  methods: {
+    emitScrollToInfoBlock () {
+      this.$emit('scrollToInfoBlock', this.item)
+    }
+  }
+}
 </script>
 
 <style>

@@ -16,44 +16,43 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-@Component()
-export default class SocialNetworks extends Vue {
-    created() {
-        this.socialNetworks = {
-            // phone: {
-            //     title: 'message.myPhone',
-            //     href: 'tel:+380675892392',
-            // },
+export default @Component() class SocialNetworks extends Vue {
+  created () {
+    this.socialNetworks = {
+      // phone: {
+      //     title: 'message.myPhone',
+      //     href: 'tel:+380675892392',
+      // },
 
-            envelope: {
-                title: 'message.myEmail',
-                href: 'mailto:v3il@ukr.net',
-            },
+      envelope: {
+        title: 'message.myEmail',
+        href: 'mailto:v3il@ukr.net'
+      },
 
-            telegram: {
-                title: 'message.myTelegram',
-                href: 'https://t.me/veil_94',
-            },
+      telegram: {
+        title: 'message.myTelegram',
+        href: 'https://t.me/veil_94'
+      },
 
-            // skype: {
-            //     title: 'message.mySkype',
-            //     href: 'skype:D_Kit94?chat',
-            // },
+      // skype: {
+      //     title: 'message.mySkype',
+      //     href: 'skype:D_Kit94?chat',
+      // },
 
-            github: {
-                title: 'message.myGithub',
-                href: 'https://github.com/v3il',
-            },
+      github: {
+        title: 'message.myGithub',
+        href: 'https://github.com/v3il'
+      },
 
-            linkedin: {
-                title: 'message.myLinkedIn',
-                href: 'https://www.linkedin.com/in/diki/',
-            },
-        };
+      linkedin: {
+        title: 'message.myLinkedIn',
+        href: 'https://www.linkedin.com/in/diki/'
+      }
     }
+  }
 }
 </script>
 

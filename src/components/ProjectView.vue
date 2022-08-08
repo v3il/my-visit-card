@@ -100,26 +100,25 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-import ImagesGallery from '@/components/ImagesGallery';
+import ImagesGallery from '@/components/ImagesGallery'
 
 const Props = Vue.extend({
-    props: {
-        project: {
-            type: Object,
-            required: true,
-        },
-    },
-});
-
-@Component({
-    components: {
-        ImagesGallery,
-    },
+  props: {
+    project: {
+      type: Object,
+      required: true
+    }
+  }
 })
-export default class ProjectView extends Props {}
+
+export default @Component({
+  components: {
+    ImagesGallery
+  }
+}) class ProjectView extends Props {}
 </script>
 
 <style scoped lang="less">

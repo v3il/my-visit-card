@@ -39,47 +39,46 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component, Watch } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component, Watch } from 'vue-property-decorator'
 
-import SocialNetworks from '@/components/SocialNetworks.vue';
+import SocialNetworks from '@/components/SocialNetworks.vue'
 
-@Component({
-    components: {
-        SocialNetworks,
-    },
-})
-export default class ContentHeader extends Vue {
+export default @Component({
+  components: {
+    SocialNetworks
+  }
+}) class ContentHeader extends Vue {
     activeRouteName = null;
 
-    created() {
-        const now = new Date();
+    created () {
+      const now = new Date()
 
-        this.age = now.getFullYear() - 1994;
+      this.age = now.getFullYear() - 1994
 
-        if (!(now.getMonth() === 11 && now.getDate() >= 28)) {
-            this.age--;
+      if (!(now.getMonth() === 11 && now.getDate() >= 28)) {
+        this.age--
+      }
+
+      this.tabs = [
+        {
+          tabText: this.$t('message.aboutMeBtn'),
+          toProp: { name: 'about-section' }
+        },
+        {
+          tabText: this.$t('message.portfolio'),
+          toProp: { name: 'portfolio-section' }
         }
-
-        this.tabs = [
-            {
-                tabText: this.$t('message.aboutMeBtn'),
-                toProp: { name: 'about-section' },
-            },
-            {
-                tabText: this.$t('message.portfolio'),
-                toProp: { name: 'portfolio-section' },
-            },
-        ];
+      ]
     }
 
-    isTabActive(tabName) {
-        return this.activeRouteName === tabName;
+    isTabActive (tabName) {
+      return this.activeRouteName === tabName
     }
 
     @Watch('$route', { immediate: true })
-    onRouteChange() {
-        this.activeRouteName = this.$route.name;
+    onRouteChange () {
+      this.activeRouteName = this.$route.name
     }
 }
 </script>

@@ -10,19 +10,18 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-import ProjectView from '@/components/ProjectView';
+import ProjectView from '@/components/ProjectView'
 
-import portfolioProjects from '../../portfolioProjects';
+import portfolioProjects from '../../portfolioProjects'
 
-@Component({
-    components: {
-        ProjectView,
-    },
-})
-export default class Portfolio extends Vue {
+export default @Component({
+  components: {
+    ProjectView
+  }
+}) class Portfolio extends Vue {
     projects = portfolioProjects;
 }
 </script>

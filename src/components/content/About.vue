@@ -7,21 +7,20 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-import Skills from '@/components/about/Skills';
-import Experience from '@/components/about/Experience';
-import Education from '@/components/about/Education';
+import Skills from '@/components/about/Skills'
+import Experience from '@/components/about/Experience'
+import Education from '@/components/about/Education'
 
-@Component({
-    components: {
-        Skills,
-        Experience,
-        Education,
-    },
-})
-export default class About extends Vue {}
+export default @Component({
+  components: {
+    Skills,
+    Experience,
+    Education
+  }
+}) class About extends Vue {}
 </script>
 
 <style scoped lang="less">

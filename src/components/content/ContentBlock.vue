@@ -5,40 +5,20 @@
         <keep-alive>
             <router-view />
         </keep-alive>
-
-        <div class="content__lang-switchers">
-            <!--            <img-->
-            <!--                v-lazy-image="'ru-flag.png'"-->
-            <!--                alt="ru"-->
-            <!--                @click="changeLocale('ru')"-->
-            <!--                :class="{ 'content__lang-switcher&#45;&#45;active': currentLocale === 'ru' }"-->
-            <!--                class="content__lang-switcher"-->
-            <!--                src=""-->
-            <!--            />-->
-            <!--            <img-->
-            <!--                v-lazy-image="'usa-flag.png'"-->
-            <!--                alt="en"-->
-            <!--                @click="changeLocale('en')"-->
-            <!--                :class="{ 'content__lang-switcher&#45;&#45;active': currentLocale === 'en' }"-->
-            <!--                class="content__lang-switcher"-->
-            <!--                src=""-->
-            <!--            />-->
-        </div>
     </section>
 </template>
 
 <script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-import ContentHeader from './ContentHeader.vue';
+import ContentHeader from './ContentHeader.vue'
 
-@Component({
-    components: {
-        ContentHeader,
-    },
-})
-export default class ContentBlock extends Vue {}
+export default @Component({
+  components: {
+    ContentHeader
+  }
+}) class ContentBlock extends Vue {}
 </script>
 
 <style scoped lang="less">

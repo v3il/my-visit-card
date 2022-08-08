@@ -48,7 +48,7 @@ export default {
     cpResult6:
         'Site navigation began to work more stable, laid the foundation for the use of Vue + vue-router combination in the future',
     cpDescription:
-        'This project is a site administrator’s panel, where he can edit the design of the site, add/remove/edit materials from a variety of ready-made modules, manage user accounts, change site settings in general.',
+        'This project is a site administrator’s panel, where he can edit the design of the site, add/remove/edit materials from a variety of ready-made modules, manage user accounts, change site settings etc.',
     results: 'Results',
     imageGalleryDescription: 'Click the image to see its large version',
     ucalc: 'Statistics module for uCalc project',

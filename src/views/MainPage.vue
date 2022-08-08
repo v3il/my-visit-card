@@ -35,7 +35,7 @@
 import SidebarBlock from '@/components/sidebar/SidebarBlock.vue'
 import ContentBlock from '@/components/content/ContentBlock.vue'
 
-import { mainRouteNames } from '../routes'
+import { mainRouteNames } from '@/routes'
 
 import projects from '../portfolioProjects'
 
@@ -44,8 +44,6 @@ export default {
 
   data () {
     const portfolioSectionSidebarItems = projects.map((project, index) => {
-      console.error(1)
-
       return {
         text: project.nameShort || project.name,
         link: '#',
