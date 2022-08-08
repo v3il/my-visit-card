@@ -1,29 +1,5 @@
-# my-visit-card2
+# My visit card
+It's a web-site that describes my work experience, education and hobbies. Also it allows you to find me in social networks and contact me.
 
-## Project setup
-```
-yarn install
-```
+[Demo](http://diki.club)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
