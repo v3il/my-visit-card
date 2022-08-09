@@ -29,4 +29,4 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
           script: |
-            pwd && ls
+            rb_diki_club
