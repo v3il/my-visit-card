@@ -7,7 +7,8 @@ jobs:
   check-files:
     runs-on: ubuntu-latest
     outputs:
-      server: ${{ steps.filter.outputs.is_js_changed }}
+      is_js_changed: ${{ steps.filter.outputs.is_js_changed }}
+      need_rebuild: ${{ steps.filter.outputs.need_rebuild }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
