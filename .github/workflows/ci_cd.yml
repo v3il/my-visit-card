@@ -19,6 +19,13 @@ jobs:
             is_js_changed:
               - '**.js'
               - '**.vue'
+            
+            need_rebuild:
+              - '**.js'
+              - '**.vue'
+              - '**.less'
+              - '**.html'
+              - '**.png'
 
   test:
     name: Test
@@ -42,7 +49,8 @@ jobs:
 
   rebuild:
     name: Rebuild
-    needs: test
+    needs: check-files
+    if: ${{ needs.check-files.outputs.need_rebuild == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Restart docker image on VPS
