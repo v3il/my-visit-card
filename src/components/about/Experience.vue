@@ -28,7 +28,7 @@
                 </h3>
 
                 <h3 class="experience__job-period">
-                  {{ $t('message.jobSession', [2020, 'now']) }}
+                  {{ $t('message.jobSession', [2020, 'present']) }}
                 </h3>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default @Component({
     this.uCozProjects = [
       {
         name: this.$t('message.cpv2'),
-        technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, ES2015+, Less, Jest',
+        technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, Less, Jest',
         description: 'message.cpDescription',
         screenshots: ['cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png', 'cp6.png']
       },
@@ -93,20 +93,6 @@ export default @Component({
         description: 'message.uCalcDescription',
         screenshots: ['uc2.png', 'uc1.png', 'uc3.png', 'uc4.png']
       }
-
-      // {
-      //   name: 'Mass Labeling',
-      //   technologies: 'Node.js, Express, ejs, mongo, Docker, jQuery, Vue.js, Webpack, eslint, Bootstrap',
-      //   description: 'message.mlDescription',
-      //   githubLink: 'https://github.com/ukitgroup/mass-labeling',
-      //   screenshots: ['ml2.png', 'ml3.png', 'ml1.png', 'ml4.png']
-      // },
-      //
-      // {
-      //   name: 'uCoz ads',
-      //   technologies: 'Javascript, Perl',
-      //   description: 'message.uAdvDescription'
-      // }
     ]
   }
 }

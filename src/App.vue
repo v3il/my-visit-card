@@ -22,8 +22,6 @@ export default @Component() class App extends Vue {
 
     created () {
       this.isMobile = 'onorientationchange' in window
-      document.documentElement.setAttribute('lang', this.currentLocale)
-      document.title = this.$t('title')
     }
 }
 </script>

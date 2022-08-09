@@ -37,56 +37,6 @@
 
         <p class="project__description" v-html="$t(project.description)"></p>
 
-        <h3 class="project__duties article-title" v-if="project.duties">
-            {{ $t('message.duties') }}
-        </h3>
-
-        <ul class="section-list" v-if="project.duties">
-            <li class="section-list__item" v-for="(duty, index) in project.duties" :key="`duty${index}`">
-                <div class="section-list__pointer"></div>
-
-                <div class="project__duty-name">
-                    {{ duty }}
-                </div>
-            </li>
-        </ul>
-
-        <h3 class="project__achievements-title article-title" v-if="project.achievements || project.achievementsList">
-            {{ $t('message.achievements') }}
-        </h3>
-
-        <ul class="section-list" v-if="project.achievementsList">
-            <li
-                class="section-list__item"
-                v-for="(duty, index) in project.achievementsList"
-                :key="`achievement${index}`"
-            >
-                <div class="section-list__pointer"></div>
-
-                <div class="project__duty-name">
-                    {{ duty }}
-                </div>
-            </li>
-        </ul>
-
-        <ul class="project__achievements" v-if="project.achievements">
-            <li
-                class="project__achievements-item"
-                v-for="(achievement, index) in project.achievements"
-                :key="`achievement${index}`"
-            >
-                <div class="project__achievement-task">
-                    <i class="fa fa-chevron-circle-right project__achievement-task-icon"></i>
-                    {{ achievement.task }}
-                </div>
-
-                <div class="project__achievement-result">
-                    <i class="fa fa-check-circle project__achievement-result-icon"></i>
-                    {{ achievement.result }}
-                </div>
-            </li>
-        </ul>
-
         <h3 class="project__gallery-title article-title" v-if="project.screenshots">
             {{ $t('message.results') }}
         </h3>
@@ -164,38 +114,8 @@ export default @Component({
     }
 
     &__description-title,
-    &__duties,
-    &__achievements-title,
     &__gallery-title {
         margin-top: 30px;
-    }
-
-    &__achievements {
-        list-style: none;
-    }
-
-    &__achievements-item {
-        padding: 18px 0 18px 30px;
-        border-bottom: 1px solid #a7a7a7;
-
-        &:last-child {
-            border-bottom: 0;
-        }
-    }
-
-    &__achievement-task-icon,
-    &__achievement-result-icon {
-        position: absolute;
-        left: -30px;
-        top: 5px;
-        color: #3971ff;
-        font-size: 17px;
-    }
-
-    &__achievement-task,
-    &__achievement-result {
-        margin: 6px 0;
-        position: relative;
     }
 
     &__gallery-title {
