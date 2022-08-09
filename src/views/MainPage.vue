@@ -222,8 +222,8 @@ export default {
 }
 
 .page__scroll-top {
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
     z-index: 3;
 }
 
@@ -233,8 +233,8 @@ export default {
 
 .page__open-menu-btn {
     display: none;
-    right: 10px;
-    bottom: 60px;
+    right: 20px;
+    bottom: 70px;
     z-index: 5;
 
     @media screen and (max-width: 1150px) {
