@@ -53,21 +53,21 @@ jobs:
               - '**.vue'
 
       - name: Checkout code
-        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
+#        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         uses: actions/checkout@v3
 
       - name: Setup Node.js
-        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
+#        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
       - name: Prep dependencies
-        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
+#        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         run: yarn install --frozen-lockfile
 
       - name: Test NPM test:unit
-        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
+#        if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         run: yarn test:unit
 
   rebuild:
