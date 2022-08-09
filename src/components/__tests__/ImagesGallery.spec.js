@@ -31,7 +31,7 @@ describe('ImagesGallery', () => {
     for (let i = 0; i < previewsLink.length; i++) {
       const item = previewsLink.at(i)
 
-      expect(item.element.tagName).toBe('A')
+      expect(item.element.tagName).toBe('A1')
       expect(item.find('.gallery__preview-image').exists()).toBe(true)
     }
   })
