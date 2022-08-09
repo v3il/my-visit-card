@@ -6,6 +6,7 @@
                 :key="key"
                 class="social-networks__item"
                 rel="noopener noreferrer"
+                target="_blank"
                 :href="value.href"
                 :aria-label="key"
             >
