@@ -22,11 +22,13 @@ jobs:
       - name: Test NPM test:unit
         run: npm run test:unit
 
-      - name: SSH Action
-        uses: invi5H/ssh-action@v1.0.0
+      - name: Deploy App and Deploy
+        uses: appleboy/ssh-action@v0.1.2
+
         with:
-          host: ${{ secrets.VPS_IP }}
+          host: ${{secrets.VPS_IP}}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
-          port: 22
-        run: ssh ${{ steps.ssh.outputs.SERVER }} pwd
+
+          script: |
+            pwd && ls
