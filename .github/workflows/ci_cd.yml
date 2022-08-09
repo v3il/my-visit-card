@@ -35,7 +35,7 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            ls && pwd
+            ls && pwd && rb_diki_club
           host: ${{secrets.VPS_IP}}
           user: ${{ secrets.VPS_USER }}
           pass: ${{ secrets.VPS_PASSWORD }}
