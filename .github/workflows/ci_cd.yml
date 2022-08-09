@@ -22,20 +22,11 @@ jobs:
       - name: Test NPM test:unit
         run: yarn test:unit
 
-#      - name: Deploy App and Deploy
-#        uses: appleboy/ssh-action@v0.1.2
-#        with:
-#          host: ${{secrets.VPS_IP}}
-#          username: ${{ secrets.VPS_USER }}
-#          password: ${{ secrets.VPS_PASSWORD }}
-#          script: |
-#            rb_diki_club
-
-      - name: ls -a via OPEN SSH Private Key
+      - name: Restart docker image on VPS
         uses: fifsky/ssh-action@master
         with:
-          command: |
-            ls && pwd && bash /home/rebuild_diki_club.sh
           host: ${{secrets.VPS_IP}}
           user: ${{ secrets.VPS_USER }}
           pass: ${{ secrets.VPS_PASSWORD }}
+          command: |
+            bash /home/rebuild_diki_club.sh
