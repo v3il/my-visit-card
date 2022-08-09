@@ -2,7 +2,7 @@
 
 export default {
     hello: 'Hello, I am',
-    name: 'Dmytro',
+    name: 'Dmytro Kit',
     specialization: 'Front-end developer',
     about1:
         "I am %s. I love music, learning to play the electric guitar. I'm into traveling, cooking, speedrunning video games, playing with yo-yos and programming.",
