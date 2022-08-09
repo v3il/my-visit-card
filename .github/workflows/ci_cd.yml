@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_push:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+
+      - name: Test using Node.js
+          uses: actions/setup-node@v1
+          with:
+            node-version: '16'
+            - run: yarn install
+            - run: yarn test:unit
+
+      - name: SSH Action
+          uses: invi5H/ssh-action@v1.0.0
+          with:
+            host: ${{ secrets.VPS_IP }}
+            username: ${{ secrets.VPS_USER }}
+            password: ${{ secrets.VPS_PASSWORD }}
+            port: 22
+          run: ssh ${{ steps.ssh.outputs.SERVER }} pwd
