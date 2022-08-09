@@ -35,7 +35,7 @@ jobs:
         uses: fifsky/ssh-action@master
         with:
           command: |
-            ls && pwd && cd /var/www/html/my-visit-card
+            ls && pwd && bash /home/rebuild_diki_club.sh
           host: ${{secrets.VPS_IP}}
           user: ${{ secrets.VPS_USER }}
           pass: ${{ secrets.VPS_PASSWORD }}
