@@ -9,9 +9,9 @@ jobs:
     outputs:
       server: ${{ steps.filter.outputs.is_js_changed }}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: github-actions-update
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - uses: dorny/paths-filter@v2
         id: filter
         with:
