@@ -5,11 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    networks:
-      - vps
+    ports:
+      - 80:80
     stdin_open: true
     tty: true
-
-networks:
-  vps:
-    external: true
