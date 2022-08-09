@@ -10,16 +10,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-          - name: Setup Node.js
-            uses: actions/setup-node@v2
-            with:
-              node-version: '16'
 
-          - name: Prep NPM dependencies
-            run: npm ci
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
-          - name: Test NPM test:unit
-            run: npm run test:unit
+      - name: Prep NPM dependencies
+        run: npm ci
+
+      - name: Test NPM test:unit
+        run: npm run test:unit
 
       - name: SSH Action
         uses: invi5H/ssh-action@v1.0.0
