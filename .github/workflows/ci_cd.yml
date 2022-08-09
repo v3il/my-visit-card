@@ -19,18 +19,17 @@ jobs:
               - '**.js'
               - '**.vue'
 
-
-      - name: Setup Node.js
+      - name: Setup environment
         if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - name: Prep dependencies
+      - name: Install dependencies
         if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         run: yarn install --frozen-lockfile
 
-      - name: Test NPM test:unit
+      - name: Run tests
         if: ${{ steps.changes_filter.outputs.tests == 'true' }}
         run: yarn test:unit
 
@@ -39,7 +38,7 @@ jobs:
     needs: unit_tests
     runs-on: ubuntu-latest
     steps:
-      - name: Restart docker image on VPS
+      - name: Rebuild docker image on VPS
         uses: fifsky/ssh-action@master
         with:
           host: ${{secrets.VPS_IP}}
