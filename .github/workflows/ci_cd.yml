@@ -22,11 +22,20 @@ jobs:
       - name: Test NPM test:unit
         run: yarn test:unit
 
-      - name: Deploy App and Deploy
-        uses: appleboy/ssh-action@v0.1.2
+#      - name: Deploy App and Deploy
+#        uses: appleboy/ssh-action@v0.1.2
+#        with:
+#          host: ${{secrets.VPS_IP}}
+#          username: ${{ secrets.VPS_USER }}
+#          password: ${{ secrets.VPS_PASSWORD }}
+#          script: |
+#            rb_diki_club
+
+      - name: ls -a via OPEN SSH Private Key
+        uses: fifsky/ssh-action@master
         with:
+          command: |
+            ls && pwd
           host: ${{secrets.VPS_IP}}
-          username: ${{ secrets.VPS_USER }}
-          password: ${{ secrets.VPS_PASSWORD }}
-          script: |
-            rb_diki_club
+          user: ${{ secrets.VPS_USER }}
+          pass: ${{ secrets.VPS_PASSWORD }}
