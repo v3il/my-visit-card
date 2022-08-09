@@ -4,24 +4,47 @@ on:
       - master
 
 jobs:
-  build_and_push:
-    name: Build
+  check-files:
+    runs-on: ubuntu-latest
+    outputs:
+      server: ${{ steps.filter.outputs.is_js_changed }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: github-actions-update
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            is_js_changed:
+              - '**.js'
+              - '**.vue'
+
+  test:
+    name: Test
+    needs: check-files
+    if: ${{ needs.check-files.outputs.is_js_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-#      - name: Setup Node.js
-#        uses: actions/setup-node@v2
-#        with:
-#          node-version: '16'
-#
-#      - name: Prep dependencies
-#        run: yarn install --frozen-lockfile
-#
-#      - name: Test NPM test:unit
-#        run: yarn test:unit
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
+      - name: Prep dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Test NPM test:unit
+        run: yarn test:unit
+
+  rebuild:
+    name: Rebuild
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Restart docker image on VPS
         uses: fifsky/ssh-action@master
         with:
