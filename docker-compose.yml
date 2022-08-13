@@ -5,11 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    networks:
-      - vps
+    network_mode: bridge
+#    networks:
+#      - vps
     stdin_open: true
     tty: true
 
-networks:
-  vps:
-    external: true
+#networks:
+#  vps:
+#    external: true
