@@ -2,7 +2,7 @@ version: '3'
 
 services:
   my-visit-card:
-    container_name: diki.club
+    container_name: diki.club--web
     build:
       context: .
       dockerfile: Dockerfile
