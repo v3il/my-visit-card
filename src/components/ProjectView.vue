@@ -27,15 +27,15 @@
             </a>
         </h2>
 
-        <p class="project__technologies">
+        <p class="project__technologies" v-if="project.technologies">
             {{ project.technologies }}
         </p>
 
-        <h3 class="project__description-title article-title">
+        <h3 class="project__description-title article-title" v-if="project.description">
             {{ $t('message.projectDescription') }}
         </h3>
 
-        <p class="project__description" v-html="$t(project.description)"></p>
+        <p class="project__description" v-html="$t(project.description)" v-if="project.description"></p>
 
         <h3 class="project__gallery-title article-title" v-if="project.screenshots">
             {{ $t('message.results') }}

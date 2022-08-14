@@ -33,9 +33,9 @@
               </div>
             </div>
 
-<!--            <div class="experience__job-description">-->
-<!--              <project-view v-for="project in uCozProjects" :project="project" :key="project.name" />-->
-<!--            </div>-->
+            <div class="experience__job-description">
+              <project-view v-for="project in mocProjects" :project="project" :key="project.name" />
+            </div>
           </div>
 
             <div class="experience__job-item">
@@ -92,6 +92,12 @@ export default @Component({
         technologies: 'jQuery, Gulp, Sass, Chartist.js, JSON',
         description: 'message.uCalcDescription',
         screenshots: ['uc2.png', 'uc1.png', 'uc3.png', 'uc4.png']
+      }
+    ]
+
+    this.mocProjects = [
+      {
+        name: 'Coming soon...'
       }
     ]
   }
