@@ -97,7 +97,9 @@ export default @Component({
 
     this.mocProjects = [
       {
-        name: 'Coming soon...'
+        name: 'Zipify Pages',
+        technologies: 'Vue 2.0 / 3.0, Backbone, SCSS, Jest',
+        description: 'Blog, Landing, Product and Home Pages drag & drop builder expertly designed by successful ecommerce sellers for Shopify stores'
       }
     ]
   }

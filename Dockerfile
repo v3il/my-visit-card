@@ -2,6 +2,7 @@
 FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
+RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 RUN yarn install
 COPY . .
 RUN yarn build
