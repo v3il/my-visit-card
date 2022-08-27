@@ -4,7 +4,7 @@ export default {
     hello: 'Hello, I am',
     name: 'Dmytro',
     specialization: 'Front-end developer',
-    about1: "I am %s. I love music, traveling, cooking, speedrunning video games, playing with yo-yos and programming.",
+    about1: "I am %s. I like music, traveling, cooking, speedrunning video games and programming.",
     about2: 'I love JavaScript with all its oddities :)',
     aboutMeBtn: 'About me',
     portfolio: 'Portfolio',

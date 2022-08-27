@@ -53,7 +53,7 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-import ImagesGallery from '@/components/ImagesGallery'
+import ImagesGallery from '@/components/image/ImagesGallery'
 
 const Props = Vue.extend({
   props: {

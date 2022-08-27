@@ -1,6 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 
-import ImagesGallery from '../ImagesGallery.vue'
+import ImagesGallery from '../image/ImagesGallery.vue'
 import LazyImage from '../../directives/LazyImage'
 
 const intersectionObserverMock = () => ({

@@ -2,44 +2,34 @@
     <div class="gallery">
         <div class="gallery__previews">
             <a
-                href="javascript://"
-                v-for="(imageSrc, index) in imagesNames"
-                :key="`mini-${imageSrc}`"
+                v-for="(imageName, index) in imagesNames"
+                :key="`mini-${imageName}`"
                 class="gallery__preview-link"
-                @click="openPreviewOverlay(index)"
+                @click.prevent="openPreviewOverlay(index)"
             >
-                <img
-                    v-lazy-image="`mini-${imageSrc}`"
-                    src=""
-                    alt=""
-                    :aria-label="imageSrc"
-                    class="gallery__preview-image"
-                />
+              <GalleryImage
+                :image-name="imageName"
+                :transformation="[{height:80, width: 170}]"
+                class="gallery__preview-image"
+              />
             </a>
         </div>
 
         <transition name="fade">
             <div class="gallery__overlay" v-show="overlayShown" @click.self="closeOverlay">
                 <transition-group name="fade" tag="div" class="gallery__overlay-slide">
-                    <div class="gallery__overlay-spinner-wrap" v-show="!allImagesLoaded" key="loader">
-                        <i class="fa fa-spinner fa-spin"></i>
-                    </div>
-
                     <div
-                        v-show="allImagesLoaded"
                         key="list"
                         class="gallery__overlay-image-wrap"
                         @click.self="closeOverlay"
                     >
-                        <img
-                            v-for="(imageData, index) in images"
-                            :src="overlayRendered ? imageData.image : ''"
-                            :alt="imageData.imageName"
-                            :key="imageData.imageName"
-                            @load="imageData.loaded = true"
-                            v-show="currentImageIndex === index"
-                            class="gallery__overlay-image"
-                        />
+                      <GalleryImage
+                        v-for="(imageName, index) in imagesNames"
+                        :key="imageName"
+                        :image-name="imageName"
+                        v-show="currentImageIndex === index"
+                        class="gallery__overlay-image"
+                      />
                     </div>
                 </transition-group>
 
@@ -75,9 +65,7 @@
 <script>
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-
-// require.context fallback for tests
-require.context = require.context || (value => () => value)
+import GalleryImage from '@/components/image/GalleryImage'
 
 const Props = Vue.extend({
   props: {
@@ -85,22 +73,20 @@ const Props = Vue.extend({
       type: Array,
       required: true
     }
+  },
+
+  components: {
+    GalleryImage
   }
 })
 
 export default @Component() class ImagesGallery extends Props {
-    images = [];
-
     currentImageIndex = 0;
 
     overlayShown = false;
     overlayRendered = false;
 
     focusedElBeforeOpen = null;
-
-    get allImagesLoaded () {
-      return this.images.every(item => item.loaded)
-    }
 
     openPreviewOverlay (index) {
       this.overlayShown = true
@@ -123,7 +109,7 @@ export default @Component() class ImagesGallery extends Props {
     showNext () {
       let nextImageIndex = this.currentImageIndex + 1
 
-      if (nextImageIndex > this.images.length - 1) {
+      if (nextImageIndex > this.imagesNames.length - 1) {
         nextImageIndex = 0
       }
 
@@ -134,21 +120,13 @@ export default @Component() class ImagesGallery extends Props {
       let nextImageIndex = this.currentImageIndex - 1
 
       if (nextImageIndex < 0) {
-        nextImageIndex = this.images.length - 1
+        nextImageIndex = this.imagesNames.length - 1
       }
 
       this.currentImageIndex = nextImageIndex
     }
 
     created () {
-      const images = require.context('@/assets/images/', false)
-
-      this.images = this.imagesNames.map(imageName => ({
-        imageName,
-        image: images(`./${imageName}`),
-        loaded: false
-      }))
-
       const keyDownListener = event => {
         if (this.overlayShown) {
           const [LEFT_ARROW_CODE, ESC_CODE, RIGHT_ARROW_CODE] = [37, 27, 39]
