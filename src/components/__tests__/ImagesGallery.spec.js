@@ -2,12 +2,6 @@ import { createLocalVue, shallowMount } from '@vue/test-utils'
 
 import ImagesGallery from '../image/ImagesGallery.vue'
 
-const intersectionObserverMock = () => ({
-  observe: () => null
-})
-
-window.IntersectionObserver = jest.fn().mockImplementation(intersectionObserverMock)
-
 const IMAGES = ['test1.png', 'test2.png', 'test3.png']
 const localVue = createLocalVue()
 
