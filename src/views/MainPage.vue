@@ -1,11 +1,11 @@
 <template>
     <div class="page">
-        <sidebar-block
+        <SidebarBlock
             :sidebarOpened="sidebarOpened"
             :items="this.currentPageSidebarItems"
             @scroll-to-info-block="scrollToInfoBlock"
             @toggle-sidebar="toggleMobileSidebar"
-        ></sidebar-block>
+        ></SidebarBlock>
 
         <transition name="fade">
             <div class="page__sidebar-overlay" v-if="sidebarOpened" @click="toggleMobileSidebar"></div>
@@ -125,16 +125,8 @@ export default {
 
     methods: {
         getCurrentPageSidebarItems () {
-            const router = this.$router
-
-            switch (router.currentRoute.name) {
-            case MainRouteNames.ABOUT:
-                return this.aboutSectionSidebarItems
-            case MainRouteNames.PORTFOLIO:
-                return this.portfolioSectionSidebarItems
-            default:
-                return []
-            }
+            const routeName = this.$router.currentRoute.name
+            return routeName === MainRouteNames.ABOUT ? this.aboutSectionSidebarItems : this.portfolioSectionSidebarItems
         },
 
         scrollToInfoBlock (clickedSideBarItem) {

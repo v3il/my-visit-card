@@ -15,16 +15,16 @@
                 <i class="fa fa-github"></i>
             </a>
 
-            <a
-                :href="project.demoLink"
-                v-if="project.demoLink"
-                class="project__demo-link"
-                target="_blank"
-                :aria-label="`${project.name}-demo`"
-                rel="noopener noreferrer"
-            >
-                <i class="fa fa-eye"></i>
-            </a>
+<!--            <a-->
+<!--                :href="project.demoLink"-->
+<!--                v-if="project.demoLink"-->
+<!--                class="project__demo-link"-->
+<!--                target="_blank"-->
+<!--                :aria-label="`${project.name}-demo`"-->
+<!--                rel="noopener noreferrer"-->
+<!--            >-->
+<!--                <i class="fa fa-eye"></i>-->
+<!--            </a>-->
         </h2>
 
         <p class="project__technologies" v-if="project.technologies">

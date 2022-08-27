@@ -4,7 +4,9 @@
             <a
                 v-for="(imageName, index) in imagesNames"
                 :key="`mini-${imageName}`"
+                href="#"
                 class="gallery__preview-link"
+                @keydown.space.prevent="openPreviewOverlay(index)"
                 @click.prevent="openPreviewOverlay(index)"
             >
               <GalleryImage

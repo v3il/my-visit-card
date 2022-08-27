@@ -4,7 +4,12 @@
         :class="{ 'sidebar__nav-item--active': item.isActive }"
     >
         <div class="sidebar__nav-item-pointer" />
-        <a class="sidebar__nav-item-link" @click.prevent="emitScrollToInfoBlock">{{ item.text }}</a>
+        <a
+            href="#"
+            class="sidebar__nav-item-link"
+            @keydown.space.prevent="emitScrollToInfoBlock"
+            @click.prevent="emitScrollToInfoBlock"
+        >{{ item.text }}</a>
     </li>
 </template>
 

@@ -31,6 +31,7 @@
                     <router-link class="header-block__nav-link" :to="tabData.toProp">
                         {{ tabData.tabText }}
                     </router-link>
+
                     <div class="header-block__nav-line"></div>
                 </div>
             </div>
