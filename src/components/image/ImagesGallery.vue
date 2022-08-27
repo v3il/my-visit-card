@@ -55,7 +55,7 @@
                     @click="showNext"
                     class="gallery__overlay-button gallery__overlay-button-next"
                 >
-                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa fa-arrow-right" />
                 </button>
             </div>
         </transition>
@@ -63,11 +63,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
 import GalleryImage from '@/components/image/GalleryImage'
 
-const Props = Vue.extend({
+export default {
+    name: 'ImagesGallery',
+
     props: {
         imagesNames: {
             type: Array,
@@ -77,54 +77,54 @@ const Props = Vue.extend({
 
     components: {
         GalleryImage
-    }
-})
+    },
 
-export default @Component() class ImagesGallery extends Props {
-    currentImageIndex = 0;
+    data: () => ({
+        currentImageIndex: 0,
+        overlayShown: false,
+        overlayRendered: false,
+        focusedElBeforeOpen: null
+    }),
 
-    overlayShown = false;
-    overlayRendered = false;
+    methods: {
+        openPreviewOverlay (index) {
+            this.overlayShown = true
+            this.currentImageIndex = index
 
-    focusedElBeforeOpen = null;
+            this.overlayRendered = true
 
-    openPreviewOverlay (index) {
-        this.overlayShown = true
-        this.currentImageIndex = index
+            this.$nextTick(() => {
+                this.focusedElBeforeOpen = document.activeElement
+                this.$refs.closeOverlayBtn.focus()
+            })
+        },
 
-        this.overlayRendered = true
+        closeOverlay () {
+            this.overlayShown = false
+            // eslint-disable-next-line no-unused-expressions
+            this.focusedElBeforeOpen?.focus()
+        },
 
-        this.$nextTick(() => {
-            this.focusedElBeforeOpen = document.activeElement
-            this.$refs.closeOverlayBtn.focus()
-        })
-    }
+        showNext () {
+            let nextImageIndex = this.currentImageIndex + 1
 
-    closeOverlay () {
-        this.overlayShown = false
-      // eslint-disable-next-line no-unused-expressions
-      this.focusedElBeforeOpen?.focus()
-    }
+            if (nextImageIndex > this.imagesNames.length - 1) {
+                nextImageIndex = 0
+            }
 
-    showNext () {
-        let nextImageIndex = this.currentImageIndex + 1
+            this.currentImageIndex = nextImageIndex
+        },
 
-        if (nextImageIndex > this.imagesNames.length - 1) {
-            nextImageIndex = 0
+        showPrev () {
+            let nextImageIndex = this.currentImageIndex - 1
+
+            if (nextImageIndex < 0) {
+                nextImageIndex = this.imagesNames.length - 1
+            }
+
+            this.currentImageIndex = nextImageIndex
         }
-
-        this.currentImageIndex = nextImageIndex
-    }
-
-    showPrev () {
-        let nextImageIndex = this.currentImageIndex - 1
-
-        if (nextImageIndex < 0) {
-            nextImageIndex = this.imagesNames.length - 1
-        }
-
-        this.currentImageIndex = nextImageIndex
-    }
+    },
 
     created () {
         const keyDownListener = event => {
