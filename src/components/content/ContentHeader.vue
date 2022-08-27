@@ -83,7 +83,7 @@ export default {
         $route: {
             immediate: true,
             handler (value) {
-                this.activeRouteName = value
+                this.activeRouteName = value.name
             }
         }
     }
