@@ -2,7 +2,7 @@
     <li
         class="sidebar__nav-item"
         :class="{ 'sidebar__nav-item--active': item.isActive }"
-        @click.prevent="emitScrollToInfoBlock()"
+        @click.prevent="emitScrollToInfoBlock"
     >
         <div class="sidebar__nav-item-pointer"></div>
         <a :href="item.link" class="sidebar__nav-item-link">{{ item.text }}</a>
@@ -11,7 +11,12 @@
 
 <script>
 export default {
-    props: ['item'],
+    props: {
+        item: {
+            required: true,
+            type: Object
+        }
+    },
 
     methods: {
         emitScrollToInfoBlock () {

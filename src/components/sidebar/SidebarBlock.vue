@@ -6,25 +6,24 @@
 
         <nav class="sidebar__fixed-container">
             <ul class="sidebar__nav">
-                <sidebar-link-item
+                <SidebarLinkItem
                     v-for="linkItem in items"
                     :item="linkItem"
                     :key="linkItem.name"
-                    @scrollToInfoBlock="emitScrollToInfoBlock(linkItem)"
-                ></sidebar-link-item>
+                    @scrollToInfoBlock="emitScrollToInfoBlock"
+                ></SidebarLinkItem>
             </ul>
         </nav>
     </aside>
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-
 import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue'
 import GalleryImage from '@/components/image/GalleryImage'
 
-const Props = Vue.extend({
+export default {
+    name: 'SidebarBlock',
+
     props: {
         items: {
             type: Array,
@@ -38,17 +37,14 @@ const Props = Vue.extend({
     },
 
     components: {
-        GalleryImage
-    }
-})
-
-export default @Component({
-    components: {
+        GalleryImage,
         SidebarLinkItem
-    }
-}) class SidebarBlock extends Props {
-    emitScrollToInfoBlock (linkItem) {
-        this.$emit('scroll-to-info-block', linkItem)
+    },
+
+    methods: {
+        emitScrollToInfoBlock (linkItem) {
+            this.$emit('scroll-to-info-block', linkItem)
+        }
     }
 }
 </script>
