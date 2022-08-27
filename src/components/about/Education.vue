@@ -12,7 +12,7 @@
         </div>
 
         <ul class="education__education-list">
-            <li class="education__education-item" v-for="(educationPlace, index) in educationPlaces" :key="index">
+            <li class="education__education-item" v-for="(educationPlace, index) in $options.educationPlaces" :key="index">
                 <div class="education__education-data">
                     <div class="education__education-counter">0{{ index + 1 }}</div>
 
@@ -40,38 +40,35 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+export default {
+    name: 'Education',
 
-export default @Component() class Education extends Vue {
-    created () {
-        this.educationPlaces = [
-            {
-                name: this.$t('message.university'),
-                degree: this.$t('message.phd'),
-                session: this.$t('message.jobSession', [2017, 2021]),
-                description: this.$t('message.phdGraduationWorkTopic')
-            },
-            {
-                name: this.$t('message.university'),
-                degree: this.$t('message.master'),
-                session: this.$t('message.jobSession', [2016, 2017]),
-                description: this.$t('message.masterGraduationWorkTopic')
-            },
-            {
-                name: this.$t('message.university'),
-                degree: this.$t('message.bachelor'),
-                session: this.$t('message.jobSession', [2014, 2016]),
-                description: this.$t('message.bachelorGraduationWorkTopic')
-            },
-            {
-                name: this.$t('message.college'),
-                degree: this.$t('message.juniorSpecialist'),
-                session: this.$t('message.jobSession', [2010, 2014]),
-                description: this.$t('message.juniorSpecialistGraduationWorkTopic')
-            }
-        ]
-    }
+    educationPlaces: [
+        {
+            name: 'Cherkasy State Technological University',
+            degree: 'PhD',
+            session: 'Session: 2017 - 2021',
+            description: 'Theme of graduation work is "Creating a 3D model of x-ray research"'
+        },
+        {
+            name: 'Cherkasy State Technological University',
+            degree: 'Master',
+            session: 'Session: 2016 - 2017',
+            description: 'Theme of graduation work is "Design and development of 2D arcade game using Java Swing"'
+        },
+        {
+            name: 'Cherkasy State Technological University',
+            degree: 'Bachelor',
+            session: 'Session: 2014 - 2016',
+            description: 'Theme of graduation work is "Design and development of 2D arcade game using Java Swing"'
+        },
+        {
+            name: 'Cherkasy Polytechnic College',
+            degree: 'Junior Specialist',
+            session: 'Session: 2010 - 2014',
+            description: 'Theme of graduation work is "Design and creation of an Android application for a travel agency"'
+        }
+    ]
 }
 </script>
 

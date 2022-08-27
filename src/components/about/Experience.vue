@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="experience__job-description">
-                    <project-view v-for="project in mocProjects" :project="project" :key="project.name"/>
+                    <project-view v-for="project in $options.mocProjects" :project="project" :key="project.name"/>
                 </div>
             </div>
 
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="experience__job-description">
-                    <project-view v-for="project in uCozProjects" :project="project" :key="project.name"/>
+                    <ProjectView v-for="project in $options.uCozProjects" :project="project" :key="project.name"/>
                 </div>
             </div>
         </div>
@@ -68,41 +68,37 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-
 import ProjectView from '@/components/ProjectView'
 
-export default @Component({
+export default {
+    name: 'Experience',
+
+    uCozProjects: [
+        {
+            name: 'uCoz Control Panel 2.0',
+            technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, Less, Jest',
+            description: 'This project is a site administrator’s panel, where he can edit the design of the site, add/remove/edit materials from a variety of ready-made modules, manage user accounts, change site settings etc.',
+            screenshots: ['cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png', 'cp6.png']
+        },
+
+        {
+            name: 'Statistics module for uCalc project',
+            technologies: 'jQuery, Gulp, Sass, Chartist.js, JSON',
+            description: 'uCalc is a constructor of interactive forms and calculators that can be easily integrated into your website. The statistics module allows the administrator to track and display in a convenient interactive form the number of displays of the calculator, the number of fill-in forms and other parameters, such as: gender, age or version of the users browser. It can also be used to integrate Yandex.Metrica and Google Analytics into a calculator in a couple of clicks.',
+            screenshots: ['uc2.png', 'uc1.png', 'uc3.png', 'uc4.png']
+        }
+    ],
+
+    mocProjects: [
+        {
+            name: 'Zipify Pages',
+            technologies: 'Vue 2.0 / 3.0, Backbone, SCSS, Jest',
+            description: 'Blog, Landing, Product and Home Pages drag & drop builder for Shopify stores'
+        }
+    ],
+
     components: {
         ProjectView
-    }
-})
-class Experience extends Vue {
-    created () {
-        this.uCozProjects = [
-            {
-                name: this.$t('message.cpv2'),
-                technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, Less, Jest',
-                description: 'message.cpDescription',
-                screenshots: ['cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png', 'cp6.png']
-            },
-
-            {
-                name: this.$t('message.ucalc'),
-                technologies: 'jQuery, Gulp, Sass, Chartist.js, JSON',
-                description: 'message.uCalcDescription',
-                screenshots: ['uc2.png', 'uc1.png', 'uc3.png', 'uc4.png']
-            }
-        ]
-
-        this.mocProjects = [
-            {
-                name: 'Zipify Pages',
-                technologies: 'Vue 2.0 / 3.0, Backbone, SCSS, Jest',
-                description: 'Blog, Landing, Product and Home Pages drag & drop builder for Shopify stores'
-            }
-        ]
     }
 }
 </script>

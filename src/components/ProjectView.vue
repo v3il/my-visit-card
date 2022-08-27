@@ -32,7 +32,7 @@
         </p>
 
         <h3 class="project__description-title article-title" v-if="project.description">
-            {{ $t('message.projectDescription') }}
+            Description
         </h3>
 
         <p class="project__description" v-html="$t(project.description)" v-if="project.description"></p>
