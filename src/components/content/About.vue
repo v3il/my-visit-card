@@ -1,26 +1,25 @@
 <template>
     <main class="about">
-        <skills class="info-section" />
-        <experience class="info-section" />
-        <education class="info-section" />
+        <Skills class="info-section" />
+        <Experience class="info-section" />
+        <Education class="info-section" />
     </main>
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-
 import Skills from '@/components/about/Skills'
 import Experience from '@/components/about/Experience'
 import Education from '@/components/about/Education'
 
-export default @Component({
+export default {
+    name: 'About',
+
     components: {
         Skills,
         Experience,
         Education
     }
-}) class About extends Vue {}
+}
 </script>
 
 <style scoped lang="less">

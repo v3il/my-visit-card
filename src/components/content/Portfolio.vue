@@ -2,7 +2,7 @@
     <main class="portfolio info-section">
         <project-view
             class="portfolio__project-item"
-            v-for="project in projects"
+            v-for="project in $options.portfolioProjects"
             :project="project"
             :key="project.name"
         ></project-view>
@@ -10,18 +10,16 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-
 import ProjectView from '@/components/ProjectView'
-
 import portfolioProjects from '../../portfolioProjects'
 
-export default @Component({
+export default {
+    name: 'Portfolio',
+
+    portfolioProjects,
+
     components: {
         ProjectView
     }
-}) class Portfolio extends Vue {
-    projects = portfolioProjects;
 }
 </script>

@@ -22,7 +22,7 @@
             <div class="header-block__nav-tabs">
                 <div
                     class="header-block__nav-tab"
-                    v-for="(tabData, index) in tabs"
+                    v-for="(tabData, index) in $options.tabs"
                     :key="`headerTab${index}`"
                     :class="{
                         'header-block__nav-tab--active': isTabActive(tabData.toProp.name),
@@ -39,17 +39,29 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component, Watch } from 'vue-property-decorator'
-
 import SocialNetworks from '@/components/SocialNetworks.vue'
 
-export default @Component({
+export default {
+    name: 'ContentHeader',
+
+    tabs: [
+        {
+            tabText: 'About me',
+            toProp: { name: 'about-section' }
+        },
+        {
+            tabText: 'Portfolio',
+            toProp: { name: 'portfolio-section' }
+        }
+    ],
+
     components: {
         SocialNetworks
-    }
-}) class ContentHeader extends Vue {
-    activeRouteName = null;
+    },
+
+    data: () => ({
+        activeRouteName: null
+    }),
 
     created () {
         const now = new Date()
@@ -59,26 +71,21 @@ export default @Component({
         if (!(now.getMonth() === 11 && now.getDate() >= 28)) {
             this.age--
         }
+    },
 
-        this.tabs = [
-            {
-                tabText: this.$t('message.aboutMeBtn'),
-                toProp: { name: 'about-section' }
-            },
-            {
-                tabText: this.$t('message.portfolio'),
-                toProp: { name: 'portfolio-section' }
+    methods: {
+        isTabActive (tabName) {
+            return this.activeRouteName === tabName
+        }
+    },
+
+    watch: {
+        $route: {
+            immediate: true,
+            handler (value) {
+                this.activeRouteName = value
             }
-        ]
-    }
-
-    isTabActive (tabName) {
-        return this.activeRouteName === tabName
-    }
-
-    @Watch('$route', { immediate: true })
-    onRouteChange () {
-        this.activeRouteName = this.$route.name
+        }
     }
 }
 </script>

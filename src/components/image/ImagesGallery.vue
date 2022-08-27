@@ -39,7 +39,7 @@
                     class="gallery__overlay-button gallery__overlay-button-close"
                     @click="closeOverlay"
                 >
-                    <i class="fa fa-times"></i>
+                    <i class="fa fa-times" />
                 </button>
 
                 <button
@@ -47,7 +47,7 @@
                     @click="showPrev"
                     class="gallery__overlay-button gallery__overlay-button-prev"
                 >
-                    <i class="fa fa-arrow-left"></i>
+                    <i class="fa fa-arrow-left" />
                 </button>
 
                 <button

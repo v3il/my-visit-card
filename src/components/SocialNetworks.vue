@@ -18,7 +18,7 @@
 export default {
     name: 'SocialNetworks',
 
-    socialNetworks: [{
+    socialNetworks: {
         envelope: {
             title: 'message.myEmail',
             href: 'mailto:v3il@ukr.net'
@@ -38,7 +38,7 @@ export default {
             title: 'message.myLinkedIn',
             href: 'https://www.linkedin.com/in/diki/'
         }
-    }]
+    }
 }
 </script>
 

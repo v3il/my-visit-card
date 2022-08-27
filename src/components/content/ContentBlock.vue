@@ -9,16 +9,15 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-
 import ContentHeader from './ContentHeader.vue'
 
-export default @Component({
+export default {
+    name: 'ContentBlock',
+
     components: {
         ContentHeader
     }
-}) class ContentBlock extends Vue {}
+}
 </script>
 
 <style scoped lang="less">
