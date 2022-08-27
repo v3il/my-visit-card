@@ -44,34 +44,34 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 export default @Component() class Education extends Vue {
-  created () {
-    this.educationPlaces = [
-      {
-        name: this.$t('message.university'),
-        degree: this.$t('message.phd'),
-        session: this.$t('message.jobSession', [2017, 2021]),
-        description: this.$t('message.phdGraduationWorkTopic')
-      },
-      {
-        name: this.$t('message.university'),
-        degree: this.$t('message.master'),
-        session: this.$t('message.jobSession', [2016, 2017]),
-        description: this.$t('message.masterGraduationWorkTopic')
-      },
-      {
-        name: this.$t('message.university'),
-        degree: this.$t('message.bachelor'),
-        session: this.$t('message.jobSession', [2014, 2016]),
-        description: this.$t('message.bachelorGraduationWorkTopic')
-      },
-      {
-        name: this.$t('message.college'),
-        degree: this.$t('message.juniorSpecialist'),
-        session: this.$t('message.jobSession', [2010, 2014]),
-        description: this.$t('message.juniorSpecialistGraduationWorkTopic')
-      }
-    ]
-  }
+    created () {
+        this.educationPlaces = [
+            {
+                name: this.$t('message.university'),
+                degree: this.$t('message.phd'),
+                session: this.$t('message.jobSession', [2017, 2021]),
+                description: this.$t('message.phdGraduationWorkTopic')
+            },
+            {
+                name: this.$t('message.university'),
+                degree: this.$t('message.master'),
+                session: this.$t('message.jobSession', [2016, 2017]),
+                description: this.$t('message.masterGraduationWorkTopic')
+            },
+            {
+                name: this.$t('message.university'),
+                degree: this.$t('message.bachelor'),
+                session: this.$t('message.jobSession', [2014, 2016]),
+                description: this.$t('message.bachelorGraduationWorkTopic')
+            },
+            {
+                name: this.$t('message.college'),
+                degree: this.$t('message.juniorSpecialist'),
+                session: this.$t('message.jobSession', [2010, 2014]),
+                description: this.$t('message.juniorSpecialistGraduationWorkTopic')
+            }
+        ]
+    }
 }
 </script>
 

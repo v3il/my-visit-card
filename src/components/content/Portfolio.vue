@@ -18,14 +18,10 @@ import ProjectView from '@/components/ProjectView'
 import portfolioProjects from '../../portfolioProjects'
 
 export default @Component({
-  components: {
-    ProjectView
-  }
+    components: {
+        ProjectView
+    }
 }) class Portfolio extends Vue {
     projects = portfolioProjects;
 }
 </script>
-
-<style scoped lang="less">
-.portfolio {}
-</style>

@@ -15,11 +15,11 @@ import Experience from '@/components/about/Experience'
 import Education from '@/components/about/Education'
 
 export default @Component({
-  components: {
-    Skills,
-    Experience,
-    Education
-  }
+    components: {
+        Skills,
+        Experience,
+        Education
+    }
 }) class About extends Vue {}
 </script>
 

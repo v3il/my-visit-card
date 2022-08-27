@@ -15,9 +15,9 @@ import { Component } from 'vue-property-decorator'
 import ContentHeader from './ContentHeader.vue'
 
 export default @Component({
-  components: {
-    ContentHeader
-  }
+    components: {
+        ContentHeader
+    }
 }) class ContentBlock extends Vue {}
 </script>
 

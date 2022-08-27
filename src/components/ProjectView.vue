@@ -56,18 +56,18 @@ import { Component } from 'vue-property-decorator'
 import ImagesGallery from '@/components/image/ImagesGallery'
 
 const Props = Vue.extend({
-  props: {
-    project: {
-      type: Object,
-      required: true
+    props: {
+        project: {
+            type: Object,
+            required: true
+        }
     }
-  }
 })
 
 export default @Component({
-  components: {
-    ImagesGallery
-  }
+    components: {
+        ImagesGallery
+    }
 }) class ProjectView extends Props {}
 </script>
 

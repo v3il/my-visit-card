@@ -25,31 +25,31 @@ import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue'
 import GalleryImage from '@/components/image/GalleryImage'
 
 const Props = Vue.extend({
-  props: {
-    items: {
-      type: Array,
-      required: true
+    props: {
+        items: {
+            type: Array,
+            required: true
+        },
+
+        sidebarOpened: {
+            type: Boolean,
+            required: true
+        }
     },
 
-    sidebarOpened: {
-      type: Boolean,
-      required: true
+    components: {
+        GalleryImage
     }
-  },
-
-  components: {
-    GalleryImage
-  }
 })
 
 export default @Component({
-  components: {
-    SidebarLinkItem
-  }
+    components: {
+        SidebarLinkItem
+    }
 }) class SidebarBlock extends Props {
-  emitScrollToInfoBlock (linkItem) {
-    this.$emit('scroll-to-info-block', linkItem)
-  }
+    emitScrollToInfoBlock (linkItem) {
+        this.$emit('scroll-to-info-block', linkItem)
+    }
 }
 </script>
 

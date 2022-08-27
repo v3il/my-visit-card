@@ -68,16 +68,16 @@ import { Component } from 'vue-property-decorator'
 import GalleryImage from '@/components/image/GalleryImage'
 
 const Props = Vue.extend({
-  props: {
-    imagesNames: {
-      type: Array,
-      required: true
-    }
-  },
+    props: {
+        imagesNames: {
+            type: Array,
+            required: true
+        }
+    },
 
-  components: {
-    GalleryImage
-  }
+    components: {
+        GalleryImage
+    }
 })
 
 export default @Component() class ImagesGallery extends Props {
@@ -89,70 +89,70 @@ export default @Component() class ImagesGallery extends Props {
     focusedElBeforeOpen = null;
 
     openPreviewOverlay (index) {
-      this.overlayShown = true
-      this.currentImageIndex = index
+        this.overlayShown = true
+        this.currentImageIndex = index
 
-      this.overlayRendered = true
+        this.overlayRendered = true
 
-      this.$nextTick(() => {
-        this.focusedElBeforeOpen = document.activeElement
-        this.$refs.closeOverlayBtn.focus()
-      })
+        this.$nextTick(() => {
+            this.focusedElBeforeOpen = document.activeElement
+            this.$refs.closeOverlayBtn.focus()
+        })
     }
 
     closeOverlay () {
-      this.overlayShown = false
+        this.overlayShown = false
       // eslint-disable-next-line no-unused-expressions
       this.focusedElBeforeOpen?.focus()
     }
 
     showNext () {
-      let nextImageIndex = this.currentImageIndex + 1
+        let nextImageIndex = this.currentImageIndex + 1
 
-      if (nextImageIndex > this.imagesNames.length - 1) {
-        nextImageIndex = 0
-      }
+        if (nextImageIndex > this.imagesNames.length - 1) {
+            nextImageIndex = 0
+        }
 
-      this.currentImageIndex = nextImageIndex
+        this.currentImageIndex = nextImageIndex
     }
 
     showPrev () {
-      let nextImageIndex = this.currentImageIndex - 1
+        let nextImageIndex = this.currentImageIndex - 1
 
-      if (nextImageIndex < 0) {
-        nextImageIndex = this.imagesNames.length - 1
-      }
+        if (nextImageIndex < 0) {
+            nextImageIndex = this.imagesNames.length - 1
+        }
 
-      this.currentImageIndex = nextImageIndex
+        this.currentImageIndex = nextImageIndex
     }
 
     created () {
-      const keyDownListener = event => {
-        if (this.overlayShown) {
-          const [LEFT_ARROW_CODE, ESC_CODE, RIGHT_ARROW_CODE] = [37, 27, 39]
+        const keyDownListener = event => {
+            if (this.overlayShown) {
+                const [LEFT_ARROW_CODE, ESC_CODE, RIGHT_ARROW_CODE] = [37, 27, 39]
 
-          // Show prev image on left arrow hit
-          if (event.which === LEFT_ARROW_CODE) {
-            this.showPrev()
-          }
+                // Show prev image on left arrow hit
+                if (event.which === LEFT_ARROW_CODE) {
+                    this.showPrev()
+                }
 
-          // Show next image on right arrow hit
-          if (event.which === RIGHT_ARROW_CODE) {
-            this.showNext()
-          }
+                // Show next image on right arrow hit
+                if (event.which === RIGHT_ARROW_CODE) {
+                    this.showNext()
+                }
 
-          // Close overlay on Escape hit
-          if (event.which === ESC_CODE) {
-            this.closeOverlay()
-          }
+                // Close overlay on Escape hit
+                if (event.which === ESC_CODE) {
+                    this.closeOverlay()
+                }
+            }
         }
-      }
 
-      window.addEventListener('keydown', keyDownListener)
+        window.addEventListener('keydown', keyDownListener)
 
-      this.$once('hook:beforeDestroy', () => {
-        window.removeEventListener('keydown', keyDownListener)
-      })
+        this.$once('hook:beforeDestroy', () => {
+            window.removeEventListener('keydown', keyDownListener)
+        })
     }
 }
 </script>

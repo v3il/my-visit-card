@@ -46,11 +46,11 @@
 import SocialNetworks from '../SocialNetworks'
 
 export default {
-  name: 'ContactMe',
+    name: 'ContactMe',
 
-  components: {
-    SocialNetworks
-  }
+    components: {
+        SocialNetworks
+    }
 }
 </script>
 

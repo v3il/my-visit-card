@@ -6,8 +6,8 @@ import { routes } from './routes'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'hash',
-  routes: routes
+    mode: 'hash',
+    routes: routes
 })
 
 export default router

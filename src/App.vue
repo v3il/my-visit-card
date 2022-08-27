@@ -21,7 +21,7 @@ export default @Component() class App extends Vue {
     isMobile = false;
 
     created () {
-      this.isMobile = 'onorientationchange' in window
+        this.isMobile = 'onorientationchange' in window
     }
 }
 </script>

@@ -12,31 +12,31 @@
         </div>
 
         <div class="experience__jobs-list">
-          <div class="experience__job-item">
-            <div class="experience__job-summary">
-              <div class="experience__job-counter">
-                02
-              </div>
+            <div class="experience__job-item">
+                <div class="experience__job-summary">
+                    <div class="experience__job-counter">
+                        02
+                    </div>
 
-              <div class="experience__job-name">
-                <h2 class="experience__job-company-name">
-                  Master of Code Global
-                </h2>
+                    <div class="experience__job-name">
+                        <h2 class="experience__job-company-name">
+                            Master of Code Global
+                        </h2>
 
-                <h3 class="experience__job-degree">
-                  {{ $t('message.frontEndDev') }}
-                </h3>
+                        <h3 class="experience__job-degree">
+                            {{ $t('message.frontEndDev') }}
+                        </h3>
 
-                <h3 class="experience__job-period">
-                  {{ $t('message.jobSession', [2020, 'present']) }}
-                </h3>
-              </div>
+                        <h3 class="experience__job-period">
+                            {{ $t('message.jobSession', [2020, 'present']) }}
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="experience__job-description">
+                    <project-view v-for="project in mocProjects" :project="project" :key="project.name"/>
+                </div>
             </div>
-
-            <div class="experience__job-description">
-              <project-view v-for="project in mocProjects" :project="project" :key="project.name" />
-            </div>
-          </div>
 
             <div class="experience__job-item">
                 <div class="experience__job-summary">
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="experience__job-description">
-                    <project-view v-for="project in uCozProjects" :project="project" :key="project.name" />
+                    <project-view v-for="project in uCozProjects" :project="project" :key="project.name"/>
                 </div>
             </div>
         </div>
@@ -74,42 +74,43 @@ import { Component } from 'vue-property-decorator'
 import ProjectView from '@/components/ProjectView'
 
 export default @Component({
-  components: {
-    ProjectView
-  }
-}) class Experience extends Vue {
-  created () {
-    this.uCozProjects = [
-      {
-        name: this.$t('message.cpv2'),
-        technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, Less, Jest',
-        description: 'message.cpDescription',
-        screenshots: ['cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png', 'cp6.png']
-      },
+    components: {
+        ProjectView
+    }
+})
+class Experience extends Vue {
+    created () {
+        this.uCozProjects = [
+            {
+                name: this.$t('message.cpv2'),
+                technologies: 'Perl, jQuery, jQuery UI, Vue.js, vue-router, vuex, Webpack, Less, Jest',
+                description: 'message.cpDescription',
+                screenshots: ['cp1.png', 'cp2.png', 'cp3.png', 'cp4.png', 'cp5.png', 'cp6.png']
+            },
 
-      {
-        name: this.$t('message.ucalc'),
-        technologies: 'jQuery, Gulp, Sass, Chartist.js, JSON',
-        description: 'message.uCalcDescription',
-        screenshots: ['uc2.png', 'uc1.png', 'uc3.png', 'uc4.png']
-      }
-    ]
+            {
+                name: this.$t('message.ucalc'),
+                technologies: 'jQuery, Gulp, Sass, Chartist.js, JSON',
+                description: 'message.uCalcDescription',
+                screenshots: ['uc2.png', 'uc1.png', 'uc3.png', 'uc4.png']
+            }
+        ]
 
-    this.mocProjects = [
-      {
-        name: 'Zipify Pages',
-        technologies: 'Vue 2.0 / 3.0, Backbone, SCSS, Jest',
-        description: 'Blog, Landing, Product and Home Pages drag & drop builder for Shopify stores'
-      }
-    ]
-  }
+        this.mocProjects = [
+            {
+                name: 'Zipify Pages',
+                technologies: 'Vue 2.0 / 3.0, Backbone, SCSS, Jest',
+                description: 'Blog, Landing, Product and Home Pages drag & drop builder for Shopify stores'
+            }
+        ]
+    }
 }
 </script>
 
 <style scoped lang="less">
 .experience {
     &__job-item:not(:last-child) {
-      margin-bottom: 72px;
+        margin-bottom: 72px;
     }
 
     &__job-summary {
