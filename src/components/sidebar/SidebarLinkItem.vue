@@ -2,10 +2,9 @@
     <li
         class="sidebar__nav-item"
         :class="{ 'sidebar__nav-item--active': item.isActive }"
-        @click.prevent="emitScrollToInfoBlock"
     >
-        <div class="sidebar__nav-item-pointer"></div>
-        <a :href="item.link" class="sidebar__nav-item-link">{{ item.text }}</a>
+        <div class="sidebar__nav-item-pointer" />
+        <a class="sidebar__nav-item-link" @click.prevent="emitScrollToInfoBlock">{{ item.text }}</a>
     </li>
 </template>
 
@@ -52,6 +51,7 @@ export default {
     color: #a7a7a7;
     text-transform: uppercase;
     transition: color 0.3s;
+    cursor: pointer;
 }
 
 .sidebar__nav-item--active .sidebar__nav-item-pointer {
@@ -61,6 +61,6 @@ export default {
 
 .sidebar__nav-item--active .sidebar__nav-item-link {
     color: #4c4c4c;
-    font-weight: 600;
+    font-weight: 500;
 }
 </style>

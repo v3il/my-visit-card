@@ -1,23 +1,23 @@
 <template>
     <header class="header-block">
         <div class="header-block__intro-block">
-            <h3 class="header-block__greetings">{{ $t('message.hello') }}</h3>
-            <h1 class="header-block__name">{{ $t('message.name') }}</h1>
+            <h3 class="header-block__greetings">Hello, I am</h3>
+            <h1 class="header-block__name">Dmytro</h1>
             <p class="header-block__specialization">
-                {{ $t('message.specialization') }}
+                Front-end developer
             </p>
 
             <div class="header-block__about">
                 <p class="header-block__about-paragraph">
-                    {{ $t('message.about1', [age]) }}
+                    I am {{age}}. I like music, traveling, cooking, speedrunning video games and programming.
                 </p>
 
                 <p class="header-block__about-paragraph">
-                    {{ $t('message.about2') }}
+                    I love JavaScript with all its oddities :)
                 </p>
             </div>
 
-            <social-networks class="header-block__socials" />
+            <SocialNetworks class="header-block__socials" />
 
             <div class="header-block__nav-tabs">
                 <div
@@ -104,7 +104,7 @@ export default {
         color: #4c4c4c;
         font-size: 30px;
         font-weight: 400;
-        font-family: Exo2;
+        font-family: 'Inter', sans-serif;
         line-height: 40px;
     }
 
@@ -113,7 +113,7 @@ export default {
         color: #4c4c4c;
         font-size: 48px;
         font-weight: 400;
-        font-family: Exo2;
+        font-family: 'Inter', sans-serif;
         line-height: 50px;
     }
 
@@ -121,9 +121,8 @@ export default {
         text-transform: uppercase;
         color: #3971ff;
         letter-spacing: 1.92px;
-        font-family: RobotoRegular;
+        font-family: 'Roboto', sans-serif;
         padding: 15px 18px 13px 19px;
-        font-weight: 400;
         font-size: 16px;
         border-top: 1px solid #4c4c4c;
         border-bottom: 1px solid #4c4c4c;
@@ -169,7 +168,7 @@ export default {
         line-height: 30px;
         font-size: 16px;
         color: #4c4c4c;
-        font-family: RobotoMedium;
+        font-family: 'Roboto', sans-serif;;
         font-weight: 500;
         transition: color 0.5s ease;
         min-width: 150px;

@@ -35,7 +35,7 @@
 import SidebarBlock from '@/components/sidebar/SidebarBlock.vue'
 import ContentBlock from '@/components/content/ContentBlock.vue'
 
-import { mainRouteNames } from '@/routes'
+import { MainRouteNames } from '@/config'
 
 import projects from '../portfolioProjects'
 
@@ -59,20 +59,17 @@ export default {
             currentPageSidebarItems: [],
             aboutSectionSidebarItems: [
                 {
-                    text: this.$t('message.skills'),
-                    link: '#',
+                    text: 'Hard skills',
                     tag: 'skills',
                     isActive: true
                 },
                 {
-                    text: this.$t('message.experience'),
-                    link: '#',
+                    text: 'Work Experience',
                     tag: 'experience',
                     isActive: false
                 },
                 {
-                    text: this.$t('message.education'),
-                    link: '#',
+                    text: 'Education',
                     tag: 'education',
                     isActive: false
                 }
@@ -131,9 +128,9 @@ export default {
             const router = this.$router
 
             switch (router.currentRoute.name) {
-            case mainRouteNames.ABOUT:
+            case MainRouteNames.ABOUT:
                 return this.aboutSectionSidebarItems
-            case mainRouteNames.PORTFOLIO:
+            case MainRouteNames.PORTFOLIO:
                 return this.portfolioSectionSidebarItems
             default:
                 return []

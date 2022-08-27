@@ -20,26 +20,6 @@ export default { name: 'App' }
 
 @import './common-style/section/info-section';
 
-@font-face {
-    font-family: 'Exo2';
-    src: url('./assets/fonts/Exo2-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Exo2SemiBold';
-    src: url('./assets/fonts/Exo2-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'RobotoRegular';
-    src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'RobotoMedium';
-    src: url('./assets/fonts/Roboto-Medium.ttf') format('truetype');
-}
-
 ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #f5f5f5;
@@ -64,7 +44,7 @@ export default { name: 'App' }
 
 body {
     background: #2d2d2d;
-    font-family: RobotoRegular, serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 30px;
     color: #4c4c4c;
     font-size: 16px;

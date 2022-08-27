@@ -2,7 +2,7 @@
     <section class="experience js-scroll-to-target">
         <div class="experience__title-block">
             <h2 class="section-title">
-                {{ this.$t('message.experience') }}
+                Work Experience
             </h2>
 
             <div class="section-title__separator">
@@ -24,11 +24,11 @@
                         </h2>
 
                         <h3 class="experience__job-degree">
-                            {{ $t('message.frontEndDev') }}
+                            Front-end developer
                         </h3>
 
                         <h3 class="experience__job-period">
-                            {{ $t('message.jobSession', [2020, 'present']) }}
+                            Session: 2020 - present
                         </h3>
                     </div>
                 </div>
@@ -50,11 +50,11 @@
                         </h2>
 
                         <h3 class="experience__job-degree">
-                            {{ $t('message.frontEndDev') }}
+                            Front-end developer
                         </h3>
 
                         <h3 class="experience__job-period">
-                            {{ $t('message.jobSession', [2015, 2020]) }}
+                            Session: 2015 - 2020
                         </h3>
                     </div>
                 </div>

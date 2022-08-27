@@ -1,6 +1,6 @@
 <template>
     <section class="content">
-        <content-header></content-header>
+        <ContentHeader />
 
         <keep-alive>
             <router-view />

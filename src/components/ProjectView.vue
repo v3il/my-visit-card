@@ -35,17 +35,17 @@
             Description
         </h3>
 
-        <p class="project__description" v-html="$t(project.description)" v-if="project.description"></p>
+        <p class="project__description" v-html="project.description" v-if="project.description"></p>
 
         <h3 class="project__gallery-title article-title" v-if="project.screenshots">
-            {{ $t('message.results') }}
+            Results
         </h3>
 
         <p class="project__gallery-description" v-if="project.screenshots">
-            {{ $t('message.imageGalleryDescription') }}
+            Click the image to see its large version
         </p>
 
-        <images-gallery :imagesNames="project.screenshots" v-if="project.screenshots"></images-gallery>
+        <ImagesGallery :imagesNames="project.screenshots" v-if="project.screenshots" />
     </div>
 </template>
 
@@ -100,7 +100,7 @@ export default {
     }
 
     &__technologies {
-        font-weight: bold;
+        font-weight: 500;
         margin-bottom: 18px;
     }
 

@@ -20,22 +20,18 @@ export default {
 
     socialNetworks: {
         envelope: {
-            title: 'message.myEmail',
             href: 'mailto:v3il@ukr.net'
         },
 
         telegram: {
-            title: 'message.myTelegram',
             href: 'https://t.me/veil_94'
         },
 
         github: {
-            title: 'message.myGithub',
             href: 'https://github.com/v3il'
         },
 
         linkedin: {
-            title: 'message.myLinkedIn',
             href: 'https://www.linkedin.com/in/diki/'
         }
     }

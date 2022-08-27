@@ -2,7 +2,7 @@
     <section class="education js-scroll-to-target">
         <div class="education__title-block">
             <h2 class="section-title">
-                {{ this.$t('message.education') }}
+                Education
             </h2>
 
             <div class="section-title__separator">
