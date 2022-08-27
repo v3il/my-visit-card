@@ -1,6 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 
-import ImagesGallery from '../image/ImagesGallery.vue'
+import ImagesGallery from '../ImagesGallery.vue'
 
 const IMAGES = ['test1.png', 'test2.png', 'test3.png']
 const localVue = createLocalVue()

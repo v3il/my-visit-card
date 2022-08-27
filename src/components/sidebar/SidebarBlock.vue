@@ -1,7 +1,7 @@
 <template>
     <aside class="sidebar" :class="{ 'sidebar--opened': sidebarOpened }">
         <div class="sidebar__avatar-block">
-            <img src="" class="sidebar__avatar" v-lazy-image="'avatar.jpg'" alt="Avatar" />
+          <GalleryImage imageName="avatar.jpg" class="sidebar__avatar" />
         </div>
 
         <nav class="sidebar__fixed-container">
@@ -22,6 +22,7 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue'
+import GalleryImage from '@/components/image/GalleryImage'
 
 const Props = Vue.extend({
   props: {
@@ -34,6 +35,10 @@ const Props = Vue.extend({
       type: Boolean,
       required: true
     }
+  },
+
+  components: {
+    GalleryImage
   }
 })
 
