@@ -1,7 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 
 import ImagesGallery from '../image/ImagesGallery.vue'
-import LazyImage from '../../directives/LazyImage'
 
 const intersectionObserverMock = () => ({
   observe: () => null
@@ -11,8 +10,6 @@ window.IntersectionObserver = jest.fn().mockImplementation(intersectionObserverM
 
 const IMAGES = ['test1.png', 'test2.png', 'test3.png']
 const localVue = createLocalVue()
-
-localVue.directive('lazy-image', LazyImage)
 
 const createWrapper = () => {
   return shallowMount(ImagesGallery, {
@@ -50,10 +47,6 @@ describe('ImagesGallery', () => {
     const wrapper = createWrapper()
     const previewLink = wrapper.find('.gallery__preview-link')
 
-    wrapper.vm.images.forEach(item => {
-      item.loaded = true
-    })
-
     previewLink.trigger('click')
 
     wrapper.find('.gallery__overlay-image-wrap').trigger('click')
@@ -76,10 +69,6 @@ describe('ImagesGallery', () => {
   it('Shows previous image when click the Go to prev image button', async () => {
     const wrapper = createWrapper()
 
-    wrapper.vm.images.forEach(item => {
-      item.loaded = true
-    })
-
     await wrapper.find('.gallery__preview-link').trigger('click')
     await wrapper.find('.gallery__overlay-button-prev').trigger('click')
 
@@ -94,10 +83,6 @@ describe('ImagesGallery', () => {
 
   it('Shows next image when click the Go to next image button', async () => {
     const wrapper = createWrapper()
-
-    wrapper.vm.images.forEach(item => {
-      item.loaded = true
-    })
 
     await wrapper.find('.gallery__preview-link').trigger('click')
     await wrapper.find('.gallery__overlay-button-prev').trigger('click')
@@ -114,10 +99,6 @@ describe('ImagesGallery', () => {
   it('Closes the overlay when hit the Esc button', async () => {
     const wrapper = createWrapper()
 
-    wrapper.vm.images.forEach(item => {
-      item.loaded = true
-    })
-
     await wrapper.find('.gallery__preview-link').trigger('click')
 
     const event = new KeyboardEvent('keydown', { which: 27 })
@@ -131,10 +112,6 @@ describe('ImagesGallery', () => {
 
   it('Shows correct image in the overlay', async () => {
     const wrapper = createWrapper()
-
-    wrapper.vm.images.forEach(item => {
-      item.loaded = true
-    })
 
     await wrapper
       .findAll('.gallery__preview-link')
