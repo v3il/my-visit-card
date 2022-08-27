@@ -1,29 +1,11 @@
 <template>
-    <div
-        id="app"
-        :class="[
-            currentLocale,
-            {
-                mobile: isMobile,
-                desktop: !isMobile,
-            },
-        ]"
-    >
+    <div id="app">
         <router-view />
     </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
-
-export default @Component() class App extends Vue {
-    isMobile = false;
-
-    created () {
-        this.isMobile = 'onorientationchange' in window
-    }
-}
+export default { name: 'App' }
 </script>
 
 <style lang="less">

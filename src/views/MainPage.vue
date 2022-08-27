@@ -17,7 +17,7 @@
             <button
                 v-show="currentScrollTop > 100"
                 class="page__scroll-top"
-                @click="smoothScrollToY(0, 300)"
+                @click="smoothScrollToY(0)"
                 aria-label="Scroll to top"
             >
                 <i class="fa fa-chevron-up"></i>
@@ -40,7 +40,7 @@ import { mainRouteNames } from '@/routes'
 import projects from '../portfolioProjects'
 
 export default {
-    name: 'main-page',
+    name: 'MainPage',
 
     data () {
         const portfolioSectionSidebarItems = projects.map((project, index) => {
@@ -148,7 +148,7 @@ export default {
                 const infoBlock = infoBlocks[clickedLinkIndex]
                 const infoBlockScrollTop = this.getScrollTopOffsetOfElement(infoBlock) + 1
 
-                this.smoothScrollToY(infoBlockScrollTop, 300)
+                this.smoothScrollToY(infoBlockScrollTop)
             }
         },
 
@@ -163,24 +163,10 @@ export default {
             return elementTopValue - bodyTopValue
         },
 
-        smoothScrollToY (scrollToY, duration) {
-            const startingY = window.scrollY
-            const diff = scrollToY - startingY
-            let start
-
-            window.requestAnimationFrame(function step (timestamp) {
-                if (!start) {
-                    start = timestamp
-                }
-
-                const time = timestamp - start
-                const percent = Math.min(time / duration, 1)
-
-                window.scrollTo(0, startingY + diff * percent)
-
-                if (time < duration) {
-                    window.requestAnimationFrame(step)
-                }
+        smoothScrollToY (scrollToY) {
+            window.scroll({
+                top: scrollToY,
+                behavior: 'smooth'
             })
         },
 
