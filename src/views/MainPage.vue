@@ -118,9 +118,9 @@ export default {
 
         window.addEventListener('scroll', scrollHandler)
 
-        this.$once('hook:beforeDestroy', () => {
-            window.removeEventListener('scroll', scrollHandler)
-        })
+        // this.$once('hook:beforeDestroy', () => {
+        //     window.removeEventListener('scroll', scrollHandler)
+        // })
     },
 
     methods: {

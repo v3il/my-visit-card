@@ -1,11 +1,18 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 
 import App from './App.vue'
-import router from './router'
+import { createWebHistory } from 'vue-router'
+import createRouter from './router'
+import { createImageKitVue } from 'imagekit-vue3'
 
-Vue.config.productionTip = false
+const app = createApp(App)
+const router = createRouter(createWebHistory())
 
-new Vue({
-    router,
-    render: h => h(App)
-}).$mount('#app')
+app.use(router)
+
+app.use(createImageKitVue({
+    urlEndpoint: 'https://ik.imagekit.io/igo1qzk1oe2z',
+    publicKey: 'public_gIyV+AwKgzNdUqvjfVAzge+lhIc='
+}))
+
+app.mount('#app')

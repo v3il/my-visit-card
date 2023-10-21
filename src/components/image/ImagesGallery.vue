@@ -152,9 +152,9 @@ export default {
 
         window.addEventListener('keydown', keyDownListener)
 
-        this.$once('hook:beforeDestroy', () => {
-            window.removeEventListener('keydown', keyDownListener)
-        })
+        // this.$once('hook:beforeDestroy', () => {
+        //     window.removeEventListener('keydown', keyDownListener)
+        // })
     }
 }
 </script>

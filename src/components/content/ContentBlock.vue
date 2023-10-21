@@ -2,9 +2,11 @@
     <section class="content">
         <ContentHeader />
 
-        <keep-alive>
-            <router-view />
-        </keep-alive>
+        <router-view v-slot="{ Component }">
+            <keep-alive>
+                <component :is="Component" />
+            </keep-alive>
+        </router-view>
     </section>
 </template>
 

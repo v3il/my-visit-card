@@ -5157,10 +5157,17 @@ image-size@~0.5.0:
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==
 
-imagekit-javascript@^1.3.5:
+imagekit-javascript@^1.3.5, imagekit-javascript@^1.5.4:
   version "1.5.5"
   resolved "https://registry.yarnpkg.com/imagekit-javascript/-/imagekit-javascript-1.5.5.tgz#2b31994111eb94426ba1abf527774af11e0decb4"
   integrity sha512-WnEq7zIiYx+bN1fUzLEqSD33xOCEhHpDmlo3SxQkXPiLBnnnLGhBZi583wNhBXP3RB/yQQEKOBeOelnZ7WVgPA==
+
+imagekit-vue3@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/imagekit-vue3/-/imagekit-vue3-0.1.4.tgz#ec089a3d2081ef1bbe984a3d90384268993c049e"
+  integrity sha512-ShugLimZisqzGhkdUdRL1q0vnoMgwBuO67U0zIKg7skEJlSDf9Y+2VbWdhRK3KF4/1Q0IkHBmfb2bygB9vIMmw==
+  dependencies:
+    imagekit-javascript "^1.5.4"
 
 imagekitio-vue@^1.0.9:
   version "1.0.9"

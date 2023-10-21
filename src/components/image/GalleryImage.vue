@@ -4,29 +4,21 @@
         :path="imageName"
         :alt="imageName"
         :lqip="{ active: true }"
-        :url-endpoint="$options.urlEndpoint"
+        :url-endpoint="urlEndpoint"
         loading="lazy"
     />
 </template>
 
-<script>
-import { IKImage } from 'imagekitio-vue'
+<script setup>
+import { IKImage } from 'imagekit-vue3'
 import { config } from '@/config'
 
-export default {
-    name: 'GalleryImage',
-
-    urlEndpoint: config.IMAGEKIT_PATH_PREFIX,
-
-    props: {
-        imageName: {
-            required: true,
-            type: String
-        }
-    },
-
-    components: {
-        IKImage
+defineProps({
+    imageName: {
+        required: true,
+        type: String
     }
-}
+})
+
+const urlEndpoint = config.IMAGEKIT_PATH_PREFIX
 </script>
