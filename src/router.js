@@ -6,6 +6,7 @@ const routes = [
     {
         path: '/',
         name: 'main-page',
+        redirect: { path: '/customer' },
         component: MainPage,
         children: [
             {
@@ -18,14 +19,11 @@ const routes = [
                 path: 'portfolio',
                 name: MainRouteNames.PORTFOLIO,
                 component: () => import('@/components/content/Portfolio.vue')
-            },
-
-            {
-                path: '*',
-                redirect: 'about'
             }
         ]
-    }
+    },
+
+    { path: '/:pathMatch(.*)*', redirect: '/about' }
 ]
 
 export default function (history) {
