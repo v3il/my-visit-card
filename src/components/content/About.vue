@@ -6,20 +6,10 @@
     </main>
 </template>
 
-<script>
+<script setup>
 import Skills from '@/components/about/Skills'
 import Experience from '@/components/about/Experience'
 import Education from '@/components/about/Education'
-
-export default {
-    name: 'About',
-
-    components: {
-        Skills,
-        Experience,
-        Education
-    }
-}
 </script>
 
 <style scoped lang="less">

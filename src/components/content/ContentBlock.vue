@@ -10,42 +10,14 @@
     </section>
 </template>
 
-<script>
+<script setup>
 import ContentHeader from './ContentHeader.vue'
-
-export default {
-    name: 'ContentBlock',
-
-    components: {
-        ContentHeader
-    }
-}
 </script>
 
 <style scoped lang="less">
 .content {
     position: relative;
     margin-left: 280px;
-
-    &__lang-switchers {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: transparent;
-        display: flex;
-        border-radius: 3px 0 0 3px;
-    }
-
-    &__lang-switcher {
-        cursor: pointer;
-        display: block;
-        margin: 0 3px;
-    }
-
-    &__lang-switcher--active {
-        filter: brightness(0.7);
-        cursor: default;
-    }
 
     @media screen and (max-width: 1150px) {
         margin-left: 0;

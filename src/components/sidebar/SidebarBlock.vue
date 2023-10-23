@@ -1,9 +1,5 @@
 <template>
     <aside class="sidebar" :class="{ 'sidebar--opened': sidebarOpened }">
-        <div class="sidebar__avatar-block">
-          <GalleryImage imageName="avatar.jpg" class="sidebar__avatar" />
-        </div>
-
         <nav class="sidebar__fixed-container">
             <ul class="sidebar__nav">
                 <SidebarLinkItem
@@ -19,7 +15,6 @@
 
 <script>
 import SidebarLinkItem from '@/components/sidebar/SidebarLinkItem.vue'
-import GalleryImage from '@/components/image/GalleryImage'
 
 export default {
     name: 'SidebarBlock',
@@ -37,7 +32,6 @@ export default {
     },
 
     components: {
-        GalleryImage,
         SidebarLinkItem
     },
 
@@ -66,21 +60,6 @@ export default {
         width: 6px;
     }
 
-    &__avatar-block {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
-    }
-
-    &__avatar {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 2px solid #3971ff;
-        display: block;
-    }
-
     &__nav {
         margin-top: 50px;
         list-style: none;
@@ -95,12 +74,6 @@ export default {
         &--opened {
             transform: translateX(0);
             background: #f3f3f3;
-        }
-
-        &__avatar-block {
-            width: 130px;
-            height: 130px;
-            margin: 0 auto;
         }
 
         &__nav {

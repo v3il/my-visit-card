@@ -1,11 +1,17 @@
 <template>
     <header class="header-block">
         <div class="header-block__intro-block">
-            <h3 class="header-block__greetings">Hello, I am</h3>
-            <h1 class="header-block__name">Dmytro</h1>
-            <p class="header-block__specialization">
-                Front-end developer
-            </p>
+            <div class="sidebar__avatar-block">
+                <GalleryImage imageName="avatar.jpg" class="sidebar__avatar" />
+
+                <div>
+                    <h3 class="header-block__greetings">Hello, I am</h3>
+                    <h1 class="header-block__name">Dmytro</h1>
+                    <p class="header-block__specialization">
+                        Front-end developer
+                    </p>
+                </div>
+            </div>
 
             <div class="header-block__about">
                 <p class="header-block__about-paragraph">
@@ -40,7 +46,8 @@
 </template>
 
 <script>
-import SocialNetworks from '@/components/SocialNetworks.vue'
+import SocialNetworks from '@/components/SocialNetworks'
+import GalleryImage from '@/components/image/GalleryImage'
 
 export default {
     name: 'ContentHeader',
@@ -57,6 +64,7 @@ export default {
     ],
 
     components: {
+        GalleryImage,
         SocialNetworks
     },
 
@@ -98,6 +106,7 @@ export default {
 
     &__intro-block {
         margin: 63px 120px 63px 95px;
+        width: 100%;
     }
 
     &__greetings {
@@ -214,6 +223,32 @@ export default {
         &__intro-block {
             margin: 25px;
         }
+    }
+}
+
+.sidebar {
+
+    &__avatar-block {
+        --gap: 48px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--gap);
+
+        @media screen and (max-width: 1150px) {
+            --gap: 24px;
+        }
+    }
+
+    &__avatar {
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #3971ff;
+        display: block;
+        flex-shrink: 0;
+        width: 160px;
+        height: 160px;
     }
 }
 </style>

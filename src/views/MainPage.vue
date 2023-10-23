@@ -2,7 +2,7 @@
     <div class="page">
         <SidebarBlock
             :sidebarOpened="sidebarOpened"
-            :items="this.currentPageSidebarItems"
+            :items="currentPageSidebarItems"
             @scroll-to-info-block="scrollToInfoBlock"
             @toggle-sidebar="toggleMobileSidebar"
         ></SidebarBlock>
@@ -11,7 +11,7 @@
             <div class="page__sidebar-overlay" v-if="sidebarOpened" @click="toggleMobileSidebar"></div>
         </transition>
 
-        <content-block></content-block>
+        <ContentBlock></ContentBlock>
 
         <transition name="fade">
             <button
@@ -31,143 +31,109 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import SidebarBlock from '@/components/sidebar/SidebarBlock.vue'
 import ContentBlock from '@/components/content/ContentBlock.vue'
-
 import { MainRouteNames } from '@/config'
-
 import projects from '../portfolioProjects'
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
-export default {
-    name: 'MainPage',
+console.error(projects)
 
-    data () {
-        const portfolioSectionSidebarItems = projects.map((project, index) => {
-            return {
-                text: project.nameShort || project.name,
-                link: '#',
-                tag: project.id,
-                isActive: index === 0
-            }
-        })
-
-        return {
-            portfolioSectionSidebarItems,
-
-            sidebarOpened: false,
-            currentPageSidebarItems: [],
-            aboutSectionSidebarItems: [
-                {
-                    text: 'Hard skills',
-                    tag: 'skills',
-                    isActive: true
-                },
-                {
-                    text: 'Work Experience',
-                    tag: 'experience',
-                    isActive: false
-                },
-                {
-                    text: 'Education',
-                    tag: 'education',
-                    isActive: false
-                }
-            ],
-
-            currentScrollTop: 0
-        }
-    },
-
-    watch: {
-        $route: {
-            immediate: true,
-
-            handler () {
-                this.currentPageSidebarItems = this.getCurrentPageSidebarItems()
-            }
-        }
-    },
-
-    created () {
-        const scrollHandler = () => {
-            const sidebarItems = this.currentPageSidebarItems
-
-            const viewportTop = window.scrollY
-            const viewportBottom = window.scrollY + window.innerHeight
-            const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')]
-
-            this.currentScrollTop = viewportTop
-
-            this.deactivateAllSidebarItems()
-
-            const infoBlocksInViewport = infoBlocks.filter(infoBlock => {
-                const infoBlockScrollOffset = this.getScrollTopOffsetOfElement(infoBlock)
-                const infoBlockHeight = infoBlock.clientHeight
-
-                const infoBlockBottomPosition = infoBlockScrollOffset + infoBlockHeight
-
-                return infoBlockBottomPosition > viewportTop && infoBlockScrollOffset < viewportBottom
-            })
-
-            infoBlocksInViewport.forEach(block => {
-                const index = infoBlocks.findIndex(item => item === block)
-                sidebarItems[index].isActive = true
-            })
-        }
-
-        window.addEventListener('scroll', scrollHandler)
-
-        // this.$once('hook:beforeDestroy', () => {
-        //     window.removeEventListener('scroll', scrollHandler)
-        // })
-    },
-
-    methods: {
-        getCurrentPageSidebarItems () {
-            const routeName = this.$router.currentRoute.name
-            return routeName === MainRouteNames.ABOUT ? this.aboutSectionSidebarItems : this.portfolioSectionSidebarItems
-        },
-
-        scrollToInfoBlock (clickedSideBarItem) {
-            const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')]
-            const clickedLinkIndex = this.currentPageSidebarItems.indexOf(clickedSideBarItem)
-
-            if (clickedLinkIndex >= 0) {
-                const infoBlock = infoBlocks[clickedLinkIndex]
-                const infoBlockScrollTop = this.getScrollTopOffsetOfElement(infoBlock) + 1
-
-                this.smoothScrollToY(infoBlockScrollTop)
-            }
-        },
-
-        deactivateAllSidebarItems () {
-            this.currentPageSidebarItems.forEach(sidebarItem => (sidebarItem.isActive = false))
-        },
-
-        getScrollTopOffsetOfElement (element) {
-            const elementTopValue = element.getBoundingClientRect().top
-            const bodyTopValue = document.body.getBoundingClientRect().top
-
-            return elementTopValue - bodyTopValue
-        },
-
-        smoothScrollToY (scrollToY) {
-            window.scroll({
-                top: scrollToY,
-                behavior: 'smooth'
-            })
-        },
-
-        toggleMobileSidebar () {
-            this.sidebarOpened = !this.sidebarOpened
-        }
-    },
-
-    components: {
-        SidebarBlock,
-        ContentBlock
+const portfolioSectionSidebarItems = ref(projects.map((project, index) => {
+    return {
+        text: project.nameShort || project.name,
+        tag: project.id,
+        isActive: index === 0
     }
+}))
+
+const aboutSectionSidebarItems = ref([
+    {
+        text: 'Hard skills',
+        tag: 'skills',
+        isActive: true
+    },
+    {
+        text: 'Work Experience',
+        tag: 'experience',
+        isActive: false
+    },
+    {
+        text: 'Education',
+        tag: 'education',
+        isActive: false
+    }
+])
+
+const route = useRoute()
+
+const sidebarOpened = ref(false)
+const currentScrollTop = ref(0)
+
+const currentPageSidebarItems = computed(() => {
+    const routeName = route.name
+    return routeName === MainRouteNames.ABOUT ? aboutSectionSidebarItems.value : portfolioSectionSidebarItems.value
+})
+
+const scrollHandler = () => {
+    const viewportTop = window.scrollY
+    const viewportBottom = window.scrollY + window.innerHeight
+    const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')]
+
+    currentScrollTop.value = viewportTop
+
+    deactivateAllSidebarItems()
+
+    const infoBlocksInViewport = infoBlocks.filter(infoBlock => {
+        const infoBlockScrollOffset = getScrollTopOffsetOfElement(infoBlock)
+        const infoBlockHeight = infoBlock.clientHeight
+        const infoBlockBottomPosition = infoBlockScrollOffset + infoBlockHeight
+
+        return infoBlockBottomPosition > viewportTop && infoBlockScrollOffset < viewportBottom
+    })
+
+    infoBlocksInViewport.forEach(block => {
+        const index = infoBlocks.findIndex(item => item === block)
+        currentPageSidebarItems.value[index].isActive = true
+    })
+}
+
+window.addEventListener('scroll', scrollHandler)
+
+const scrollToInfoBlock = (clickedSideBarItem) => {
+    const infoBlocks = [...document.querySelectorAll('.js-scroll-to-target')]
+    const clickedLinkIndex = currentPageSidebarItems.value.indexOf(clickedSideBarItem)
+
+    if (clickedLinkIndex >= 0) {
+        const infoBlock = infoBlocks[clickedLinkIndex]
+        const infoBlockScrollTop = getScrollTopOffsetOfElement(infoBlock) + 1
+
+        smoothScrollToY(infoBlockScrollTop)
+    }
+}
+
+const deactivateAllSidebarItems = () => {
+    currentPageSidebarItems.value.forEach(sidebarItem => (sidebarItem.isActive = false))
+}
+
+const getScrollTopOffsetOfElement = (element) => {
+    const elementTopValue = element.getBoundingClientRect().top
+    const bodyTopValue = document.body.getBoundingClientRect().top
+
+    return elementTopValue - bodyTopValue
+}
+
+const smoothScrollToY = (scrollToY) => {
+    window.scroll({
+        top: scrollToY,
+        behavior: 'smooth'
+    })
+}
+
+const toggleMobileSidebar = () => {
+    sidebarOpened.value = !sidebarOpened.value
 }
 </script>
 
