@@ -15,7 +15,7 @@
 
             <div class="header-block__about">
                 <p class="header-block__about-paragraph">
-                    I am {{age}}. I like music, traveling, cooking, speedrunning video games and programming.
+                    I am {{age}}. I like music, traveling, cooking, video games and programming.
                 </p>
 
                 <p class="header-block__about-paragraph">

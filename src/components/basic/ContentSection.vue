@@ -27,7 +27,19 @@ const classes = computed(() => ({
 }))
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.content-section {
+    padding: 100px 120px 100px 95px;
+
+    @media screen and (max-width: 850px) {
+        padding: 50px;
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 25px;
+    }
+}
+
 .content-section--white {
     background-color: #fff;
 }
