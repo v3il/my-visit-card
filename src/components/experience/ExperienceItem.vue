@@ -7,21 +7,21 @@
 
             <div class="experience__job-name">
                 <h2 class="experience__job-company-name">
-                    {{ companyName }}
+                    {{ experience.companyName }}
                 </h2>
 
                 <h3 class="experience__job-degree">
-                    {{ position }}
+                    {{ experience.position }}
                 </h3>
 
                 <h3 class="experience__job-period">
-                    Session: {{ period }}
+                    Session: {{ experience.period }}
                 </h3>
             </div>
         </div>
 
         <div class="experience__job-description">
-            <ProjectView v-for="project in projects" :project="project" :key="project.name"/>
+            <ProjectView v-for="project in experience.projects" :project="project" :key="project.name"/>
         </div>
     </div>
 </template>
@@ -35,23 +35,8 @@ defineProps({
         required: true
     },
 
-    companyName: {
-        type: String,
-        required: true
-    },
-
-    position: {
-        type: String,
-        required: true
-    },
-
-    period: {
-        type: String,
-        required: true
-    },
-
-    projects: {
-        type: Array,
+    experience: {
+        type: Object,
         required: true
     }
 })
