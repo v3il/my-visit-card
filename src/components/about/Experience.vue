@@ -1,74 +1,31 @@
 <template>
     <section class="experience js-scroll-to-target">
-        <div class="experience__title-block">
-            <h2 class="section-title">
-                Work Experience
-            </h2>
-
-            <div class="section-title__separator">
-                <div class="section-title__separator-line"></div>
-                <div class="section-title__separator-ring"></div>
-            </div>
-        </div>
+        <Heading class="section-title" title="Work Experience"></Heading>
 
         <div class="experience__jobs-list">
-            <div class="experience__job-item">
-                <div class="experience__job-summary">
-                    <div class="experience__job-counter">
-                        02
-                    </div>
+            <ExperienceItem
+                :index="1"
+                company-name="Master of Code Global"
+                position="Front-end developer"
+                period="2020 - present"
+                :projects="$options.mocProjects"
+            ></ExperienceItem>
 
-                    <div class="experience__job-name">
-                        <h2 class="experience__job-company-name">
-                            Master of Code Global
-                        </h2>
-
-                        <h3 class="experience__job-degree">
-                            Front-end developer
-                        </h3>
-
-                        <h3 class="experience__job-period">
-                            Session: 2020 - present
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="experience__job-description">
-                    <project-view v-for="project in $options.mocProjects" :project="project" :key="project.name"/>
-                </div>
-            </div>
-
-            <div class="experience__job-item">
-                <div class="experience__job-summary">
-                    <div class="experience__job-counter">
-                        01
-                    </div>
-
-                    <div class="experience__job-name">
-                        <h2 class="experience__job-company-name">
-                            uCoz
-                        </h2>
-
-                        <h3 class="experience__job-degree">
-                            Front-end developer
-                        </h3>
-
-                        <h3 class="experience__job-period">
-                            Session: 2015 - 2020
-                        </h3>
-                    </div>
-                </div>
-
-                <div class="experience__job-description">
-                    <ProjectView v-for="project in $options.uCozProjects" :project="project" :key="project.name"/>
-                </div>
-            </div>
+            <ExperienceItem
+                :index="0"
+                company-name="uCoz"
+                position="Front-end developer"
+                period="2015 - 2020"
+                :projects="$options.mocProjects"
+            ></ExperienceItem>
         </div>
     </section>
 </template>
 
 <script>
 import ProjectView from '@/components/ProjectView'
+import Heading from '@/components/basic/Heading.vue'
+import ExperienceItem from '@/components/experience/ExperienceItem.vue'
 
 export default {
     name: 'Experience',
@@ -98,12 +55,18 @@ export default {
     ],
 
     components: {
-        ProjectView
+        ProjectView,
+        Heading,
+        ExperienceItem
     }
 }
 </script>
 
 <style scoped lang="less">
+.section-title {
+    margin-bottom: 100px;
+}
+
 .experience {
     &__job-item:not(:last-child) {
         margin-bottom: 72px;

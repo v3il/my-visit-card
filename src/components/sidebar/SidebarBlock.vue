@@ -61,7 +61,7 @@ export default {
     }
 
     &__nav {
-        margin-top: 50px;
+        //margin-top: 50px;
         list-style: none;
     }
 
