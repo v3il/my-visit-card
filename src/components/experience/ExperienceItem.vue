@@ -2,7 +2,7 @@
     <div class="experience__job-item">
         <div class="experience__job-summary">
             <div class="experience__job-counter">
-                0{{ index + 1 }}
+                0{{ index }}
             </div>
 
             <div class="experience__job-name">

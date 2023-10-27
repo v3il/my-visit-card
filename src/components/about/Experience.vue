@@ -3,7 +3,7 @@
         <ExperienceItem
             v-for="(experience, index) in experiences"
             :key="experience.companyName"
-            :index="experiences.length - index - 1"
+            :index="experiences.length - index"
             :experience="experience"
         ></ExperienceItem>
     </ContentSection>
