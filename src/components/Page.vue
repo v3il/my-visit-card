@@ -11,7 +11,15 @@
             <div class="page__sidebar-overlay" v-if="sidebarOpened" @click="toggleMobileSidebar"></div>
         </transition>
 
-        <ContentBlock></ContentBlock>
+        <section class="content">
+            <HeaderSection />
+
+            <router-view v-slot="{ Component }">
+                <keep-alive>
+                    <component :is="Component" />
+                </keep-alive>
+            </router-view>
+        </section>
 
         <transition name="fade">
             <button
@@ -33,7 +41,7 @@
 
 <script setup>
 import SidebarBlock from '@/components/sidebar/SidebarBlock.vue'
-import ContentBlock from '@/components/header/ContentBlock.vue'
+import HeaderSection from '@/components/header/HeaderSection.vue'
 import { MainRouteNames } from '@/config'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -190,5 +198,14 @@ const toggleMobileSidebar = () => {
     z-index: 4;
     background-color: rgba(0, 0, 0, 0.7);
     cursor: pointer;
+}
+
+.content {
+    position: relative;
+    margin-left: 280px;
+
+    @media screen and (max-width: 1150px) {
+        margin-left: 0;
+    }
 }
 </style>
