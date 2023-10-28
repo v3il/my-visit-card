@@ -17,6 +17,6 @@ import { skills } from '@/consts/skills'
 .skills__technologies {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 36px;
 }
 </style>

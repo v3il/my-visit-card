@@ -1,16 +1,12 @@
 <template>
-    <div class="skills__technologies-list">
-        <h3 class="article-title">
+    <div class="skills">
+        <h3 class="skills__title">
             {{ title }}
         </h3>
 
-        <ul class="section-list">
-            <li class="section-list__item" v-for="skill in skills" :key="skill">
-                <div class="section-list__pointer"></div>
-
-                <p class="list-item__text">
-                    {{ skill }}
-                </p>
+        <ul class="skills__list">
+            <li class="skills__list-item" v-for="skill in skills" :key="skill">
+                {{ skill }}
             </li>
         </ul>
     </div>
@@ -32,18 +28,36 @@ defineProps({
 
 <style scoped lang="less">
 .skills {
-    &__technologies-list {
-        flex-basis: calc(50% - 15px);
-    }
+    flex-basis: 350px;
+}
 
-    @media screen and (max-width: 750px) {
-        &__technologies-list {
-            flex-basis: 100%;
+.skills__title {
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 30px;
+    font-size: 16px;
+    color: var(--color);
+    font-weight: 500;
+    margin-bottom: 12px;
+}
 
-            &:last-child {
-                margin-top: 18px;
-            }
-        }
+.skills__list {
+    list-style: none;
+}
+
+.skills__list-item {
+    position: relative;
+    padding: 4px 24px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 2px;
+        background-color: var(--primary);
     }
 }
 </style>
