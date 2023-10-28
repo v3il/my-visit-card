@@ -1,7 +1,7 @@
 <template>
     <div class="social-networks__list">
         <a
-            v-for="(value, key) in $options.socialNetworks"
+            v-for="(value, key) in socialNetworks"
             :key="key"
             class="social-networks__item"
             rel="noopener noreferrer"
@@ -14,26 +14,22 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: 'SocialNetworks',
+<script setup>
+const socialNetworks = {
+    envelope: {
+        href: 'mailto:v3il@ukr.net'
+    },
 
-    socialNetworks: {
-        envelope: {
-            href: 'mailto:v3il@ukr.net'
-        },
+    telegram: {
+        href: 'https://t.me/veil_94'
+    },
 
-        telegram: {
-            href: 'https://t.me/veil_94'
-        },
+    github: {
+        href: 'https://github.com/v3il'
+    },
 
-        github: {
-            href: 'https://github.com/v3il'
-        },
-
-        linkedin: {
-            href: 'https://www.linkedin.com/in/diki/'
-        }
+    linkedin: {
+        href: 'https://www.linkedin.com/in/diki/'
     }
 }
 </script>

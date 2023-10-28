@@ -25,7 +25,7 @@ defineProps({
     content: "";
     position: absolute;
     bottom: 2px;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     height: 2px;
     width: 65px;
 }
@@ -35,7 +35,7 @@ defineProps({
     position: absolute;
     bottom: 0;
     background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--primary);
     border-radius: 50%;
     width: 4px;
     height: 4px;

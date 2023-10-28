@@ -1,6 +1,5 @@
 <template>
     <header class="header-block">
-        <div class="header-block__intro-block">
             <div class="sidebar__avatar-block">
                 <GalleryImage imageName="avatar.jpg" class="sidebar__avatar" />
 
@@ -28,86 +27,62 @@
             <div class="header-block__nav-tabs">
                 <div
                     class="header-block__nav-tab"
-                    v-for="(tabData, index) in $options.tabs"
+                    v-for="(tabData, index) in tabs"
                     :key="`headerTab${index}`"
                     :class="{
                         'header-block__nav-tab--active': isTabActive(tabData.toProp.name),
                     }"
                 >
-                    <router-link class="header-block__nav-link" :to="tabData.toProp">
+                    <RouterLink class="header-block__nav-link" :to="tabData.toProp">
                         {{ tabData.tabText }}
-                    </router-link>
+                    </RouterLink>
 
                     <div class="header-block__nav-line"></div>
                 </div>
             </div>
-        </div>
     </header>
 </template>
 
-<script>
-import SocialNetworks from '@/components/SocialNetworks'
-import GalleryImage from '@/components/image/GalleryImage'
+<script setup>
+import SocialNetworks from '@/components/basic/SocialNetworks.vue'
+import GalleryImage from '@/components/basic/image/GalleryImage.vue'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { MainRouteNames } from '@/config'
 
-export default {
-    name: 'ContentHeader',
-
-    tabs: [
-        {
-            tabText: 'About me',
-            toProp: { name: 'about-section' }
-        },
-        {
-            tabText: 'Portfolio',
-            toProp: { name: 'portfolio-section' }
-        }
-    ],
-
-    components: {
-        GalleryImage,
-        SocialNetworks
+const tabs = [
+    {
+        tabText: 'About me',
+        toProp: { name: MainRouteNames.ABOUT }
     },
-
-    data: () => ({
-        activeRouteName: null
-    }),
-
-    created () {
-        const now = new Date()
-
-        this.age = now.getFullYear() - 1994
-
-        if (!(now.getMonth() === 11 && now.getDate() >= 28)) {
-            this.age--
-        }
-    },
-
-    methods: {
-        isTabActive (tabName) {
-            return this.activeRouteName === tabName
-        }
-    },
-
-    watch: {
-        $route: {
-            immediate: true,
-            handler (value) {
-                this.activeRouteName = value.name
-            }
-        }
+    {
+        tabText: 'Portfolio',
+        toProp: { name: MainRouteNames.PORTFOLIO }
     }
-}
+]
+
+const route = useRoute()
+
+const age = computed(() => {
+    const now = new Date()
+    const age = now.getFullYear() - 1994
+
+    return !(now.getMonth() === 11 && now.getDate() >= 28) ? age - 1 : age
+})
+
+const isTabActive = (tabName) => tabName === route.name
 </script>
 
 <style scoped lang="less">
 .header-block {
     background: #eaebed;
-    display: flex;
+    //display: flex;
+    padding: 63px 120px 63px 95px;
 
-    &__intro-block {
-        margin: 63px 120px 63px 95px;
-        width: 100%;
-    }
+    //&__intro-block {
+    //    margin: 63px 120px 63px 95px;
+    //    width: 100%;
+    //}
 
     &__greetings {
         text-transform: uppercase;
@@ -203,14 +178,16 @@ export default {
     }
 
     @media screen and (max-width: 850px) {
-        padding: 0;
+        padding: 50px;
 
-        &__intro-block {
-            margin: 50px;
-        }
+        //&__intro-block {
+        //    margin: 50px;
+        //}
     }
 
     @media screen and (max-width: 600px) {
+        padding: 25px;
+
         &__nav-tabs {
             flex-direction: column;
         }
@@ -220,9 +197,9 @@ export default {
             margin-bottom: 25px;
         }
 
-        &__intro-block {
-            margin: 25px;
-        }
+        //&__intro-block {
+        //    margin: 25px;
+        //}
     }
 }
 

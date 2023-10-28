@@ -1,4 +1,4 @@
-const projects = [
+const petProjects = [
     {
         name: 'diki.club',
         technologies: 'Vue.js, vue-cli, vue-router, Less, Jest',
@@ -35,8 +35,8 @@ const projects = [
     }
 ]
 
-projects.forEach(project => {
+petProjects.forEach(project => {
     project.id = project.name.toLowerCase().replace(/ /g, '-')
 })
 
-export default projects
+export { petProjects }

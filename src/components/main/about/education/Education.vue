@@ -13,7 +13,7 @@
 
 <script setup>
 import ContentSection from '@/components/basic/ContentSection.vue'
-import EducationItem from '@/components/education/EducationItem.vue'
+import EducationItem from '@/components/main/about/education/EducationItem.vue'
 import { educations } from '@/consts/educations'
 </script>
 

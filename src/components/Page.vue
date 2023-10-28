@@ -33,15 +33,13 @@
 
 <script setup>
 import SidebarBlock from '@/components/sidebar/SidebarBlock.vue'
-import ContentBlock from '@/components/content/ContentBlock.vue'
+import ContentBlock from '@/components/header/ContentBlock.vue'
 import { MainRouteNames } from '@/config'
-import projects from '../portfolioProjects'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { petProjects } from '@/consts/petProjects'
 
-console.error(projects)
-
-const portfolioSectionSidebarItems = ref(projects.map((project, index) => {
+const portfolioSectionSidebarItems = ref(petProjects.map((project, index) => {
     return {
         text: project.nameShort || project.name,
         tag: project.id,

@@ -1,24 +1,24 @@
 import { createRouter } from 'vue-router'
-import MainPage from '@/views/MainPage'
+import Page from '@/components/Page.vue'
 import { MainRouteNames } from '@/config'
 
 const routes = [
     {
         path: '/',
         name: 'main-page',
-        redirect: { path: '/customer' },
-        component: MainPage,
+        redirect: { path: '/about' },
+        component: Page,
         children: [
             {
                 path: 'about',
                 name: MainRouteNames.ABOUT,
-                component: () => import('@/components/content/About.vue')
+                component: () => import('@/components/main/about/About.vue')
             },
 
             {
                 path: 'portfolio',
                 name: MainRouteNames.PORTFOLIO,
-                component: () => import('@/components/content/Portfolio.vue')
+                component: () => import('@/components/main/portfolio/Portfolio.vue')
             }
         ]
     },

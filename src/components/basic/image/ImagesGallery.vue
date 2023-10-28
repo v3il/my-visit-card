@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import GalleryImage from '@/components/image/GalleryImage'
+import GalleryImage from '@/components/basic/image/GalleryImage.vue'
 
 export default {
     name: 'ImagesGallery',

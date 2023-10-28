@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import ProjectView from '@/components/ProjectView.vue'
+import ProjectView from '@/components/basic/ProjectView.vue'
 
 defineProps({
     index: {

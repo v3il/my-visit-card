@@ -17,7 +17,8 @@
 @import './common-style/section/info-section';
 
 :root {
-    --primary-color: #3971ff;
+    --primary: #3971ff;
+    --color: #4c4c4c;
 }
 
 ::-webkit-scrollbar-track {

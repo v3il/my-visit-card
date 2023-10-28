@@ -9,7 +9,7 @@
 
 <script setup>
 import ContentSection from '@/components/basic/ContentSection.vue'
-import SkillsList from '@/components/skills/SkillsList.vue'
+import SkillsList from '@/components/main/about/skills/SkillsList.vue'
 import { skills } from '@/consts/skills'
 </script>
 

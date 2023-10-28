@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import ExperienceItem from '@/components/experience/ExperienceItem.vue'
+import ExperienceItem from '@/components/main/about/experience/ExperienceItem.vue'
 import ContentSection from '@/components/basic/ContentSection.vue'
 import { experiences } from '@/consts/experiences'
 </script>

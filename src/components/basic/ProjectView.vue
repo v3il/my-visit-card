@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import ImagesGallery from '@/components/image/ImagesGallery'
+import ImagesGallery from '@/components/basic/image/ImagesGallery.vue'
 
 export default {
     name: 'ProjectView',
