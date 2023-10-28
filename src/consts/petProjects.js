@@ -14,7 +14,7 @@ export const petProjects = [
     },
     {
         name: 'Rest Finder API',
-        technologies: ['Express', 'Typescript', 'Sequelize', 'MySQL', 'Google APIs', 'NodeMailer', 'NodeCron', 'Swagger', 'Jest'],
+        technologies: ['Express', 'Typescript', 'Sequelize', 'MySQL', 'Google APIs', 'Swagger', 'Jest'],
         description: 'API server for the Rest Finder project. Serves front-end requests, updates info about places using Google Places API.',
         githubLink: 'https://github.com/v3il/rest-finder-api'
     },

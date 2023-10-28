@@ -24,7 +24,7 @@ defineProps({
 }
 
 .project-technologies__item {
-    background-color: var(--primary);
+    background-color: rgba(57, 113, 255, 0.75);
     border-radius: 16px;
     color: white;
     line-height: 1.6;

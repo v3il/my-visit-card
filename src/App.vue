@@ -23,7 +23,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #555;
 }
@@ -35,7 +34,7 @@
 }
 
 body {
-    background: #2d2d2d;
+    background-color: rgba(15, 23, 42, 1);
     font-family: 'Roboto', sans-serif;
     line-height: 30px;
     color: #4c4c4c;
