@@ -47,7 +47,7 @@ defineProps({
 
 .skills__list-item {
     position: relative;
-    padding: 4px 24px;
+    padding: 4px 32px;
 
     &:before {
         content: '';
