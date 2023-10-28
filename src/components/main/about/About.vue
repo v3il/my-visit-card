@@ -1,9 +1,7 @@
 <template>
-    <main>
-        <Skills />
-        <Experience />
-        <Education />
-    </main>
+    <Skills />
+    <Experience />
+    <Education />
 </template>
 
 <script setup>

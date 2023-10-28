@@ -11,7 +11,7 @@
             <div class="page__sidebar-overlay" v-if="sidebarOpened" @click="toggleMobileSidebar"></div>
         </transition>
 
-        <section class="content">
+        <main class="content">
             <HeaderSection />
 
             <router-view v-slot="{ Component }">
@@ -19,7 +19,7 @@
                     <component :is="Component" />
                 </keep-alive>
             </router-view>
-        </section>
+        </main>
 
         <transition name="fade">
             <button

@@ -27,7 +27,8 @@ defineProps({
     background-color: var(--primary);
     border-radius: 16px;
     color: white;
-    padding: 0 16px;
+    line-height: 1.6;
+    padding: 4px 16px;
     font-size: 12px;
 }
 </style>

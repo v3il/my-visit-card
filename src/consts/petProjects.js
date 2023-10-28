@@ -2,7 +2,7 @@ export const petProjects = [
     {
         name: 'diki.club',
         technologies: ['Vue', 'VueRouter', 'Less', 'Jest'],
-        description: 'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me, as well as my projects.',
+        description: 'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me and my pet projects.',
         githubLink: 'https://github.com/v3il/my-visit-card'
     },
     {
@@ -19,18 +19,9 @@ export const petProjects = [
         githubLink: 'https://github.com/v3il/rest-finder-api'
     },
     {
-        nameShort: 'STH',
-        name: 'steam-trade-helper',
-        technologies: ['Vue', 'Less', 'Chrome API'],
-        description: 'A small extension for Google Chrome, which allows you to automatically collect the prices of monitored in-game Steam items and automatically calculate the benefits when reselling them.',
-        githubLink: 'https://github.com/v3il/steam-trade-helper',
-        screenshots: ['sth1.png', 'sth2.png', 'sth3.png']
-    },
-    {
-        nameShort: 'STH-api-server',
-        name: 'steam-trade-helper-api',
-        technologies: ['Express.js', 'Knex', 'MySQL', 'Socket.io'],
-        description: 'API server for storing data for steam-trade-helper. Saves tracked items to the database, as well as extension settings.',
-        githubLink: 'https://github.com/v3il/steam-trade-helper-api-server'
+        name: 'steam trade helper',
+        technologies: ['Vue', 'Less', 'Chrome API', 'Express.js', 'Knex', 'MySQL', 'Socket.io'],
+        description: 'A small extension for Google Chrome, which allows you to automatically collect the prices of monitored in-game Steam items and automatically calculate the benefits when reselling them. API server saves tracked items and extension settings to database.',
+        githubLink: 'https://github.com/v3il?tab=repositories&q=steam&type=&language=&sort='
     }
 ]
