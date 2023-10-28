@@ -7,15 +7,6 @@
 <style lang="less">
 @import '../node_modules/font-awesome/css/font-awesome.css';
 
-@import './common-style/title/section-title';
-@import './common-style/title/article-title';
-@import './common-style/title/section-title-separator';
-
-@import './common-style/list/section-list';
-@import './common-style/list/section-list-item';
-
-@import './common-style/section/info-section';
-
 :root {
     --primary: #3971ff;
     --color: #4c4c4c;

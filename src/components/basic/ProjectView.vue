@@ -49,21 +49,15 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import ImagesGallery from '@/components/basic/image/ImagesGallery.vue'
 
-export default {
-    name: 'ProjectView',
-
-    components: { ImagesGallery },
-
-    props: {
-        project: {
-            type: Object,
-            required: true
-        }
+defineProps({
+    project: {
+        type: Object,
+        required: true
     }
-}
+})
 </script>
 
 <style scoped lang="less">

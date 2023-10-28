@@ -1,15 +1,16 @@
 <template>
-    <main class="portfolio info-section">
+    <main>
         <ProjectView
             class="portfolio__project-item"
-            v-for="project in petProjects"
+            v-for="(project, index) in petProjects"
             :project="project"
+            :white="index % 2 === 1"
             :key="project.name"
         ></ProjectView>
     </main>
 </template>
 
 <script setup>
-import ProjectView from '@/components/basic/ProjectView.vue'
+import ProjectView from '@/components/main/portfolio/ProjectView.vue'
 import { petProjects } from '@/consts/petProjects'
 </script>
