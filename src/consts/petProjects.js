@@ -1,9 +1,15 @@
 export const petProjects = [
     {
         name: 'hgf helper',
-        technologies: ['JS', 'Chrome API'],
-        description: 'A small extension for the Chrome browser that allows you to play minigames on the .tv/hitsquadgodfather channel in semi-afk mode.',
+        technologies: ['JS', 'Chrome API', 'Vite'],
+        description: 'A small extension for the Chrome browser that allows you to play minigames on the .tv/hitsquadgodfather channel in semi-afk mode. See Github for more info.',
         githubLink: 'https://github.com/v3il/hgf-helper'
+    },
+    {
+        name: 'witch-it.space',
+        technologies: ['Nuxt', 'Postgres', 'Objection.js', 'SCSS'],
+        description: 'Witch It.Space is a trading website dedicated to <a href="https://store.steampowered.com/app/559650/Witch_It/" rel="noopener noreferrer">Witch It</a>, a hide and seek game. It can be used to find and offer cosmetic items.',
+        screenshots: ['witch-it.space1.png', 'witch-it.space2.png']
     },
     {
         name: 'diki.club',
