@@ -118,4 +118,14 @@ defineProps({
         line-height: 20px;
     }
 }
+
+.article-title {
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 30px;
+    font-size: 16px;
+    color: #4c4c4c;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
 </style>
