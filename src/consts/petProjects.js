@@ -1,5 +1,11 @@
 export const petProjects = [
     {
+        name: 'hgf helper',
+        technologies: ['JS', 'Chrome API'],
+        description: 'A small extension for the Chrome browser that allows you to play minigames on the .tv/hitsquadgodfather channel in semi-afk mode.',
+        githubLink: 'https://github.com/v3il/hgf-helper'
+    },
+    {
         name: 'diki.club',
         technologies: ['Vue', 'VueRouter', 'Less', 'Jest'],
         description: 'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me and my pet projects.',
