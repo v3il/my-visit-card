@@ -6,7 +6,7 @@ export const petProjects = [
         githubLink: 'https://github.com/v3il/hgf-helper'
     },
     {
-        name: 'witch-it.space',
+        name: 'witch-it.space (WIP)',
         technologies: ['Nuxt', 'Postgres', 'Objection.js', 'SCSS'],
         description: 'Witch It.Space is a trading website dedicated to <a href="https://store.steampowered.com/app/559650/Witch_It/" rel="noopener noreferrer">Witch It</a>, a hide and seek game. It can be used to find and offer cosmetic items.',
         screenshots: ['witch-it.space1.png', 'witch-it.space2.png']
