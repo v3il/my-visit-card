@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 
 import App from './App.vue'
-import { createWebHistory } from 'vue-router'
 import createRouter from './router'
 import { createImageKitVue } from 'imagekit-vue3'
+import { createWebHashHistory } from 'vue-router'
 
 const app = createApp(App)
-const router = createRouter(createWebHistory())
+const router = createRouter(createWebHashHistory())
 
 app.use(router)
 

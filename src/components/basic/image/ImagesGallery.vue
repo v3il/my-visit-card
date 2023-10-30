@@ -168,16 +168,18 @@ export default {
     &__previews {
         display: flex;
         align-items: flex-start;
-        justify-content: center;
+        gap: 16px;
         flex-wrap: wrap;
+
+        @media screen and (max-width: 850px) {
+            justify-content: center;
+        }
     }
 
     &__preview-link {
         display: block;
-        width: 170px;
+        width: 150px;
         height: 80px;
-        margin-right: 10px;
-        margin-bottom: 10px;
         cursor: pointer;
         border-radius: 4px;
         border: 1px solid rgb(167, 167, 167);

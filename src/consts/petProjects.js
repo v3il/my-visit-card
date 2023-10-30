@@ -6,7 +6,7 @@ export const petProjects = [
         githubLink: 'https://github.com/v3il/hgf-helper'
     },
     {
-        name: 'witch-it.space (WIP)',
+        name: 'witch-it.space [WIP]',
         technologies: ['Nuxt', 'Postgres', 'Objection.js', 'SCSS'],
         description: 'Witch It.Space is a trading website dedicated to <a href="https://store.steampowered.com/app/559650/Witch_It/" rel="noopener noreferrer">Witch It</a>, a hide and seek game. It can be used to find and offer cosmetic items.',
         screenshots: ['witch-it.space1.png', 'witch-it.space2.png']
@@ -20,7 +20,7 @@ export const petProjects = [
     {
         name: 'Rest Finder',
         technologies: ['Vue', 'Typescript', 'VueRouter', 'Vuex', 'SCSS', 'Bootstrap', 'Leaflet.js'],
-        description: 'Service is a SPA web resource that allows you to choose a place to rest in Cherkasy according to various criteria. After visiting a place you can rate it and write a review.',
+        description: 'Service is a single-page web resource designed to help you select the perfect spot for relaxation in Cherkasy, offering a wide array of criteria for your consideration. Once you\'ve experienced a location, you can provide your rating and share your valuable insights through a review.',
         githubLink: 'https://github.com/v3il/rest-finder-client',
         screenshots: ['rest-finder1.png', 'rest-finder2.png', 'rest-finder3.png', 'rest-finder4.png']
     },

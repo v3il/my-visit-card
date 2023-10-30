@@ -1,11 +1,5 @@
 <template>
     <ContentSection class="project" :title="project.name" :white="white">
-        <ProjectTechnologies
-            v-if="project.technologies"
-            :technologies="project.technologies"
-            class="project__technologies"
-        />
-
         <template v-if="project.description">
             <h3 class="project__title">Description</h3>
             <p class="project__description" v-html="project.description" />
@@ -20,6 +14,12 @@
 
             <ImagesGallery :imagesNames="project.screenshots" />
         </template>
+
+        <ProjectTechnologies
+            v-if="project.technologies"
+            :technologies="project.technologies"
+            class="project__technologies"
+        />
 
         <a
             v-if="project.githubLink"
@@ -52,7 +52,7 @@ defineProps({
 
 <style scoped lang="less">
 .project__technologies {
-    margin-bottom: 24px;
+    margin-top: 24px;
 }
 
 .project__title {
@@ -62,7 +62,7 @@ defineProps({
     font-size: 16px;
     color: var(--color);
     font-weight: 500;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .project__description {
@@ -79,7 +79,7 @@ defineProps({
 .project__link {
     text-transform: uppercase;
     color: var(--primary);
-    margin-top: 16px;
+    margin-top: 24px;
     display: block;
     font-weight: 500;
     align-items: center;

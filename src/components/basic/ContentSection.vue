@@ -45,6 +45,6 @@ const classes = computed(() => ({
 }
 
 .content-section__title {
-    margin-bottom: 100px;
+    margin-bottom: 64px;
 }
 </style>
