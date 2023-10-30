@@ -11,7 +11,7 @@
             >
               <GalleryImage
                 :image-name="imageName"
-                :transformation="[{height:80, width: 170}]"
+                :transformation="[{height:80, width: 150}]"
                 class="gallery__preview-image"
               />
             </a>

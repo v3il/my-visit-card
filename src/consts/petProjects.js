@@ -3,7 +3,8 @@ export const petProjects = [
         name: 'hgf helper',
         technologies: ['JS', 'Chrome API', 'Vite'],
         description: 'A small extension for the Chrome browser that allows you to play minigames on the .tv/hitsquadgodfather channel in semi-afk mode. See Github for more info.',
-        githubLink: 'https://github.com/v3il/hgf-helper'
+        githubLink: 'https://github.com/v3il/hgf-helper',
+        screenshots: ['hgf-helper1.png', 'hgf-helper2.png']
     },
     {
         name: 'witch-it.space [WIP]',
@@ -12,10 +13,11 @@ export const petProjects = [
         screenshots: ['witch-it.space1.png', 'witch-it.space2.png']
     },
     {
-        name: 'diki.club',
+        name: 'diki.site',
         technologies: ['Vue', 'VueRouter', 'Less', 'Jest'],
-        description: 'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me and my pet projects.',
-        githubLink: 'https://github.com/v3il/my-visit-card'
+        description: 'Single Page Application, where you can find complete information about my hobbies, work experience, education, ways to contact me and my pet projects (This web-site).',
+        githubLink: 'https://github.com/v3il/my-visit-card',
+        screenshots: ['diki.site1.png', 'diki.site2.png']
     },
     {
         name: 'Rest Finder',
