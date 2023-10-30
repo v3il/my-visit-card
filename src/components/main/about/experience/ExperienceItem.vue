@@ -20,14 +20,20 @@
             </div>
         </div>
 
-        <div class="experience__job-description">
-            <ProjectView v-for="project in experience.projects" :project="project" :key="project.name"/>
+        <div class="experience__projects">
+            <ProjectView
+                v-for="project in experience.projects"
+                :project="project"
+                :key="project.name"
+                show-name
+                class="experience__project"
+            />
         </div>
     </div>
 </template>
 
 <script setup>
-import ProjectView from '@/components/basic/ProjectView.vue'
+import ProjectView from '@/components/basic/projectView/ProjectView.vue'
 
 defineProps({
     index: {
@@ -44,8 +50,8 @@ defineProps({
 
 <style scoped lang="less">
 .experience {
-    &__job-item:not(:last-child) {
-        margin-bottom: 72px;
+    &__project:not(:last-child) {
+        margin-bottom: 64px;
     }
 
     &__job-summary {
@@ -86,7 +92,7 @@ defineProps({
         text-transform: uppercase;
     }
 
-    &__job-description {
+    &__projects {
         margin-top: 50px;
     }
 }

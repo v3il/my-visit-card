@@ -1,14 +1,17 @@
 <template>
-    <ProjectView
-        class="portfolio__project-item"
+    <ContentSection
         v-for="(project, index) in petProjects"
-        :project="project"
-        :white="index % 2 === 1"
         :key="project.name"
-    ></ProjectView>
+        :title="project.name"
+        :white="index % 2 === 1"
+        class="project"
+    >
+        <ProjectView :project="project" />
+    </ContentSection>
 </template>
 
 <script setup>
-import ProjectView from '@/components/main/portfolio/ProjectView.vue'
+import ProjectView from '@/components/basic/projectView/ProjectView.vue'
+import ContentSection from '@/components/basic/ContentSection.vue'
 import { petProjects } from '@/consts/petProjects'
 </script>

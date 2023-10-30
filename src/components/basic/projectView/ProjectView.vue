@@ -1,5 +1,7 @@
 <template>
-    <ContentSection class="project" :title="project.name" :white="white">
+    <div>
+        <h2 class="project__name" v-if="showName">{{project.name}}</h2>
+
         <template v-if="project.description">
             <h3 class="project__title">Description</h3>
             <p class="project__description" v-html="project.description" />
@@ -28,13 +30,12 @@
             target="_blank"
             class="project__link"
         >Github</a>
-    </ContentSection>
+    </div>
 </template>
 
 <script setup>
 import ImagesGallery from '@/components/basic/image/ImagesGallery.vue'
-import ContentSection from '@/components/basic/ContentSection.vue'
-import ProjectTechnologies from '@/components/main/portfolio/ProjectTechnologies.vue'
+import ProjectTechnologies from './ProjectTechnologies.vue'
 
 defineProps({
     project: {
@@ -42,7 +43,7 @@ defineProps({
         required: true
     },
 
-    white: {
+    showName: {
         type: Boolean,
         required: false,
         default: false
@@ -51,6 +52,17 @@ defineProps({
 </script>
 
 <style scoped lang="less">
+.project__name {
+    line-height: 30px;
+    color: var(--primary);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
 .project__technologies {
     margin-top: 24px;
 }
