@@ -1,11 +1,7 @@
 <template>
     <div class="header-description">
         <p class="header-description__paragraph">
-            I am {{age}}. I like music, traveling, cooking, video games and programming.
-        </p>
-
-        <p class="header-description__paragraph">
-            I love JavaScript with all its oddities :)
+            I am {{age}}. I like music, traveling, cooking, video games, crypto and programming.
         </p>
     </div>
 </template>

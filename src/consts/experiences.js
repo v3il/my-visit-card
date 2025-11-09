@@ -6,7 +6,7 @@ export const experiences = [
         projects: [
             {
                 name: 'Zipify Pages',
-                technologies: ['Vue', 'Backbone', 'SCSS', 'Jest'],
+                technologies: ['Vue 2/3', 'Typescript', 'Backbone', 'SCSS', 'Jest'],
                 description: 'Blog, Landing, Product and Home Pages drag & drop builder for Shopify stores'
             }
         ]
